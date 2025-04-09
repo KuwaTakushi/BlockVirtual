@@ -2,6 +2,7 @@
 pragma solidity ^0.8.28;
 
 import "@openzeppelin/contracts/access/AccessControl.sol";
+import "src/library/Errors.sol";
 
 /**
  * @title BlockVirtualPriceFeed
@@ -24,6 +25,9 @@ contract BlockVirtualPriceFeed is AccessControl {
     // List of registered tokens
     address[] public registeredTokens;
     
+    // Check token registered
+    mapping(address => bool) private _isTokenRegistered;
+    
     // Events
     event PriceUpdated(address indexed token, uint256 price, uint256 timestamp);
     event TokenRegistered(address indexed token);
@@ -42,10 +46,11 @@ contract BlockVirtualPriceFeed is AccessControl {
      * @param token Token contract address
      */
     function registerToken(address token) external onlyRole(ADMIN_ROLE) {
-        require(token != address(0), "Invalid token address");
-        require(tokenPrices[token].timestamp == 0, "Token already registered");
+        if (token == address(0)) revert Errors.ZeroAddress();
+        if (_isTokenRegistered[token]) revert Errors.TokenAlreadyRegistered();
         
         registeredTokens.push(token);
+        _isTokenRegistered[token] = true;
         
         emit TokenRegistered(token);
     }
@@ -56,8 +61,9 @@ contract BlockVirtualPriceFeed is AccessControl {
      * @param price New price
      */
     function updatePrice(address token, uint256 price) external onlyRole(PRICE_UPDATER_ROLE) {
-        require(token != address(0), "Invalid token address");
-        require(price > 0, "Price must be positive");
+        if (token == address(0)) revert Errors.ZeroAddress();
+        if (price == 0) revert Errors.InvalidAmount();
+        if (!_isTokenRegistered[token]) revert Errors.InvalidAddress();
         
         tokenPrices[token] = PriceInfo({
             price: price,
@@ -73,8 +79,8 @@ contract BlockVirtualPriceFeed is AccessControl {
      * @return Latest price
      */
     function getLatestPrice(address token) external view returns (uint256) {
-        require(token != address(0), "Invalid token address");
-        require(tokenPrices[token].price > 0, "No price available");
+        if (token == address(0)) revert Errors.ZeroAddress();
+        if (tokenPrices[token].price == 0) revert Errors.PriceNotAvailable();
         
         return tokenPrices[token].price;
     }
@@ -97,7 +103,7 @@ contract BlockVirtualPriceFeed is AccessControl {
         uint256 fromPrice = tokenPrices[fromToken].price;
         uint256 toPrice = tokenPrices[toToken].price;
         
-        require(fromPrice > 0 && toPrice > 0, "Price not available");
+        if (fromPrice == 0 || toPrice == 0) revert Errors.PriceNotAvailable();
         
         // Calculate conversion
         return (amountIn * fromPrice) / toPrice;
@@ -126,6 +132,6 @@ contract BlockVirtualPriceFeed is AccessControl {
      * @return True if registered
      */
     function isTokenRegistered(address token) external view returns (bool) {
-        return tokenPrices[token].timestamp > 0;
+        return _isTokenRegistered[token];
     }
 }

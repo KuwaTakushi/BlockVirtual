@@ -5,6 +5,7 @@ import "@openzeppelin/contracts-upgradeable/access/AccessControlUpgradeable.sol"
 import "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
 import "src/library/KYCManager.sol";
 import "src/library/VaultManager.sol";
+import "src/library/Errors.sol";
 
 contract BlockVirtualGovernance is Initializable, AccessControlUpgradeable {
 
@@ -18,12 +19,17 @@ contract BlockVirtualGovernance is Initializable, AccessControlUpgradeable {
     bytes32 public constant BANK_PARTNER_ROLE = keccak256("BANK_PARTNER_ROLE");
 
     mapping (address => KYCManager.KYCRegistry) public registry;
-    mapping (address => bool) public blacklisted;
     mapping (uint256 => bool) public supportedCountryCode;
     mapping (address => VaultManager.VaultRegistry) public vaultRegistry;
-
+    
+    // Blacklist management - token address => user address => blacklist status
+    mapping (address => mapping(address => bool)) public blacklisted;
+    
+    // Events
     event VaultPaused(address indexed vault, address indexed pauser);
     event VaultUnpaused(address indexed vault, address indexed pauser);
+    event UserBlacklisted(address indexed token, address indexed user, address indexed operator);
+    event UserRemovedFromBlacklist(address indexed token, address indexed user, address indexed operator);
 
     constructor() {
         _disableInitializers();
@@ -70,12 +76,40 @@ contract BlockVirtualGovernance is Initializable, AccessControlUpgradeable {
     /*//////////////////////////////////////////////////////////////
                             BLACKLISTED CONTROL
     //////////////////////////////////////////////////////////////*/    
-    function addBlacklisted(address account) public onlyBlackListedOperator {
-        blacklisted[account] = true;
+    /**
+     * @dev Add a user to the blacklist for a specific token
+     * @param token The token address
+     * @param account The user address to blacklist
+     */
+    function addBlacklisted(address token, address account) public onlyBlackListedOperator {
+        if (token == address(0)) revert Errors.ZeroAddress();
+        if (account == address(0)) revert Errors.ZeroAddress();
+        
+        blacklisted[token][account] = true;
+        emit UserBlacklisted(token, account, msg.sender);
     }
 
-    function removeBlacklisted(address account) public onlyBlackListedOperator {
-        blacklisted[account] = false;
+    /**
+     * @dev Remove a user from the blacklist for a specific token
+     * @param token The token address
+     * @param account The user address to remove from blacklist
+     */
+    function removeBlacklisted(address token, address account) public onlyBlackListedOperator {
+        if (token == address(0)) revert Errors.ZeroAddress();
+        if (account == address(0)) revert Errors.ZeroAddress();
+        
+        blacklisted[token][account] = false;
+        emit UserRemovedFromBlacklist(token, account, msg.sender);
+    }
+    
+    /**
+     * @dev Check if a user is blacklisted for a specific token
+     * @param token The token address
+     * @param account The user address to check
+     * @return True if the user is blacklisted for the token
+     */
+    function isBlacklisted(address token, address account) public view returns (bool) {
+        return blacklisted[token][account];
     }
 
     /*//////////////////////////////////////////////////////////////

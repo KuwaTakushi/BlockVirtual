@@ -36,4 +36,4 @@ library VaultManager {
     ) internal view returns (bool) {
         return !VaultStatus.unwrap(registry[vault].status);
     }
-} 
+}
