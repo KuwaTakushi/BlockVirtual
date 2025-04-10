@@ -9,26 +9,20 @@ import "src/library/Errors.sol";
  * @dev Simplified price feed for BlockVirtual's Central Asia expansion
  */
 contract BlockVirtualPriceFeed is AccessControl {
-    // Roles
     bytes32 public constant ADMIN_ROLE = keccak256("ADMIN_ROLE");
     bytes32 public constant PRICE_UPDATER_ROLE = keccak256("PRICE_UPDATER_ROLE");
     
-    // Price structure
     struct PriceInfo {
         uint256 price;
         uint256 timestamp;
     }
     
-    // Asset prices (tokenAddress => price info)
     mapping(address => PriceInfo) public tokenPrices;
     
-    // List of registered tokens
     address[] public registeredTokens;
     
-    // Check token registered
     mapping(address => bool) private _isTokenRegistered;
     
-    // Events
     event PriceUpdated(address indexed token, uint256 price, uint256 timestamp);
     event TokenRegistered(address indexed token);
     

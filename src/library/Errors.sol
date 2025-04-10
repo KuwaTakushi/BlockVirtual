@@ -11,7 +11,7 @@ library Errors {
     error UnauthorizedCountryUser();
 
     error InsufficientBalance();
-    error UserBlacklisted(address account);
+    error UserBlacklisted(address user);
     error ContractPaused();
     error ExceedsLimit(uint256 amount, uint256 limit);
     error VaultPaused();
@@ -29,4 +29,16 @@ library Errors {
     
     error PriceNotAvailable();
     error TokenAlreadyRegistered();
+    
+    // Pool Manager error types
+    error InactiveVault();
+    error InactivePool();
+    error UnsupportedToken();
+    error InvalidInput();
+
+    // Additional Pool Manager error types
+    error PoolAlreadyRegistered();
+    error InvalidPool();
+    error Blacklisted(address user);
+    error KYCNotVerified(address user);
 }

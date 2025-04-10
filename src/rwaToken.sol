@@ -8,20 +8,14 @@ import "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol";
 import "src/interfaces/IBlockVirtualGovernance.sol";
 import "src/library/Errors.sol";
 
-/**
- * @title RwaToken
- * @dev Implements a compliant RWA token with KYC and country restrictions
- */
 contract RwaToken is Initializable, OwnableUpgradeable, ERC20Upgradeable, UUPSUpgradeable {
     
     address public blockVirtualGovernance;
     uint256 public supportedCountryCode;
 
-    // Events
     event ComplianceChecked(address from, address to, bool isCompliant);
     event BlacklistChecked(address user, bool isBlacklisted);
 
-    // Modifiers
     modifier onlyGovernance() {
         if (msg.sender != blockVirtualGovernance) revert Errors.UnauthorizedRole(msg.sender);
         _;
@@ -57,20 +51,11 @@ contract RwaToken is Initializable, OwnableUpgradeable, ERC20Upgradeable, UUPSUp
     /// @notice This function is a special internal function that's part of the UUPS upgradeable contract's lifecycle.
     function _authorizeUpgrade(address newImplementation) internal onlyOwner virtual override {}
 
-    /**
-     * @dev Mints RWA tokens to specified address
-     * @param to Address to mint tokens to
-     * @param amount Amount of tokens to mint
-     */
+
     function mintRwa(address to, uint256 amount) public onlyGovernance notBlacklisted(to) {
         _mint(to, amount);
     }
 
-    /**
-     * @dev Burns RWA tokens from specified address
-     * @param from Address to burn tokens from
-     * @param amount Amount of tokens to burn
-     */
     function burnRwa(address from, uint256 amount) public onlyGovernance notBlacklisted(from) {
         _burn(from, amount);
     }

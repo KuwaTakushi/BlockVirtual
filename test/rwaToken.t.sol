@@ -7,7 +7,7 @@ import "../src/rwaToken.sol";
 import "@openzeppelin/contracts/proxy/ERC1967/ERC1967Proxy.sol";
 
 contract RwaTokenTest is Test {
-    // 测试账户
+    // Test accounts
     address public admin = address(1);
     address public operator = address(2);
     address public user1 = address(3);
@@ -17,30 +17,30 @@ contract RwaTokenTest is Test {
     address public foreignUser = address(7);
     address public blacklistedUser = address(8);
     
-    // 代理合约和实现合约
+    // Proxy and implementation contracts
     ERC1967Proxy public governanceProxy;
     ERC1967Proxy public sgdTokenProxy;
     
     BlockVirtualGovernance public governanceImpl;
     RwaToken public sgdTokenImpl;
     
-    // 常量
+    // Constants
     uint256 public constant SINGAPORE_COUNTRY_CODE = 702;
-    uint256 public constant FOREIGN_COUNTRY_CODE = 840; // 美国
+    uint256 public constant FOREIGN_COUNTRY_CODE = 840; // USA
     uint256 public constant KYC_EXPIRY = 365 days;
     
     function setUp() public {
-        // 部署实现合约
+        // Deploy implementation contracts
         governanceImpl = new BlockVirtualGovernance();
         sgdTokenImpl = new RwaToken();
         
-        // 部署和初始化治理代理
+        // Deploy and initialize governance proxy
         governanceProxy = new ERC1967Proxy(
             address(governanceImpl),
             abi.encodeWithSelector(BlockVirtualGovernance.initialize.selector)
         );
         
-        // 设置治理合约权限
+        // Set up governance contract permissions
         vm.startPrank(address(this));
         BlockVirtualGovernance(address(governanceProxy)).setupRoleAdmins();
         
@@ -58,7 +58,7 @@ contract RwaTokenTest is Test {
         );
         vm.stopPrank();
         
-        // 部署SGD代币代理
+        // Deploy SGD token proxy
         sgdTokenProxy = new ERC1967Proxy(
             address(sgdTokenImpl),
             abi.encodeWithSelector(
@@ -70,14 +70,14 @@ contract RwaTokenTest is Test {
             )
         );
         
-        // 添加支持的国家代码
+        // Add supported country code
         vm.prank(admin);
         BlockVirtualGovernance(address(governanceProxy)).addSupportedCountryCode(SINGAPORE_COUNTRY_CODE);
         
-        // 为测试用户设置KYC
+        // Set up KYC for test users
         vm.startPrank(operator);
         
-        // 为新加坡用户注册KYC
+        // Register KYC for Singapore users
         BlockVirtualGovernance(address(governanceProxy)).registerKYCUser(
             user1, 
             block.timestamp + KYC_EXPIRY, 
@@ -96,14 +96,14 @@ contract RwaTokenTest is Test {
             SINGAPORE_COUNTRY_CODE
         );
         
-        // 为外国用户注册KYC
+        // Register KYC for foreign user
         BlockVirtualGovernance(address(governanceProxy)).registerKYCUser(
             foreignUser, 
             block.timestamp + KYC_EXPIRY, 
             FOREIGN_COUNTRY_CODE
         );
         
-        // 将一个用户加入黑名单
+        // Add a user to blacklist
         BlockVirtualGovernance(address(governanceProxy)).addBlacklisted(
             address(sgdTokenProxy),
             blacklistedUser
@@ -112,75 +112,75 @@ contract RwaTokenTest is Test {
         vm.stopPrank();
     }
     
-    // 测试代币初始化是否正确
+    // Test token initialization is correct
     function test_TokenInitialization() public {
-        // 验证代币初始化正确
+        // Verify token initialization is correct
         assertEq(RwaToken(address(sgdTokenProxy)).name(), "Singapore Dollar");
         assertEq(RwaToken(address(sgdTokenProxy)).symbol(), "SGD");
         assertEq(RwaToken(address(sgdTokenProxy)).blockVirtualGovernance(), address(governanceProxy));
         assertEq(RwaToken(address(sgdTokenProxy)).supportedCountryCode(), SINGAPORE_COUNTRY_CODE);
     }
     
-    // 测试铸造RWA代币功能
+    // Test minting RWA tokens functionality
     function test_MintRwa() public {
-        // 只有治理合约可以铸造代币
+        // Only governance contract can mint tokens
         vm.prank(address(governanceProxy));
         RwaToken(address(sgdTokenProxy)).mintRwa(user1, 1000 ether);
         
-        // 验证余额
+        // Verify balance
         assertEq(RwaToken(address(sgdTokenProxy)).balanceOf(user1), 1000 ether);
     }
     
-    // 测试未授权账户尝试铸造代币
+    // Test unauthorized account trying to mint tokens
     function test_MintRwa_Unauthorized() public {
-        // 非治理合约不能铸造代币
+        // Non-governance contract cannot mint tokens
         vm.prank(admin);
         vm.expectRevert(abi.encodeWithSelector(Errors.UnauthorizedRole.selector, admin));
         RwaToken(address(sgdTokenProxy)).mintRwa(user1, 1000 ether);
     }
     
-    // 测试对黑名单用户铸造代币失败
+    // Test minting to blacklisted user fails
     function test_MintRwa_BlacklistedUser() public {
-        // 对黑名单用户铸造应该失败
+        // Minting to blacklisted user should fail
         vm.prank(address(governanceProxy));
         vm.expectRevert(abi.encodeWithSelector(Errors.UserBlacklisted.selector, blacklistedUser));
         RwaToken(address(sgdTokenProxy)).mintRwa(blacklistedUser, 1000 ether);
     }
     
-    // 测试燃烧RWA代币功能
+    // Test burning RWA tokens functionality
     function test_BurnRwa() public {
-        // 先给用户铸造代币
+        // First mint tokens to user
         vm.prank(address(governanceProxy));
         RwaToken(address(sgdTokenProxy)).mintRwa(user1, 1000 ether);
         
-        // 然后燃烧部分代币
+        // Then burn some tokens
         vm.prank(address(governanceProxy));
         RwaToken(address(sgdTokenProxy)).burnRwa(user1, 500 ether);
         
-        // 验证余额
+        // Verify balance
         assertEq(RwaToken(address(sgdTokenProxy)).balanceOf(user1), 500 ether);
     }
     
-    // 测试未授权账户尝试燃烧代币
+    // Test unauthorized account trying to burn tokens
     function test_BurnRwa_Unauthorized() public {
-        // 先给用户铸造代币
+        // First mint tokens to user
         vm.prank(address(governanceProxy));
         RwaToken(address(sgdTokenProxy)).mintRwa(user1, 1000 ether);
         
-        // 非治理合约不能燃烧代币
+        // Non-governance contract cannot burn tokens
         vm.prank(admin);
         vm.expectRevert(abi.encodeWithSelector(Errors.UnauthorizedRole.selector, admin));
         RwaToken(address(sgdTokenProxy)).burnRwa(user1, 500 ether);
     }
     
-    // 测试对黑名单用户燃烧代币失败
+    // Test burning from blacklisted user fails
     function test_BurnRwa_BlacklistedUser() public {
-        // 这个测试模拟用户铸造后被加入黑名单，然后尝试燃烧代币
+        // This test simulates a user getting tokens, then being blacklisted, then attempting to burn tokens
         
-        // 设置一个临时用户
+        // Set up a temporary user
         address tempUser = address(100);
         
-        // 为临时用户注册KYC
+        // Register KYC for temporary user
         vm.prank(operator);
         BlockVirtualGovernance(address(governanceProxy)).registerKYCUser(
             tempUser, 
@@ -188,175 +188,175 @@ contract RwaTokenTest is Test {
             SINGAPORE_COUNTRY_CODE
         );
         
-        // 给临时用户铸造代币
+        // Mint tokens to temporary user
         vm.prank(address(governanceProxy));
         RwaToken(address(sgdTokenProxy)).mintRwa(tempUser, 1000 ether);
         
-        // 将用户加入黑名单
+        // Add user to blacklist
         vm.prank(operator);
         BlockVirtualGovernance(address(governanceProxy)).addBlacklisted(
             address(sgdTokenProxy),
             tempUser
         );
         
-        // 尝试燃烧黑名单用户的代币应该失败
+        // Attempting to burn tokens from blacklisted user should fail
         vm.prank(address(governanceProxy));
         vm.expectRevert(abi.encodeWithSelector(Errors.UserBlacklisted.selector, tempUser));
         RwaToken(address(sgdTokenProxy)).burnRwa(tempUser, 500 ether);
     }
     
-    // 测试转账功能
+    // Test transfer functionality
     function test_Transfer_Successful() public {
-        // 先给用户铸造代币
+        // First mint tokens to user
         vm.prank(address(governanceProxy));
         RwaToken(address(sgdTokenProxy)).mintRwa(user1, 1000 ether);
         
-        // 转账应该成功
+        // Transfer should be successful
         vm.prank(user1);
         bool success = RwaToken(address(sgdTokenProxy)).transfer(user2, 400 ether);
         
-        // 验证结果
+        // Verify results
         assertTrue(success);
         assertEq(RwaToken(address(sgdTokenProxy)).balanceOf(user1), 600 ether);
         assertEq(RwaToken(address(sgdTokenProxy)).balanceOf(user2), 400 ether);
     }
     
-    // 测试转账给没有KYC的用户失败
+    // Test transfer to user without KYC fails
     function test_Transfer_NoKyc() public {
-        // 先给用户铸造代币
+        // First mint tokens to user
         vm.prank(address(governanceProxy));
         RwaToken(address(sgdTokenProxy)).mintRwa(user1, 1000 ether);
         
-        // 尝试转账给没有KYC的用户应该失败
+        // Attempting to transfer to user without KYC should fail
         vm.prank(user1);
         vm.expectRevert(abi.encodeWithSelector(Errors.UnauthorizedKycStatus.selector));
         RwaToken(address(sgdTokenProxy)).transfer(nonKycUser, 400 ether);
     }
     
-    // 测试转账给不支持国家的用户失败
+    // Test transfer to user from unsupported country fails
     function test_Transfer_UnsupportedCountry() public {
-        // 先给用户铸造代币
+        // First mint tokens to user
         vm.prank(address(governanceProxy));
         RwaToken(address(sgdTokenProxy)).mintRwa(user1, 1000 ether);
         
-        // 尝试转账给不支持国家的用户应该失败
+        // Attempting to transfer to user from unsupported country should fail
         vm.prank(user1);
         vm.expectRevert(abi.encodeWithSelector(Errors.UnauthorizedCountryUser.selector));
         RwaToken(address(sgdTokenProxy)).transfer(foreignUser, 400 ether);
     }
     
-    // 测试转账涉及黑名单用户失败
+    // Test transfer involving blacklisted user fails
     function test_Transfer_Blacklisted() public {
-        // 先给用户铸造代币
+        // First mint tokens to user
         vm.prank(address(governanceProxy));
         RwaToken(address(sgdTokenProxy)).mintRwa(user1, 1000 ether);
         
-        // 转账给黑名单用户应该失败
+        // Transfer to blacklisted user should fail
         vm.prank(user1);
         vm.expectRevert(abi.encodeWithSelector(Errors.UserBlacklisted.selector, blacklistedUser));
         RwaToken(address(sgdTokenProxy)).transfer(blacklistedUser, 400 ether);
         
-        // 将发送者加入黑名单
+        // Add sender to blacklist
         vm.prank(operator);
         BlockVirtualGovernance(address(governanceProxy)).addBlacklisted(
             address(sgdTokenProxy),
             user1
         );
         
-        // 黑名单用户尝试转账也应该失败
+        // Blacklisted user attempting to transfer should also fail
         vm.prank(user1);
         vm.expectRevert(abi.encodeWithSelector(Errors.UserBlacklisted.selector, user1));
         RwaToken(address(sgdTokenProxy)).transfer(user2, 400 ether);
     }
     
-    // 测试使用transferFrom功能成功
+    // Test transferFrom functionality is successful
     function test_TransferFrom_Successful() public {
-        // 先给用户铸造代币
+        // First mint tokens to user
         vm.prank(address(governanceProxy));
         RwaToken(address(sgdTokenProxy)).mintRwa(user1, 1000 ether);
         
-        // 批准用户2使用部分代币
+        // Approve user2 to spend some tokens
         vm.prank(user1);
         RwaToken(address(sgdTokenProxy)).approve(user2, 500 ether);
         
-        // 用户2执行transferFrom
+        // User2 executes transferFrom
         vm.prank(user2);
         bool success = RwaToken(address(sgdTokenProxy)).transferFrom(user1, user3, 300 ether);
         
-        // 验证结果
+        // Verify results
         assertTrue(success);
         assertEq(RwaToken(address(sgdTokenProxy)).balanceOf(user1), 700 ether);
         assertEq(RwaToken(address(sgdTokenProxy)).balanceOf(user3), 300 ether);
         assertEq(RwaToken(address(sgdTokenProxy)).allowance(user1, user2), 200 ether);
     }
     
-    // 测试通过transferFrom转账给没有KYC的用户失败
+    // Test transferFrom to user without KYC fails
     function test_TransferFrom_NoKyc() public {
-        // 先给用户铸造代币
+        // First mint tokens to user
         vm.prank(address(governanceProxy));
         RwaToken(address(sgdTokenProxy)).mintRwa(user1, 1000 ether);
         
-        // 批准用户2使用部分代币
+        // Approve user2 to spend some tokens
         vm.prank(user1);
         RwaToken(address(sgdTokenProxy)).approve(user2, 500 ether);
         
-        // 尝试转账给没有KYC的用户应该失败
+        // Attempting to transfer to user without KYC should fail
         vm.prank(user2);
         vm.expectRevert(abi.encodeWithSelector(Errors.UnauthorizedKycStatus.selector));
         RwaToken(address(sgdTokenProxy)).transferFrom(user1, nonKycUser, 300 ether);
     }
     
-    // 测试通过transferFrom转账给不支持国家的用户失败
+    // Test transferFrom to user from unsupported country fails
     function test_TransferFrom_UnsupportedCountry() public {
-        // 先给用户铸造代币
+        // First mint tokens to user
         vm.prank(address(governanceProxy));
         RwaToken(address(sgdTokenProxy)).mintRwa(user1, 1000 ether);
         
-        // 批准用户2使用部分代币
+        // Approve user2 to spend some tokens
         vm.prank(user1);
         RwaToken(address(sgdTokenProxy)).approve(user2, 500 ether);
         
-        // 尝试转账给不支持国家的用户应该失败
+        // Attempting to transfer to user from unsupported country should fail
         vm.prank(user2);
         vm.expectRevert(abi.encodeWithSelector(Errors.UnauthorizedCountryUser.selector));
         RwaToken(address(sgdTokenProxy)).transferFrom(user1, foreignUser, 300 ether);
     }
     
-    // 测试transferFrom涉及黑名单用户失败
+    // Test transferFrom involving blacklisted user fails
     function test_TransferFrom_Blacklisted() public {
-        // 先给用户铸造代币
+        // First mint tokens to user
         vm.prank(address(governanceProxy));
         RwaToken(address(sgdTokenProxy)).mintRwa(user1, 1000 ether);
         
-        // 批准用户2使用部分代币
+        // Approve user2 to spend some tokens
         vm.prank(user1);
         RwaToken(address(sgdTokenProxy)).approve(user2, 500 ether);
         
-        // 转账给黑名单用户应该失败
+        // Transfer to blacklisted user should fail
         vm.prank(user2);
         vm.expectRevert(abi.encodeWithSelector(Errors.UserBlacklisted.selector, blacklistedUser));
         RwaToken(address(sgdTokenProxy)).transferFrom(user1, blacklistedUser, 300 ether);
         
-        // 将发送者加入黑名单
+        // Add source address to blacklist
         vm.prank(operator);
         BlockVirtualGovernance(address(governanceProxy)).addBlacklisted(
             address(sgdTokenProxy),
             user1
         );
         
-        // 使用黑名单用户作为源地址也应该失败
+        // Using blacklisted user as source address should also fail
         vm.prank(user2);
         vm.expectRevert(abi.encodeWithSelector(Errors.UserBlacklisted.selector, user1));
         RwaToken(address(sgdTokenProxy)).transferFrom(user1, user3, 300 ether);
     }
     
-    // 测试合规性检查功能
+    // Test compliance check functionality
     function test_CheckCompliance() public {
-        // 测试合规性检查
+        // Test compliance check
         bool compliant = RwaToken(address(sgdTokenProxy)).checkCompliance(user1, user2);
         assertTrue(compliant);
         
-        // 不合规的情况
+        // Non-compliant cases
         bool notCompliant1 = RwaToken(address(sgdTokenProxy)).checkCompliance(user1, nonKycUser);
         assertFalse(notCompliant1);
         
@@ -367,30 +367,30 @@ contract RwaTokenTest is Test {
         assertFalse(notCompliant3);
     }
     
-    // 测试黑名单检查功能
+    // Test blacklist check functionality
     function test_IsBlacklisted() public {
-        // 检查黑名单状态
+        // Check blacklist status
         assertTrue(RwaToken(address(sgdTokenProxy)).isBlacklisted(blacklistedUser));
         assertFalse(RwaToken(address(sgdTokenProxy)).isBlacklisted(user1));
         
-        // 添加用户到黑名单
+        // Add user to blacklist
         vm.prank(operator);
         BlockVirtualGovernance(address(governanceProxy)).addBlacklisted(
             address(sgdTokenProxy),
             user1
         );
         
-        // 验证用户现在在黑名单中
+        // Verify user is now blacklisted
         assertTrue(RwaToken(address(sgdTokenProxy)).isBlacklisted(user1));
         
-        // 将用户从黑名单中移除
+        // Remove user from blacklist
         vm.prank(operator);
         BlockVirtualGovernance(address(governanceProxy)).removeBlacklisted(
             address(sgdTokenProxy),
             user1
         );
         
-        // 验证用户现在不在黑名单中
+        // Verify user is now not blacklisted
         assertFalse(RwaToken(address(sgdTokenProxy)).isBlacklisted(user1));
     }
 } 

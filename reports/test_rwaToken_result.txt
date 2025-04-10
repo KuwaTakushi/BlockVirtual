@@ -1,0 +1,993 @@
+Ran 17 tests for test/rwaToken.t.sol:RwaTokenTest
+[PASS] test_BurnRwa() (gas: 86250)
+Traces:
+  [86250] RwaTokenTest::test_BurnRwa()
+    ├─ [0] VM::prank(ERC1967Proxy: [0xF62849F9A0B5Bf2913b396098F7c7019b51A820a])
+    │   └─ ← [Return] 
+    ├─ [64342] ERC1967Proxy::mintRwa(RIPEMD-160: [0x0000000000000000000000000000000000000003], 1000000000000000000000 [1e21])
+    │   ├─ [59529] RwaToken::mintRwa(RIPEMD-160: [0x0000000000000000000000000000000000000003], 1000000000000000000000 [1e21]) [delegatecall]
+    │   │   ├─ [7702] ERC1967Proxy::isBlacklisted(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], RIPEMD-160: [0x0000000000000000000000000000000000000003]) [staticcall]
+    │   │   │   ├─ [2886] BlockVirtualGovernance::isBlacklisted(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], RIPEMD-160: [0x0000000000000000000000000000000000000003]) [delegatecall]
+    │   │   │   │   └─ ← [Return] false
+    │   │   │   └─ ← [Return] false
+    │   │   ├─ emit Transfer(from: 0x0000000000000000000000000000000000000000, to: RIPEMD-160: [0x0000000000000000000000000000000000000003], value: 1000000000000000000000 [1e21])
+    │   │   └─ ← [Return] 
+    │   └─ ← [Return] 
+    ├─ [0] VM::prank(ERC1967Proxy: [0xF62849F9A0B5Bf2913b396098F7c7019b51A820a])
+    │   └─ ← [Return] 
+    ├─ [5355] ERC1967Proxy::burnRwa(RIPEMD-160: [0x0000000000000000000000000000000000000003], 500000000000000000000 [5e20])
+    │   ├─ [5042] RwaToken::burnRwa(RIPEMD-160: [0x0000000000000000000000000000000000000003], 500000000000000000000 [5e20]) [delegatecall]
+    │   │   ├─ [1202] ERC1967Proxy::isBlacklisted(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], RIPEMD-160: [0x0000000000000000000000000000000000000003]) [staticcall]
+    │   │   │   ├─ [886] BlockVirtualGovernance::isBlacklisted(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], RIPEMD-160: [0x0000000000000000000000000000000000000003]) [delegatecall]
+    │   │   │   │   └─ ← [Return] false
+    │   │   │   └─ ← [Return] false
+    │   │   ├─ emit Transfer(from: RIPEMD-160: [0x0000000000000000000000000000000000000003], to: 0x0000000000000000000000000000000000000000, value: 500000000000000000000 [5e20])
+    │   │   └─ ← [Return] 
+    │   └─ ← [Return] 
+    ├─ [923] ERC1967Proxy::balanceOf(RIPEMD-160: [0x0000000000000000000000000000000000000003]) [staticcall]
+    │   ├─ [610] RwaToken::balanceOf(RIPEMD-160: [0x0000000000000000000000000000000000000003]) [delegatecall]
+    │   │   └─ ← [Return] 500000000000000000000 [5e20]
+    │   └─ ← [Return] 500000000000000000000 [5e20]
+    ├─ [0] VM::assertEq(500000000000000000000 [5e20], 500000000000000000000 [5e20]) [staticcall]
+    │   └─ ← [Return] 
+    └─ ← [Return] 
+
+[PASS] test_BurnRwa_BlacklistedUser() (gas: 224951)
+Traces:
+  [224951] RwaTokenTest::test_BurnRwa_BlacklistedUser()
+    ├─ [0] VM::prank(SHA-256: [0x0000000000000000000000000000000000000002])
+    │   └─ ← [Return] 
+    ├─ [121219] ERC1967Proxy::registerKYCUser(0x0000000000000000000000000000000000000064, 31536001 [3.153e7], 702)
+    │   ├─ [116400] BlockVirtualGovernance::registerKYCUser(0x0000000000000000000000000000000000000064, 31536001 [3.153e7], 702) [delegatecall]
+    │   │   └─ ← [Stop] 
+    │   └─ ← [Return] 
+    ├─ [0] VM::prank(ERC1967Proxy: [0xF62849F9A0B5Bf2913b396098F7c7019b51A820a])
+    │   └─ ← [Return] 
+    ├─ [57342] ERC1967Proxy::mintRwa(0x0000000000000000000000000000000000000064, 1000000000000000000000 [1e21])
+    │   ├─ [52529] RwaToken::mintRwa(0x0000000000000000000000000000000000000064, 1000000000000000000000 [1e21]) [delegatecall]
+    │   │   ├─ [3202] ERC1967Proxy::isBlacklisted(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], 0x0000000000000000000000000000000000000064) [staticcall]
+    │   │   │   ├─ [2886] BlockVirtualGovernance::isBlacklisted(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], 0x0000000000000000000000000000000000000064) [delegatecall]
+    │   │   │   │   └─ ← [Return] false
+    │   │   │   └─ ← [Return] false
+    │   │   ├─ emit Transfer(from: 0x0000000000000000000000000000000000000000, to: 0x0000000000000000000000000000000000000064, value: 1000000000000000000000 [1e21])
+    │   │   └─ ← [Return] 
+    │   └─ ← [Return] 
+    ├─ [0] VM::prank(SHA-256: [0x0000000000000000000000000000000000000002])
+    │   └─ ← [Return] 
+    ├─ [23461] ERC1967Proxy::addBlacklisted(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], 0x0000000000000000000000000000000000000064)
+    │   ├─ [23148] BlockVirtualGovernance::addBlacklisted(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], 0x0000000000000000000000000000000000000064) [delegatecall]
+    │   │   ├─ emit UserBlacklisted(token: ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], user: 0x0000000000000000000000000000000000000064, operator: SHA-256: [0x0000000000000000000000000000000000000002])
+    │   │   └─ ← [Stop] 
+    │   └─ ← [Return] 
+    ├─ [0] VM::prank(ERC1967Proxy: [0xF62849F9A0B5Bf2913b396098F7c7019b51A820a])
+    │   └─ ← [Return] 
+    ├─ [0] VM::expectRevert(UserBlacklisted(0x0000000000000000000000000000000000000064))
+    │   └─ ← [Return] 
+    ├─ [2881] ERC1967Proxy::burnRwa(0x0000000000000000000000000000000000000064, 500000000000000000000 [5e20])
+    │   ├─ [2561] RwaToken::burnRwa(0x0000000000000000000000000000000000000064, 500000000000000000000 [5e20]) [delegatecall]
+    │   │   ├─ [1202] ERC1967Proxy::isBlacklisted(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], 0x0000000000000000000000000000000000000064) [staticcall]
+    │   │   │   ├─ [886] BlockVirtualGovernance::isBlacklisted(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], 0x0000000000000000000000000000000000000064) [delegatecall]
+    │   │   │   │   └─ ← [Return] true
+    │   │   │   └─ ← [Return] true
+    │   │   └─ ← [Revert] UserBlacklisted(0x0000000000000000000000000000000000000064)
+    │   └─ ← [Revert] UserBlacklisted(0x0000000000000000000000000000000000000064)
+    └─ ← [Return] 
+
+[PASS] test_BurnRwa_Unauthorized() (gas: 82508)
+Traces:
+  [82508] RwaTokenTest::test_BurnRwa_Unauthorized()
+    ├─ [0] VM::prank(ERC1967Proxy: [0xF62849F9A0B5Bf2913b396098F7c7019b51A820a])
+    │   └─ ← [Return] 
+    ├─ [64342] ERC1967Proxy::mintRwa(RIPEMD-160: [0x0000000000000000000000000000000000000003], 1000000000000000000000 [1e21])
+    │   ├─ [59529] RwaToken::mintRwa(RIPEMD-160: [0x0000000000000000000000000000000000000003], 1000000000000000000000 [1e21]) [delegatecall]
+    │   │   ├─ [7702] ERC1967Proxy::isBlacklisted(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], RIPEMD-160: [0x0000000000000000000000000000000000000003]) [staticcall]
+    │   │   │   ├─ [2886] BlockVirtualGovernance::isBlacklisted(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], RIPEMD-160: [0x0000000000000000000000000000000000000003]) [delegatecall]
+    │   │   │   │   └─ ← [Return] false
+    │   │   │   └─ ← [Return] false
+    │   │   ├─ emit Transfer(from: 0x0000000000000000000000000000000000000000, to: RIPEMD-160: [0x0000000000000000000000000000000000000003], value: 1000000000000000000000 [1e21])
+    │   │   └─ ← [Return] 
+    │   └─ ← [Return] 
+    ├─ [0] VM::prank(ECRecover: [0x0000000000000000000000000000000000000001])
+    │   └─ ← [Return] 
+    ├─ [0] VM::expectRevert(UnauthorizedRole(0x0000000000000000000000000000000000000001))
+    │   └─ ← [Return] 
+    ├─ [1143] ERC1967Proxy::burnRwa(RIPEMD-160: [0x0000000000000000000000000000000000000003], 500000000000000000000 [5e20])
+    │   ├─ [823] RwaToken::burnRwa(RIPEMD-160: [0x0000000000000000000000000000000000000003], 500000000000000000000 [5e20]) [delegatecall]
+    │   │   └─ ← [Revert] UnauthorizedRole(0x0000000000000000000000000000000000000001)
+    │   └─ ← [Revert] UnauthorizedRole(0x0000000000000000000000000000000000000001)
+    └─ ← [Return] 
+
+[PASS] test_CheckCompliance() (gas: 127183)
+Traces:
+  [127183] RwaTokenTest::test_CheckCompliance()
+    ├─ [44734] ERC1967Proxy::checkCompliance(RIPEMD-160: [0x0000000000000000000000000000000000000003], Identity: [0x0000000000000000000000000000000000000004]) [staticcall]
+    │   ├─ [39918] RwaToken::checkCompliance(RIPEMD-160: [0x0000000000000000000000000000000000000003], Identity: [0x0000000000000000000000000000000000000004]) [delegatecall]
+    │   │   ├─ [10394] ERC1967Proxy::getKycStatus(RIPEMD-160: [0x0000000000000000000000000000000000000003]) [staticcall]
+    │   │   │   ├─ [5581] BlockVirtualGovernance::getKycStatus(RIPEMD-160: [0x0000000000000000000000000000000000000003]) [delegatecall]
+    │   │   │   │   └─ ← [Return] true
+    │   │   │   └─ ← [Return] true
+    │   │   ├─ [5894] ERC1967Proxy::getKycStatus(Identity: [0x0000000000000000000000000000000000000004]) [staticcall]
+    │   │   │   ├─ [5581] BlockVirtualGovernance::getKycStatus(Identity: [0x0000000000000000000000000000000000000004]) [delegatecall]
+    │   │   │   │   └─ ← [Return] true
+    │   │   │   └─ ← [Return] true
+    │   │   ├─ [5541] ERC1967Proxy::isFromSupportedCountry(RIPEMD-160: [0x0000000000000000000000000000000000000003]) [staticcall]
+    │   │   │   ├─ [5228] BlockVirtualGovernance::isFromSupportedCountry(RIPEMD-160: [0x0000000000000000000000000000000000000003]) [delegatecall]
+    │   │   │   │   └─ ← [Return] true
+    │   │   │   └─ ← [Return] true
+    │   │   ├─ [3541] ERC1967Proxy::isFromSupportedCountry(Identity: [0x0000000000000000000000000000000000000004]) [staticcall]
+    │   │   │   ├─ [3228] BlockVirtualGovernance::isFromSupportedCountry(Identity: [0x0000000000000000000000000000000000000004]) [delegatecall]
+    │   │   │   │   └─ ← [Return] true
+    │   │   │   └─ ← [Return] true
+    │   │   ├─ [3202] ERC1967Proxy::isBlacklisted(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], RIPEMD-160: [0x0000000000000000000000000000000000000003]) [staticcall]
+    │   │   │   ├─ [2886] BlockVirtualGovernance::isBlacklisted(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], RIPEMD-160: [0x0000000000000000000000000000000000000003]) [delegatecall]
+    │   │   │   │   └─ ← [Return] false
+    │   │   │   └─ ← [Return] false
+    │   │   ├─ [3202] ERC1967Proxy::isBlacklisted(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], Identity: [0x0000000000000000000000000000000000000004]) [staticcall]
+    │   │   │   ├─ [2886] BlockVirtualGovernance::isBlacklisted(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], Identity: [0x0000000000000000000000000000000000000004]) [delegatecall]
+    │   │   │   │   └─ ← [Return] false
+    │   │   │   └─ ← [Return] false
+    │   │   └─ ← [Return] true
+    │   └─ ← [Return] true
+    ├─ [0] VM::assertTrue(true) [staticcall]
+    │   └─ ← [Return] 
+    ├─ [18331] ERC1967Proxy::checkCompliance(RIPEMD-160: [0x0000000000000000000000000000000000000003], ECAdd: [0x0000000000000000000000000000000000000006]) [staticcall]
+    │   ├─ [18015] RwaToken::checkCompliance(RIPEMD-160: [0x0000000000000000000000000000000000000003], ECAdd: [0x0000000000000000000000000000000000000006]) [delegatecall]
+    │   │   ├─ [1894] ERC1967Proxy::getKycStatus(RIPEMD-160: [0x0000000000000000000000000000000000000003]) [staticcall]
+    │   │   │   ├─ [1581] BlockVirtualGovernance::getKycStatus(RIPEMD-160: [0x0000000000000000000000000000000000000003]) [delegatecall]
+    │   │   │   │   └─ ← [Return] true
+    │   │   │   └─ ← [Return] true
+    │   │   ├─ [3432] ERC1967Proxy::getKycStatus(ECAdd: [0x0000000000000000000000000000000000000006]) [staticcall]
+    │   │   │   ├─ [3119] BlockVirtualGovernance::getKycStatus(ECAdd: [0x0000000000000000000000000000000000000006]) [delegatecall]
+    │   │   │   │   └─ ← [Return] false
+    │   │   │   └─ ← [Return] false
+    │   │   ├─ [1541] ERC1967Proxy::isFromSupportedCountry(RIPEMD-160: [0x0000000000000000000000000000000000000003]) [staticcall]
+    │   │   │   ├─ [1228] BlockVirtualGovernance::isFromSupportedCountry(RIPEMD-160: [0x0000000000000000000000000000000000000003]) [delegatecall]
+    │   │   │   │   └─ ← [Return] true
+    │   │   │   └─ ← [Return] true
+    │   │   ├─ [3167] ERC1967Proxy::isFromSupportedCountry(ECAdd: [0x0000000000000000000000000000000000000006]) [staticcall]
+    │   │   │   ├─ [2854] BlockVirtualGovernance::isFromSupportedCountry(ECAdd: [0x0000000000000000000000000000000000000006]) [delegatecall]
+    │   │   │   │   └─ ← [Return] false
+    │   │   │   └─ ← [Return] false
+    │   │   ├─ [1202] ERC1967Proxy::isBlacklisted(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], RIPEMD-160: [0x0000000000000000000000000000000000000003]) [staticcall]
+    │   │   │   ├─ [886] BlockVirtualGovernance::isBlacklisted(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], RIPEMD-160: [0x0000000000000000000000000000000000000003]) [delegatecall]
+    │   │   │   │   └─ ← [Return] false
+    │   │   │   └─ ← [Return] false
+    │   │   ├─ [3202] ERC1967Proxy::isBlacklisted(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], ECAdd: [0x0000000000000000000000000000000000000006]) [staticcall]
+    │   │   │   ├─ [2886] BlockVirtualGovernance::isBlacklisted(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], ECAdd: [0x0000000000000000000000000000000000000006]) [delegatecall]
+    │   │   │   │   └─ ← [Return] false
+    │   │   │   └─ ← [Return] false
+    │   │   └─ ← [Return] false
+    │   └─ ← [Return] false
+    ├─ [0] VM::assertFalse(false) [staticcall]
+    │   └─ ← [Return] 
+    ├─ [23205] ERC1967Proxy::checkCompliance(RIPEMD-160: [0x0000000000000000000000000000000000000003], ECMul: [0x0000000000000000000000000000000000000007]) [staticcall]
+    │   ├─ [22889] RwaToken::checkCompliance(RIPEMD-160: [0x0000000000000000000000000000000000000003], ECMul: [0x0000000000000000000000000000000000000007]) [delegatecall]
+    │   │   ├─ [1894] ERC1967Proxy::getKycStatus(RIPEMD-160: [0x0000000000000000000000000000000000000003]) [staticcall]
+    │   │   │   ├─ [1581] BlockVirtualGovernance::getKycStatus(RIPEMD-160: [0x0000000000000000000000000000000000000003]) [delegatecall]
+    │   │   │   │   └─ ← [Return] true
+    │   │   │   └─ ← [Return] true
+    │   │   ├─ [5894] ERC1967Proxy::getKycStatus(ECMul: [0x0000000000000000000000000000000000000007]) [staticcall]
+    │   │   │   ├─ [5581] BlockVirtualGovernance::getKycStatus(ECMul: [0x0000000000000000000000000000000000000007]) [delegatecall]
+    │   │   │   │   └─ ← [Return] true
+    │   │   │   └─ ← [Return] true
+    │   │   ├─ [1541] ERC1967Proxy::isFromSupportedCountry(RIPEMD-160: [0x0000000000000000000000000000000000000003]) [staticcall]
+    │   │   │   ├─ [1228] BlockVirtualGovernance::isFromSupportedCountry(RIPEMD-160: [0x0000000000000000000000000000000000000003]) [delegatecall]
+    │   │   │   │   └─ ← [Return] true
+    │   │   │   └─ ← [Return] true
+    │   │   ├─ [5541] ERC1967Proxy::isFromSupportedCountry(ECMul: [0x0000000000000000000000000000000000000007]) [staticcall]
+    │   │   │   ├─ [5228] BlockVirtualGovernance::isFromSupportedCountry(ECMul: [0x0000000000000000000000000000000000000007]) [delegatecall]
+    │   │   │   │   └─ ← [Return] false
+    │   │   │   └─ ← [Return] false
+    │   │   ├─ [1202] ERC1967Proxy::isBlacklisted(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], RIPEMD-160: [0x0000000000000000000000000000000000000003]) [staticcall]
+    │   │   │   ├─ [886] BlockVirtualGovernance::isBlacklisted(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], RIPEMD-160: [0x0000000000000000000000000000000000000003]) [delegatecall]
+    │   │   │   │   └─ ← [Return] false
+    │   │   │   └─ ← [Return] false
+    │   │   ├─ [3202] ERC1967Proxy::isBlacklisted(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], ECMul: [0x0000000000000000000000000000000000000007]) [staticcall]
+    │   │   │   ├─ [2886] BlockVirtualGovernance::isBlacklisted(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], ECMul: [0x0000000000000000000000000000000000000007]) [delegatecall]
+    │   │   │   │   └─ ← [Return] false
+    │   │   │   └─ ← [Return] false
+    │   │   └─ ← [Return] false
+    │   └─ ← [Return] false
+    ├─ [0] VM::assertFalse(false) [staticcall]
+    │   └─ ← [Return] 
+    ├─ [18331] ERC1967Proxy::checkCompliance(RIPEMD-160: [0x0000000000000000000000000000000000000003], ECPairing: [0x0000000000000000000000000000000000000008]) [staticcall]
+    │   ├─ [18015] RwaToken::checkCompliance(RIPEMD-160: [0x0000000000000000000000000000000000000003], ECPairing: [0x0000000000000000000000000000000000000008]) [delegatecall]
+    │   │   ├─ [1894] ERC1967Proxy::getKycStatus(RIPEMD-160: [0x0000000000000000000000000000000000000003]) [staticcall]
+    │   │   │   ├─ [1581] BlockVirtualGovernance::getKycStatus(RIPEMD-160: [0x0000000000000000000000000000000000000003]) [delegatecall]
+    │   │   │   │   └─ ← [Return] true
+    │   │   │   └─ ← [Return] true
+    │   │   ├─ [3432] ERC1967Proxy::getKycStatus(ECPairing: [0x0000000000000000000000000000000000000008]) [staticcall]
+    │   │   │   ├─ [3119] BlockVirtualGovernance::getKycStatus(ECPairing: [0x0000000000000000000000000000000000000008]) [delegatecall]
+    │   │   │   │   └─ ← [Return] false
+    │   │   │   └─ ← [Return] false
+    │   │   ├─ [1541] ERC1967Proxy::isFromSupportedCountry(RIPEMD-160: [0x0000000000000000000000000000000000000003]) [staticcall]
+    │   │   │   ├─ [1228] BlockVirtualGovernance::isFromSupportedCountry(RIPEMD-160: [0x0000000000000000000000000000000000000003]) [delegatecall]
+    │   │   │   │   └─ ← [Return] true
+    │   │   │   └─ ← [Return] true
+    │   │   ├─ [3167] ERC1967Proxy::isFromSupportedCountry(ECPairing: [0x0000000000000000000000000000000000000008]) [staticcall]
+    │   │   │   ├─ [2854] BlockVirtualGovernance::isFromSupportedCountry(ECPairing: [0x0000000000000000000000000000000000000008]) [delegatecall]
+    │   │   │   │   └─ ← [Return] false
+    │   │   │   └─ ← [Return] false
+    │   │   ├─ [1202] ERC1967Proxy::isBlacklisted(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], RIPEMD-160: [0x0000000000000000000000000000000000000003]) [staticcall]
+    │   │   │   ├─ [886] BlockVirtualGovernance::isBlacklisted(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], RIPEMD-160: [0x0000000000000000000000000000000000000003]) [delegatecall]
+    │   │   │   │   └─ ← [Return] false
+    │   │   │   └─ ← [Return] false
+    │   │   ├─ [3202] ERC1967Proxy::isBlacklisted(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], ECPairing: [0x0000000000000000000000000000000000000008]) [staticcall]
+    │   │   │   ├─ [2886] BlockVirtualGovernance::isBlacklisted(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], ECPairing: [0x0000000000000000000000000000000000000008]) [delegatecall]
+    │   │   │   │   └─ ← [Return] true
+    │   │   │   └─ ← [Return] true
+    │   │   └─ ← [Return] false
+    │   └─ ← [Return] false
+    ├─ [0] VM::assertFalse(false) [staticcall]
+    │   └─ ← [Return] 
+    └─ ← [Return] 
+
+[PASS] test_IsBlacklisted() (gas: 63594)
+Traces:
+  [66796] RwaTokenTest::test_IsBlacklisted()
+    ├─ [18331] ERC1967Proxy::isBlacklisted(ECPairing: [0x0000000000000000000000000000000000000008]) [staticcall]
+    │   ├─ [13518] RwaToken::isBlacklisted(ECPairing: [0x0000000000000000000000000000000000000008]) [delegatecall]
+    │   │   ├─ [7702] ERC1967Proxy::isBlacklisted(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], ECPairing: [0x0000000000000000000000000000000000000008]) [staticcall]
+    │   │   │   ├─ [2886] BlockVirtualGovernance::isBlacklisted(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], ECPairing: [0x0000000000000000000000000000000000000008]) [delegatecall]
+    │   │   │   │   └─ ← [Return] true
+    │   │   │   └─ ← [Return] true
+    │   │   └─ ← [Return] true
+    │   └─ ← [Return] true
+    ├─ [0] VM::assertTrue(true) [staticcall]
+    │   └─ ← [Return] 
+    ├─ [4831] ERC1967Proxy::isBlacklisted(RIPEMD-160: [0x0000000000000000000000000000000000000003]) [staticcall]
+    │   ├─ [4518] RwaToken::isBlacklisted(RIPEMD-160: [0x0000000000000000000000000000000000000003]) [delegatecall]
+    │   │   ├─ [3202] ERC1967Proxy::isBlacklisted(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], RIPEMD-160: [0x0000000000000000000000000000000000000003]) [staticcall]
+    │   │   │   ├─ [2886] BlockVirtualGovernance::isBlacklisted(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], RIPEMD-160: [0x0000000000000000000000000000000000000003]) [delegatecall]
+    │   │   │   │   └─ ← [Return] false
+    │   │   │   └─ ← [Return] false
+    │   │   └─ ← [Return] false
+    │   └─ ← [Return] false
+    ├─ [0] VM::assertFalse(false) [staticcall]
+    │   └─ ← [Return] 
+    ├─ [0] VM::prank(SHA-256: [0x0000000000000000000000000000000000000002])
+    │   └─ ← [Return] 
+    ├─ [27461] ERC1967Proxy::addBlacklisted(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], RIPEMD-160: [0x0000000000000000000000000000000000000003])
+    │   ├─ [27148] BlockVirtualGovernance::addBlacklisted(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], RIPEMD-160: [0x0000000000000000000000000000000000000003]) [delegatecall]
+    │   │   ├─ emit UserBlacklisted(token: ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], user: RIPEMD-160: [0x0000000000000000000000000000000000000003], operator: SHA-256: [0x0000000000000000000000000000000000000002])
+    │   │   └─ ← [Stop] 
+    │   └─ ← [Return] 
+    ├─ [2831] ERC1967Proxy::isBlacklisted(RIPEMD-160: [0x0000000000000000000000000000000000000003]) [staticcall]
+    │   ├─ [2518] RwaToken::isBlacklisted(RIPEMD-160: [0x0000000000000000000000000000000000000003]) [delegatecall]
+    │   │   ├─ [1202] ERC1967Proxy::isBlacklisted(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], RIPEMD-160: [0x0000000000000000000000000000000000000003]) [staticcall]
+    │   │   │   ├─ [886] BlockVirtualGovernance::isBlacklisted(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], RIPEMD-160: [0x0000000000000000000000000000000000000003]) [delegatecall]
+    │   │   │   │   └─ ← [Return] true
+    │   │   │   └─ ← [Return] true
+    │   │   └─ ← [Return] true
+    │   └─ ← [Return] true
+    ├─ [0] VM::assertTrue(true) [staticcall]
+    │   └─ ← [Return] 
+    ├─ [0] VM::prank(SHA-256: [0x0000000000000000000000000000000000000002])
+    │   └─ ← [Return] 
+    ├─ [3841] ERC1967Proxy::removeBlacklisted(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], RIPEMD-160: [0x0000000000000000000000000000000000000003])
+    │   ├─ [3528] BlockVirtualGovernance::removeBlacklisted(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], RIPEMD-160: [0x0000000000000000000000000000000000000003]) [delegatecall]
+    │   │   ├─ emit UserRemovedFromBlacklist(token: ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], user: RIPEMD-160: [0x0000000000000000000000000000000000000003], operator: SHA-256: [0x0000000000000000000000000000000000000002])
+    │   │   └─ ← [Stop] 
+    │   └─ ← [Return] 
+    ├─ [2831] ERC1967Proxy::isBlacklisted(RIPEMD-160: [0x0000000000000000000000000000000000000003]) [staticcall]
+    │   ├─ [2518] RwaToken::isBlacklisted(RIPEMD-160: [0x0000000000000000000000000000000000000003]) [delegatecall]
+    │   │   ├─ [1202] ERC1967Proxy::isBlacklisted(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], RIPEMD-160: [0x0000000000000000000000000000000000000003]) [staticcall]
+    │   │   │   ├─ [886] BlockVirtualGovernance::isBlacklisted(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], RIPEMD-160: [0x0000000000000000000000000000000000000003]) [delegatecall]
+    │   │   │   │   └─ ← [Return] false
+    │   │   │   └─ ← [Return] false
+    │   │   └─ ← [Return] false
+    │   └─ ← [Return] false
+    ├─ [0] VM::assertFalse(false) [staticcall]
+    │   └─ ← [Return] 
+    └─ ← [Return] 
+
+[PASS] test_MintRwa() (gas: 79178)
+Traces:
+  [79178] RwaTokenTest::test_MintRwa()
+    ├─ [0] VM::prank(ERC1967Proxy: [0xF62849F9A0B5Bf2913b396098F7c7019b51A820a])
+    │   └─ ← [Return] 
+    ├─ [64342] ERC1967Proxy::mintRwa(RIPEMD-160: [0x0000000000000000000000000000000000000003], 1000000000000000000000 [1e21])
+    │   ├─ [59529] RwaToken::mintRwa(RIPEMD-160: [0x0000000000000000000000000000000000000003], 1000000000000000000000 [1e21]) [delegatecall]
+    │   │   ├─ [7702] ERC1967Proxy::isBlacklisted(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], RIPEMD-160: [0x0000000000000000000000000000000000000003]) [staticcall]
+    │   │   │   ├─ [2886] BlockVirtualGovernance::isBlacklisted(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], RIPEMD-160: [0x0000000000000000000000000000000000000003]) [delegatecall]
+    │   │   │   │   └─ ← [Return] false
+    │   │   │   └─ ← [Return] false
+    │   │   ├─ emit Transfer(from: 0x0000000000000000000000000000000000000000, to: RIPEMD-160: [0x0000000000000000000000000000000000000003], value: 1000000000000000000000 [1e21])
+    │   │   └─ ← [Return] 
+    │   └─ ← [Return] 
+    ├─ [923] ERC1967Proxy::balanceOf(RIPEMD-160: [0x0000000000000000000000000000000000000003]) [staticcall]
+    │   ├─ [610] RwaToken::balanceOf(RIPEMD-160: [0x0000000000000000000000000000000000000003]) [delegatecall]
+    │   │   └─ ← [Return] 1000000000000000000000 [1e21]
+    │   └─ ← [Return] 1000000000000000000000 [1e21]
+    ├─ [0] VM::assertEq(1000000000000000000000 [1e21], 1000000000000000000000 [1e21]) [staticcall]
+    │   └─ ← [Return] 
+    └─ ← [Return] 
+
+[PASS] test_MintRwa_BlacklistedUser() (gas: 32486)
+Traces:
+  [32486] RwaTokenTest::test_MintRwa_BlacklistedUser()
+    ├─ [0] VM::prank(ERC1967Proxy: [0xF62849F9A0B5Bf2913b396098F7c7019b51A820a])
+    │   └─ ← [Return] 
+    ├─ [0] VM::expectRevert(UserBlacklisted(0x0000000000000000000000000000000000000008))
+    │   └─ ← [Return] 
+    ├─ [18161] ERC1967Proxy::mintRwa(ECPairing: [0x0000000000000000000000000000000000000008], 1000000000000000000000 [1e21])
+    │   ├─ [13341] RwaToken::mintRwa(ECPairing: [0x0000000000000000000000000000000000000008], 1000000000000000000000 [1e21]) [delegatecall]
+    │   │   ├─ [7702] ERC1967Proxy::isBlacklisted(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], ECPairing: [0x0000000000000000000000000000000000000008]) [staticcall]
+    │   │   │   ├─ [2886] BlockVirtualGovernance::isBlacklisted(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], ECPairing: [0x0000000000000000000000000000000000000008]) [delegatecall]
+    │   │   │   │   └─ ← [Return] true
+    │   │   │   └─ ← [Return] true
+    │   │   └─ ← [Revert] UserBlacklisted(0x0000000000000000000000000000000000000008)
+    │   └─ ← [Revert] UserBlacklisted(0x0000000000000000000000000000000000000008)
+    └─ ← [Return] 
+
+[PASS] test_MintRwa_Unauthorized() (gas: 20976)
+Traces:
+  [20976] RwaTokenTest::test_MintRwa_Unauthorized()
+    ├─ [0] VM::prank(ECRecover: [0x0000000000000000000000000000000000000001])
+    │   └─ ← [Return] 
+    ├─ [0] VM::expectRevert(UnauthorizedRole(0x0000000000000000000000000000000000000001))
+    │   └─ ← [Return] 
+    ├─ [7423] ERC1967Proxy::mintRwa(RIPEMD-160: [0x0000000000000000000000000000000000000003], 1000000000000000000000 [1e21])
+    │   ├─ [2603] RwaToken::mintRwa(RIPEMD-160: [0x0000000000000000000000000000000000000003], 1000000000000000000000 [1e21]) [delegatecall]
+    │   │   └─ ← [Revert] UnauthorizedRole(0x0000000000000000000000000000000000000001)
+    │   └─ ← [Revert] UnauthorizedRole(0x0000000000000000000000000000000000000001)
+    └─ ← [Return] 
+
+[PASS] test_TokenInitialization() (gas: 32180)
+Traces:
+  [32180] RwaTokenTest::test_TokenInitialization()
+    ├─ [7714] ERC1967Proxy::name() [staticcall]
+    │   ├─ [2898] RwaToken::name() [delegatecall]
+    │   │   └─ ← [Return] "Singapore Dollar"
+    │   └─ ← [Return] "Singapore Dollar"
+    ├─ [0] VM::assertEq("Singapore Dollar", "Singapore Dollar") [staticcall]
+    │   └─ ← [Return] 
+    ├─ [3478] ERC1967Proxy::symbol() [staticcall]
+    │   ├─ [3162] RwaToken::symbol() [delegatecall]
+    │   │   └─ ← [Return] "SGD"
+    │   └─ ← [Return] "SGD"
+    ├─ [0] VM::assertEq("SGD", "SGD") [staticcall]
+    │   └─ ← [Return] 
+    ├─ [2936] ERC1967Proxy::blockVirtualGovernance() [staticcall]
+    │   ├─ [2626] RwaToken::blockVirtualGovernance() [delegatecall]
+    │   │   └─ ← [Return] ERC1967Proxy: [0xF62849F9A0B5Bf2913b396098F7c7019b51A820a]
+    │   └─ ← [Return] ERC1967Proxy: [0xF62849F9A0B5Bf2913b396098F7c7019b51A820a]
+    ├─ [0] VM::assertEq(ERC1967Proxy: [0xF62849F9A0B5Bf2913b396098F7c7019b51A820a], ERC1967Proxy: [0xF62849F9A0B5Bf2913b396098F7c7019b51A820a]) [staticcall]
+    │   └─ ← [Return] 
+    ├─ [2846] ERC1967Proxy::supportedCountryCode() [staticcall]
+    │   ├─ [2536] RwaToken::supportedCountryCode() [delegatecall]
+    │   │   └─ ← [Return] 702
+    │   └─ ← [Return] 702
+    ├─ [0] VM::assertEq(702, 702) [staticcall]
+    │   └─ ← [Return] 
+    └─ ← [Return] 
+
+[PASS] test_TransferFrom_Blacklisted() (gas: 205979)
+Traces:
+  [205979] RwaTokenTest::test_TransferFrom_Blacklisted()
+    ├─ [0] VM::prank(ERC1967Proxy: [0xF62849F9A0B5Bf2913b396098F7c7019b51A820a])
+    │   └─ ← [Return] 
+    ├─ [64342] ERC1967Proxy::mintRwa(RIPEMD-160: [0x0000000000000000000000000000000000000003], 1000000000000000000000 [1e21])
+    │   ├─ [59529] RwaToken::mintRwa(RIPEMD-160: [0x0000000000000000000000000000000000000003], 1000000000000000000000 [1e21]) [delegatecall]
+    │   │   ├─ [7702] ERC1967Proxy::isBlacklisted(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], RIPEMD-160: [0x0000000000000000000000000000000000000003]) [staticcall]
+    │   │   │   ├─ [2886] BlockVirtualGovernance::isBlacklisted(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], RIPEMD-160: [0x0000000000000000000000000000000000000003]) [delegatecall]
+    │   │   │   │   └─ ← [Return] false
+    │   │   │   └─ ← [Return] false
+    │   │   ├─ emit Transfer(from: 0x0000000000000000000000000000000000000000, to: RIPEMD-160: [0x0000000000000000000000000000000000000003], value: 1000000000000000000000 [1e21])
+    │   │   └─ ← [Return] 
+    │   └─ ← [Return] 
+    ├─ [0] VM::prank(RIPEMD-160: [0x0000000000000000000000000000000000000003])
+    │   └─ ← [Return] 
+    ├─ [24689] ERC1967Proxy::approve(Identity: [0x0000000000000000000000000000000000000004], 500000000000000000000 [5e20])
+    │   ├─ [24373] RwaToken::approve(Identity: [0x0000000000000000000000000000000000000004], 500000000000000000000 [5e20]) [delegatecall]
+    │   │   ├─ emit Approval(owner: RIPEMD-160: [0x0000000000000000000000000000000000000003], spender: Identity: [0x0000000000000000000000000000000000000004], value: 500000000000000000000 [5e20])
+    │   │   └─ ← [Return] true
+    │   └─ ← [Return] true
+    ├─ [0] VM::prank(Identity: [0x0000000000000000000000000000000000000004])
+    │   └─ ← [Return] 
+    ├─ [0] VM::expectRevert(UserBlacklisted(0x0000000000000000000000000000000000000008))
+    │   └─ ← [Return] 
+    ├─ [29869] ERC1967Proxy::transferFrom(RIPEMD-160: [0x0000000000000000000000000000000000000003], ECPairing: [0x0000000000000000000000000000000000000008], 300000000000000000000 [3e20])
+    │   ├─ [29543] RwaToken::transferFrom(RIPEMD-160: [0x0000000000000000000000000000000000000003], ECPairing: [0x0000000000000000000000000000000000000008], 300000000000000000000 [3e20]) [delegatecall]
+    │   │   ├─ [5894] ERC1967Proxy::getKycStatus(RIPEMD-160: [0x0000000000000000000000000000000000000003]) [staticcall]
+    │   │   │   ├─ [5581] BlockVirtualGovernance::getKycStatus(RIPEMD-160: [0x0000000000000000000000000000000000000003]) [delegatecall]
+    │   │   │   │   └─ ← [Return] true
+    │   │   │   └─ ← [Return] true
+    │   │   ├─ [3432] ERC1967Proxy::getKycStatus(ECPairing: [0x0000000000000000000000000000000000000008]) [staticcall]
+    │   │   │   ├─ [3119] BlockVirtualGovernance::getKycStatus(ECPairing: [0x0000000000000000000000000000000000000008]) [delegatecall]
+    │   │   │   │   └─ ← [Return] false
+    │   │   │   └─ ← [Return] false
+    │   │   ├─ [5541] ERC1967Proxy::isFromSupportedCountry(RIPEMD-160: [0x0000000000000000000000000000000000000003]) [staticcall]
+    │   │   │   ├─ [5228] BlockVirtualGovernance::isFromSupportedCountry(RIPEMD-160: [0x0000000000000000000000000000000000000003]) [delegatecall]
+    │   │   │   │   └─ ← [Return] true
+    │   │   │   └─ ← [Return] true
+    │   │   ├─ [3167] ERC1967Proxy::isFromSupportedCountry(ECPairing: [0x0000000000000000000000000000000000000008]) [staticcall]
+    │   │   │   ├─ [2854] BlockVirtualGovernance::isFromSupportedCountry(ECPairing: [0x0000000000000000000000000000000000000008]) [delegatecall]
+    │   │   │   │   └─ ← [Return] false
+    │   │   │   └─ ← [Return] false
+    │   │   ├─ [1202] ERC1967Proxy::isBlacklisted(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], RIPEMD-160: [0x0000000000000000000000000000000000000003]) [staticcall]
+    │   │   │   ├─ [886] BlockVirtualGovernance::isBlacklisted(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], RIPEMD-160: [0x0000000000000000000000000000000000000003]) [delegatecall]
+    │   │   │   │   └─ ← [Return] false
+    │   │   │   └─ ← [Return] false
+    │   │   ├─ [3202] ERC1967Proxy::isBlacklisted(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], ECPairing: [0x0000000000000000000000000000000000000008]) [staticcall]
+    │   │   │   ├─ [2886] BlockVirtualGovernance::isBlacklisted(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], ECPairing: [0x0000000000000000000000000000000000000008]) [delegatecall]
+    │   │   │   │   └─ ← [Return] true
+    │   │   │   └─ ← [Return] true
+    │   │   ├─ [1202] ERC1967Proxy::isBlacklisted(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], RIPEMD-160: [0x0000000000000000000000000000000000000003]) [staticcall]
+    │   │   │   ├─ [886] BlockVirtualGovernance::isBlacklisted(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], RIPEMD-160: [0x0000000000000000000000000000000000000003]) [delegatecall]
+    │   │   │   │   └─ ← [Return] false
+    │   │   │   └─ ← [Return] false
+    │   │   ├─ [1202] ERC1967Proxy::isBlacklisted(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], ECPairing: [0x0000000000000000000000000000000000000008]) [staticcall]
+    │   │   │   ├─ [886] BlockVirtualGovernance::isBlacklisted(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], ECPairing: [0x0000000000000000000000000000000000000008]) [delegatecall]
+    │   │   │   │   └─ ← [Return] true
+    │   │   │   └─ ← [Return] true
+    │   │   └─ ← [Revert] UserBlacklisted(0x0000000000000000000000000000000000000008)
+    │   └─ ← [Revert] UserBlacklisted(0x0000000000000000000000000000000000000008)
+    ├─ [0] VM::prank(SHA-256: [0x0000000000000000000000000000000000000002])
+    │   └─ ← [Return] 
+    ├─ [27461] ERC1967Proxy::addBlacklisted(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], RIPEMD-160: [0x0000000000000000000000000000000000000003])
+    │   ├─ [27148] BlockVirtualGovernance::addBlacklisted(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], RIPEMD-160: [0x0000000000000000000000000000000000000003]) [delegatecall]
+    │   │   ├─ emit UserBlacklisted(token: ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], user: RIPEMD-160: [0x0000000000000000000000000000000000000003], operator: SHA-256: [0x0000000000000000000000000000000000000002])
+    │   │   └─ ← [Stop] 
+    │   └─ ← [Return] 
+    ├─ [0] VM::prank(Identity: [0x0000000000000000000000000000000000000004])
+    │   └─ ← [Return] 
+    ├─ [0] VM::expectRevert(UserBlacklisted(0x0000000000000000000000000000000000000003))
+    │   └─ ← [Return] 
+    ├─ [31086] ERC1967Proxy::transferFrom(RIPEMD-160: [0x0000000000000000000000000000000000000003], ModExp: [0x0000000000000000000000000000000000000005], 300000000000000000000 [3e20])
+    │   ├─ [30760] RwaToken::transferFrom(RIPEMD-160: [0x0000000000000000000000000000000000000003], ModExp: [0x0000000000000000000000000000000000000005], 300000000000000000000 [3e20]) [delegatecall]
+    │   │   ├─ [5894] ERC1967Proxy::getKycStatus(RIPEMD-160: [0x0000000000000000000000000000000000000003]) [staticcall]
+    │   │   │   ├─ [5581] BlockVirtualGovernance::getKycStatus(RIPEMD-160: [0x0000000000000000000000000000000000000003]) [delegatecall]
+    │   │   │   │   └─ ← [Return] true
+    │   │   │   └─ ← [Return] true
+    │   │   ├─ [5894] ERC1967Proxy::getKycStatus(ModExp: [0x0000000000000000000000000000000000000005]) [staticcall]
+    │   │   │   ├─ [5581] BlockVirtualGovernance::getKycStatus(ModExp: [0x0000000000000000000000000000000000000005]) [delegatecall]
+    │   │   │   │   └─ ← [Return] true
+    │   │   │   └─ ← [Return] true
+    │   │   ├─ [5541] ERC1967Proxy::isFromSupportedCountry(RIPEMD-160: [0x0000000000000000000000000000000000000003]) [staticcall]
+    │   │   │   ├─ [5228] BlockVirtualGovernance::isFromSupportedCountry(RIPEMD-160: [0x0000000000000000000000000000000000000003]) [delegatecall]
+    │   │   │   │   └─ ← [Return] true
+    │   │   │   └─ ← [Return] true
+    │   │   ├─ [3541] ERC1967Proxy::isFromSupportedCountry(ModExp: [0x0000000000000000000000000000000000000005]) [staticcall]
+    │   │   │   ├─ [3228] BlockVirtualGovernance::isFromSupportedCountry(ModExp: [0x0000000000000000000000000000000000000005]) [delegatecall]
+    │   │   │   │   └─ ← [Return] true
+    │   │   │   └─ ← [Return] true
+    │   │   ├─ [1202] ERC1967Proxy::isBlacklisted(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], RIPEMD-160: [0x0000000000000000000000000000000000000003]) [staticcall]
+    │   │   │   ├─ [886] BlockVirtualGovernance::isBlacklisted(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], RIPEMD-160: [0x0000000000000000000000000000000000000003]) [delegatecall]
+    │   │   │   │   └─ ← [Return] true
+    │   │   │   └─ ← [Return] true
+    │   │   ├─ [3202] ERC1967Proxy::isBlacklisted(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], ModExp: [0x0000000000000000000000000000000000000005]) [staticcall]
+    │   │   │   ├─ [2886] BlockVirtualGovernance::isBlacklisted(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], ModExp: [0x0000000000000000000000000000000000000005]) [delegatecall]
+    │   │   │   │   └─ ← [Return] false
+    │   │   │   └─ ← [Return] false
+    │   │   ├─ [1202] ERC1967Proxy::isBlacklisted(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], RIPEMD-160: [0x0000000000000000000000000000000000000003]) [staticcall]
+    │   │   │   ├─ [886] BlockVirtualGovernance::isBlacklisted(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], RIPEMD-160: [0x0000000000000000000000000000000000000003]) [delegatecall]
+    │   │   │   │   └─ ← [Return] true
+    │   │   │   └─ ← [Return] true
+    │   │   └─ ← [Revert] UserBlacklisted(0x0000000000000000000000000000000000000003)
+    │   └─ ← [Revert] UserBlacklisted(0x0000000000000000000000000000000000000003)
+    └─ ← [Return] 
+
+[PASS] test_TransferFrom_NoKyc() (gas: 143448)
+Traces:
+  [143448] RwaTokenTest::test_TransferFrom_NoKyc()
+    ├─ [0] VM::prank(ERC1967Proxy: [0xF62849F9A0B5Bf2913b396098F7c7019b51A820a])
+    │   └─ ← [Return] 
+    ├─ [64342] ERC1967Proxy::mintRwa(RIPEMD-160: [0x0000000000000000000000000000000000000003], 1000000000000000000000 [1e21])
+    │   ├─ [59529] RwaToken::mintRwa(RIPEMD-160: [0x0000000000000000000000000000000000000003], 1000000000000000000000 [1e21]) [delegatecall]
+    │   │   ├─ [7702] ERC1967Proxy::isBlacklisted(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], RIPEMD-160: [0x0000000000000000000000000000000000000003]) [staticcall]
+    │   │   │   ├─ [2886] BlockVirtualGovernance::isBlacklisted(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], RIPEMD-160: [0x0000000000000000000000000000000000000003]) [delegatecall]
+    │   │   │   │   └─ ← [Return] false
+    │   │   │   └─ ← [Return] false
+    │   │   ├─ emit Transfer(from: 0x0000000000000000000000000000000000000000, to: RIPEMD-160: [0x0000000000000000000000000000000000000003], value: 1000000000000000000000 [1e21])
+    │   │   └─ ← [Return] 
+    │   └─ ← [Return] 
+    ├─ [0] VM::prank(RIPEMD-160: [0x0000000000000000000000000000000000000003])
+    │   └─ ← [Return] 
+    ├─ [24689] ERC1967Proxy::approve(Identity: [0x0000000000000000000000000000000000000004], 500000000000000000000 [5e20])
+    │   ├─ [24373] RwaToken::approve(Identity: [0x0000000000000000000000000000000000000004], 500000000000000000000 [5e20]) [delegatecall]
+    │   │   ├─ emit Approval(owner: RIPEMD-160: [0x0000000000000000000000000000000000000003], spender: Identity: [0x0000000000000000000000000000000000000004], value: 500000000000000000000 [5e20])
+    │   │   └─ ← [Return] true
+    │   └─ ← [Return] true
+    ├─ [0] VM::prank(Identity: [0x0000000000000000000000000000000000000004])
+    │   └─ ← [Return] 
+    ├─ [0] VM::expectRevert(UnauthorizedKycStatus())
+    │   └─ ← [Return] 
+    ├─ [34133] ERC1967Proxy::transferFrom(RIPEMD-160: [0x0000000000000000000000000000000000000003], ECAdd: [0x0000000000000000000000000000000000000006], 300000000000000000000 [3e20])
+    │   ├─ [33810] RwaToken::transferFrom(RIPEMD-160: [0x0000000000000000000000000000000000000003], ECAdd: [0x0000000000000000000000000000000000000006], 300000000000000000000 [3e20]) [delegatecall]
+    │   │   ├─ [5894] ERC1967Proxy::getKycStatus(RIPEMD-160: [0x0000000000000000000000000000000000000003]) [staticcall]
+    │   │   │   ├─ [5581] BlockVirtualGovernance::getKycStatus(RIPEMD-160: [0x0000000000000000000000000000000000000003]) [delegatecall]
+    │   │   │   │   └─ ← [Return] true
+    │   │   │   └─ ← [Return] true
+    │   │   ├─ [3432] ERC1967Proxy::getKycStatus(ECAdd: [0x0000000000000000000000000000000000000006]) [staticcall]
+    │   │   │   ├─ [3119] BlockVirtualGovernance::getKycStatus(ECAdd: [0x0000000000000000000000000000000000000006]) [delegatecall]
+    │   │   │   │   └─ ← [Return] false
+    │   │   │   └─ ← [Return] false
+    │   │   ├─ [5541] ERC1967Proxy::isFromSupportedCountry(RIPEMD-160: [0x0000000000000000000000000000000000000003]) [staticcall]
+    │   │   │   ├─ [5228] BlockVirtualGovernance::isFromSupportedCountry(RIPEMD-160: [0x0000000000000000000000000000000000000003]) [delegatecall]
+    │   │   │   │   └─ ← [Return] true
+    │   │   │   └─ ← [Return] true
+    │   │   ├─ [3167] ERC1967Proxy::isFromSupportedCountry(ECAdd: [0x0000000000000000000000000000000000000006]) [staticcall]
+    │   │   │   ├─ [2854] BlockVirtualGovernance::isFromSupportedCountry(ECAdd: [0x0000000000000000000000000000000000000006]) [delegatecall]
+    │   │   │   │   └─ ← [Return] false
+    │   │   │   └─ ← [Return] false
+    │   │   ├─ [1202] ERC1967Proxy::isBlacklisted(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], RIPEMD-160: [0x0000000000000000000000000000000000000003]) [staticcall]
+    │   │   │   ├─ [886] BlockVirtualGovernance::isBlacklisted(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], RIPEMD-160: [0x0000000000000000000000000000000000000003]) [delegatecall]
+    │   │   │   │   └─ ← [Return] false
+    │   │   │   └─ ← [Return] false
+    │   │   ├─ [3202] ERC1967Proxy::isBlacklisted(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], ECAdd: [0x0000000000000000000000000000000000000006]) [staticcall]
+    │   │   │   ├─ [2886] BlockVirtualGovernance::isBlacklisted(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], ECAdd: [0x0000000000000000000000000000000000000006]) [delegatecall]
+    │   │   │   │   └─ ← [Return] false
+    │   │   │   └─ ← [Return] false
+    │   │   ├─ [1202] ERC1967Proxy::isBlacklisted(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], RIPEMD-160: [0x0000000000000000000000000000000000000003]) [staticcall]
+    │   │   │   ├─ [886] BlockVirtualGovernance::isBlacklisted(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], RIPEMD-160: [0x0000000000000000000000000000000000000003]) [delegatecall]
+    │   │   │   │   └─ ← [Return] false
+    │   │   │   └─ ← [Return] false
+    │   │   ├─ [1202] ERC1967Proxy::isBlacklisted(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], ECAdd: [0x0000000000000000000000000000000000000006]) [staticcall]
+    │   │   │   ├─ [886] BlockVirtualGovernance::isBlacklisted(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], ECAdd: [0x0000000000000000000000000000000000000006]) [delegatecall]
+    │   │   │   │   └─ ← [Return] false
+    │   │   │   └─ ← [Return] false
+    │   │   ├─ [1894] ERC1967Proxy::getKycStatus(RIPEMD-160: [0x0000000000000000000000000000000000000003]) [staticcall]
+    │   │   │   ├─ [1581] BlockVirtualGovernance::getKycStatus(RIPEMD-160: [0x0000000000000000000000000000000000000003]) [delegatecall]
+    │   │   │   │   └─ ← [Return] true
+    │   │   │   └─ ← [Return] true
+    │   │   ├─ [1432] ERC1967Proxy::getKycStatus(ECAdd: [0x0000000000000000000000000000000000000006]) [staticcall]
+    │   │   │   ├─ [1119] BlockVirtualGovernance::getKycStatus(ECAdd: [0x0000000000000000000000000000000000000006]) [delegatecall]
+    │   │   │   │   └─ ← [Return] false
+    │   │   │   └─ ← [Return] false
+    │   │   └─ ← [Revert] UnauthorizedKycStatus()
+    │   └─ ← [Revert] UnauthorizedKycStatus()
+    └─ ← [Return] 
+
+[PASS] test_TransferFrom_Successful() (gas: 170197)
+Traces:
+  [170197] RwaTokenTest::test_TransferFrom_Successful()
+    ├─ [0] VM::prank(ERC1967Proxy: [0xF62849F9A0B5Bf2913b396098F7c7019b51A820a])
+    │   └─ ← [Return] 
+    ├─ [64342] ERC1967Proxy::mintRwa(RIPEMD-160: [0x0000000000000000000000000000000000000003], 1000000000000000000000 [1e21])
+    │   ├─ [59529] RwaToken::mintRwa(RIPEMD-160: [0x0000000000000000000000000000000000000003], 1000000000000000000000 [1e21]) [delegatecall]
+    │   │   ├─ [7702] ERC1967Proxy::isBlacklisted(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], RIPEMD-160: [0x0000000000000000000000000000000000000003]) [staticcall]
+    │   │   │   ├─ [2886] BlockVirtualGovernance::isBlacklisted(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], RIPEMD-160: [0x0000000000000000000000000000000000000003]) [delegatecall]
+    │   │   │   │   └─ ← [Return] false
+    │   │   │   └─ ← [Return] false
+    │   │   ├─ emit Transfer(from: 0x0000000000000000000000000000000000000000, to: RIPEMD-160: [0x0000000000000000000000000000000000000003], value: 1000000000000000000000 [1e21])
+    │   │   └─ ← [Return] 
+    │   └─ ← [Return] 
+    ├─ [0] VM::prank(RIPEMD-160: [0x0000000000000000000000000000000000000003])
+    │   └─ ← [Return] 
+    ├─ [24689] ERC1967Proxy::approve(Identity: [0x0000000000000000000000000000000000000004], 500000000000000000000 [5e20])
+    │   ├─ [24373] RwaToken::approve(Identity: [0x0000000000000000000000000000000000000004], 500000000000000000000 [5e20]) [delegatecall]
+    │   │   ├─ emit Approval(owner: RIPEMD-160: [0x0000000000000000000000000000000000000003], spender: Identity: [0x0000000000000000000000000000000000000004], value: 500000000000000000000 [5e20])
+    │   │   └─ ← [Return] true
+    │   └─ ← [Return] true
+    ├─ [0] VM::prank(Identity: [0x0000000000000000000000000000000000000004])
+    │   └─ ← [Return] 
+    ├─ [54508] ERC1967Proxy::transferFrom(RIPEMD-160: [0x0000000000000000000000000000000000000003], ModExp: [0x0000000000000000000000000000000000000005], 300000000000000000000 [3e20])
+    │   ├─ [54186] RwaToken::transferFrom(RIPEMD-160: [0x0000000000000000000000000000000000000003], ModExp: [0x0000000000000000000000000000000000000005], 300000000000000000000 [3e20]) [delegatecall]
+    │   │   ├─ [5894] ERC1967Proxy::getKycStatus(RIPEMD-160: [0x0000000000000000000000000000000000000003]) [staticcall]
+    │   │   │   ├─ [5581] BlockVirtualGovernance::getKycStatus(RIPEMD-160: [0x0000000000000000000000000000000000000003]) [delegatecall]
+    │   │   │   │   └─ ← [Return] true
+    │   │   │   └─ ← [Return] true
+    │   │   ├─ [5894] ERC1967Proxy::getKycStatus(ModExp: [0x0000000000000000000000000000000000000005]) [staticcall]
+    │   │   │   ├─ [5581] BlockVirtualGovernance::getKycStatus(ModExp: [0x0000000000000000000000000000000000000005]) [delegatecall]
+    │   │   │   │   └─ ← [Return] true
+    │   │   │   └─ ← [Return] true
+    │   │   ├─ [5541] ERC1967Proxy::isFromSupportedCountry(RIPEMD-160: [0x0000000000000000000000000000000000000003]) [staticcall]
+    │   │   │   ├─ [5228] BlockVirtualGovernance::isFromSupportedCountry(RIPEMD-160: [0x0000000000000000000000000000000000000003]) [delegatecall]
+    │   │   │   │   └─ ← [Return] true
+    │   │   │   └─ ← [Return] true
+    │   │   ├─ [3541] ERC1967Proxy::isFromSupportedCountry(ModExp: [0x0000000000000000000000000000000000000005]) [staticcall]
+    │   │   │   ├─ [3228] BlockVirtualGovernance::isFromSupportedCountry(ModExp: [0x0000000000000000000000000000000000000005]) [delegatecall]
+    │   │   │   │   └─ ← [Return] true
+    │   │   │   └─ ← [Return] true
+    │   │   ├─ [1202] ERC1967Proxy::isBlacklisted(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], RIPEMD-160: [0x0000000000000000000000000000000000000003]) [staticcall]
+    │   │   │   ├─ [886] BlockVirtualGovernance::isBlacklisted(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], RIPEMD-160: [0x0000000000000000000000000000000000000003]) [delegatecall]
+    │   │   │   │   └─ ← [Return] false
+    │   │   │   └─ ← [Return] false
+    │   │   ├─ [3202] ERC1967Proxy::isBlacklisted(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], ModExp: [0x0000000000000000000000000000000000000005]) [staticcall]
+    │   │   │   ├─ [2886] BlockVirtualGovernance::isBlacklisted(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], ModExp: [0x0000000000000000000000000000000000000005]) [delegatecall]
+    │   │   │   │   └─ ← [Return] false
+    │   │   │   └─ ← [Return] false
+    │   │   ├─ emit Transfer(from: RIPEMD-160: [0x0000000000000000000000000000000000000003], to: ModExp: [0x0000000000000000000000000000000000000005], value: 300000000000000000000 [3e20])
+    │   │   └─ ← [Return] true
+    │   └─ ← [Return] true
+    ├─ [0] VM::assertTrue(true) [staticcall]
+    │   └─ ← [Return] 
+    ├─ [923] ERC1967Proxy::balanceOf(RIPEMD-160: [0x0000000000000000000000000000000000000003]) [staticcall]
+    │   ├─ [610] RwaToken::balanceOf(RIPEMD-160: [0x0000000000000000000000000000000000000003]) [delegatecall]
+    │   │   └─ ← [Return] 700000000000000000000 [7e20]
+    │   └─ ← [Return] 700000000000000000000 [7e20]
+    ├─ [0] VM::assertEq(700000000000000000000 [7e20], 700000000000000000000 [7e20]) [staticcall]
+    │   └─ ← [Return] 
+    ├─ [923] ERC1967Proxy::balanceOf(ModExp: [0x0000000000000000000000000000000000000005]) [staticcall]
+    │   ├─ [610] RwaToken::balanceOf(ModExp: [0x0000000000000000000000000000000000000005]) [delegatecall]
+    │   │   └─ ← [Return] 300000000000000000000 [3e20]
+    │   └─ ← [Return] 300000000000000000000 [3e20]
+    ├─ [0] VM::assertEq(300000000000000000000 [3e20], 300000000000000000000 [3e20]) [staticcall]
+    │   └─ ← [Return] 
+    ├─ [1281] ERC1967Proxy::allowance(RIPEMD-160: [0x0000000000000000000000000000000000000003], Identity: [0x0000000000000000000000000000000000000004]) [staticcall]
+    │   ├─ [965] RwaToken::allowance(RIPEMD-160: [0x0000000000000000000000000000000000000003], Identity: [0x0000000000000000000000000000000000000004]) [delegatecall]
+    │   │   └─ ← [Return] 200000000000000000000 [2e20]
+    │   └─ ← [Return] 200000000000000000000 [2e20]
+    ├─ [0] VM::assertEq(200000000000000000000 [2e20], 200000000000000000000 [2e20]) [staticcall]
+    │   └─ ← [Return] 
+    └─ ← [Return] 
+
+[PASS] test_TransferFrom_UnsupportedCountry() (gas: 152960)
+Traces:
+  [152960] RwaTokenTest::test_TransferFrom_UnsupportedCountry()
+    ├─ [0] VM::prank(ERC1967Proxy: [0xF62849F9A0B5Bf2913b396098F7c7019b51A820a])
+    │   └─ ← [Return] 
+    ├─ [64342] ERC1967Proxy::mintRwa(RIPEMD-160: [0x0000000000000000000000000000000000000003], 1000000000000000000000 [1e21])
+    │   ├─ [59529] RwaToken::mintRwa(RIPEMD-160: [0x0000000000000000000000000000000000000003], 1000000000000000000000 [1e21]) [delegatecall]
+    │   │   ├─ [7702] ERC1967Proxy::isBlacklisted(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], RIPEMD-160: [0x0000000000000000000000000000000000000003]) [staticcall]
+    │   │   │   ├─ [2886] BlockVirtualGovernance::isBlacklisted(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], RIPEMD-160: [0x0000000000000000000000000000000000000003]) [delegatecall]
+    │   │   │   │   └─ ← [Return] false
+    │   │   │   └─ ← [Return] false
+    │   │   ├─ emit Transfer(from: 0x0000000000000000000000000000000000000000, to: RIPEMD-160: [0x0000000000000000000000000000000000000003], value: 1000000000000000000000 [1e21])
+    │   │   └─ ← [Return] 
+    │   └─ ← [Return] 
+    ├─ [0] VM::prank(RIPEMD-160: [0x0000000000000000000000000000000000000003])
+    │   └─ ← [Return] 
+    ├─ [24689] ERC1967Proxy::approve(Identity: [0x0000000000000000000000000000000000000004], 500000000000000000000 [5e20])
+    │   ├─ [24373] RwaToken::approve(Identity: [0x0000000000000000000000000000000000000004], 500000000000000000000 [5e20]) [delegatecall]
+    │   │   ├─ emit Approval(owner: RIPEMD-160: [0x0000000000000000000000000000000000000003], spender: Identity: [0x0000000000000000000000000000000000000004], value: 500000000000000000000 [5e20])
+    │   │   └─ ← [Return] true
+    │   └─ ← [Return] true
+    ├─ [0] VM::prank(Identity: [0x0000000000000000000000000000000000000004])
+    │   └─ ← [Return] 
+    ├─ [0] VM::expectRevert(UnauthorizedCountryUser())
+    │   └─ ← [Return] 
+    ├─ [43525] ERC1967Proxy::transferFrom(RIPEMD-160: [0x0000000000000000000000000000000000000003], ECMul: [0x0000000000000000000000000000000000000007], 300000000000000000000 [3e20])
+    │   ├─ [43202] RwaToken::transferFrom(RIPEMD-160: [0x0000000000000000000000000000000000000003], ECMul: [0x0000000000000000000000000000000000000007], 300000000000000000000 [3e20]) [delegatecall]
+    │   │   ├─ [5894] ERC1967Proxy::getKycStatus(RIPEMD-160: [0x0000000000000000000000000000000000000003]) [staticcall]
+    │   │   │   ├─ [5581] BlockVirtualGovernance::getKycStatus(RIPEMD-160: [0x0000000000000000000000000000000000000003]) [delegatecall]
+    │   │   │   │   └─ ← [Return] true
+    │   │   │   └─ ← [Return] true
+    │   │   ├─ [5894] ERC1967Proxy::getKycStatus(ECMul: [0x0000000000000000000000000000000000000007]) [staticcall]
+    │   │   │   ├─ [5581] BlockVirtualGovernance::getKycStatus(ECMul: [0x0000000000000000000000000000000000000007]) [delegatecall]
+    │   │   │   │   └─ ← [Return] true
+    │   │   │   └─ ← [Return] true
+    │   │   ├─ [5541] ERC1967Proxy::isFromSupportedCountry(RIPEMD-160: [0x0000000000000000000000000000000000000003]) [staticcall]
+    │   │   │   ├─ [5228] BlockVirtualGovernance::isFromSupportedCountry(RIPEMD-160: [0x0000000000000000000000000000000000000003]) [delegatecall]
+    │   │   │   │   └─ ← [Return] true
+    │   │   │   └─ ← [Return] true
+    │   │   ├─ [5541] ERC1967Proxy::isFromSupportedCountry(ECMul: [0x0000000000000000000000000000000000000007]) [staticcall]
+    │   │   │   ├─ [5228] BlockVirtualGovernance::isFromSupportedCountry(ECMul: [0x0000000000000000000000000000000000000007]) [delegatecall]
+    │   │   │   │   └─ ← [Return] false
+    │   │   │   └─ ← [Return] false
+    │   │   ├─ [1202] ERC1967Proxy::isBlacklisted(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], RIPEMD-160: [0x0000000000000000000000000000000000000003]) [staticcall]
+    │   │   │   ├─ [886] BlockVirtualGovernance::isBlacklisted(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], RIPEMD-160: [0x0000000000000000000000000000000000000003]) [delegatecall]
+    │   │   │   │   └─ ← [Return] false
+    │   │   │   └─ ← [Return] false
+    │   │   ├─ [3202] ERC1967Proxy::isBlacklisted(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], ECMul: [0x0000000000000000000000000000000000000007]) [staticcall]
+    │   │   │   ├─ [2886] BlockVirtualGovernance::isBlacklisted(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], ECMul: [0x0000000000000000000000000000000000000007]) [delegatecall]
+    │   │   │   │   └─ ← [Return] false
+    │   │   │   └─ ← [Return] false
+    │   │   ├─ [1202] ERC1967Proxy::isBlacklisted(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], RIPEMD-160: [0x0000000000000000000000000000000000000003]) [staticcall]
+    │   │   │   ├─ [886] BlockVirtualGovernance::isBlacklisted(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], RIPEMD-160: [0x0000000000000000000000000000000000000003]) [delegatecall]
+    │   │   │   │   └─ ← [Return] false
+    │   │   │   └─ ← [Return] false
+    │   │   ├─ [1202] ERC1967Proxy::isBlacklisted(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], ECMul: [0x0000000000000000000000000000000000000007]) [staticcall]
+    │   │   │   ├─ [886] BlockVirtualGovernance::isBlacklisted(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], ECMul: [0x0000000000000000000000000000000000000007]) [delegatecall]
+    │   │   │   │   └─ ← [Return] false
+    │   │   │   └─ ← [Return] false
+    │   │   ├─ [1894] ERC1967Proxy::getKycStatus(RIPEMD-160: [0x0000000000000000000000000000000000000003]) [staticcall]
+    │   │   │   ├─ [1581] BlockVirtualGovernance::getKycStatus(RIPEMD-160: [0x0000000000000000000000000000000000000003]) [delegatecall]
+    │   │   │   │   └─ ← [Return] true
+    │   │   │   └─ ← [Return] true
+    │   │   ├─ [1894] ERC1967Proxy::getKycStatus(ECMul: [0x0000000000000000000000000000000000000007]) [staticcall]
+    │   │   │   ├─ [1581] BlockVirtualGovernance::getKycStatus(ECMul: [0x0000000000000000000000000000000000000007]) [delegatecall]
+    │   │   │   │   └─ ← [Return] true
+    │   │   │   └─ ← [Return] true
+    │   │   ├─ [1541] ERC1967Proxy::isFromSupportedCountry(RIPEMD-160: [0x0000000000000000000000000000000000000003]) [staticcall]
+    │   │   │   ├─ [1228] BlockVirtualGovernance::isFromSupportedCountry(RIPEMD-160: [0x0000000000000000000000000000000000000003]) [delegatecall]
+    │   │   │   │   └─ ← [Return] true
+    │   │   │   └─ ← [Return] true
+    │   │   ├─ [1541] ERC1967Proxy::isFromSupportedCountry(ECMul: [0x0000000000000000000000000000000000000007]) [staticcall]
+    │   │   │   ├─ [1228] BlockVirtualGovernance::isFromSupportedCountry(ECMul: [0x0000000000000000000000000000000000000007]) [delegatecall]
+    │   │   │   │   └─ ← [Return] false
+    │   │   │   └─ ← [Return] false
+    │   │   └─ ← [Revert] UnauthorizedCountryUser()
+    │   └─ ← [Revert] UnauthorizedCountryUser()
+    └─ ← [Return] 
+
+[PASS] test_Transfer_Blacklisted() (gas: 178626)
+Traces:
+  [178626] RwaTokenTest::test_Transfer_Blacklisted()
+    ├─ [0] VM::prank(ERC1967Proxy: [0xF62849F9A0B5Bf2913b396098F7c7019b51A820a])
+    │   └─ ← [Return] 
+    ├─ [64342] ERC1967Proxy::mintRwa(RIPEMD-160: [0x0000000000000000000000000000000000000003], 1000000000000000000000 [1e21])
+    │   ├─ [59529] RwaToken::mintRwa(RIPEMD-160: [0x0000000000000000000000000000000000000003], 1000000000000000000000 [1e21]) [delegatecall]
+    │   │   ├─ [7702] ERC1967Proxy::isBlacklisted(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], RIPEMD-160: [0x0000000000000000000000000000000000000003]) [staticcall]
+    │   │   │   ├─ [2886] BlockVirtualGovernance::isBlacklisted(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], RIPEMD-160: [0x0000000000000000000000000000000000000003]) [delegatecall]
+    │   │   │   │   └─ ← [Return] false
+    │   │   │   └─ ← [Return] false
+    │   │   ├─ emit Transfer(from: 0x0000000000000000000000000000000000000000, to: RIPEMD-160: [0x0000000000000000000000000000000000000003], value: 1000000000000000000000 [1e21])
+    │   │   └─ ← [Return] 
+    │   └─ ← [Return] 
+    ├─ [0] VM::prank(RIPEMD-160: [0x0000000000000000000000000000000000000003])
+    │   └─ ← [Return] 
+    ├─ [0] VM::expectRevert(UserBlacklisted(0x0000000000000000000000000000000000000008))
+    │   └─ ← [Return] 
+    ├─ [30025] ERC1967Proxy::transfer(ECPairing: [0x0000000000000000000000000000000000000008], 400000000000000000000 [4e20])
+    │   ├─ [29705] RwaToken::transfer(ECPairing: [0x0000000000000000000000000000000000000008], 400000000000000000000 [4e20]) [delegatecall]
+    │   │   ├─ [5894] ERC1967Proxy::getKycStatus(RIPEMD-160: [0x0000000000000000000000000000000000000003]) [staticcall]
+    │   │   │   ├─ [5581] BlockVirtualGovernance::getKycStatus(RIPEMD-160: [0x0000000000000000000000000000000000000003]) [delegatecall]
+    │   │   │   │   └─ ← [Return] true
+    │   │   │   └─ ← [Return] true
+    │   │   ├─ [3432] ERC1967Proxy::getKycStatus(ECPairing: [0x0000000000000000000000000000000000000008]) [staticcall]
+    │   │   │   ├─ [3119] BlockVirtualGovernance::getKycStatus(ECPairing: [0x0000000000000000000000000000000000000008]) [delegatecall]
+    │   │   │   │   └─ ← [Return] false
+    │   │   │   └─ ← [Return] false
+    │   │   ├─ [5541] ERC1967Proxy::isFromSupportedCountry(RIPEMD-160: [0x0000000000000000000000000000000000000003]) [staticcall]
+    │   │   │   ├─ [5228] BlockVirtualGovernance::isFromSupportedCountry(RIPEMD-160: [0x0000000000000000000000000000000000000003]) [delegatecall]
+    │   │   │   │   └─ ← [Return] true
+    │   │   │   └─ ← [Return] true
+    │   │   ├─ [3167] ERC1967Proxy::isFromSupportedCountry(ECPairing: [0x0000000000000000000000000000000000000008]) [staticcall]
+    │   │   │   ├─ [2854] BlockVirtualGovernance::isFromSupportedCountry(ECPairing: [0x0000000000000000000000000000000000000008]) [delegatecall]
+    │   │   │   │   └─ ← [Return] false
+    │   │   │   └─ ← [Return] false
+    │   │   ├─ [1202] ERC1967Proxy::isBlacklisted(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], RIPEMD-160: [0x0000000000000000000000000000000000000003]) [staticcall]
+    │   │   │   ├─ [886] BlockVirtualGovernance::isBlacklisted(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], RIPEMD-160: [0x0000000000000000000000000000000000000003]) [delegatecall]
+    │   │   │   │   └─ ← [Return] false
+    │   │   │   └─ ← [Return] false
+    │   │   ├─ [3202] ERC1967Proxy::isBlacklisted(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], ECPairing: [0x0000000000000000000000000000000000000008]) [staticcall]
+    │   │   │   ├─ [2886] BlockVirtualGovernance::isBlacklisted(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], ECPairing: [0x0000000000000000000000000000000000000008]) [delegatecall]
+    │   │   │   │   └─ ← [Return] true
+    │   │   │   └─ ← [Return] true
+    │   │   ├─ [1202] ERC1967Proxy::isBlacklisted(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], RIPEMD-160: [0x0000000000000000000000000000000000000003]) [staticcall]
+    │   │   │   ├─ [886] BlockVirtualGovernance::isBlacklisted(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], RIPEMD-160: [0x0000000000000000000000000000000000000003]) [delegatecall]
+    │   │   │   │   └─ ← [Return] false
+    │   │   │   └─ ← [Return] false
+    │   │   ├─ [1202] ERC1967Proxy::isBlacklisted(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], ECPairing: [0x0000000000000000000000000000000000000008]) [staticcall]
+    │   │   │   ├─ [886] BlockVirtualGovernance::isBlacklisted(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], ECPairing: [0x0000000000000000000000000000000000000008]) [delegatecall]
+    │   │   │   │   └─ ← [Return] true
+    │   │   │   └─ ← [Return] true
+    │   │   └─ ← [Revert] UserBlacklisted(0x0000000000000000000000000000000000000008)
+    │   └─ ← [Revert] UserBlacklisted(0x0000000000000000000000000000000000000008)
+    ├─ [0] VM::prank(SHA-256: [0x0000000000000000000000000000000000000002])
+    │   └─ ← [Return] 
+    ├─ [27461] ERC1967Proxy::addBlacklisted(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], RIPEMD-160: [0x0000000000000000000000000000000000000003])
+    │   ├─ [27148] BlockVirtualGovernance::addBlacklisted(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], RIPEMD-160: [0x0000000000000000000000000000000000000003]) [delegatecall]
+    │   │   ├─ emit UserBlacklisted(token: ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], user: RIPEMD-160: [0x0000000000000000000000000000000000000003], operator: SHA-256: [0x0000000000000000000000000000000000000002])
+    │   │   └─ ← [Stop] 
+    │   └─ ← [Return] 
+    ├─ [0] VM::prank(RIPEMD-160: [0x0000000000000000000000000000000000000003])
+    │   └─ ← [Return] 
+    ├─ [0] VM::expectRevert(UserBlacklisted(0x0000000000000000000000000000000000000003))
+    │   └─ ← [Return] 
+    ├─ [31242] ERC1967Proxy::transfer(Identity: [0x0000000000000000000000000000000000000004], 400000000000000000000 [4e20])
+    │   ├─ [30922] RwaToken::transfer(Identity: [0x0000000000000000000000000000000000000004], 400000000000000000000 [4e20]) [delegatecall]
+    │   │   ├─ [5894] ERC1967Proxy::getKycStatus(RIPEMD-160: [0x0000000000000000000000000000000000000003]) [staticcall]
+    │   │   │   ├─ [5581] BlockVirtualGovernance::getKycStatus(RIPEMD-160: [0x0000000000000000000000000000000000000003]) [delegatecall]
+    │   │   │   │   └─ ← [Return] true
+    │   │   │   └─ ← [Return] true
+    │   │   ├─ [5894] ERC1967Proxy::getKycStatus(Identity: [0x0000000000000000000000000000000000000004]) [staticcall]
+    │   │   │   ├─ [5581] BlockVirtualGovernance::getKycStatus(Identity: [0x0000000000000000000000000000000000000004]) [delegatecall]
+    │   │   │   │   └─ ← [Return] true
+    │   │   │   └─ ← [Return] true
+    │   │   ├─ [5541] ERC1967Proxy::isFromSupportedCountry(RIPEMD-160: [0x0000000000000000000000000000000000000003]) [staticcall]
+    │   │   │   ├─ [5228] BlockVirtualGovernance::isFromSupportedCountry(RIPEMD-160: [0x0000000000000000000000000000000000000003]) [delegatecall]
+    │   │   │   │   └─ ← [Return] true
+    │   │   │   └─ ← [Return] true
+    │   │   ├─ [3541] ERC1967Proxy::isFromSupportedCountry(Identity: [0x0000000000000000000000000000000000000004]) [staticcall]
+    │   │   │   ├─ [3228] BlockVirtualGovernance::isFromSupportedCountry(Identity: [0x0000000000000000000000000000000000000004]) [delegatecall]
+    │   │   │   │   └─ ← [Return] true
+    │   │   │   └─ ← [Return] true
+    │   │   ├─ [1202] ERC1967Proxy::isBlacklisted(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], RIPEMD-160: [0x0000000000000000000000000000000000000003]) [staticcall]
+    │   │   │   ├─ [886] BlockVirtualGovernance::isBlacklisted(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], RIPEMD-160: [0x0000000000000000000000000000000000000003]) [delegatecall]
+    │   │   │   │   └─ ← [Return] true
+    │   │   │   └─ ← [Return] true
+    │   │   ├─ [3202] ERC1967Proxy::isBlacklisted(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], Identity: [0x0000000000000000000000000000000000000004]) [staticcall]
+    │   │   │   ├─ [2886] BlockVirtualGovernance::isBlacklisted(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], Identity: [0x0000000000000000000000000000000000000004]) [delegatecall]
+    │   │   │   │   └─ ← [Return] false
+    │   │   │   └─ ← [Return] false
+    │   │   ├─ [1202] ERC1967Proxy::isBlacklisted(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], RIPEMD-160: [0x0000000000000000000000000000000000000003]) [staticcall]
+    │   │   │   ├─ [886] BlockVirtualGovernance::isBlacklisted(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], RIPEMD-160: [0x0000000000000000000000000000000000000003]) [delegatecall]
+    │   │   │   │   └─ ← [Return] true
+    │   │   │   └─ ← [Return] true
+    │   │   └─ ← [Revert] UserBlacklisted(0x0000000000000000000000000000000000000003)
+    │   └─ ← [Revert] UserBlacklisted(0x0000000000000000000000000000000000000003)
+    └─ ← [Return] 
+
+[PASS] test_Transfer_NoKyc() (gas: 115522)
+Traces:
+  [115522] RwaTokenTest::test_Transfer_NoKyc()
+    ├─ [0] VM::prank(ERC1967Proxy: [0xF62849F9A0B5Bf2913b396098F7c7019b51A820a])
+    │   └─ ← [Return] 
+    ├─ [64342] ERC1967Proxy::mintRwa(RIPEMD-160: [0x0000000000000000000000000000000000000003], 1000000000000000000000 [1e21])
+    │   ├─ [59529] RwaToken::mintRwa(RIPEMD-160: [0x0000000000000000000000000000000000000003], 1000000000000000000000 [1e21]) [delegatecall]
+    │   │   ├─ [7702] ERC1967Proxy::isBlacklisted(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], RIPEMD-160: [0x0000000000000000000000000000000000000003]) [staticcall]
+    │   │   │   ├─ [2886] BlockVirtualGovernance::isBlacklisted(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], RIPEMD-160: [0x0000000000000000000000000000000000000003]) [delegatecall]
+    │   │   │   │   └─ ← [Return] false
+    │   │   │   └─ ← [Return] false
+    │   │   ├─ emit Transfer(from: 0x0000000000000000000000000000000000000000, to: RIPEMD-160: [0x0000000000000000000000000000000000000003], value: 1000000000000000000000 [1e21])
+    │   │   └─ ← [Return] 
+    │   └─ ← [Return] 
+    ├─ [0] VM::prank(RIPEMD-160: [0x0000000000000000000000000000000000000003])
+    │   └─ ← [Return] 
+    ├─ [0] VM::expectRevert(UnauthorizedKycStatus())
+    │   └─ ← [Return] 
+    ├─ [34289] ERC1967Proxy::transfer(ECAdd: [0x0000000000000000000000000000000000000006], 400000000000000000000 [4e20])
+    │   ├─ [33972] RwaToken::transfer(ECAdd: [0x0000000000000000000000000000000000000006], 400000000000000000000 [4e20]) [delegatecall]
+    │   │   ├─ [5894] ERC1967Proxy::getKycStatus(RIPEMD-160: [0x0000000000000000000000000000000000000003]) [staticcall]
+    │   │   │   ├─ [5581] BlockVirtualGovernance::getKycStatus(RIPEMD-160: [0x0000000000000000000000000000000000000003]) [delegatecall]
+    │   │   │   │   └─ ← [Return] true
+    │   │   │   └─ ← [Return] true
+    │   │   ├─ [3432] ERC1967Proxy::getKycStatus(ECAdd: [0x0000000000000000000000000000000000000006]) [staticcall]
+    │   │   │   ├─ [3119] BlockVirtualGovernance::getKycStatus(ECAdd: [0x0000000000000000000000000000000000000006]) [delegatecall]
+    │   │   │   │   └─ ← [Return] false
+    │   │   │   └─ ← [Return] false
+    │   │   ├─ [5541] ERC1967Proxy::isFromSupportedCountry(RIPEMD-160: [0x0000000000000000000000000000000000000003]) [staticcall]
+    │   │   │   ├─ [5228] BlockVirtualGovernance::isFromSupportedCountry(RIPEMD-160: [0x0000000000000000000000000000000000000003]) [delegatecall]
+    │   │   │   │   └─ ← [Return] true
+    │   │   │   └─ ← [Return] true
+    │   │   ├─ [3167] ERC1967Proxy::isFromSupportedCountry(ECAdd: [0x0000000000000000000000000000000000000006]) [staticcall]
+    │   │   │   ├─ [2854] BlockVirtualGovernance::isFromSupportedCountry(ECAdd: [0x0000000000000000000000000000000000000006]) [delegatecall]
+    │   │   │   │   └─ ← [Return] false
+    │   │   │   └─ ← [Return] false
+    │   │   ├─ [1202] ERC1967Proxy::isBlacklisted(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], RIPEMD-160: [0x0000000000000000000000000000000000000003]) [staticcall]
+    │   │   │   ├─ [886] BlockVirtualGovernance::isBlacklisted(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], RIPEMD-160: [0x0000000000000000000000000000000000000003]) [delegatecall]
+    │   │   │   │   └─ ← [Return] false
+    │   │   │   └─ ← [Return] false
+    │   │   ├─ [3202] ERC1967Proxy::isBlacklisted(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], ECAdd: [0x0000000000000000000000000000000000000006]) [staticcall]
+    │   │   │   ├─ [2886] BlockVirtualGovernance::isBlacklisted(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], ECAdd: [0x0000000000000000000000000000000000000006]) [delegatecall]
+    │   │   │   │   └─ ← [Return] false
+    │   │   │   └─ ← [Return] false
+    │   │   ├─ [1202] ERC1967Proxy::isBlacklisted(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], RIPEMD-160: [0x0000000000000000000000000000000000000003]) [staticcall]
+    │   │   │   ├─ [886] BlockVirtualGovernance::isBlacklisted(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], RIPEMD-160: [0x0000000000000000000000000000000000000003]) [delegatecall]
+    │   │   │   │   └─ ← [Return] false
+    │   │   │   └─ ← [Return] false
+    │   │   ├─ [1202] ERC1967Proxy::isBlacklisted(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], ECAdd: [0x0000000000000000000000000000000000000006]) [staticcall]
+    │   │   │   ├─ [886] BlockVirtualGovernance::isBlacklisted(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], ECAdd: [0x0000000000000000000000000000000000000006]) [delegatecall]
+    │   │   │   │   └─ ← [Return] false
+    │   │   │   └─ ← [Return] false
+    │   │   ├─ [1894] ERC1967Proxy::getKycStatus(RIPEMD-160: [0x0000000000000000000000000000000000000003]) [staticcall]
+    │   │   │   ├─ [1581] BlockVirtualGovernance::getKycStatus(RIPEMD-160: [0x0000000000000000000000000000000000000003]) [delegatecall]
+    │   │   │   │   └─ ← [Return] true
+    │   │   │   └─ ← [Return] true
+    │   │   ├─ [1432] ERC1967Proxy::getKycStatus(ECAdd: [0x0000000000000000000000000000000000000006]) [staticcall]
+    │   │   │   ├─ [1119] BlockVirtualGovernance::getKycStatus(ECAdd: [0x0000000000000000000000000000000000000006]) [delegatecall]
+    │   │   │   │   └─ ← [Return] false
+    │   │   │   └─ ← [Return] false
+    │   │   └─ ← [Revert] UnauthorizedKycStatus()
+    │   └─ ← [Revert] UnauthorizedKycStatus()
+    └─ ← [Return] 
+
+[PASS] test_Transfer_Successful() (gas: 139498)
+Traces:
+  [139498] RwaTokenTest::test_Transfer_Successful()
+    ├─ [0] VM::prank(ERC1967Proxy: [0xF62849F9A0B5Bf2913b396098F7c7019b51A820a])
+    │   └─ ← [Return] 
+    ├─ [64342] ERC1967Proxy::mintRwa(RIPEMD-160: [0x0000000000000000000000000000000000000003], 1000000000000000000000 [1e21])
+    │   ├─ [59529] RwaToken::mintRwa(RIPEMD-160: [0x0000000000000000000000000000000000000003], 1000000000000000000000 [1e21]) [delegatecall]
+    │   │   ├─ [7702] ERC1967Proxy::isBlacklisted(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], RIPEMD-160: [0x0000000000000000000000000000000000000003]) [staticcall]
+    │   │   │   ├─ [2886] BlockVirtualGovernance::isBlacklisted(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], RIPEMD-160: [0x0000000000000000000000000000000000000003]) [delegatecall]
+    │   │   │   │   └─ ← [Return] false
+    │   │   │   └─ ← [Return] false
+    │   │   ├─ emit Transfer(from: 0x0000000000000000000000000000000000000000, to: RIPEMD-160: [0x0000000000000000000000000000000000000003], value: 1000000000000000000000 [1e21])
+    │   │   └─ ← [Return] 
+    │   └─ ← [Return] 
+    ├─ [0] VM::prank(RIPEMD-160: [0x0000000000000000000000000000000000000003])
+    │   └─ ← [Return] 
+    ├─ [53943] ERC1967Proxy::transfer(Identity: [0x0000000000000000000000000000000000000004], 400000000000000000000 [4e20])
+    │   ├─ [53627] RwaToken::transfer(Identity: [0x0000000000000000000000000000000000000004], 400000000000000000000 [4e20]) [delegatecall]
+    │   │   ├─ [5894] ERC1967Proxy::getKycStatus(RIPEMD-160: [0x0000000000000000000000000000000000000003]) [staticcall]
+    │   │   │   ├─ [5581] BlockVirtualGovernance::getKycStatus(RIPEMD-160: [0x0000000000000000000000000000000000000003]) [delegatecall]
+    │   │   │   │   └─ ← [Return] true
+    │   │   │   └─ ← [Return] true
+    │   │   ├─ [5894] ERC1967Proxy::getKycStatus(Identity: [0x0000000000000000000000000000000000000004]) [staticcall]
+    │   │   │   ├─ [5581] BlockVirtualGovernance::getKycStatus(Identity: [0x0000000000000000000000000000000000000004]) [delegatecall]
+    │   │   │   │   └─ ← [Return] true
+    │   │   │   └─ ← [Return] true
+    │   │   ├─ [5541] ERC1967Proxy::isFromSupportedCountry(RIPEMD-160: [0x0000000000000000000000000000000000000003]) [staticcall]
+    │   │   │   ├─ [5228] BlockVirtualGovernance::isFromSupportedCountry(RIPEMD-160: [0x0000000000000000000000000000000000000003]) [delegatecall]
+    │   │   │   │   └─ ← [Return] true
+    │   │   │   └─ ← [Return] true
+    │   │   ├─ [3541] ERC1967Proxy::isFromSupportedCountry(Identity: [0x0000000000000000000000000000000000000004]) [staticcall]
+    │   │   │   ├─ [3228] BlockVirtualGovernance::isFromSupportedCountry(Identity: [0x0000000000000000000000000000000000000004]) [delegatecall]
+    │   │   │   │   └─ ← [Return] true
+    │   │   │   └─ ← [Return] true
+    │   │   ├─ [1202] ERC1967Proxy::isBlacklisted(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], RIPEMD-160: [0x0000000000000000000000000000000000000003]) [staticcall]
+    │   │   │   ├─ [886] BlockVirtualGovernance::isBlacklisted(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], RIPEMD-160: [0x0000000000000000000000000000000000000003]) [delegatecall]
+    │   │   │   │   └─ ← [Return] false
+    │   │   │   └─ ← [Return] false
+    │   │   ├─ [3202] ERC1967Proxy::isBlacklisted(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], Identity: [0x0000000000000000000000000000000000000004]) [staticcall]
+    │   │   │   ├─ [2886] BlockVirtualGovernance::isBlacklisted(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], Identity: [0x0000000000000000000000000000000000000004]) [delegatecall]
+    │   │   │   │   └─ ← [Return] false
+    │   │   │   └─ ← [Return] false
+    │   │   ├─ emit Transfer(from: RIPEMD-160: [0x0000000000000000000000000000000000000003], to: Identity: [0x0000000000000000000000000000000000000004], value: 400000000000000000000 [4e20])
+    │   │   └─ ← [Return] true
+    │   └─ ← [Return] true
+    ├─ [0] VM::assertTrue(true) [staticcall]
+    │   └─ ← [Return] 
+    ├─ [923] ERC1967Proxy::balanceOf(RIPEMD-160: [0x0000000000000000000000000000000000000003]) [staticcall]
+    │   ├─ [610] RwaToken::balanceOf(RIPEMD-160: [0x0000000000000000000000000000000000000003]) [delegatecall]
+    │   │   └─ ← [Return] 600000000000000000000 [6e20]
+    │   └─ ← [Return] 600000000000000000000 [6e20]
+    ├─ [0] VM::assertEq(600000000000000000000 [6e20], 600000000000000000000 [6e20]) [staticcall]
+    │   └─ ← [Return] 
+    ├─ [923] ERC1967Proxy::balanceOf(Identity: [0x0000000000000000000000000000000000000004]) [staticcall]
+    │   ├─ [610] RwaToken::balanceOf(Identity: [0x0000000000000000000000000000000000000004]) [delegatecall]
+    │   │   └─ ← [Return] 400000000000000000000 [4e20]
+    │   └─ ← [Return] 400000000000000000000 [4e20]
+    ├─ [0] VM::assertEq(400000000000000000000 [4e20], 400000000000000000000 [4e20]) [staticcall]
+    │   └─ ← [Return] 
+    └─ ← [Return] 
+
+[PASS] test_Transfer_UnsupportedCountry() (gas: 125489)
+Traces:
+  [125489] RwaTokenTest::test_Transfer_UnsupportedCountry()
+    ├─ [0] VM::prank(ERC1967Proxy: [0xF62849F9A0B5Bf2913b396098F7c7019b51A820a])
+    │   └─ ← [Return] 
+    ├─ [64342] ERC1967Proxy::mintRwa(RIPEMD-160: [0x0000000000000000000000000000000000000003], 1000000000000000000000 [1e21])
+    │   ├─ [59529] RwaToken::mintRwa(RIPEMD-160: [0x0000000000000000000000000000000000000003], 1000000000000000000000 [1e21]) [delegatecall]
+    │   │   ├─ [7702] ERC1967Proxy::isBlacklisted(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], RIPEMD-160: [0x0000000000000000000000000000000000000003]) [staticcall]
+    │   │   │   ├─ [2886] BlockVirtualGovernance::isBlacklisted(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], RIPEMD-160: [0x0000000000000000000000000000000000000003]) [delegatecall]
+    │   │   │   │   └─ ← [Return] false
+    │   │   │   └─ ← [Return] false
+    │   │   ├─ emit Transfer(from: 0x0000000000000000000000000000000000000000, to: RIPEMD-160: [0x0000000000000000000000000000000000000003], value: 1000000000000000000000 [1e21])
+    │   │   └─ ← [Return] 
+    │   └─ ← [Return] 
+    ├─ [0] VM::prank(RIPEMD-160: [0x0000000000000000000000000000000000000003])
+    │   └─ ← [Return] 
+    ├─ [0] VM::expectRevert(UnauthorizedCountryUser())
+    │   └─ ← [Return] 
+    ├─ [43681] ERC1967Proxy::transfer(ECMul: [0x0000000000000000000000000000000000000007], 400000000000000000000 [4e20])
+    │   ├─ [43364] RwaToken::transfer(ECMul: [0x0000000000000000000000000000000000000007], 400000000000000000000 [4e20]) [delegatecall]
+    │   │   ├─ [5894] ERC1967Proxy::getKycStatus(RIPEMD-160: [0x0000000000000000000000000000000000000003]) [staticcall]
+    │   │   │   ├─ [5581] BlockVirtualGovernance::getKycStatus(RIPEMD-160: [0x0000000000000000000000000000000000000003]) [delegatecall]
+    │   │   │   │   └─ ← [Return] true
+    │   │   │   └─ ← [Return] true
+    │   │   ├─ [5894] ERC1967Proxy::getKycStatus(ECMul: [0x0000000000000000000000000000000000000007]) [staticcall]
+    │   │   │   ├─ [5581] BlockVirtualGovernance::getKycStatus(ECMul: [0x0000000000000000000000000000000000000007]) [delegatecall]
+    │   │   │   │   └─ ← [Return] true
+    │   │   │   └─ ← [Return] true
+    │   │   ├─ [5541] ERC1967Proxy::isFromSupportedCountry(RIPEMD-160: [0x0000000000000000000000000000000000000003]) [staticcall]
+    │   │   │   ├─ [5228] BlockVirtualGovernance::isFromSupportedCountry(RIPEMD-160: [0x0000000000000000000000000000000000000003]) [delegatecall]
+    │   │   │   │   └─ ← [Return] true
+    │   │   │   └─ ← [Return] true
+    │   │   ├─ [5541] ERC1967Proxy::isFromSupportedCountry(ECMul: [0x0000000000000000000000000000000000000007]) [staticcall]
+    │   │   │   ├─ [5228] BlockVirtualGovernance::isFromSupportedCountry(ECMul: [0x0000000000000000000000000000000000000007]) [delegatecall]
+    │   │   │   │   └─ ← [Return] false
+    │   │   │   └─ ← [Return] false
+    │   │   ├─ [1202] ERC1967Proxy::isBlacklisted(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], RIPEMD-160: [0x0000000000000000000000000000000000000003]) [staticcall]
+    │   │   │   ├─ [886] BlockVirtualGovernance::isBlacklisted(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], RIPEMD-160: [0x0000000000000000000000000000000000000003]) [delegatecall]
+    │   │   │   │   └─ ← [Return] false
+    │   │   │   └─ ← [Return] false
+    │   │   ├─ [3202] ERC1967Proxy::isBlacklisted(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], ECMul: [0x0000000000000000000000000000000000000007]) [staticcall]
+    │   │   │   ├─ [2886] BlockVirtualGovernance::isBlacklisted(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], ECMul: [0x0000000000000000000000000000000000000007]) [delegatecall]
+    │   │   │   │   └─ ← [Return] false
+    │   │   │   └─ ← [Return] false
+    │   │   ├─ [1202] ERC1967Proxy::isBlacklisted(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], RIPEMD-160: [0x0000000000000000000000000000000000000003]) [staticcall]
+    │   │   │   ├─ [886] BlockVirtualGovernance::isBlacklisted(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], RIPEMD-160: [0x0000000000000000000000000000000000000003]) [delegatecall]
+    │   │   │   │   └─ ← [Return] false
+    │   │   │   └─ ← [Return] false
+    │   │   ├─ [1202] ERC1967Proxy::isBlacklisted(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], ECMul: [0x0000000000000000000000000000000000000007]) [staticcall]
+    │   │   │   ├─ [886] BlockVirtualGovernance::isBlacklisted(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], ECMul: [0x0000000000000000000000000000000000000007]) [delegatecall]
+    │   │   │   │   └─ ← [Return] false
+    │   │   │   └─ ← [Return] false
+    │   │   ├─ [1894] ERC1967Proxy::getKycStatus(RIPEMD-160: [0x0000000000000000000000000000000000000003]) [staticcall]
+    │   │   │   ├─ [1581] BlockVirtualGovernance::getKycStatus(RIPEMD-160: [0x0000000000000000000000000000000000000003]) [delegatecall]
+    │   │   │   │   └─ ← [Return] true
+    │   │   │   └─ ← [Return] true
+    │   │   ├─ [1894] ERC1967Proxy::getKycStatus(ECMul: [0x0000000000000000000000000000000000000007]) [staticcall]
+    │   │   │   ├─ [1581] BlockVirtualGovernance::getKycStatus(ECMul: [0x0000000000000000000000000000000000000007]) [delegatecall]
+    │   │   │   │   └─ ← [Return] true
+    │   │   │   └─ ← [Return] true
+    │   │   ├─ [1541] ERC1967Proxy::isFromSupportedCountry(RIPEMD-160: [0x0000000000000000000000000000000000000003]) [staticcall]
+    │   │   │   ├─ [1228] BlockVirtualGovernance::isFromSupportedCountry(RIPEMD-160: [0x0000000000000000000000000000000000000003]) [delegatecall]
+    │   │   │   │   └─ ← [Return] true
+    │   │   │   └─ ← [Return] true
+    │   │   ├─ [1541] ERC1967Proxy::isFromSupportedCountry(ECMul: [0x0000000000000000000000000000000000000007]) [staticcall]
+    │   │   │   ├─ [1228] BlockVirtualGovernance::isFromSupportedCountry(ECMul: [0x0000000000000000000000000000000000000007]) [delegatecall]
+    │   │   │   │   └─ ← [Return] false
+    │   │   │   └─ ← [Return] false
+    │   │   └─ ← [Revert] UnauthorizedCountryUser()
+    │   └─ ← [Revert] UnauthorizedCountryUser()
+    └─ ← [Return] 
+
+Suite result: ok. 17 passed; 0 failed; 0 skipped; finished in 2.55ms (2.56ms CPU time)
+
+Ran 1 test suite in 1.25s (2.55ms CPU time): 17 tests passed, 0 failed, 0 skipped (17 total tests)

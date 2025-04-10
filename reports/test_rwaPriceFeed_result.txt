@@ -1,0 +1,372 @@
+Ran 18 tests for test/rwaPriceFeed.t.sol:PriceFeedTest
+[PASS] test_CalculateConversion() (gas: 237568)
+Traces:
+  [237568] PriceFeedTest::test_CalculateConversion()
+    ├─ [0] VM::startPrank(ECRecover: [0x0000000000000000000000000000000000000001])
+    │   └─ ← [Return] 
+    ├─ [70477] BlockVirtualPriceFeed::registerToken(PointEvaluation: [0x000000000000000000000000000000000000000A])
+    │   ├─ emit TokenRegistered(token: PointEvaluation: [0x000000000000000000000000000000000000000A])
+    │   └─ ← [Stop] 
+    ├─ [46577] BlockVirtualPriceFeed::registerToken(0x000000000000000000000000000000000000000b)
+    │   ├─ emit TokenRegistered(token: 0x000000000000000000000000000000000000000b)
+    │   └─ ← [Stop] 
+    ├─ [0] VM::stopPrank()
+    │   └─ ← [Return] 
+    ├─ [0] VM::startPrank(SHA-256: [0x0000000000000000000000000000000000000002])
+    │   └─ ← [Return] 
+    ├─ [48921] BlockVirtualPriceFeed::updatePrice(PointEvaluation: [0x000000000000000000000000000000000000000A], 750000000000000000 [7.5e17])
+    │   ├─ emit PriceUpdated(token: PointEvaluation: [0x000000000000000000000000000000000000000A], price: 750000000000000000 [7.5e17], timestamp: 1)
+    │   └─ ← [Stop] 
+    ├─ [46921] BlockVirtualPriceFeed::updatePrice(0x000000000000000000000000000000000000000b, 1000000000000000000 [1e18])
+    │   ├─ emit PriceUpdated(token: 0x000000000000000000000000000000000000000b, price: 1000000000000000000 [1e18], timestamp: 1)
+    │   └─ ← [Stop] 
+    ├─ [0] VM::stopPrank()
+    │   └─ ← [Return] 
+    ├─ [1074] BlockVirtualPriceFeed::calculateConversion(PointEvaluation: [0x000000000000000000000000000000000000000A], 0x000000000000000000000000000000000000000b, 100000000000000000000 [1e20]) [staticcall]
+    │   └─ ← [Return] 75000000000000000000 [7.5e19]
+    ├─ [0] VM::assertEq(75000000000000000000 [7.5e19], 75000000000000000000 [7.5e19]) [staticcall]
+    │   └─ ← [Return] 
+    ├─ [614] BlockVirtualPriceFeed::calculateConversion(PointEvaluation: [0x000000000000000000000000000000000000000A], PointEvaluation: [0x000000000000000000000000000000000000000A], 100000000000000000000 [1e20]) [staticcall]
+    │   └─ ← [Return] 100000000000000000000 [1e20]
+    ├─ [0] VM::assertEq(100000000000000000000 [1e20], 100000000000000000000 [1e20]) [staticcall]
+    │   └─ ← [Return] 
+    └─ ← [Return] 
+
+[PASS] test_CalculateConversion_PriceNotAvailable() (gas: 190390)
+Traces:
+  [190390] PriceFeedTest::test_CalculateConversion_PriceNotAvailable()
+    ├─ [0] VM::prank(ECRecover: [0x0000000000000000000000000000000000000001])
+    │   └─ ← [Return] 
+    ├─ [70477] BlockVirtualPriceFeed::registerToken(PointEvaluation: [0x000000000000000000000000000000000000000A])
+    │   ├─ emit TokenRegistered(token: PointEvaluation: [0x000000000000000000000000000000000000000A])
+    │   └─ ← [Stop] 
+    ├─ [0] VM::prank(ECRecover: [0x0000000000000000000000000000000000000001])
+    │   └─ ← [Return] 
+    ├─ [46577] BlockVirtualPriceFeed::registerToken(0x000000000000000000000000000000000000000b)
+    │   ├─ emit TokenRegistered(token: 0x000000000000000000000000000000000000000b)
+    │   └─ ← [Stop] 
+    ├─ [0] VM::prank(SHA-256: [0x0000000000000000000000000000000000000002])
+    │   └─ ← [Return] 
+    ├─ [48921] BlockVirtualPriceFeed::updatePrice(0x000000000000000000000000000000000000000b, 1000000000000000000 [1e18])
+    │   ├─ emit PriceUpdated(token: 0x000000000000000000000000000000000000000b, price: 1000000000000000000 [1e18], timestamp: 1)
+    │   └─ ← [Stop] 
+    ├─ [0] VM::expectRevert(PriceNotAvailable())
+    │   └─ ← [Return] 
+    ├─ [2966] BlockVirtualPriceFeed::calculateConversion(PointEvaluation: [0x000000000000000000000000000000000000000A], 0x000000000000000000000000000000000000000b, 100000000000000000000 [1e20]) [staticcall]
+    │   └─ ← [Revert] PriceNotAvailable()
+    └─ ← [Return] 
+
+[PASS] test_GetAllTokens() (gas: 189868)
+Traces:
+  [189868] PriceFeedTest::test_GetAllTokens()
+    ├─ [2632] BlockVirtualPriceFeed::getAllTokens() [staticcall]
+    │   └─ ← [Return] []
+    ├─ [0] VM::assertEq(0, 0) [staticcall]
+    │   └─ ← [Return] 
+    ├─ [0] VM::startPrank(ECRecover: [0x0000000000000000000000000000000000000001])
+    │   └─ ← [Return] 
+    ├─ [68477] BlockVirtualPriceFeed::registerToken(PointEvaluation: [0x000000000000000000000000000000000000000A])
+    │   ├─ emit TokenRegistered(token: PointEvaluation: [0x000000000000000000000000000000000000000A])
+    │   └─ ← [Stop] 
+    ├─ [46577] BlockVirtualPriceFeed::registerToken(0x000000000000000000000000000000000000000b)
+    │   ├─ emit TokenRegistered(token: 0x000000000000000000000000000000000000000b)
+    │   └─ ← [Stop] 
+    ├─ [46577] BlockVirtualPriceFeed::registerToken(0x000000000000000000000000000000000000000C)
+    │   ├─ emit TokenRegistered(token: 0x000000000000000000000000000000000000000C)
+    │   └─ ← [Stop] 
+    ├─ [0] VM::stopPrank()
+    │   └─ ← [Return] 
+    ├─ [1553] BlockVirtualPriceFeed::getAllTokens() [staticcall]
+    │   └─ ← [Return] [0x000000000000000000000000000000000000000A, 0x000000000000000000000000000000000000000b, 0x000000000000000000000000000000000000000C]
+    ├─ [0] VM::assertEq(3, 3) [staticcall]
+    │   └─ ← [Return] 
+    ├─ [0] VM::assertEq(PointEvaluation: [0x000000000000000000000000000000000000000A], PointEvaluation: [0x000000000000000000000000000000000000000A]) [staticcall]
+    │   └─ ← [Return] 
+    ├─ [0] VM::assertEq(0x000000000000000000000000000000000000000b, 0x000000000000000000000000000000000000000b) [staticcall]
+    │   └─ ← [Return] 
+    ├─ [0] VM::assertEq(0x000000000000000000000000000000000000000C, 0x000000000000000000000000000000000000000C) [staticcall]
+    │   └─ ← [Return] 
+    └─ ← [Return] 
+
+[PASS] test_GetLatestPrice_NotAvailable() (gas: 87015)
+Traces:
+  [87015] PriceFeedTest::test_GetLatestPrice_NotAvailable()
+    ├─ [0] VM::prank(ECRecover: [0x0000000000000000000000000000000000000001])
+    │   └─ ← [Return] 
+    ├─ [70477] BlockVirtualPriceFeed::registerToken(PointEvaluation: [0x000000000000000000000000000000000000000A])
+    │   ├─ emit TokenRegistered(token: PointEvaluation: [0x000000000000000000000000000000000000000A])
+    │   └─ ← [Stop] 
+    ├─ [0] VM::expectRevert(PriceNotAvailable())
+    │   └─ ← [Return] 
+    ├─ [2489] BlockVirtualPriceFeed::getLatestPrice(PointEvaluation: [0x000000000000000000000000000000000000000A]) [staticcall]
+    │   └─ ← [Revert] PriceNotAvailable()
+    └─ ← [Return] 
+
+[PASS] test_GetLatestPrice_NotRegistered() (gas: 13889)
+Traces:
+  [13889] PriceFeedTest::test_GetLatestPrice_NotRegistered()
+    ├─ [0] VM::expectRevert(PriceNotAvailable())
+    │   └─ ← [Return] 
+    ├─ [2489] BlockVirtualPriceFeed::getLatestPrice(0x000000000000000000000000000000000000000b) [staticcall]
+    │   └─ ← [Revert] PriceNotAvailable()
+    └─ ← [Return] 
+
+[PASS] test_IsTokenRegistered() (gas: 92600)
+Traces:
+  [92600] PriceFeedTest::test_IsTokenRegistered()
+    ├─ [2531] BlockVirtualPriceFeed::isTokenRegistered(PointEvaluation: [0x000000000000000000000000000000000000000A]) [staticcall]
+    │   └─ ← [Return] false
+    ├─ [0] VM::assertFalse(false) [staticcall]
+    │   └─ ← [Return] 
+    ├─ [0] VM::prank(ECRecover: [0x0000000000000000000000000000000000000001])
+    │   └─ ← [Return] 
+    ├─ [68477] BlockVirtualPriceFeed::registerToken(PointEvaluation: [0x000000000000000000000000000000000000000A])
+    │   ├─ emit TokenRegistered(token: PointEvaluation: [0x000000000000000000000000000000000000000A])
+    │   └─ ← [Stop] 
+    ├─ [531] BlockVirtualPriceFeed::isTokenRegistered(PointEvaluation: [0x000000000000000000000000000000000000000A]) [staticcall]
+    │   └─ ← [Return] true
+    ├─ [0] VM::assertTrue(true) [staticcall]
+    │   └─ ← [Return] 
+    ├─ [2531] BlockVirtualPriceFeed::isTokenRegistered(0x000000000000000000000000000000000000000b) [staticcall]
+    │   └─ ← [Return] false
+    ├─ [0] VM::assertFalse(false) [staticcall]
+    │   └─ ← [Return] 
+    └─ ← [Return] 
+
+[PASS] test_MultiTokenConversion() (gas: 334499)
+Traces:
+  [334499] PriceFeedTest::test_MultiTokenConversion()
+    ├─ [0] VM::startPrank(ECRecover: [0x0000000000000000000000000000000000000001])
+    │   └─ ← [Return] 
+    ├─ [70477] BlockVirtualPriceFeed::registerToken(PointEvaluation: [0x000000000000000000000000000000000000000A])
+    │   ├─ emit TokenRegistered(token: PointEvaluation: [0x000000000000000000000000000000000000000A])
+    │   └─ ← [Stop] 
+    ├─ [46577] BlockVirtualPriceFeed::registerToken(0x000000000000000000000000000000000000000b)
+    │   ├─ emit TokenRegistered(token: 0x000000000000000000000000000000000000000b)
+    │   └─ ← [Stop] 
+    ├─ [46577] BlockVirtualPriceFeed::registerToken(0x000000000000000000000000000000000000000C)
+    │   ├─ emit TokenRegistered(token: 0x000000000000000000000000000000000000000C)
+    │   └─ ← [Stop] 
+    ├─ [0] VM::stopPrank()
+    │   └─ ← [Return] 
+    ├─ [0] VM::startPrank(SHA-256: [0x0000000000000000000000000000000000000002])
+    │   └─ ← [Return] 
+    ├─ [48921] BlockVirtualPriceFeed::updatePrice(PointEvaluation: [0x000000000000000000000000000000000000000A], 750000000000000000 [7.5e17])
+    │   ├─ emit PriceUpdated(token: PointEvaluation: [0x000000000000000000000000000000000000000A], price: 750000000000000000 [7.5e17], timestamp: 1)
+    │   └─ ← [Stop] 
+    ├─ [46921] BlockVirtualPriceFeed::updatePrice(0x000000000000000000000000000000000000000b, 1000000000000000000 [1e18])
+    │   ├─ emit PriceUpdated(token: 0x000000000000000000000000000000000000000b, price: 1000000000000000000 [1e18], timestamp: 1)
+    │   └─ ← [Stop] 
+    ├─ [46921] BlockVirtualPriceFeed::updatePrice(0x000000000000000000000000000000000000000C, 100000000000000000000 [1e20])
+    │   ├─ emit PriceUpdated(token: 0x000000000000000000000000000000000000000C, price: 100000000000000000000 [1e20], timestamp: 1)
+    │   └─ ← [Stop] 
+    ├─ [0] VM::stopPrank()
+    │   └─ ← [Return] 
+    ├─ [1074] BlockVirtualPriceFeed::calculateConversion(PointEvaluation: [0x000000000000000000000000000000000000000A], 0x000000000000000000000000000000000000000C, 1000000000000000000000 [1e21]) [staticcall]
+    │   └─ ← [Return] 7500000000000000000 [7.5e18]
+    ├─ [0] VM::assertEq(7500000000000000000 [7.5e18], 7500000000000000000 [7.5e18]) [staticcall]
+    │   └─ ← [Return] 
+    ├─ [1074] BlockVirtualPriceFeed::calculateConversion(0x000000000000000000000000000000000000000C, PointEvaluation: [0x000000000000000000000000000000000000000A], 1000000000000000000 [1e18]) [staticcall]
+    │   └─ ← [Return] 133333333333333333333 [1.333e20]
+    ├─ [0] VM::assertApproxEqRel(133333333333333333333 [1.333e20], 133333333333333333300 [1.333e20], 1000000000000000 [1e15]) [staticcall]
+    │   └─ ← [Return] 
+    └─ ← [Return] 
+
+[PASS] test_PriceTimestamp() (gas: 143382)
+Traces:
+  [143382] PriceFeedTest::test_PriceTimestamp()
+    ├─ [0] VM::prank(ECRecover: [0x0000000000000000000000000000000000000001])
+    │   └─ ← [Return] 
+    ├─ [70477] BlockVirtualPriceFeed::registerToken(PointEvaluation: [0x000000000000000000000000000000000000000A])
+    │   ├─ emit TokenRegistered(token: PointEvaluation: [0x000000000000000000000000000000000000000A])
+    │   └─ ← [Stop] 
+    ├─ [0] VM::prank(SHA-256: [0x0000000000000000000000000000000000000002])
+    │   └─ ← [Return] 
+    ├─ [48921] BlockVirtualPriceFeed::updatePrice(PointEvaluation: [0x000000000000000000000000000000000000000A], 750000000000000000 [7.5e17])
+    │   ├─ emit PriceUpdated(token: PointEvaluation: [0x000000000000000000000000000000000000000A], price: 750000000000000000 [7.5e17], timestamp: 1)
+    │   └─ ← [Stop] 
+    ├─ [745] BlockVirtualPriceFeed::getPriceTimestamp(PointEvaluation: [0x000000000000000000000000000000000000000A]) [staticcall]
+    │   └─ ← [Return] 1
+    ├─ [0] VM::assertEq(1, 1) [staticcall]
+    │   └─ ← [Return] 
+    ├─ [2745] BlockVirtualPriceFeed::getPriceTimestamp(0x000000000000000000000000000000000000000b) [staticcall]
+    │   └─ ← [Return] 0
+    ├─ [0] VM::assertEq(0, 0) [staticcall]
+    │   └─ ← [Return] 
+    └─ ← [Return] 
+
+[PASS] test_RegisterToken() (gas: 87908)
+Traces:
+  [87908] PriceFeedTest::test_RegisterToken()
+    ├─ [0] VM::prank(ECRecover: [0x0000000000000000000000000000000000000001])
+    │   └─ ← [Return] 
+    ├─ [70477] BlockVirtualPriceFeed::registerToken(PointEvaluation: [0x000000000000000000000000000000000000000A])
+    │   ├─ emit TokenRegistered(token: PointEvaluation: [0x000000000000000000000000000000000000000A])
+    │   └─ ← [Stop] 
+    ├─ [531] BlockVirtualPriceFeed::isTokenRegistered(PointEvaluation: [0x000000000000000000000000000000000000000A]) [staticcall]
+    │   └─ ← [Return] true
+    ├─ [0] VM::assertTrue(true) [staticcall]
+    │   └─ ← [Return] 
+    ├─ [939] BlockVirtualPriceFeed::getAllTokens() [staticcall]
+    │   └─ ← [Return] [0x000000000000000000000000000000000000000A]
+    ├─ [0] VM::assertEq(1, 1) [staticcall]
+    │   └─ ← [Return] 
+    ├─ [0] VM::assertEq(PointEvaluation: [0x000000000000000000000000000000000000000A], PointEvaluation: [0x000000000000000000000000000000000000000A]) [staticcall]
+    │   └─ ← [Return] 
+    └─ ← [Return] 
+
+[PASS] test_RegisterToken_AlreadyRegistered() (gas: 85768)
+Traces:
+  [85768] PriceFeedTest::test_RegisterToken_AlreadyRegistered()
+    ├─ [0] VM::prank(ECRecover: [0x0000000000000000000000000000000000000001])
+    │   └─ ← [Return] 
+    ├─ [70477] BlockVirtualPriceFeed::registerToken(PointEvaluation: [0x000000000000000000000000000000000000000A])
+    │   ├─ emit TokenRegistered(token: PointEvaluation: [0x000000000000000000000000000000000000000A])
+    │   └─ ← [Stop] 
+    ├─ [0] VM::prank(ECRecover: [0x0000000000000000000000000000000000000001])
+    │   └─ ← [Return] 
+    ├─ [0] VM::expectRevert(TokenAlreadyRegistered())
+    │   └─ ← [Return] 
+    ├─ [663] BlockVirtualPriceFeed::registerToken(PointEvaluation: [0x000000000000000000000000000000000000000A])
+    │   └─ ← [Revert] TokenAlreadyRegistered()
+    └─ ← [Return] 
+
+[PASS] test_RegisterToken_Unauthorized() (gas: 17495)
+Traces:
+  [17495] PriceFeedTest::test_RegisterToken_Unauthorized()
+    ├─ [397] BlockVirtualPriceFeed::ADMIN_ROLE() [staticcall]
+    │   └─ ← [Return] 0xa49807205ce4d355092ef5a8a18f56e8913cf4a201fbe287825b095693c21775
+    ├─ [0] VM::expectRevert(AccessControlUnauthorizedAccount(0x0000000000000000000000000000000000000003, 0xa49807205ce4d355092ef5a8a18f56e8913cf4a201fbe287825b095693c21775))
+    │   └─ ← [Return] 
+    ├─ [0] VM::prank(RIPEMD-160: [0x0000000000000000000000000000000000000003])
+    │   └─ ← [Return] 
+    ├─ [2458] BlockVirtualPriceFeed::registerToken(PointEvaluation: [0x000000000000000000000000000000000000000A])
+    │   └─ ← [Revert] AccessControlUnauthorizedAccount(0x0000000000000000000000000000000000000003, 0xa49807205ce4d355092ef5a8a18f56e8913cf4a201fbe287825b095693c21775)
+    └─ ← [Return] 
+
+[PASS] test_RegisterToken_ZeroAddress() (gas: 13829)
+Traces:
+  [13829] PriceFeedTest::test_RegisterToken_ZeroAddress()
+    ├─ [0] VM::prank(ECRecover: [0x0000000000000000000000000000000000000001])
+    │   └─ ← [Return] 
+    ├─ [0] VM::expectRevert(ZeroAddress())
+    │   └─ ← [Return] 
+    ├─ [2478] BlockVirtualPriceFeed::registerToken(0x0000000000000000000000000000000000000000)
+    │   └─ ← [Revert] ZeroAddress()
+    └─ ← [Return] 
+
+[PASS] test_RoleAssignment() (gas: 36103)
+Traces:
+  [36103] PriceFeedTest::test_RoleAssignment()
+    ├─ [2754] BlockVirtualPriceFeed::hasRole(0x0000000000000000000000000000000000000000000000000000000000000000, PriceFeedTest: [0x7FA9385bE102ac3EAc297483Dd6233D62b3e1496]) [staticcall]
+    │   └─ ← [Return] true
+    ├─ [0] VM::assertTrue(true) [staticcall]
+    │   └─ ← [Return] 
+    ├─ [397] BlockVirtualPriceFeed::ADMIN_ROLE() [staticcall]
+    │   └─ ← [Return] 0xa49807205ce4d355092ef5a8a18f56e8913cf4a201fbe287825b095693c21775
+    ├─ [2754] BlockVirtualPriceFeed::hasRole(0xa49807205ce4d355092ef5a8a18f56e8913cf4a201fbe287825b095693c21775, ECRecover: [0x0000000000000000000000000000000000000001]) [staticcall]
+    │   └─ ← [Return] true
+    ├─ [0] VM::assertTrue(true) [staticcall]
+    │   └─ ← [Return] 
+    ├─ [526] BlockVirtualPriceFeed::PRICE_UPDATER_ROLE() [staticcall]
+    │   └─ ← [Return] 0xd96ba01d6560c2ab35f2940dd8d70c5f5fe06236c72674237120515918198fb0
+    ├─ [2754] BlockVirtualPriceFeed::hasRole(0xd96ba01d6560c2ab35f2940dd8d70c5f5fe06236c72674237120515918198fb0, SHA-256: [0x0000000000000000000000000000000000000002]) [staticcall]
+    │   └─ ← [Return] true
+    ├─ [0] VM::assertTrue(true) [staticcall]
+    │   └─ ← [Return] 
+    ├─ [397] BlockVirtualPriceFeed::ADMIN_ROLE() [staticcall]
+    │   └─ ← [Return] 0xa49807205ce4d355092ef5a8a18f56e8913cf4a201fbe287825b095693c21775
+    ├─ [2754] BlockVirtualPriceFeed::hasRole(0xa49807205ce4d355092ef5a8a18f56e8913cf4a201fbe287825b095693c21775, RIPEMD-160: [0x0000000000000000000000000000000000000003]) [staticcall]
+    │   └─ ← [Return] false
+    ├─ [0] VM::assertFalse(false) [staticcall]
+    │   └─ ← [Return] 
+    ├─ [526] BlockVirtualPriceFeed::PRICE_UPDATER_ROLE() [staticcall]
+    │   └─ ← [Return] 0xd96ba01d6560c2ab35f2940dd8d70c5f5fe06236c72674237120515918198fb0
+    ├─ [2754] BlockVirtualPriceFeed::hasRole(0xd96ba01d6560c2ab35f2940dd8d70c5f5fe06236c72674237120515918198fb0, RIPEMD-160: [0x0000000000000000000000000000000000000003]) [staticcall]
+    │   └─ ← [Return] false
+    ├─ [0] VM::assertFalse(false) [staticcall]
+    │   └─ ← [Return] 
+    └─ ← [Return] 
+
+[PASS] test_UpdatePrice() (gas: 139424)
+Traces:
+  [139424] PriceFeedTest::test_UpdatePrice()
+    ├─ [0] VM::prank(ECRecover: [0x0000000000000000000000000000000000000001])
+    │   └─ ← [Return] 
+    ├─ [70477] BlockVirtualPriceFeed::registerToken(PointEvaluation: [0x000000000000000000000000000000000000000A])
+    │   ├─ emit TokenRegistered(token: PointEvaluation: [0x000000000000000000000000000000000000000A])
+    │   └─ ← [Stop] 
+    ├─ [0] VM::prank(SHA-256: [0x0000000000000000000000000000000000000002])
+    │   └─ ← [Return] 
+    ├─ [48921] BlockVirtualPriceFeed::updatePrice(PointEvaluation: [0x000000000000000000000000000000000000000A], 750000000000000000 [7.5e17])
+    │   ├─ emit PriceUpdated(token: PointEvaluation: [0x000000000000000000000000000000000000000A], price: 750000000000000000 [7.5e17], timestamp: 1)
+    │   └─ ← [Stop] 
+    ├─ [654] BlockVirtualPriceFeed::getLatestPrice(PointEvaluation: [0x000000000000000000000000000000000000000A]) [staticcall]
+    │   └─ ← [Return] 750000000000000000 [7.5e17]
+    ├─ [0] VM::assertEq(750000000000000000 [7.5e17], 750000000000000000 [7.5e17]) [staticcall]
+    │   └─ ← [Return] 
+    ├─ [745] BlockVirtualPriceFeed::getPriceTimestamp(PointEvaluation: [0x000000000000000000000000000000000000000A]) [staticcall]
+    │   └─ ← [Return] 1
+    ├─ [0] VM::assertTrue(true) [staticcall]
+    │   └─ ← [Return] 
+    └─ ← [Return] 
+
+[PASS] test_UpdatePrice_NotRegistered() (gas: 18530)
+Traces:
+  [18530] PriceFeedTest::test_UpdatePrice_NotRegistered()
+    ├─ [0] VM::prank(SHA-256: [0x0000000000000000000000000000000000000002])
+    │   └─ ← [Return] 
+    ├─ [0] VM::expectRevert(InvalidAddress())
+    │   └─ ← [Return] 
+    ├─ [4876] BlockVirtualPriceFeed::updatePrice(PointEvaluation: [0x000000000000000000000000000000000000000A], 750000000000000000 [7.5e17])
+    │   └─ ← [Revert] InvalidAddress()
+    └─ ← [Return] 
+
+[PASS] test_UpdatePrice_Unauthorized() (gas: 91888)
+Traces:
+  [91888] PriceFeedTest::test_UpdatePrice_Unauthorized()
+    ├─ [0] VM::prank(ECRecover: [0x0000000000000000000000000000000000000001])
+    │   └─ ← [Return] 
+    ├─ [70477] BlockVirtualPriceFeed::registerToken(PointEvaluation: [0x000000000000000000000000000000000000000A])
+    │   ├─ emit TokenRegistered(token: PointEvaluation: [0x000000000000000000000000000000000000000A])
+    │   └─ ← [Stop] 
+    ├─ [526] BlockVirtualPriceFeed::PRICE_UPDATER_ROLE() [staticcall]
+    │   └─ ← [Return] 0xd96ba01d6560c2ab35f2940dd8d70c5f5fe06236c72674237120515918198fb0
+    ├─ [0] VM::expectRevert(AccessControlUnauthorizedAccount(0x0000000000000000000000000000000000000003, 0xd96ba01d6560c2ab35f2940dd8d70c5f5fe06236c72674237120515918198fb0))
+    │   └─ ← [Return] 
+    ├─ [0] VM::prank(RIPEMD-160: [0x0000000000000000000000000000000000000003])
+    │   └─ ← [Return] 
+    ├─ [2646] BlockVirtualPriceFeed::updatePrice(PointEvaluation: [0x000000000000000000000000000000000000000A], 750000000000000000 [7.5e17])
+    │   └─ ← [Revert] AccessControlUnauthorizedAccount(0x0000000000000000000000000000000000000003, 0xd96ba01d6560c2ab35f2940dd8d70c5f5fe06236c72674237120515918198fb0)
+    └─ ← [Return] 
+
+[PASS] test_UpdatePrice_ZeroAddress() (gas: 14227)
+Traces:
+  [14227] PriceFeedTest::test_UpdatePrice_ZeroAddress()
+    ├─ [0] VM::prank(SHA-256: [0x0000000000000000000000000000000000000002])
+    │   └─ ← [Return] 
+    ├─ [0] VM::expectRevert(ZeroAddress())
+    │   └─ ← [Return] 
+    ├─ [2669] BlockVirtualPriceFeed::updatePrice(0x0000000000000000000000000000000000000000, 750000000000000000 [7.5e17])
+    │   └─ ← [Revert] ZeroAddress()
+    └─ ← [Return] 
+
+[PASS] test_UpdatePrice_ZeroPrice() (gas: 90593)
+Traces:
+  [90593] PriceFeedTest::test_UpdatePrice_ZeroPrice()
+    ├─ [0] VM::prank(ECRecover: [0x0000000000000000000000000000000000000001])
+    │   └─ ← [Return] 
+    ├─ [70477] BlockVirtualPriceFeed::registerToken(PointEvaluation: [0x000000000000000000000000000000000000000A])
+    │   ├─ emit TokenRegistered(token: PointEvaluation: [0x000000000000000000000000000000000000000A])
+    │   └─ ← [Stop] 
+    ├─ [0] VM::prank(SHA-256: [0x0000000000000000000000000000000000000002])
+    │   └─ ← [Return] 
+    ├─ [0] VM::expectRevert(InvalidAmount())
+    │   └─ ← [Return] 
+    ├─ [2688] BlockVirtualPriceFeed::updatePrice(PointEvaluation: [0x000000000000000000000000000000000000000A], 0)
+    │   └─ ← [Revert] InvalidAmount()
+    └─ ← [Return] 
+
+Suite result: ok. 18 passed; 0 failed; 0 skipped; finished in 1.33ms (1.07ms CPU time)
+
+Ran 1 test suite in 22.30ms (1.33ms CPU time): 18 tests passed, 0 failed, 0 skipped (18 total tests)

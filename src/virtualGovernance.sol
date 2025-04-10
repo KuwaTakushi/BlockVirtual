@@ -4,13 +4,13 @@ pragma solidity ^0.8.28;
 import "@openzeppelin/contracts-upgradeable/access/AccessControlUpgradeable.sol";
 import "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
 import "src/library/KYCManager.sol";
-import "src/library/VaultManager.sol";
+import "src/library/PoolManager.sol";
 import "src/library/Errors.sol";
 
 contract BlockVirtualGovernance is Initializable, AccessControlUpgradeable {
 
     using KYCManager for mapping(address => KYCManager.KYCRegistry);
-    using VaultManager for mapping(address => VaultManager.VaultRegistry);
+    using PoolManager for mapping(address => PoolManager.PoolRegistry);
 
     bytes32 public constant ADMIN_ROLE = keccak256("ADMIN_ROLE");
     bytes32 public constant REGULATOR_ROLE = keccak256("REGULATOR_ROLE");
@@ -20,14 +20,15 @@ contract BlockVirtualGovernance is Initializable, AccessControlUpgradeable {
 
     mapping (address => KYCManager.KYCRegistry) public registry;
     mapping (uint256 => bool) public supportedCountryCode;
-    mapping (address => VaultManager.VaultRegistry) public vaultRegistry;
+    mapping (address => PoolManager.PoolRegistry) public poolRegistry;
     
     // Blacklist management - token address => user address => blacklist status
     mapping (address => mapping(address => bool)) public blacklisted;
     
     // Events
-    event VaultPaused(address indexed vault, address indexed pauser);
-    event VaultUnpaused(address indexed vault, address indexed pauser);
+    event PoolRegistered(address indexed pool, address indexed registrar);
+    event PoolActivated(address indexed pool, address indexed activator);
+    event PoolDeactivated(address indexed pool, address indexed deactivator);
     event UserBlacklisted(address indexed token, address indexed user, address indexed operator);
     event UserRemovedFromBlacklist(address indexed token, address indexed user, address indexed operator);
 
@@ -145,20 +146,37 @@ contract BlockVirtualGovernance is Initializable, AccessControlUpgradeable {
     }
 
     /*//////////////////////////////////////////////////////////////
-                            PAUSE CONTROL
+                            POOL CONTROL
     //////////////////////////////////////////////////////////////*/
-    function pauseVault(address vault) external onlyRole(ADMIN_ROLE) {
-        vaultRegistry.pauseVault(vault);
-        emit VaultPaused(vault, msg.sender);
+    function registerPool(address pool) external onlyRole(ADMIN_ROLE) {
+        poolRegistry.registerPool(pool);
+        emit PoolRegistered(pool, msg.sender);
     }
 
-    function unpauseVault(address vault) external onlyRole(ADMIN_ROLE) {
-        vaultRegistry.unpauseVault(vault);
-        emit VaultUnpaused(vault, msg.sender);
+    function activatePool(address pool) external onlyRole(ADMIN_ROLE) {
+        poolRegistry.activatePool(pool);
+        emit PoolActivated(pool, msg.sender);
     }
 
-    function isVaultPaused(address vault) external view returns (bool) {
-        return vaultRegistry.isVaultPaused(vault);
+    function deactivatePool(address pool) external onlyRole(ADMIN_ROLE) {
+        poolRegistry.deactivatePool(pool);
+        emit PoolDeactivated(pool, msg.sender);
+    }
+
+    function isPoolActive(address pool) external view returns (bool) {
+        return poolRegistry.isPoolActive(pool);
+    }
+
+    function isPoolRegistered(address pool) external view returns (bool) {
+        return poolRegistry.isPoolRegistered(pool);
+    }
+
+    function getPoolOperator(address pool) external view returns (address) {
+        return poolRegistry.getPoolOperator(pool);
+    }
+
+    function getPoolRegistrationTime(address pool) external view returns (uint256) {
+        return poolRegistry.getPoolRegistrationTime(pool);
     }
 
     /*//////////////////////////////////////////////////////////////
