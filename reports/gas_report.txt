@@ -1,0 +1,210 @@
+No files changed, compilation skipped
+
+Ran 18 tests for test/rwaPriceFeed.t.sol:PriceFeedTest
+[PASS] test_CalculateConversion() (gas: 335584)
+[PASS] test_CalculateConversion_PriceNotAvailable() (gas: 263002)
+[PASS] test_GetAllTokens() (gas: 269080)
+[PASS] test_GetLatestPrice_NotAvailable() (gas: 108219)
+[PASS] test_GetLatestPrice_NotRegistered() (gas: 13889)
+[PASS] test_IsTokenRegistered() (gas: 115804)
+[PASS] test_MultiTokenConversion() (gas: 485935)
+[PASS] test_PriceTimestamp() (gas: 187990)
+[PASS] test_RegisterToken() (gas: 109112)
+[PASS] test_RegisterToken_AlreadyRegistered() (gas: 132176)
+[PASS] test_RegisterToken_Unauthorized() (gas: 38699)
+[PASS] test_RegisterToken_ZeroAddress() (gas: 35021)
+[PASS] test_RoleAssignment() (gas: 36103)
+[PASS] test_UpdatePrice() (gas: 184032)
+[PASS] test_UpdatePrice_NotRegistered() (gas: 39934)
+[PASS] test_UpdatePrice_Unauthorized() (gas: 134496)
+[PASS] test_UpdatePrice_ZeroAddress() (gas: 35619)
+[PASS] test_UpdatePrice_ZeroPrice() (gas: 133129)
+Suite result: ok. 18 passed; 0 failed; 0 skipped; finished in 4.77ms (2.18ms CPU time)
+
+Ran 17 tests for test/rwaToken.t.sol:RwaTokenTest
+[PASS] test_BurnRwa() (gas: 149182)
+[PASS] test_BurnRwa_BlacklistedUser() (gas: 338887)
+[PASS] test_BurnRwa_Unauthorized() (gas: 129340)
+[PASS] test_CheckCompliance() (gas: 127183)
+[PASS] test_IsBlacklisted() (gas: 136838)
+[PASS] test_MintRwa() (gas: 98094)
+[PASS] test_MintRwa_BlacklistedUser() (gas: 51402)
+[PASS] test_MintRwa_Unauthorized() (gas: 42392)
+[PASS] test_TokenInitialization() (gas: 32180)
+[PASS] test_TransferFrom_Blacklisted() (gas: 355495)
+[PASS] test_TransferFrom_NoKyc() (gas: 225336)
+[PASS] test_TransferFrom_Successful() (gas: 261685)
+[PASS] test_TransferFrom_UnsupportedCountry() (gas: 234848)
+[PASS] test_Transfer_Blacklisted() (gas: 301946)
+[PASS] test_Transfer_NoKyc() (gas: 171354)
+[PASS] test_Transfer_Successful() (gas: 200130)
+[PASS] test_Transfer_UnsupportedCountry() (gas: 181321)
+Suite result: ok. 17 passed; 0 failed; 0 skipped; finished in 21.27ms (5.18ms CPU time)
+
+Ran 14 tests for test/virtualPool.t.sol:VirtualPoolTest
+[PASS] test_AddLiquidity() (gas: 407885)
+[PASS] test_AddLiquidity_NonKYC() (gas: 321775)
+[PASS] test_AddLiquidity_Slippage() (gas: 762256)
+[PASS] test_EmergencyWithdraw() (gas: 502384)
+[PASS] test_FeeManagement() (gas: 756853)
+[PASS] test_GetAmountOut() (gas: 600718)
+[PASS] test_PairCreation() (gas: 2209898)
+[PASS] test_PairCreation_SameToken() (gas: 46475)
+[PASS] test_PairCreation_UnsupportedToken() (gas: 47606)
+[PASS] test_Pause() (gas: 709534)
+[PASS] test_Quote() (gas: 14322)
+[PASS] test_RemoveLiquidity() (gas: 556486)
+[PASS] test_Swap() (gas: 631823)
+[PASS] test_Swap_BlacklistedUser() (gas: 740845)
+Suite result: ok. 14 passed; 0 failed; 0 skipped; finished in 21.33ms (5.30ms CPU time)
+| lib/openzeppelin-contracts/contracts/proxy/ERC1967/ERC1967Proxy.sol:ERC1967Proxy contract |                 |        |        |        |         |
+|-------------------------------------------------------------------------------------------|-----------------|--------|--------|--------|---------|
+| Deployment Cost                                                                           | Deployment Size |        |        |        |         |
+| 260130                                                                                    | 1094            |        |        |        |         |
+| Function Name                                                                             | min             | avg    | median | max    | # calls |
+| ADMIN_ROLE                                                                                | 916             | 943    | 943    | 971    | 28      |
+| FEE_MANAGER_ROLE                                                                          | 487             | 487    | 487    | 487    | 14      |
+| OPERATOR_ROLE                                                                             | 1367            | 1367   | 1367   | 1367   | 14      |
+| REGULATOR_ROLE                                                                            | 564             | 564    | 564    | 564    | 14      |
+| activatePool                                                                              | 35741           | 35741  | 35741  | 35741  | 14      |
+| addBlacklisted                                                                            | 55533           | 55533  | 55533  | 55533  | 22      |
+| addLiquidity                                                                              | 52532           | 225409 | 267223 | 267780 | 12      |
+| addSupportedCountryCode                                                                   | 51153           | 51153  | 51153  | 51153  | 31      |
+| addSupportedToken                                                                         | 52461           | 52461  | 52461  | 52461  | 29      |
+| allPairsLength                                                                            | 876             | 876    | 876    | 876    | 1       |
+| allowance                                                                                 | 1281            | 1281   | 1281   | 1281   | 1       |
+| approve                                                                                   | 50605           | 50797  | 50821  | 50833  | 31      |
+| balanceOf                                                                                 | 923             | 1256   | 923    | 2923   | 18      |
+| blockVirtualGovernance                                                                    | 2936            | 2936   | 2936   | 2936   | 1       |
+| burnRwa                                                                                   | 29059           | 38575  | 37297  | 49371  | 3       |
+| checkCompliance                                                                           | 18331           | 26150  | 20768  | 44734  | 4       |
+| createPair                                                                                | 32383           | 199033 | 222277 | 222277 | 17      |
+| emergencyWithdraw                                                                         | 108938          | 108938 | 108938 | 108938 | 1       |
+| getAmountOut                                                                              | 4381            | 4381   | 4381   | 4381   | 1       |
+| getKycStatus                                                                              | 1432            | 3774   | 1894   | 10394  | 222     |
+| getPair                                                                                   | 1780            | 1780   | 1780   | 1780   | 2       |
+| getReserves                                                                               | 2501            | 2501   | 2501   | 2501   | 2       |
+| grantOperatorRole                                                                         | 55570           | 55570  | 55570  | 55570  | 14      |
+| grantRole                                                                                 | 55977           | 56091  | 56153  | 56153  | 121     |
+| isBlacklisted(address)                                                                    | 2831            | 7206   | 3831   | 18331  | 4       |
+| isBlacklisted(address,address)                                                            | 1202            | 4297   | 3202   | 7702   | 219     |
+| isFromSupportedCountry                                                                    | 1541            | 3397   | 3541   | 5541   | 99      |
+| liquidityFee                                                                              | 1184            | 1184   | 1184   | 1184   | 1       |
+| mintRwa                                                                                   | 28839           | 74503  | 83258  | 83258  | 74      |
+| name                                                                                      | 7714            | 7714   | 7714   | 7714   | 1       |
+| pause                                                                                     | 52167           | 52167  | 52167  | 52167  | 1       |
+| quote                                                                                     | 6097            | 6097   | 6097   | 6097   | 1       |
+| registerKYCUser                                                                           | 43251           | 128294 | 142751 | 142979 | 294     |
+| registerPool                                                                              | 97818           | 97818  | 97818  | 97818  | 14      |
+| removeBlacklisted                                                                         | 33913           | 33913  | 33913  | 33913  | 1       |
+| removeLiquidity                                                                           | 167820          | 167820 | 167820 | 167820 | 1       |
+| setFeeCollector                                                                           | 52801           | 52801  | 52801  | 52801  | 14      |
+| setLiquidityFee                                                                           | 51963           | 51963  | 51963  | 51963  | 1       |
+| setPriceFeed                                                                              | 51301           | 51301  | 51301  | 51301  | 14      |
+| setSwapFee                                                                                | 51941           | 51941  | 51941  | 51941  | 1       |
+| setupRoleAdmins                                                                           | 101367          | 101367 | 101367 | 101367 | 31      |
+| supportedCountryCode                                                                      | 2846            | 2846   | 2846   | 2846   | 1       |
+| swap                                                                                      | 30365           | 134334 | 167503 | 213935 | 6       |
+| swapFee                                                                                   | 854             | 854    | 854    | 854    | 2       |
+| symbol                                                                                    | 3478            | 3478   | 3478   | 3478   | 1       |
+| transfer                                                                                  | 66941           | 76512  | 71205  | 95659  | 5       |
+| transferFrom                                                                              | 66925           | 77600  | 71189  | 101164 | 5       |
+| unpause                                                                                   | 29755           | 29755  | 29755  | 29755  | 1       |
+
+
+| src/pool/virtualPool.sol:VirtualPool contract |                 |        |        |        |         |
+|-----------------------------------------------|-----------------|--------|--------|--------|---------|
+| Deployment Cost                               | Deployment Size |        |        |        |         |
+| 2580481                                       | 11627           |        |        |        |         |
+| Function Name                                 | min             | avg    | median | max    | # calls |
+| ADMIN_ROLE                                    | 661             | 661    | 661    | 661    | 14      |
+| FEE_MANAGER_ROLE                              | 177             | 177    | 177    | 177    | 14      |
+| OPERATOR_ROLE                                 | 1057            | 1057   | 1057   | 1057   | 14      |
+| addLiquidity                                  | 25208           | 207985 | 252297 | 252830 | 12      |
+| addSupportedToken                             | 26219           | 26219  | 26219  | 26219  | 29      |
+| allPairsLength                                | 566             | 566    | 566    | 566    | 1       |
+| createPair                                    | 5766            | 172430 | 195661 | 195661 | 17      |
+| emergencyWithdraw                             | 82481           | 82481  | 82481  | 82481  | 1       |
+| getAmountOut                                  | 4059            | 4059   | 4059   | 4059   | 1       |
+| getPair                                       | 1464            | 1464   | 1464   | 1464   | 2       |
+| getReserves                                   | 2182            | 2182   | 2182   | 2182   | 2       |
+| grantRole                                     | 29448           | 29448  | 29448  | 29448  | 42      |
+| initialize                                    | 170060          | 170060 | 170060 | 170060 | 14      |
+| liquidityFee                                  | 874             | 874    | 874    | 874    | 1       |
+| pause                                         | 26296           | 26296  | 26296  | 26296  | 1       |
+| quote                                         | 1275            | 1275   | 1275   | 1275   | 1       |
+| removeLiquidity                               | 143491          | 143491 | 143491 | 143491 | 1       |
+| setFeeCollector                               | 26787           | 26787  | 26787  | 26787  | 14      |
+| setLiquidityFee                               | 25949           | 25949  | 25949  | 25949  | 1       |
+| setPriceFeed                                  | 25059           | 25059  | 25059  | 25059  | 14      |
+| setSwapFee                                    | 25927           | 25927  | 25927  | 25927  | 1       |
+| swap                                          | 3396            | 112418 | 148135 | 194567 | 6       |
+| swapFee                                       | 544             | 544    | 544    | 544    | 2       |
+| unpause                                       | 8684            | 8684   | 8684   | 8684   | 1       |
+
+
+| src/rwaPriceFeed.sol:BlockVirtualPriceFeed contract |                 |       |        |       |         |
+|-----------------------------------------------------|-----------------|-------|--------|-------|---------|
+| Deployment Cost                                     | Deployment Size |       |        |       |         |
+| 724977                                              | 3346            |       |        |       |         |
+| Function Name                                       | min             | avg   | median | max   | # calls |
+| ADMIN_ROLE                                          | 397             | 397   | 397    | 397   | 53      |
+| PRICE_UPDATER_ROLE                                  | 526             | 526   | 526    | 526   | 53      |
+| calculateConversion                                 | 614             | 1360  | 1074   | 2966  | 5       |
+| getAllTokens                                        | 939             | 1708  | 1553   | 2632  | 3       |
+| getLatestPrice                                      | 654             | 1877  | 2489   | 2489  | 3       |
+| getPriceTimestamp                                   | 745             | 1411  | 745    | 2745  | 3       |
+| grantRole                                           | 51044           | 51044 | 51044  | 51044 | 64      |
+| hasRole                                             | 2754            | 2754  | 2754   | 2754  | 5       |
+| isTokenRegistered                                   | 531             | 1531  | 1531   | 2531  | 4       |
+| registerToken                                       | 23662           | 80712 | 91681  | 91909 | 49      |
+| revokeRole                                          | 29567           | 29567 | 29567  | 29567 | 36      |
+| updatePrice                                         | 24020           | 67712 | 72553  | 72553 | 40      |
+
+
+| src/rwaToken.sol:RwaToken contract |                 |        |        |        |         |
+|------------------------------------|-----------------|--------|--------|--------|---------|
+| Deployment Cost                    | Deployment Size |        |        |        |         |
+| 1600020                            | 7285            |        |        |        |         |
+| Function Name                      | min             | avg    | median | max    | # calls |
+| allowance                          | 965             | 965    | 965    | 965    | 1       |
+| approve                            | 24373           | 24373  | 24373  | 24373  | 31      |
+| balanceOf                          | 610             | 943    | 610    | 2610   | 18      |
+| blockVirtualGovernance             | 2626            | 2626   | 2626   | 2626   | 1       |
+| burnRwa                            | 2823            | 12342  | 11061  | 23142  | 3       |
+| checkCompliance                    | 18015           | 24709  | 20452  | 39918  | 4       |
+| initialize                         | 139188          | 139188 | 139188 | 139188 | 46      |
+| isBlacklisted                      | 2518            | 5768   | 3518   | 13518  | 4       |
+| mintRwa                            | 2603            | 48274  | 57029  | 57029  | 74      |
+| name                               | 2898            | 2898   | 2898   | 2898   | 1       |
+| supportedCountryCode               | 2536            | 2536   | 2536   | 2536   | 1       |
+| symbol                             | 3162            | 3162   | 3162   | 3162   | 1       |
+| transfer                           | 29327           | 42492  | 40705  | 69427  | 13      |
+| transferFrom                       | 34686           | 52978  | 51786  | 74786  | 29      |
+
+
+| src/virtualGovernance.sol:BlockVirtualGovernance contract |                 |        |        |        |         |
+|-----------------------------------------------------------|-----------------|--------|--------|--------|---------|
+| Deployment Cost                                           | Deployment Size |        |        |        |         |
+| 1649764                                                   | 7496            |        |        |        |         |
+| Function Name                                             | min             | avg    | median | max    | # calls |
+| ADMIN_ROLE                                                | 606             | 606    | 606    | 606    | 14      |
+| REGULATOR_ROLE                                            | 254             | 254    | 254    | 254    | 14      |
+| activatePool                                              | 9511            | 9511   | 9511   | 9511   | 14      |
+| addBlacklisted                                            | 29148           | 29148  | 29148  | 29148  | 22      |
+| addSupportedCountryCode                                   | 25127           | 25127  | 25127  | 25127  | 31      |
+| getKycStatus                                              | 1119            | 2792   | 1581   | 5581   | 222     |
+| grantOperatorRole                                         | 29556           | 29556  | 29556  | 29556  | 14      |
+| grantRole                                                 | 29624           | 29624  | 29624  | 29624  | 79      |
+| initialize                                                | 73435           | 73435  | 73435  | 73435  | 31      |
+| isBlacklisted                                             | 886             | 2420   | 2886   | 2886   | 219     |
+| isFromSupportedCountry                                    | 1228            | 3084   | 3228   | 5228   | 99      |
+| registerKYCUser                                           | 16900           | 101847 | 116400 | 116400 | 294     |
+| registerPool                                              | 71588           | 71588  | 71588  | 71588  | 14      |
+| removeBlacklisted                                         | 12328           | 12328  | 12328  | 12328  | 1       |
+| setupRoleAdmins                                           | 75496           | 75496  | 75496  | 75496  | 31      |
+
+
+
+
+Ran 3 test suites in 33.01ms (47.36ms CPU time): 49 tests passed, 0 failed, 0 skipped (49 total tests)
