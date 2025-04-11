@@ -1,0 +1,1656 @@
+Compiling 1 files with Solc 0.8.28
+Solc 0.8.28 finished in 7.91s
+Compiler run successful!
+
+Ran 3 tests for test/virtualPay.t.sol:VirtualPayTest
+[PASS] test_NonKYCUser() (gas: 360243)
+Traces:
+  [12913689] VirtualPayTest::setUp()
+    ├─ [1480812] → new BlockVirtualGovernance@0x5615dEB798BB3E4dFa0139dFa1b3D433Cc23b72f
+    │   ├─ emit Initialized(version: 18446744073709551615 [1.844e19])
+    │   └─ ← [Return] 7280 bytes of code
+    ├─ [2345385] → new VirtualPool@0x2e234DAe75C793f67A35089C9d99245E1C58470b
+    │   ├─ emit Initialized(version: 18446744073709551615 [1.844e19])
+    │   └─ ← [Return] 11377 bytes of code
+    ├─ [972323] → new VirtualPay@0xF62849F9A0B5Bf2913b396098F7c7019b51A820a
+    │   ├─ emit Initialized(version: 18446744073709551615 [1.844e19])
+    │   └─ ← [Return] 4740 bytes of code
+    ├─ [619929] → new BlockVirtualPriceFeed@0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9
+    │   ├─ emit RoleGranted(role: 0x0000000000000000000000000000000000000000000000000000000000000000, account: VirtualPayTest: [0x7FA9385bE102ac3EAc297483Dd6233D62b3e1496], sender: VirtualPayTest: [0x7FA9385bE102ac3EAc297483Dd6233D62b3e1496])
+    │   ├─ emit RoleGranted(role: 0xa49807205ce4d355092ef5a8a18f56e8913cf4a201fbe287825b095693c21775, account: VirtualPayTest: [0x7FA9385bE102ac3EAc297483Dd6233D62b3e1496], sender: VirtualPayTest: [0x7FA9385bE102ac3EAc297483Dd6233D62b3e1496])
+    │   ├─ emit RoleGranted(role: 0xd96ba01d6560c2ab35f2940dd8d70c5f5fe06236c72674237120515918198fb0, account: VirtualPayTest: [0x7FA9385bE102ac3EAc297483Dd6233D62b3e1496], sender: VirtualPayTest: [0x7FA9385bE102ac3EAc297483Dd6233D62b3e1496])
+    │   └─ ← [Return] 2730 bytes of code
+    ├─ [1433808] → new RwaToken@0xc7183455a4C133Ae270771860664b6B7ec320bB1
+    │   ├─ emit Initialized(version: 18446744073709551615 [1.844e19])
+    │   └─ ← [Return] 7045 bytes of code
+    ├─ [1433808] → new RwaToken@0xa0Cb889707d426A7A386870A03bc70d1b0697598
+    │   ├─ emit Initialized(version: 18446744073709551615 [1.844e19])
+    │   └─ ← [Return] 7045 bytes of code
+    ├─ [124800] → new ERC1967Proxy@0x1d1499e622D69689cdf9004d05Ec547d650Ff211
+    │   ├─ emit Upgraded(implementation: BlockVirtualGovernance: [0x5615dEB798BB3E4dFa0139dFa1b3D433Cc23b72f])
+    │   ├─ [73435] BlockVirtualGovernance::initialize() [delegatecall]
+    │   │   ├─ emit RoleGranted(role: 0x0000000000000000000000000000000000000000000000000000000000000000, account: VirtualPayTest: [0x7FA9385bE102ac3EAc297483Dd6233D62b3e1496], sender: VirtualPayTest: [0x7FA9385bE102ac3EAc297483Dd6233D62b3e1496])
+    │   │   ├─ emit RoleGranted(role: 0xa49807205ce4d355092ef5a8a18f56e8913cf4a201fbe287825b095693c21775, account: VirtualPayTest: [0x7FA9385bE102ac3EAc297483Dd6233D62b3e1496], sender: VirtualPayTest: [0x7FA9385bE102ac3EAc297483Dd6233D62b3e1496])
+    │   │   ├─ emit Initialized(version: 1)
+    │   │   └─ ← [Stop] 
+    │   └─ ← [Return] 134 bytes of code
+    ├─ [0] VM::startPrank(VirtualPayTest: [0x7FA9385bE102ac3EAc297483Dd6233D62b3e1496])
+    │   └─ ← [Return] 
+    ├─ [73803] ERC1967Proxy::setupRoleAdmins()
+    │   ├─ [73496] BlockVirtualGovernance::setupRoleAdmins() [delegatecall]
+    │   │   ├─ emit RoleAdminChanged(role: 0x20b5f7ac978e5d6199de06401411960dfa81d2f762655f6206bdc61d46fc19e6, previousAdminRole: 0x0000000000000000000000000000000000000000000000000000000000000000, newAdminRole: 0xa49807205ce4d355092ef5a8a18f56e8913cf4a201fbe287825b095693c21775)
+    │   │   ├─ emit RoleAdminChanged(role: 0x442a94f1a1fac79af32856af2a64f63648cfa2ef3b98610a5bb7cbec4cee6985, previousAdminRole: 0x0000000000000000000000000000000000000000000000000000000000000000, newAdminRole: 0xa49807205ce4d355092ef5a8a18f56e8913cf4a201fbe287825b095693c21775)
+    │   │   ├─ emit RoleAdminChanged(role: 0x97667070c54ef182b0f5858b034beac1b6f3089aa2d3188bb1e8929f4fa9b929, previousAdminRole: 0x0000000000000000000000000000000000000000000000000000000000000000, newAdminRole: 0x20b5f7ac978e5d6199de06401411960dfa81d2f762655f6206bdc61d46fc19e6)
+    │   │   └─ ← [Stop] 
+    │   └─ ← [Return] 
+    ├─ [916] ERC1967Proxy::ADMIN_ROLE() [staticcall]
+    │   ├─ [606] BlockVirtualGovernance::ADMIN_ROLE() [delegatecall]
+    │   │   └─ ← [Return] 0xa49807205ce4d355092ef5a8a18f56e8913cf4a201fbe287825b095693c21775
+    │   └─ ← [Return] 0xa49807205ce4d355092ef5a8a18f56e8913cf4a201fbe287825b095693c21775
+    ├─ [27937] ERC1967Proxy::grantRole(0xa49807205ce4d355092ef5a8a18f56e8913cf4a201fbe287825b095693c21775, ECRecover: [0x0000000000000000000000000000000000000001])
+    │   ├─ [27624] BlockVirtualGovernance::grantRole(0xa49807205ce4d355092ef5a8a18f56e8913cf4a201fbe287825b095693c21775, ECRecover: [0x0000000000000000000000000000000000000001]) [delegatecall]
+    │   │   ├─ emit RoleGranted(role: 0xa49807205ce4d355092ef5a8a18f56e8913cf4a201fbe287825b095693c21775, account: ECRecover: [0x0000000000000000000000000000000000000001], sender: VirtualPayTest: [0x7FA9385bE102ac3EAc297483Dd6233D62b3e1496])
+    │   │   └─ ← [Stop] 
+    │   └─ ← [Return] 
+    ├─ [564] ERC1967Proxy::REGULATOR_ROLE() [staticcall]
+    │   ├─ [254] BlockVirtualGovernance::REGULATOR_ROLE() [delegatecall]
+    │   │   └─ ← [Return] 0x20b5f7ac978e5d6199de06401411960dfa81d2f762655f6206bdc61d46fc19e6
+    │   └─ ← [Return] 0x20b5f7ac978e5d6199de06401411960dfa81d2f762655f6206bdc61d46fc19e6
+    ├─ [25937] ERC1967Proxy::grantRole(0x20b5f7ac978e5d6199de06401411960dfa81d2f762655f6206bdc61d46fc19e6, SHA-256: [0x0000000000000000000000000000000000000002])
+    │   ├─ [25624] BlockVirtualGovernance::grantRole(0x20b5f7ac978e5d6199de06401411960dfa81d2f762655f6206bdc61d46fc19e6, SHA-256: [0x0000000000000000000000000000000000000002]) [delegatecall]
+    │   │   ├─ emit RoleGranted(role: 0x20b5f7ac978e5d6199de06401411960dfa81d2f762655f6206bdc61d46fc19e6, account: SHA-256: [0x0000000000000000000000000000000000000002], sender: VirtualPayTest: [0x7FA9385bE102ac3EAc297483Dd6233D62b3e1496])
+    │   │   └─ ← [Stop] 
+    │   └─ ← [Return] 
+    ├─ [0] VM::stopPrank()
+    │   └─ ← [Return] 
+    ├─ [0] VM::startPrank(SHA-256: [0x0000000000000000000000000000000000000002])
+    │   └─ ← [Return] 
+    ├─ [25866] ERC1967Proxy::grantOperatorRole(SHA-256: [0x0000000000000000000000000000000000000002])
+    │   ├─ [25556] BlockVirtualGovernance::grantOperatorRole(SHA-256: [0x0000000000000000000000000000000000000002]) [delegatecall]
+    │   │   ├─ emit RoleGranted(role: 0x97667070c54ef182b0f5858b034beac1b6f3089aa2d3188bb1e8929f4fa9b929, account: SHA-256: [0x0000000000000000000000000000000000000002], sender: SHA-256: [0x0000000000000000000000000000000000000002])
+    │   │   └─ ← [Stop] 
+    │   └─ ← [Return] 
+    ├─ [0] VM::stopPrank()
+    │   └─ ← [Return] 
+    ├─ [0] VM::prank(ECRecover: [0x0000000000000000000000000000000000000001])
+    │   └─ ← [Return] 
+    ├─ [23437] ERC1967Proxy::addSupportedCountryCode(702)
+    │   ├─ [23127] BlockVirtualGovernance::addSupportedCountryCode(702) [delegatecall]
+    │   │   └─ ← [Return] 
+    │   └─ ← [Return] 
+    ├─ [221514] → new ERC1967Proxy@0xA4AD4f68d0b91CFD19687c881e50f3A00242828c
+    │   ├─ emit Upgraded(implementation: VirtualPool: [0x2e234DAe75C793f67A35089C9d99245E1C58470b])
+    │   ├─ [170060] VirtualPool::initialize(ERC1967Proxy: [0x1d1499e622D69689cdf9004d05Ec547d650Ff211]) [delegatecall]
+    │   │   ├─ emit RoleGranted(role: 0x0000000000000000000000000000000000000000000000000000000000000000, account: VirtualPayTest: [0x7FA9385bE102ac3EAc297483Dd6233D62b3e1496], sender: VirtualPayTest: [0x7FA9385bE102ac3EAc297483Dd6233D62b3e1496])
+    │   │   ├─ emit RoleGranted(role: 0xa49807205ce4d355092ef5a8a18f56e8913cf4a201fbe287825b095693c21775, account: VirtualPayTest: [0x7FA9385bE102ac3EAc297483Dd6233D62b3e1496], sender: VirtualPayTest: [0x7FA9385bE102ac3EAc297483Dd6233D62b3e1496])
+    │   │   ├─ emit RoleGranted(role: 0x6c0757dc3e6b28b2580c03fd9e96c274acf4f99d91fbec9b418fa1d70604ff1c, account: VirtualPayTest: [0x7FA9385bE102ac3EAc297483Dd6233D62b3e1496], sender: VirtualPayTest: [0x7FA9385bE102ac3EAc297483Dd6233D62b3e1496])
+    │   │   ├─ emit RoleGranted(role: 0x97667070c54ef182b0f5858b034beac1b6f3089aa2d3188bb1e8929f4fa9b929, account: VirtualPayTest: [0x7FA9385bE102ac3EAc297483Dd6233D62b3e1496], sender: VirtualPayTest: [0x7FA9385bE102ac3EAc297483Dd6233D62b3e1496])
+    │   │   ├─ emit Initialized(version: 1)
+    │   │   └─ ← [Stop] 
+    │   └─ ← [Return] 134 bytes of code
+    ├─ [171900] → new ERC1967Proxy@0x03A6a84cD762D9707A21605b548aaaB891562aAb
+    │   ├─ emit Upgraded(implementation: VirtualPay: [0xF62849F9A0B5Bf2913b396098F7c7019b51A820a])
+    │   ├─ [120357] VirtualPay::initialize(ERC1967Proxy: [0xA4AD4f68d0b91CFD19687c881e50f3A00242828c], ERC1967Proxy: [0x1d1499e622D69689cdf9004d05Ec547d650Ff211]) [delegatecall]
+    │   │   ├─ emit RoleGranted(role: 0x0000000000000000000000000000000000000000000000000000000000000000, account: VirtualPayTest: [0x7FA9385bE102ac3EAc297483Dd6233D62b3e1496], sender: VirtualPayTest: [0x7FA9385bE102ac3EAc297483Dd6233D62b3e1496])
+    │   │   ├─ emit RoleGranted(role: 0xa49807205ce4d355092ef5a8a18f56e8913cf4a201fbe287825b095693c21775, account: VirtualPayTest: [0x7FA9385bE102ac3EAc297483Dd6233D62b3e1496], sender: VirtualPayTest: [0x7FA9385bE102ac3EAc297483Dd6233D62b3e1496])
+    │   │   ├─ emit Initialized(version: 1)
+    │   │   └─ ← [Stop] 
+    │   └─ ← [Return] 134 bytes of code
+    ├─ [191266] → new ERC1967Proxy@0xD6BbDE9174b1CdAa358d2Cf4D57D1a9F7178FBfF
+    │   ├─ emit Upgraded(implementation: RwaToken: [0xc7183455a4C133Ae270771860664b6B7ec320bB1])
+    │   ├─ [139188] RwaToken::initialize("Singapore Dollar", "SGD", ERC1967Proxy: [0x1d1499e622D69689cdf9004d05Ec547d650Ff211], 702) [delegatecall]
+    │   │   ├─ emit OwnershipTransferred(previousOwner: 0x0000000000000000000000000000000000000000, newOwner: VirtualPayTest: [0x7FA9385bE102ac3EAc297483Dd6233D62b3e1496])
+    │   │   ├─ emit Initialized(version: 1)
+    │   │   └─ ← [Stop] 
+    │   └─ ← [Return] 134 bytes of code
+    ├─ [191266] → new ERC1967Proxy@0x15cF58144EF33af1e14b5208015d11F9143E27b9
+    │   ├─ emit Upgraded(implementation: RwaToken: [0xa0Cb889707d426A7A386870A03bc70d1b0697598])
+    │   ├─ [139188] RwaToken::initialize("US Dollar", "USD", ERC1967Proxy: [0x1d1499e622D69689cdf9004d05Ec547d650Ff211], 702) [delegatecall]
+    │   │   ├─ emit OwnershipTransferred(previousOwner: 0x0000000000000000000000000000000000000000, newOwner: VirtualPayTest: [0x7FA9385bE102ac3EAc297483Dd6233D62b3e1496])
+    │   │   ├─ emit Initialized(version: 1)
+    │   │   └─ ← [Stop] 
+    │   └─ ← [Return] 134 bytes of code
+    ├─ [619929] → new BlockVirtualPriceFeed@0x212224D2F2d262cd093eE13240ca4873fcCBbA3C
+    │   ├─ emit RoleGranted(role: 0x0000000000000000000000000000000000000000000000000000000000000000, account: VirtualPayTest: [0x7FA9385bE102ac3EAc297483Dd6233D62b3e1496], sender: VirtualPayTest: [0x7FA9385bE102ac3EAc297483Dd6233D62b3e1496])
+    │   ├─ emit RoleGranted(role: 0xa49807205ce4d355092ef5a8a18f56e8913cf4a201fbe287825b095693c21775, account: VirtualPayTest: [0x7FA9385bE102ac3EAc297483Dd6233D62b3e1496], sender: VirtualPayTest: [0x7FA9385bE102ac3EAc297483Dd6233D62b3e1496])
+    │   ├─ emit RoleGranted(role: 0xd96ba01d6560c2ab35f2940dd8d70c5f5fe06236c72674237120515918198fb0, account: VirtualPayTest: [0x7FA9385bE102ac3EAc297483Dd6233D62b3e1496], sender: VirtualPayTest: [0x7FA9385bE102ac3EAc297483Dd6233D62b3e1496])
+    │   └─ ← [Return] 2730 bytes of code
+    ├─ [0] VM::startPrank(ECRecover: [0x0000000000000000000000000000000000000001])
+    │   └─ ← [Return] 
+    ├─ [69898] ERC1967Proxy::registerPool(ERC1967Proxy: [0xA4AD4f68d0b91CFD19687c881e50f3A00242828c])
+    │   ├─ [69588] BlockVirtualGovernance::registerPool(ERC1967Proxy: [0xA4AD4f68d0b91CFD19687c881e50f3A00242828c]) [delegatecall]
+    │   │   ├─ emit PoolRegistered(pool: ERC1967Proxy: [0xA4AD4f68d0b91CFD19687c881e50f3A00242828c], registrar: ECRecover: [0x0000000000000000000000000000000000000001])
+    │   │   └─ ← [Stop] 
+    │   └─ ← [Return] 
+    ├─ [3821] ERC1967Proxy::activatePool(ERC1967Proxy: [0xA4AD4f68d0b91CFD19687c881e50f3A00242828c])
+    │   ├─ [3511] BlockVirtualGovernance::activatePool(ERC1967Proxy: [0xA4AD4f68d0b91CFD19687c881e50f3A00242828c]) [delegatecall]
+    │   │   ├─ emit PoolActivated(pool: ERC1967Proxy: [0xA4AD4f68d0b91CFD19687c881e50f3A00242828c], activator: ECRecover: [0x0000000000000000000000000000000000000001])
+    │   │   └─ ← [Stop] 
+    │   └─ ← [Return] 
+    ├─ [0] VM::stopPrank()
+    │   └─ ← [Return] 
+    ├─ [0] VM::startPrank(SHA-256: [0x0000000000000000000000000000000000000002])
+    │   └─ ← [Return] 
+    ├─ [114719] ERC1967Proxy::registerKYCUser(Identity: [0x0000000000000000000000000000000000000004], 31536001 [3.153e7], 702)
+    │   ├─ [114400] BlockVirtualGovernance::registerKYCUser(Identity: [0x0000000000000000000000000000000000000004], 31536001 [3.153e7], 702) [delegatecall]
+    │   │   └─ ← [Stop] 
+    │   └─ ← [Return] 
+    ├─ [112719] ERC1967Proxy::registerKYCUser(ModExp: [0x0000000000000000000000000000000000000005], 31536001 [3.153e7], 702)
+    │   ├─ [112400] BlockVirtualGovernance::registerKYCUser(ModExp: [0x0000000000000000000000000000000000000005], 31536001 [3.153e7], 702) [delegatecall]
+    │   │   └─ ← [Stop] 
+    │   └─ ← [Return] 
+    ├─ [112719] ERC1967Proxy::registerKYCUser(ECRecover: [0x0000000000000000000000000000000000000001], 31536001 [3.153e7], 702)
+    │   ├─ [112400] BlockVirtualGovernance::registerKYCUser(ECRecover: [0x0000000000000000000000000000000000000001], 31536001 [3.153e7], 702) [delegatecall]
+    │   │   └─ ← [Stop] 
+    │   └─ ← [Return] 
+    ├─ [112719] ERC1967Proxy::registerKYCUser(SHA-256: [0x0000000000000000000000000000000000000002], 31536001 [3.153e7], 702)
+    │   ├─ [112400] BlockVirtualGovernance::registerKYCUser(SHA-256: [0x0000000000000000000000000000000000000002], 31536001 [3.153e7], 702) [delegatecall]
+    │   │   └─ ← [Stop] 
+    │   └─ ← [Return] 
+    ├─ [112719] ERC1967Proxy::registerKYCUser(VirtualPayTest: [0x7FA9385bE102ac3EAc297483Dd6233D62b3e1496], 31536001 [3.153e7], 702)
+    │   ├─ [112400] BlockVirtualGovernance::registerKYCUser(VirtualPayTest: [0x7FA9385bE102ac3EAc297483Dd6233D62b3e1496], 31536001 [3.153e7], 702) [delegatecall]
+    │   │   └─ ← [Stop] 
+    │   └─ ← [Return] 
+    ├─ [112719] ERC1967Proxy::registerKYCUser(ERC1967Proxy: [0x1d1499e622D69689cdf9004d05Ec547d650Ff211], 31536001 [3.153e7], 702)
+    │   ├─ [112400] BlockVirtualGovernance::registerKYCUser(ERC1967Proxy: [0x1d1499e622D69689cdf9004d05Ec547d650Ff211], 31536001 [3.153e7], 702) [delegatecall]
+    │   │   └─ ← [Stop] 
+    │   └─ ← [Return] 
+    ├─ [112719] ERC1967Proxy::registerKYCUser(ERC1967Proxy: [0xA4AD4f68d0b91CFD19687c881e50f3A00242828c], 31536001 [3.153e7], 702)
+    │   ├─ [112400] BlockVirtualGovernance::registerKYCUser(ERC1967Proxy: [0xA4AD4f68d0b91CFD19687c881e50f3A00242828c], 31536001 [3.153e7], 702) [delegatecall]
+    │   │   └─ ← [Stop] 
+    │   └─ ← [Return] 
+    ├─ [2919] ERC1967Proxy::registerKYCUser(ERC1967Proxy: [0xA4AD4f68d0b91CFD19687c881e50f3A00242828c], 31536001 [3.153e7], 702)
+    │   ├─ [2600] BlockVirtualGovernance::registerKYCUser(ERC1967Proxy: [0xA4AD4f68d0b91CFD19687c881e50f3A00242828c], 31536001 [3.153e7], 702) [delegatecall]
+    │   │   └─ ← [Stop] 
+    │   └─ ← [Return] 
+    ├─ [112719] ERC1967Proxy::registerKYCUser(ERC1967Proxy: [0xD6BbDE9174b1CdAa358d2Cf4D57D1a9F7178FBfF], 31536001 [3.153e7], 702)
+    │   ├─ [112400] BlockVirtualGovernance::registerKYCUser(ERC1967Proxy: [0xD6BbDE9174b1CdAa358d2Cf4D57D1a9F7178FBfF], 31536001 [3.153e7], 702) [delegatecall]
+    │   │   └─ ← [Stop] 
+    │   └─ ← [Return] 
+    ├─ [2919] ERC1967Proxy::registerKYCUser(ERC1967Proxy: [0xD6BbDE9174b1CdAa358d2Cf4D57D1a9F7178FBfF], 31536001 [3.153e7], 702)
+    │   ├─ [2600] BlockVirtualGovernance::registerKYCUser(ERC1967Proxy: [0xD6BbDE9174b1CdAa358d2Cf4D57D1a9F7178FBfF], 31536001 [3.153e7], 702) [delegatecall]
+    │   │   └─ ← [Stop] 
+    │   └─ ← [Return] 
+    ├─ [112719] ERC1967Proxy::registerKYCUser(ERC1967Proxy: [0x15cF58144EF33af1e14b5208015d11F9143E27b9], 31536001 [3.153e7], 702)
+    │   ├─ [112400] BlockVirtualGovernance::registerKYCUser(ERC1967Proxy: [0x15cF58144EF33af1e14b5208015d11F9143E27b9], 31536001 [3.153e7], 702) [delegatecall]
+    │   │   └─ ← [Stop] 
+    │   └─ ← [Return] 
+    ├─ [2919] ERC1967Proxy::registerKYCUser(ERC1967Proxy: [0x15cF58144EF33af1e14b5208015d11F9143E27b9], 31536001 [3.153e7], 702)
+    │   ├─ [2600] BlockVirtualGovernance::registerKYCUser(ERC1967Proxy: [0x15cF58144EF33af1e14b5208015d11F9143E27b9], 31536001 [3.153e7], 702) [delegatecall]
+    │   │   └─ ← [Stop] 
+    │   └─ ← [Return] 
+    ├─ [112719] ERC1967Proxy::registerKYCUser(BlockVirtualPriceFeed: [0x212224D2F2d262cd093eE13240ca4873fcCBbA3C], 31536001 [3.153e7], 702)
+    │   ├─ [112400] BlockVirtualGovernance::registerKYCUser(BlockVirtualPriceFeed: [0x212224D2F2d262cd093eE13240ca4873fcCBbA3C], 31536001 [3.153e7], 702) [delegatecall]
+    │   │   └─ ← [Stop] 
+    │   └─ ← [Return] 
+    ├─ [112719] ERC1967Proxy::registerKYCUser(ERC1967Proxy: [0x03A6a84cD762D9707A21605b548aaaB891562aAb], 31536001 [3.153e7], 702)
+    │   ├─ [112400] BlockVirtualGovernance::registerKYCUser(ERC1967Proxy: [0x03A6a84cD762D9707A21605b548aaaB891562aAb], 31536001 [3.153e7], 702) [delegatecall]
+    │   │   └─ ← [Stop] 
+    │   └─ ← [Return] 
+    ├─ [2919] ERC1967Proxy::registerKYCUser(ERC1967Proxy: [0x03A6a84cD762D9707A21605b548aaaB891562aAb], 31536001 [3.153e7], 702)
+    │   ├─ [2600] BlockVirtualGovernance::registerKYCUser(ERC1967Proxy: [0x03A6a84cD762D9707A21605b548aaaB891562aAb], 31536001 [3.153e7], 702) [delegatecall]
+    │   │   └─ ← [Stop] 
+    │   └─ ← [Return] 
+    ├─ [0] VM::stopPrank()
+    │   └─ ← [Return] 
+    ├─ [0] VM::startPrank(VirtualPayTest: [0x7FA9385bE102ac3EAc297483Dd6233D62b3e1496])
+    │   └─ ← [Return] 
+    ├─ [971] ERC1967Proxy::ADMIN_ROLE() [staticcall]
+    │   ├─ [661] VirtualPool::ADMIN_ROLE() [delegatecall]
+    │   │   └─ ← [Return] 0xa49807205ce4d355092ef5a8a18f56e8913cf4a201fbe287825b095693c21775
+    │   └─ ← [Return] 0xa49807205ce4d355092ef5a8a18f56e8913cf4a201fbe287825b095693c21775
+    ├─ [27761] ERC1967Proxy::grantRole(0xa49807205ce4d355092ef5a8a18f56e8913cf4a201fbe287825b095693c21775, ECRecover: [0x0000000000000000000000000000000000000001])
+    │   ├─ [27448] VirtualPool::grantRole(0xa49807205ce4d355092ef5a8a18f56e8913cf4a201fbe287825b095693c21775, ECRecover: [0x0000000000000000000000000000000000000001]) [delegatecall]
+    │   │   ├─ emit RoleGranted(role: 0xa49807205ce4d355092ef5a8a18f56e8913cf4a201fbe287825b095693c21775, account: ECRecover: [0x0000000000000000000000000000000000000001], sender: VirtualPayTest: [0x7FA9385bE102ac3EAc297483Dd6233D62b3e1496])
+    │   │   └─ ← [Stop] 
+    │   └─ ← [Return] 
+    ├─ [1367] ERC1967Proxy::OPERATOR_ROLE() [staticcall]
+    │   ├─ [1057] VirtualPool::OPERATOR_ROLE() [delegatecall]
+    │   │   └─ ← [Return] 0x97667070c54ef182b0f5858b034beac1b6f3089aa2d3188bb1e8929f4fa9b929
+    │   └─ ← [Return] 0x97667070c54ef182b0f5858b034beac1b6f3089aa2d3188bb1e8929f4fa9b929
+    ├─ [27761] ERC1967Proxy::grantRole(0x97667070c54ef182b0f5858b034beac1b6f3089aa2d3188bb1e8929f4fa9b929, SHA-256: [0x0000000000000000000000000000000000000002])
+    │   ├─ [27448] VirtualPool::grantRole(0x97667070c54ef182b0f5858b034beac1b6f3089aa2d3188bb1e8929f4fa9b929, SHA-256: [0x0000000000000000000000000000000000000002]) [delegatecall]
+    │   │   ├─ emit RoleGranted(role: 0x97667070c54ef182b0f5858b034beac1b6f3089aa2d3188bb1e8929f4fa9b929, account: SHA-256: [0x0000000000000000000000000000000000000002], sender: VirtualPayTest: [0x7FA9385bE102ac3EAc297483Dd6233D62b3e1496])
+    │   │   └─ ← [Stop] 
+    │   └─ ← [Return] 
+    ├─ [0] VM::stopPrank()
+    │   └─ ← [Return] 
+    ├─ [0] VM::startPrank(VirtualPayTest: [0x7FA9385bE102ac3EAc297483Dd6233D62b3e1496])
+    │   └─ ← [Return] 
+    ├─ [729] ERC1967Proxy::ADMIN_ROLE() [staticcall]
+    │   ├─ [419] VirtualPay::ADMIN_ROLE() [delegatecall]
+    │   │   └─ ← [Return] 0xa49807205ce4d355092ef5a8a18f56e8913cf4a201fbe287825b095693c21775
+    │   └─ ← [Return] 0xa49807205ce4d355092ef5a8a18f56e8913cf4a201fbe287825b095693c21775
+    ├─ [27728] ERC1967Proxy::grantRole(0xa49807205ce4d355092ef5a8a18f56e8913cf4a201fbe287825b095693c21775, ECRecover: [0x0000000000000000000000000000000000000001])
+    │   ├─ [27415] VirtualPay::grantRole(0xa49807205ce4d355092ef5a8a18f56e8913cf4a201fbe287825b095693c21775, ECRecover: [0x0000000000000000000000000000000000000001]) [delegatecall]
+    │   │   ├─ emit RoleGranted(role: 0xa49807205ce4d355092ef5a8a18f56e8913cf4a201fbe287825b095693c21775, account: ECRecover: [0x0000000000000000000000000000000000000001], sender: VirtualPayTest: [0x7FA9385bE102ac3EAc297483Dd6233D62b3e1496])
+    │   │   └─ ← [Stop] 
+    │   └─ ← [Return] 
+    ├─ [0] VM::stopPrank()
+    │   └─ ← [Return] 
+    ├─ [0] VM::startPrank(VirtualPayTest: [0x7FA9385bE102ac3EAc297483Dd6233D62b3e1496])
+    │   └─ ← [Return] 
+    ├─ [397] BlockVirtualPriceFeed::ADMIN_ROLE() [staticcall]
+    │   └─ ← [Return] 0xa49807205ce4d355092ef5a8a18f56e8913cf4a201fbe287825b095693c21775
+    ├─ [27328] BlockVirtualPriceFeed::grantRole(0xa49807205ce4d355092ef5a8a18f56e8913cf4a201fbe287825b095693c21775, ECRecover: [0x0000000000000000000000000000000000000001])
+    │   ├─ emit RoleGranted(role: 0xa49807205ce4d355092ef5a8a18f56e8913cf4a201fbe287825b095693c21775, account: ECRecover: [0x0000000000000000000000000000000000000001], sender: VirtualPayTest: [0x7FA9385bE102ac3EAc297483Dd6233D62b3e1496])
+    │   └─ ← [Stop] 
+    ├─ [526] BlockVirtualPriceFeed::PRICE_UPDATER_ROLE() [staticcall]
+    │   └─ ← [Return] 0xd96ba01d6560c2ab35f2940dd8d70c5f5fe06236c72674237120515918198fb0
+    ├─ [27328] BlockVirtualPriceFeed::grantRole(0xd96ba01d6560c2ab35f2940dd8d70c5f5fe06236c72674237120515918198fb0, SHA-256: [0x0000000000000000000000000000000000000002])
+    │   ├─ emit RoleGranted(role: 0xd96ba01d6560c2ab35f2940dd8d70c5f5fe06236c72674237120515918198fb0, account: SHA-256: [0x0000000000000000000000000000000000000002], sender: VirtualPayTest: [0x7FA9385bE102ac3EAc297483Dd6233D62b3e1496])
+    │   └─ ← [Stop] 
+    ├─ [0] VM::stopPrank()
+    │   └─ ← [Return] 
+    ├─ [0] VM::prank(ECRecover: [0x0000000000000000000000000000000000000001])
+    │   └─ ← [Return] 
+    ├─ [23369] ERC1967Proxy::setPriceFeed(BlockVirtualPriceFeed: [0x212224D2F2d262cd093eE13240ca4873fcCBbA3C])
+    │   ├─ [23059] VirtualPool::setPriceFeed(BlockVirtualPriceFeed: [0x212224D2F2d262cd093eE13240ca4873fcCBbA3C]) [delegatecall]
+    │   │   └─ ← [Return] 
+    │   └─ ← [Return] 
+    ├─ [0] VM::startPrank(ECRecover: [0x0000000000000000000000000000000000000001])
+    │   └─ ← [Return] 
+    ├─ [68477] BlockVirtualPriceFeed::registerToken(ERC1967Proxy: [0xD6BbDE9174b1CdAa358d2Cf4D57D1a9F7178FBfF])
+    │   ├─ emit TokenRegistered(token: ERC1967Proxy: [0xD6BbDE9174b1CdAa358d2Cf4D57D1a9F7178FBfF])
+    │   └─ ← [Stop] 
+    ├─ [46577] BlockVirtualPriceFeed::registerToken(ERC1967Proxy: [0x15cF58144EF33af1e14b5208015d11F9143E27b9])
+    │   ├─ emit TokenRegistered(token: ERC1967Proxy: [0x15cF58144EF33af1e14b5208015d11F9143E27b9])
+    │   └─ ← [Stop] 
+    ├─ [0] VM::stopPrank()
+    │   └─ ← [Return] 
+    ├─ [0] VM::startPrank(SHA-256: [0x0000000000000000000000000000000000000002])
+    │   └─ ← [Return] 
+    ├─ [46921] BlockVirtualPriceFeed::updatePrice(ERC1967Proxy: [0xD6BbDE9174b1CdAa358d2Cf4D57D1a9F7178FBfF], 750000000000000000 [7.5e17])
+    │   ├─ emit PriceUpdated(token: ERC1967Proxy: [0xD6BbDE9174b1CdAa358d2Cf4D57D1a9F7178FBfF], price: 750000000000000000 [7.5e17], timestamp: 1)
+    │   └─ ← [Stop] 
+    ├─ [46921] BlockVirtualPriceFeed::updatePrice(ERC1967Proxy: [0x15cF58144EF33af1e14b5208015d11F9143E27b9], 1000000000000000000 [1e18])
+    │   ├─ emit PriceUpdated(token: ERC1967Proxy: [0x15cF58144EF33af1e14b5208015d11F9143E27b9], price: 1000000000000000000 [1e18], timestamp: 1)
+    │   └─ ← [Stop] 
+    ├─ [0] VM::stopPrank()
+    │   └─ ← [Return] 
+    ├─ [0] VM::startPrank(ECRecover: [0x0000000000000000000000000000000000000001])
+    │   └─ ← [Return] 
+    ├─ [24529] ERC1967Proxy::addSupportedToken(ERC1967Proxy: [0xD6BbDE9174b1CdAa358d2Cf4D57D1a9F7178FBfF])
+    │   ├─ [24219] VirtualPool::addSupportedToken(ERC1967Proxy: [0xD6BbDE9174b1CdAa358d2Cf4D57D1a9F7178FBfF]) [delegatecall]
+    │   │   ├─ emit TokenAdded(token: ERC1967Proxy: [0xD6BbDE9174b1CdAa358d2Cf4D57D1a9F7178FBfF])
+    │   │   └─ ← [Stop] 
+    │   └─ ← [Return] 
+    ├─ [24529] ERC1967Proxy::addSupportedToken(ERC1967Proxy: [0x15cF58144EF33af1e14b5208015d11F9143E27b9])
+    │   ├─ [24219] VirtualPool::addSupportedToken(ERC1967Proxy: [0x15cF58144EF33af1e14b5208015d11F9143E27b9]) [delegatecall]
+    │   │   ├─ emit TokenAdded(token: ERC1967Proxy: [0x15cF58144EF33af1e14b5208015d11F9143E27b9])
+    │   │   └─ ← [Stop] 
+    │   └─ ← [Return] 
+    ├─ [0] VM::stopPrank()
+    │   └─ ← [Return] 
+    ├─ [0] VM::prank(ECRecover: [0x0000000000000000000000000000000000000001])
+    │   └─ ← [Return] 
+    ├─ [189977] ERC1967Proxy::createPair(ERC1967Proxy: [0xD6BbDE9174b1CdAa358d2Cf4D57D1a9F7178FBfF], ERC1967Proxy: [0x15cF58144EF33af1e14b5208015d11F9143E27b9])
+    │   ├─ [189661] VirtualPool::createPair(ERC1967Proxy: [0xD6BbDE9174b1CdAa358d2Cf4D57D1a9F7178FBfF], ERC1967Proxy: [0x15cF58144EF33af1e14b5208015d11F9143E27b9]) [delegatecall]
+    │   │   ├─ emit PairCreated(token0: ERC1967Proxy: [0x15cF58144EF33af1e14b5208015d11F9143E27b9], token1: ERC1967Proxy: [0xD6BbDE9174b1CdAa358d2Cf4D57D1a9F7178FBfF], pairToken: 0x69537d22AafE40B611d8B6A0Fd220584CA8d16b3, pairId: 0)
+    │   │   └─ ← [Return] 0x69537d22AafE40B611d8B6A0Fd220584CA8d16b3
+    │   └─ ← [Return] 0x69537d22AafE40B611d8B6A0Fd220584CA8d16b3
+    ├─ [0] VM::startPrank(ERC1967Proxy: [0x1d1499e622D69689cdf9004d05Ec547d650Ff211])
+    │   └─ ← [Return] 
+    ├─ [50842] ERC1967Proxy::mintRwa(Identity: [0x0000000000000000000000000000000000000004], 1000000000000000000000000 [1e24])
+    │   ├─ [50529] RwaToken::mintRwa(Identity: [0x0000000000000000000000000000000000000004], 1000000000000000000000000 [1e24]) [delegatecall]
+    │   │   ├─ [3202] ERC1967Proxy::isBlacklisted(ERC1967Proxy: [0xD6BbDE9174b1CdAa358d2Cf4D57D1a9F7178FBfF], Identity: [0x0000000000000000000000000000000000000004]) [staticcall]
+    │   │   │   ├─ [2886] BlockVirtualGovernance::isBlacklisted(ERC1967Proxy: [0xD6BbDE9174b1CdAa358d2Cf4D57D1a9F7178FBfF], Identity: [0x0000000000000000000000000000000000000004]) [delegatecall]
+    │   │   │   │   └─ ← [Return] false
+    │   │   │   └─ ← [Return] false
+    │   │   ├─ emit Transfer(from: 0x0000000000000000000000000000000000000000, to: Identity: [0x0000000000000000000000000000000000000004], value: 1000000000000000000000000 [1e24])
+    │   │   └─ ← [Return] 
+    │   └─ ← [Return] 
+    ├─ [28942] ERC1967Proxy::mintRwa(ModExp: [0x0000000000000000000000000000000000000005], 1000000000000000000000000 [1e24])
+    │   ├─ [28629] RwaToken::mintRwa(ModExp: [0x0000000000000000000000000000000000000005], 1000000000000000000000000 [1e24]) [delegatecall]
+    │   │   ├─ [3202] ERC1967Proxy::isBlacklisted(ERC1967Proxy: [0xD6BbDE9174b1CdAa358d2Cf4D57D1a9F7178FBfF], ModExp: [0x0000000000000000000000000000000000000005]) [staticcall]
+    │   │   │   ├─ [2886] BlockVirtualGovernance::isBlacklisted(ERC1967Proxy: [0xD6BbDE9174b1CdAa358d2Cf4D57D1a9F7178FBfF], ModExp: [0x0000000000000000000000000000000000000005]) [delegatecall]
+    │   │   │   │   └─ ← [Return] false
+    │   │   │   └─ ← [Return] false
+    │   │   ├─ emit Transfer(from: 0x0000000000000000000000000000000000000000, to: ModExp: [0x0000000000000000000000000000000000000005], value: 1000000000000000000000000 [1e24])
+    │   │   └─ ← [Return] 
+    │   └─ ← [Return] 
+    ├─ [50842] ERC1967Proxy::mintRwa(Identity: [0x0000000000000000000000000000000000000004], 1000000000000000000000000 [1e24])
+    │   ├─ [50529] RwaToken::mintRwa(Identity: [0x0000000000000000000000000000000000000004], 1000000000000000000000000 [1e24]) [delegatecall]
+    │   │   ├─ [3202] ERC1967Proxy::isBlacklisted(ERC1967Proxy: [0x15cF58144EF33af1e14b5208015d11F9143E27b9], Identity: [0x0000000000000000000000000000000000000004]) [staticcall]
+    │   │   │   ├─ [2886] BlockVirtualGovernance::isBlacklisted(ERC1967Proxy: [0x15cF58144EF33af1e14b5208015d11F9143E27b9], Identity: [0x0000000000000000000000000000000000000004]) [delegatecall]
+    │   │   │   │   └─ ← [Return] false
+    │   │   │   └─ ← [Return] false
+    │   │   ├─ emit Transfer(from: 0x0000000000000000000000000000000000000000, to: Identity: [0x0000000000000000000000000000000000000004], value: 1000000000000000000000000 [1e24])
+    │   │   └─ ← [Return] 
+    │   └─ ← [Return] 
+    ├─ [28942] ERC1967Proxy::mintRwa(ModExp: [0x0000000000000000000000000000000000000005], 1000000000000000000000000 [1e24])
+    │   ├─ [28629] RwaToken::mintRwa(ModExp: [0x0000000000000000000000000000000000000005], 1000000000000000000000000 [1e24]) [delegatecall]
+    │   │   ├─ [3202] ERC1967Proxy::isBlacklisted(ERC1967Proxy: [0x15cF58144EF33af1e14b5208015d11F9143E27b9], ModExp: [0x0000000000000000000000000000000000000005]) [staticcall]
+    │   │   │   ├─ [2886] BlockVirtualGovernance::isBlacklisted(ERC1967Proxy: [0x15cF58144EF33af1e14b5208015d11F9143E27b9], ModExp: [0x0000000000000000000000000000000000000005]) [delegatecall]
+    │   │   │   │   └─ ← [Return] false
+    │   │   │   └─ ← [Return] false
+    │   │   ├─ emit Transfer(from: 0x0000000000000000000000000000000000000000, to: ModExp: [0x0000000000000000000000000000000000000005], value: 1000000000000000000000000 [1e24])
+    │   │   └─ ← [Return] 
+    │   └─ ← [Return] 
+    ├─ [0] VM::stopPrank()
+    │   └─ ← [Return] 
+    └─ ← [Return] 
+
+  [360243] VirtualPayTest::test_NonKYCUser()
+    ├─ [0] VM::startPrank(Identity: [0x0000000000000000000000000000000000000004])
+    │   └─ ← [Return] 
+    ├─ [29189] ERC1967Proxy::approve(ERC1967Proxy: [0xA4AD4f68d0b91CFD19687c881e50f3A00242828c], 10000000000000000000000 [1e22])
+    │   ├─ [24373] RwaToken::approve(ERC1967Proxy: [0xA4AD4f68d0b91CFD19687c881e50f3A00242828c], 10000000000000000000000 [1e22]) [delegatecall]
+    │   │   ├─ emit Approval(owner: Identity: [0x0000000000000000000000000000000000000004], spender: ERC1967Proxy: [0xA4AD4f68d0b91CFD19687c881e50f3A00242828c], value: 10000000000000000000000 [1e22])
+    │   │   └─ ← [Return] true
+    │   └─ ← [Return] true
+    ├─ [29189] ERC1967Proxy::approve(ERC1967Proxy: [0xA4AD4f68d0b91CFD19687c881e50f3A00242828c], 7500000000000000000000 [7.5e21])
+    │   ├─ [24373] RwaToken::approve(ERC1967Proxy: [0xA4AD4f68d0b91CFD19687c881e50f3A00242828c], 7500000000000000000000 [7.5e21]) [delegatecall]
+    │   │   ├─ emit Approval(owner: Identity: [0x0000000000000000000000000000000000000004], spender: ERC1967Proxy: [0xA4AD4f68d0b91CFD19687c881e50f3A00242828c], value: 7500000000000000000000 [7.5e21])
+    │   │   └─ ← [Return] true
+    │   └─ ← [Return] true
+    ├─ [234053] ERC1967Proxy::addLiquidity(ERC1967Proxy: [0xD6BbDE9174b1CdAa358d2Cf4D57D1a9F7178FBfF], ERC1967Proxy: [0x15cF58144EF33af1e14b5208015d11F9143E27b9], 10000000000000000000000 [1e22], 7500000000000000000000 [7.5e21], 0, 0)
+    │   ├─ [229207] VirtualPool::addLiquidity(ERC1967Proxy: [0xD6BbDE9174b1CdAa358d2Cf4D57D1a9F7178FBfF], ERC1967Proxy: [0x15cF58144EF33af1e14b5208015d11F9143E27b9], 10000000000000000000000 [1e22], 7500000000000000000000 [7.5e21], 0, 0) [delegatecall]
+    │   │   ├─ [10394] ERC1967Proxy::getKycStatus(Identity: [0x0000000000000000000000000000000000000004]) [staticcall]
+    │   │   │   ├─ [5581] BlockVirtualGovernance::getKycStatus(Identity: [0x0000000000000000000000000000000000000004]) [delegatecall]
+    │   │   │   │   └─ ← [Return] true
+    │   │   │   └─ ← [Return] true
+    │   │   ├─ [3202] ERC1967Proxy::isBlacklisted(ERC1967Proxy: [0xD6BbDE9174b1CdAa358d2Cf4D57D1a9F7178FBfF], Identity: [0x0000000000000000000000000000000000000004]) [staticcall]
+    │   │   │   ├─ [2886] BlockVirtualGovernance::isBlacklisted(ERC1967Proxy: [0xD6BbDE9174b1CdAa358d2Cf4D57D1a9F7178FBfF], Identity: [0x0000000000000000000000000000000000000004]) [delegatecall]
+    │   │   │   │   └─ ← [Return] false
+    │   │   │   └─ ← [Return] false
+    │   │   ├─ [3202] ERC1967Proxy::isBlacklisted(ERC1967Proxy: [0x15cF58144EF33af1e14b5208015d11F9143E27b9], Identity: [0x0000000000000000000000000000000000000004]) [staticcall]
+    │   │   │   ├─ [2886] BlockVirtualGovernance::isBlacklisted(ERC1967Proxy: [0x15cF58144EF33af1e14b5208015d11F9143E27b9], Identity: [0x0000000000000000000000000000000000000004]) [delegatecall]
+    │   │   │   │   └─ ← [Return] false
+    │   │   │   └─ ← [Return] false
+    │   │   ├─ [57308] ERC1967Proxy::transferFrom(Identity: [0x0000000000000000000000000000000000000004], ERC1967Proxy: [0xA4AD4f68d0b91CFD19687c881e50f3A00242828c], 10000000000000000000000 [1e22])
+    │   │   │   ├─ [56986] RwaToken::transferFrom(Identity: [0x0000000000000000000000000000000000000004], ERC1967Proxy: [0xA4AD4f68d0b91CFD19687c881e50f3A00242828c], 10000000000000000000000 [1e22]) [delegatecall]
+    │   │   │   │   ├─ [1894] ERC1967Proxy::getKycStatus(Identity: [0x0000000000000000000000000000000000000004]) [staticcall]
+    │   │   │   │   │   ├─ [1581] BlockVirtualGovernance::getKycStatus(Identity: [0x0000000000000000000000000000000000000004]) [delegatecall]
+    │   │   │   │   │   │   └─ ← [Return] true
+    │   │   │   │   │   └─ ← [Return] true
+    │   │   │   │   ├─ [5894] ERC1967Proxy::getKycStatus(ERC1967Proxy: [0xA4AD4f68d0b91CFD19687c881e50f3A00242828c]) [staticcall]
+    │   │   │   │   │   ├─ [5581] BlockVirtualGovernance::getKycStatus(ERC1967Proxy: [0xA4AD4f68d0b91CFD19687c881e50f3A00242828c]) [delegatecall]
+    │   │   │   │   │   │   └─ ← [Return] true
+    │   │   │   │   │   └─ ← [Return] true
+    │   │   │   │   ├─ [5541] ERC1967Proxy::isFromSupportedCountry(Identity: [0x0000000000000000000000000000000000000004]) [staticcall]
+    │   │   │   │   │   ├─ [5228] BlockVirtualGovernance::isFromSupportedCountry(Identity: [0x0000000000000000000000000000000000000004]) [delegatecall]
+    │   │   │   │   │   │   └─ ← [Return] true
+    │   │   │   │   │   └─ ← [Return] true
+    │   │   │   │   ├─ [3541] ERC1967Proxy::isFromSupportedCountry(ERC1967Proxy: [0xA4AD4f68d0b91CFD19687c881e50f3A00242828c]) [staticcall]
+    │   │   │   │   │   ├─ [3228] BlockVirtualGovernance::isFromSupportedCountry(ERC1967Proxy: [0xA4AD4f68d0b91CFD19687c881e50f3A00242828c]) [delegatecall]
+    │   │   │   │   │   │   └─ ← [Return] true
+    │   │   │   │   │   └─ ← [Return] true
+    │   │   │   │   ├─ [1202] ERC1967Proxy::isBlacklisted(ERC1967Proxy: [0xD6BbDE9174b1CdAa358d2Cf4D57D1a9F7178FBfF], Identity: [0x0000000000000000000000000000000000000004]) [staticcall]
+    │   │   │   │   │   ├─ [886] BlockVirtualGovernance::isBlacklisted(ERC1967Proxy: [0xD6BbDE9174b1CdAa358d2Cf4D57D1a9F7178FBfF], Identity: [0x0000000000000000000000000000000000000004]) [delegatecall]
+    │   │   │   │   │   │   └─ ← [Return] false
+    │   │   │   │   │   └─ ← [Return] false
+    │   │   │   │   ├─ [3202] ERC1967Proxy::isBlacklisted(ERC1967Proxy: [0xD6BbDE9174b1CdAa358d2Cf4D57D1a9F7178FBfF], ERC1967Proxy: [0xA4AD4f68d0b91CFD19687c881e50f3A00242828c]) [staticcall]
+    │   │   │   │   │   ├─ [2886] BlockVirtualGovernance::isBlacklisted(ERC1967Proxy: [0xD6BbDE9174b1CdAa358d2Cf4D57D1a9F7178FBfF], ERC1967Proxy: [0xA4AD4f68d0b91CFD19687c881e50f3A00242828c]) [delegatecall]
+    │   │   │   │   │   │   └─ ← [Return] false
+    │   │   │   │   │   └─ ← [Return] false
+    │   │   │   │   ├─ emit Transfer(from: Identity: [0x0000000000000000000000000000000000000004], to: ERC1967Proxy: [0xA4AD4f68d0b91CFD19687c881e50f3A00242828c], value: 10000000000000000000000 [1e22])
+    │   │   │   │   └─ ← [Return] true
+    │   │   │   └─ ← [Return] true
+    │   │   ├─ [47308] ERC1967Proxy::transferFrom(Identity: [0x0000000000000000000000000000000000000004], ERC1967Proxy: [0xA4AD4f68d0b91CFD19687c881e50f3A00242828c], 7500000000000000000000 [7.5e21])
+    │   │   │   ├─ [46986] RwaToken::transferFrom(Identity: [0x0000000000000000000000000000000000000004], ERC1967Proxy: [0xA4AD4f68d0b91CFD19687c881e50f3A00242828c], 7500000000000000000000 [7.5e21]) [delegatecall]
+    │   │   │   │   ├─ [1894] ERC1967Proxy::getKycStatus(Identity: [0x0000000000000000000000000000000000000004]) [staticcall]
+    │   │   │   │   │   ├─ [1581] BlockVirtualGovernance::getKycStatus(Identity: [0x0000000000000000000000000000000000000004]) [delegatecall]
+    │   │   │   │   │   │   └─ ← [Return] true
+    │   │   │   │   │   └─ ← [Return] true
+    │   │   │   │   ├─ [1894] ERC1967Proxy::getKycStatus(ERC1967Proxy: [0xA4AD4f68d0b91CFD19687c881e50f3A00242828c]) [staticcall]
+    │   │   │   │   │   ├─ [1581] BlockVirtualGovernance::getKycStatus(ERC1967Proxy: [0xA4AD4f68d0b91CFD19687c881e50f3A00242828c]) [delegatecall]
+    │   │   │   │   │   │   └─ ← [Return] true
+    │   │   │   │   │   └─ ← [Return] true
+    │   │   │   │   ├─ [1541] ERC1967Proxy::isFromSupportedCountry(Identity: [0x0000000000000000000000000000000000000004]) [staticcall]
+    │   │   │   │   │   ├─ [1228] BlockVirtualGovernance::isFromSupportedCountry(Identity: [0x0000000000000000000000000000000000000004]) [delegatecall]
+    │   │   │   │   │   │   └─ ← [Return] true
+    │   │   │   │   │   └─ ← [Return] true
+    │   │   │   │   ├─ [1541] ERC1967Proxy::isFromSupportedCountry(ERC1967Proxy: [0xA4AD4f68d0b91CFD19687c881e50f3A00242828c]) [staticcall]
+    │   │   │   │   │   ├─ [1228] BlockVirtualGovernance::isFromSupportedCountry(ERC1967Proxy: [0xA4AD4f68d0b91CFD19687c881e50f3A00242828c]) [delegatecall]
+    │   │   │   │   │   │   └─ ← [Return] true
+    │   │   │   │   │   └─ ← [Return] true
+    │   │   │   │   ├─ [1202] ERC1967Proxy::isBlacklisted(ERC1967Proxy: [0x15cF58144EF33af1e14b5208015d11F9143E27b9], Identity: [0x0000000000000000000000000000000000000004]) [staticcall]
+    │   │   │   │   │   ├─ [886] BlockVirtualGovernance::isBlacklisted(ERC1967Proxy: [0x15cF58144EF33af1e14b5208015d11F9143E27b9], Identity: [0x0000000000000000000000000000000000000004]) [delegatecall]
+    │   │   │   │   │   │   └─ ← [Return] false
+    │   │   │   │   │   └─ ← [Return] false
+    │   │   │   │   ├─ [3202] ERC1967Proxy::isBlacklisted(ERC1967Proxy: [0x15cF58144EF33af1e14b5208015d11F9143E27b9], ERC1967Proxy: [0xA4AD4f68d0b91CFD19687c881e50f3A00242828c]) [staticcall]
+    │   │   │   │   │   ├─ [2886] BlockVirtualGovernance::isBlacklisted(ERC1967Proxy: [0x15cF58144EF33af1e14b5208015d11F9143E27b9], ERC1967Proxy: [0xA4AD4f68d0b91CFD19687c881e50f3A00242828c]) [delegatecall]
+    │   │   │   │   │   │   └─ ← [Return] false
+    │   │   │   │   │   └─ ← [Return] false
+    │   │   │   │   ├─ emit Transfer(from: Identity: [0x0000000000000000000000000000000000000004], to: ERC1967Proxy: [0xA4AD4f68d0b91CFD19687c881e50f3A00242828c], value: 7500000000000000000000 [7.5e21])
+    │   │   │   │   └─ ← [Return] true
+    │   │   │   └─ ← [Return] true
+    │   │   ├─ emit LiquidityAdded(user: Identity: [0x0000000000000000000000000000000000000004], token0: ERC1967Proxy: [0xD6BbDE9174b1CdAa358d2Cf4D57D1a9F7178FBfF], token1: ERC1967Proxy: [0x15cF58144EF33af1e14b5208015d11F9143E27b9], amount0: 10000000000000000000000 [1e22], amount1: 7500000000000000000000 [7.5e21], liquidity: 8660254037844386467637 [8.66e21])
+    │   │   └─ ← [Return] 10000000000000000000000 [1e22], 7500000000000000000000 [7.5e21], 8660254037844386467637 [8.66e21]
+    │   └─ ← [Return] 10000000000000000000000 [1e22], 7500000000000000000000 [7.5e21], 8660254037844386467637 [8.66e21]
+    ├─ [0] VM::stopPrank()
+    │   └─ ← [Return] 
+    ├─ [0] VM::startPrank(ERC1967Proxy: [0x1d1499e622D69689cdf9004d05Ec547d650Ff211])
+    │   └─ ← [Return] 
+    ├─ [33742] ERC1967Proxy::mintRwa(ECAdd: [0x0000000000000000000000000000000000000006], 1000000000000000000000000 [1e24])
+    │   ├─ [33429] RwaToken::mintRwa(ECAdd: [0x0000000000000000000000000000000000000006], 1000000000000000000000000 [1e24]) [delegatecall]
+    │   │   ├─ [3202] ERC1967Proxy::isBlacklisted(ERC1967Proxy: [0xD6BbDE9174b1CdAa358d2Cf4D57D1a9F7178FBfF], ECAdd: [0x0000000000000000000000000000000000000006]) [staticcall]
+    │   │   │   ├─ [2886] BlockVirtualGovernance::isBlacklisted(ERC1967Proxy: [0xD6BbDE9174b1CdAa358d2Cf4D57D1a9F7178FBfF], ECAdd: [0x0000000000000000000000000000000000000006]) [delegatecall]
+    │   │   │   │   └─ ← [Return] false
+    │   │   │   └─ ← [Return] false
+    │   │   ├─ emit Transfer(from: 0x0000000000000000000000000000000000000000, to: ECAdd: [0x0000000000000000000000000000000000000006], value: 1000000000000000000000000 [1e24])
+    │   │   └─ ← [Return] 
+    │   └─ ← [Return] 
+    ├─ [0] VM::stopPrank()
+    │   └─ ← [Return] 
+    ├─ [0] VM::startPrank(ECAdd: [0x0000000000000000000000000000000000000006])
+    │   └─ ← [Return] 
+    ├─ [24689] ERC1967Proxy::approve(ERC1967Proxy: [0x03A6a84cD762D9707A21605b548aaaB891562aAb], 100000000000000000000 [1e20])
+    │   ├─ [24373] RwaToken::approve(ERC1967Proxy: [0x03A6a84cD762D9707A21605b548aaaB891562aAb], 100000000000000000000 [1e20]) [delegatecall]
+    │   │   ├─ emit Approval(owner: ECAdd: [0x0000000000000000000000000000000000000006], spender: ERC1967Proxy: [0x03A6a84cD762D9707A21605b548aaaB891562aAb], value: 100000000000000000000 [1e20])
+    │   │   └─ ← [Return] true
+    │   └─ ← [Return] true
+    ├─ [0] VM::expectRevert(KYCNotVerified(0x0000000000000000000000000000000000000006))
+    │   └─ ← [Return] 
+    ├─ [13438] ERC1967Proxy::processPayment(ModExp: [0x0000000000000000000000000000000000000005], ERC1967Proxy: [0xD6BbDE9174b1CdAa358d2Cf4D57D1a9F7178FBfF], ERC1967Proxy: [0x15cF58144EF33af1e14b5208015d11F9143E27b9], 100000000000000000000 [1e20], 0)
+    │   ├─ [8600] VirtualPay::processPayment(ModExp: [0x0000000000000000000000000000000000000005], ERC1967Proxy: [0xD6BbDE9174b1CdAa358d2Cf4D57D1a9F7178FBfF], ERC1967Proxy: [0x15cF58144EF33af1e14b5208015d11F9143E27b9], 100000000000000000000 [1e20], 0) [delegatecall]
+    │   │   ├─ [3432] ERC1967Proxy::getKycStatus(ECAdd: [0x0000000000000000000000000000000000000006]) [staticcall]
+    │   │   │   ├─ [3119] BlockVirtualGovernance::getKycStatus(ECAdd: [0x0000000000000000000000000000000000000006]) [delegatecall]
+    │   │   │   │   └─ ← [Return] false
+    │   │   │   └─ ← [Return] false
+    │   │   └─ ← [Revert] KYCNotVerified(0x0000000000000000000000000000000000000006)
+    │   └─ ← [Revert] KYCNotVerified(0x0000000000000000000000000000000000000006)
+    ├─ [0] VM::stopPrank()
+    │   └─ ← [Return] 
+    └─ ← [Return] 
+
+[PASS] test_Pause() (gas: 463149)
+Traces:
+  [12913689] VirtualPayTest::setUp()
+    ├─ [1480812] → new BlockVirtualGovernance@0x5615dEB798BB3E4dFa0139dFa1b3D433Cc23b72f
+    │   ├─ emit Initialized(version: 18446744073709551615 [1.844e19])
+    │   └─ ← [Return] 7280 bytes of code
+    ├─ [2345385] → new VirtualPool@0x2e234DAe75C793f67A35089C9d99245E1C58470b
+    │   ├─ emit Initialized(version: 18446744073709551615 [1.844e19])
+    │   └─ ← [Return] 11377 bytes of code
+    ├─ [972323] → new VirtualPay@0xF62849F9A0B5Bf2913b396098F7c7019b51A820a
+    │   ├─ emit Initialized(version: 18446744073709551615 [1.844e19])
+    │   └─ ← [Return] 4740 bytes of code
+    ├─ [619929] → new BlockVirtualPriceFeed@0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9
+    │   ├─ emit RoleGranted(role: 0x0000000000000000000000000000000000000000000000000000000000000000, account: VirtualPayTest: [0x7FA9385bE102ac3EAc297483Dd6233D62b3e1496], sender: VirtualPayTest: [0x7FA9385bE102ac3EAc297483Dd6233D62b3e1496])
+    │   ├─ emit RoleGranted(role: 0xa49807205ce4d355092ef5a8a18f56e8913cf4a201fbe287825b095693c21775, account: VirtualPayTest: [0x7FA9385bE102ac3EAc297483Dd6233D62b3e1496], sender: VirtualPayTest: [0x7FA9385bE102ac3EAc297483Dd6233D62b3e1496])
+    │   ├─ emit RoleGranted(role: 0xd96ba01d6560c2ab35f2940dd8d70c5f5fe06236c72674237120515918198fb0, account: VirtualPayTest: [0x7FA9385bE102ac3EAc297483Dd6233D62b3e1496], sender: VirtualPayTest: [0x7FA9385bE102ac3EAc297483Dd6233D62b3e1496])
+    │   └─ ← [Return] 2730 bytes of code
+    ├─ [1433808] → new RwaToken@0xc7183455a4C133Ae270771860664b6B7ec320bB1
+    │   ├─ emit Initialized(version: 18446744073709551615 [1.844e19])
+    │   └─ ← [Return] 7045 bytes of code
+    ├─ [1433808] → new RwaToken@0xa0Cb889707d426A7A386870A03bc70d1b0697598
+    │   ├─ emit Initialized(version: 18446744073709551615 [1.844e19])
+    │   └─ ← [Return] 7045 bytes of code
+    ├─ [124800] → new ERC1967Proxy@0x1d1499e622D69689cdf9004d05Ec547d650Ff211
+    │   ├─ emit Upgraded(implementation: BlockVirtualGovernance: [0x5615dEB798BB3E4dFa0139dFa1b3D433Cc23b72f])
+    │   ├─ [73435] BlockVirtualGovernance::initialize() [delegatecall]
+    │   │   ├─ emit RoleGranted(role: 0x0000000000000000000000000000000000000000000000000000000000000000, account: VirtualPayTest: [0x7FA9385bE102ac3EAc297483Dd6233D62b3e1496], sender: VirtualPayTest: [0x7FA9385bE102ac3EAc297483Dd6233D62b3e1496])
+    │   │   ├─ emit RoleGranted(role: 0xa49807205ce4d355092ef5a8a18f56e8913cf4a201fbe287825b095693c21775, account: VirtualPayTest: [0x7FA9385bE102ac3EAc297483Dd6233D62b3e1496], sender: VirtualPayTest: [0x7FA9385bE102ac3EAc297483Dd6233D62b3e1496])
+    │   │   ├─ emit Initialized(version: 1)
+    │   │   └─ ← [Stop] 
+    │   └─ ← [Return] 134 bytes of code
+    ├─ [0] VM::startPrank(VirtualPayTest: [0x7FA9385bE102ac3EAc297483Dd6233D62b3e1496])
+    │   └─ ← [Return] 
+    ├─ [73803] ERC1967Proxy::setupRoleAdmins()
+    │   ├─ [73496] BlockVirtualGovernance::setupRoleAdmins() [delegatecall]
+    │   │   ├─ emit RoleAdminChanged(role: 0x20b5f7ac978e5d6199de06401411960dfa81d2f762655f6206bdc61d46fc19e6, previousAdminRole: 0x0000000000000000000000000000000000000000000000000000000000000000, newAdminRole: 0xa49807205ce4d355092ef5a8a18f56e8913cf4a201fbe287825b095693c21775)
+    │   │   ├─ emit RoleAdminChanged(role: 0x442a94f1a1fac79af32856af2a64f63648cfa2ef3b98610a5bb7cbec4cee6985, previousAdminRole: 0x0000000000000000000000000000000000000000000000000000000000000000, newAdminRole: 0xa49807205ce4d355092ef5a8a18f56e8913cf4a201fbe287825b095693c21775)
+    │   │   ├─ emit RoleAdminChanged(role: 0x97667070c54ef182b0f5858b034beac1b6f3089aa2d3188bb1e8929f4fa9b929, previousAdminRole: 0x0000000000000000000000000000000000000000000000000000000000000000, newAdminRole: 0x20b5f7ac978e5d6199de06401411960dfa81d2f762655f6206bdc61d46fc19e6)
+    │   │   └─ ← [Stop] 
+    │   └─ ← [Return] 
+    ├─ [916] ERC1967Proxy::ADMIN_ROLE() [staticcall]
+    │   ├─ [606] BlockVirtualGovernance::ADMIN_ROLE() [delegatecall]
+    │   │   └─ ← [Return] 0xa49807205ce4d355092ef5a8a18f56e8913cf4a201fbe287825b095693c21775
+    │   └─ ← [Return] 0xa49807205ce4d355092ef5a8a18f56e8913cf4a201fbe287825b095693c21775
+    ├─ [27937] ERC1967Proxy::grantRole(0xa49807205ce4d355092ef5a8a18f56e8913cf4a201fbe287825b095693c21775, ECRecover: [0x0000000000000000000000000000000000000001])
+    │   ├─ [27624] BlockVirtualGovernance::grantRole(0xa49807205ce4d355092ef5a8a18f56e8913cf4a201fbe287825b095693c21775, ECRecover: [0x0000000000000000000000000000000000000001]) [delegatecall]
+    │   │   ├─ emit RoleGranted(role: 0xa49807205ce4d355092ef5a8a18f56e8913cf4a201fbe287825b095693c21775, account: ECRecover: [0x0000000000000000000000000000000000000001], sender: VirtualPayTest: [0x7FA9385bE102ac3EAc297483Dd6233D62b3e1496])
+    │   │   └─ ← [Stop] 
+    │   └─ ← [Return] 
+    ├─ [564] ERC1967Proxy::REGULATOR_ROLE() [staticcall]
+    │   ├─ [254] BlockVirtualGovernance::REGULATOR_ROLE() [delegatecall]
+    │   │   └─ ← [Return] 0x20b5f7ac978e5d6199de06401411960dfa81d2f762655f6206bdc61d46fc19e6
+    │   └─ ← [Return] 0x20b5f7ac978e5d6199de06401411960dfa81d2f762655f6206bdc61d46fc19e6
+    ├─ [25937] ERC1967Proxy::grantRole(0x20b5f7ac978e5d6199de06401411960dfa81d2f762655f6206bdc61d46fc19e6, SHA-256: [0x0000000000000000000000000000000000000002])
+    │   ├─ [25624] BlockVirtualGovernance::grantRole(0x20b5f7ac978e5d6199de06401411960dfa81d2f762655f6206bdc61d46fc19e6, SHA-256: [0x0000000000000000000000000000000000000002]) [delegatecall]
+    │   │   ├─ emit RoleGranted(role: 0x20b5f7ac978e5d6199de06401411960dfa81d2f762655f6206bdc61d46fc19e6, account: SHA-256: [0x0000000000000000000000000000000000000002], sender: VirtualPayTest: [0x7FA9385bE102ac3EAc297483Dd6233D62b3e1496])
+    │   │   └─ ← [Stop] 
+    │   └─ ← [Return] 
+    ├─ [0] VM::stopPrank()
+    │   └─ ← [Return] 
+    ├─ [0] VM::startPrank(SHA-256: [0x0000000000000000000000000000000000000002])
+    │   └─ ← [Return] 
+    ├─ [25866] ERC1967Proxy::grantOperatorRole(SHA-256: [0x0000000000000000000000000000000000000002])
+    │   ├─ [25556] BlockVirtualGovernance::grantOperatorRole(SHA-256: [0x0000000000000000000000000000000000000002]) [delegatecall]
+    │   │   ├─ emit RoleGranted(role: 0x97667070c54ef182b0f5858b034beac1b6f3089aa2d3188bb1e8929f4fa9b929, account: SHA-256: [0x0000000000000000000000000000000000000002], sender: SHA-256: [0x0000000000000000000000000000000000000002])
+    │   │   └─ ← [Stop] 
+    │   └─ ← [Return] 
+    ├─ [0] VM::stopPrank()
+    │   └─ ← [Return] 
+    ├─ [0] VM::prank(ECRecover: [0x0000000000000000000000000000000000000001])
+    │   └─ ← [Return] 
+    ├─ [23437] ERC1967Proxy::addSupportedCountryCode(702)
+    │   ├─ [23127] BlockVirtualGovernance::addSupportedCountryCode(702) [delegatecall]
+    │   │   └─ ← [Return] 
+    │   └─ ← [Return] 
+    ├─ [221514] → new ERC1967Proxy@0xA4AD4f68d0b91CFD19687c881e50f3A00242828c
+    │   ├─ emit Upgraded(implementation: VirtualPool: [0x2e234DAe75C793f67A35089C9d99245E1C58470b])
+    │   ├─ [170060] VirtualPool::initialize(ERC1967Proxy: [0x1d1499e622D69689cdf9004d05Ec547d650Ff211]) [delegatecall]
+    │   │   ├─ emit RoleGranted(role: 0x0000000000000000000000000000000000000000000000000000000000000000, account: VirtualPayTest: [0x7FA9385bE102ac3EAc297483Dd6233D62b3e1496], sender: VirtualPayTest: [0x7FA9385bE102ac3EAc297483Dd6233D62b3e1496])
+    │   │   ├─ emit RoleGranted(role: 0xa49807205ce4d355092ef5a8a18f56e8913cf4a201fbe287825b095693c21775, account: VirtualPayTest: [0x7FA9385bE102ac3EAc297483Dd6233D62b3e1496], sender: VirtualPayTest: [0x7FA9385bE102ac3EAc297483Dd6233D62b3e1496])
+    │   │   ├─ emit RoleGranted(role: 0x6c0757dc3e6b28b2580c03fd9e96c274acf4f99d91fbec9b418fa1d70604ff1c, account: VirtualPayTest: [0x7FA9385bE102ac3EAc297483Dd6233D62b3e1496], sender: VirtualPayTest: [0x7FA9385bE102ac3EAc297483Dd6233D62b3e1496])
+    │   │   ├─ emit RoleGranted(role: 0x97667070c54ef182b0f5858b034beac1b6f3089aa2d3188bb1e8929f4fa9b929, account: VirtualPayTest: [0x7FA9385bE102ac3EAc297483Dd6233D62b3e1496], sender: VirtualPayTest: [0x7FA9385bE102ac3EAc297483Dd6233D62b3e1496])
+    │   │   ├─ emit Initialized(version: 1)
+    │   │   └─ ← [Stop] 
+    │   └─ ← [Return] 134 bytes of code
+    ├─ [171900] → new ERC1967Proxy@0x03A6a84cD762D9707A21605b548aaaB891562aAb
+    │   ├─ emit Upgraded(implementation: VirtualPay: [0xF62849F9A0B5Bf2913b396098F7c7019b51A820a])
+    │   ├─ [120357] VirtualPay::initialize(ERC1967Proxy: [0xA4AD4f68d0b91CFD19687c881e50f3A00242828c], ERC1967Proxy: [0x1d1499e622D69689cdf9004d05Ec547d650Ff211]) [delegatecall]
+    │   │   ├─ emit RoleGranted(role: 0x0000000000000000000000000000000000000000000000000000000000000000, account: VirtualPayTest: [0x7FA9385bE102ac3EAc297483Dd6233D62b3e1496], sender: VirtualPayTest: [0x7FA9385bE102ac3EAc297483Dd6233D62b3e1496])
+    │   │   ├─ emit RoleGranted(role: 0xa49807205ce4d355092ef5a8a18f56e8913cf4a201fbe287825b095693c21775, account: VirtualPayTest: [0x7FA9385bE102ac3EAc297483Dd6233D62b3e1496], sender: VirtualPayTest: [0x7FA9385bE102ac3EAc297483Dd6233D62b3e1496])
+    │   │   ├─ emit Initialized(version: 1)
+    │   │   └─ ← [Stop] 
+    │   └─ ← [Return] 134 bytes of code
+    ├─ [191266] → new ERC1967Proxy@0xD6BbDE9174b1CdAa358d2Cf4D57D1a9F7178FBfF
+    │   ├─ emit Upgraded(implementation: RwaToken: [0xc7183455a4C133Ae270771860664b6B7ec320bB1])
+    │   ├─ [139188] RwaToken::initialize("Singapore Dollar", "SGD", ERC1967Proxy: [0x1d1499e622D69689cdf9004d05Ec547d650Ff211], 702) [delegatecall]
+    │   │   ├─ emit OwnershipTransferred(previousOwner: 0x0000000000000000000000000000000000000000, newOwner: VirtualPayTest: [0x7FA9385bE102ac3EAc297483Dd6233D62b3e1496])
+    │   │   ├─ emit Initialized(version: 1)
+    │   │   └─ ← [Stop] 
+    │   └─ ← [Return] 134 bytes of code
+    ├─ [191266] → new ERC1967Proxy@0x15cF58144EF33af1e14b5208015d11F9143E27b9
+    │   ├─ emit Upgraded(implementation: RwaToken: [0xa0Cb889707d426A7A386870A03bc70d1b0697598])
+    │   ├─ [139188] RwaToken::initialize("US Dollar", "USD", ERC1967Proxy: [0x1d1499e622D69689cdf9004d05Ec547d650Ff211], 702) [delegatecall]
+    │   │   ├─ emit OwnershipTransferred(previousOwner: 0x0000000000000000000000000000000000000000, newOwner: VirtualPayTest: [0x7FA9385bE102ac3EAc297483Dd6233D62b3e1496])
+    │   │   ├─ emit Initialized(version: 1)
+    │   │   └─ ← [Stop] 
+    │   └─ ← [Return] 134 bytes of code
+    ├─ [619929] → new BlockVirtualPriceFeed@0x212224D2F2d262cd093eE13240ca4873fcCBbA3C
+    │   ├─ emit RoleGranted(role: 0x0000000000000000000000000000000000000000000000000000000000000000, account: VirtualPayTest: [0x7FA9385bE102ac3EAc297483Dd6233D62b3e1496], sender: VirtualPayTest: [0x7FA9385bE102ac3EAc297483Dd6233D62b3e1496])
+    │   ├─ emit RoleGranted(role: 0xa49807205ce4d355092ef5a8a18f56e8913cf4a201fbe287825b095693c21775, account: VirtualPayTest: [0x7FA9385bE102ac3EAc297483Dd6233D62b3e1496], sender: VirtualPayTest: [0x7FA9385bE102ac3EAc297483Dd6233D62b3e1496])
+    │   ├─ emit RoleGranted(role: 0xd96ba01d6560c2ab35f2940dd8d70c5f5fe06236c72674237120515918198fb0, account: VirtualPayTest: [0x7FA9385bE102ac3EAc297483Dd6233D62b3e1496], sender: VirtualPayTest: [0x7FA9385bE102ac3EAc297483Dd6233D62b3e1496])
+    │   └─ ← [Return] 2730 bytes of code
+    ├─ [0] VM::startPrank(ECRecover: [0x0000000000000000000000000000000000000001])
+    │   └─ ← [Return] 
+    ├─ [69898] ERC1967Proxy::registerPool(ERC1967Proxy: [0xA4AD4f68d0b91CFD19687c881e50f3A00242828c])
+    │   ├─ [69588] BlockVirtualGovernance::registerPool(ERC1967Proxy: [0xA4AD4f68d0b91CFD19687c881e50f3A00242828c]) [delegatecall]
+    │   │   ├─ emit PoolRegistered(pool: ERC1967Proxy: [0xA4AD4f68d0b91CFD19687c881e50f3A00242828c], registrar: ECRecover: [0x0000000000000000000000000000000000000001])
+    │   │   └─ ← [Stop] 
+    │   └─ ← [Return] 
+    ├─ [3821] ERC1967Proxy::activatePool(ERC1967Proxy: [0xA4AD4f68d0b91CFD19687c881e50f3A00242828c])
+    │   ├─ [3511] BlockVirtualGovernance::activatePool(ERC1967Proxy: [0xA4AD4f68d0b91CFD19687c881e50f3A00242828c]) [delegatecall]
+    │   │   ├─ emit PoolActivated(pool: ERC1967Proxy: [0xA4AD4f68d0b91CFD19687c881e50f3A00242828c], activator: ECRecover: [0x0000000000000000000000000000000000000001])
+    │   │   └─ ← [Stop] 
+    │   └─ ← [Return] 
+    ├─ [0] VM::stopPrank()
+    │   └─ ← [Return] 
+    ├─ [0] VM::startPrank(SHA-256: [0x0000000000000000000000000000000000000002])
+    │   └─ ← [Return] 
+    ├─ [114719] ERC1967Proxy::registerKYCUser(Identity: [0x0000000000000000000000000000000000000004], 31536001 [3.153e7], 702)
+    │   ├─ [114400] BlockVirtualGovernance::registerKYCUser(Identity: [0x0000000000000000000000000000000000000004], 31536001 [3.153e7], 702) [delegatecall]
+    │   │   └─ ← [Stop] 
+    │   └─ ← [Return] 
+    ├─ [112719] ERC1967Proxy::registerKYCUser(ModExp: [0x0000000000000000000000000000000000000005], 31536001 [3.153e7], 702)
+    │   ├─ [112400] BlockVirtualGovernance::registerKYCUser(ModExp: [0x0000000000000000000000000000000000000005], 31536001 [3.153e7], 702) [delegatecall]
+    │   │   └─ ← [Stop] 
+    │   └─ ← [Return] 
+    ├─ [112719] ERC1967Proxy::registerKYCUser(ECRecover: [0x0000000000000000000000000000000000000001], 31536001 [3.153e7], 702)
+    │   ├─ [112400] BlockVirtualGovernance::registerKYCUser(ECRecover: [0x0000000000000000000000000000000000000001], 31536001 [3.153e7], 702) [delegatecall]
+    │   │   └─ ← [Stop] 
+    │   └─ ← [Return] 
+    ├─ [112719] ERC1967Proxy::registerKYCUser(SHA-256: [0x0000000000000000000000000000000000000002], 31536001 [3.153e7], 702)
+    │   ├─ [112400] BlockVirtualGovernance::registerKYCUser(SHA-256: [0x0000000000000000000000000000000000000002], 31536001 [3.153e7], 702) [delegatecall]
+    │   │   └─ ← [Stop] 
+    │   └─ ← [Return] 
+    ├─ [112719] ERC1967Proxy::registerKYCUser(VirtualPayTest: [0x7FA9385bE102ac3EAc297483Dd6233D62b3e1496], 31536001 [3.153e7], 702)
+    │   ├─ [112400] BlockVirtualGovernance::registerKYCUser(VirtualPayTest: [0x7FA9385bE102ac3EAc297483Dd6233D62b3e1496], 31536001 [3.153e7], 702) [delegatecall]
+    │   │   └─ ← [Stop] 
+    │   └─ ← [Return] 
+    ├─ [112719] ERC1967Proxy::registerKYCUser(ERC1967Proxy: [0x1d1499e622D69689cdf9004d05Ec547d650Ff211], 31536001 [3.153e7], 702)
+    │   ├─ [112400] BlockVirtualGovernance::registerKYCUser(ERC1967Proxy: [0x1d1499e622D69689cdf9004d05Ec547d650Ff211], 31536001 [3.153e7], 702) [delegatecall]
+    │   │   └─ ← [Stop] 
+    │   └─ ← [Return] 
+    ├─ [112719] ERC1967Proxy::registerKYCUser(ERC1967Proxy: [0xA4AD4f68d0b91CFD19687c881e50f3A00242828c], 31536001 [3.153e7], 702)
+    │   ├─ [112400] BlockVirtualGovernance::registerKYCUser(ERC1967Proxy: [0xA4AD4f68d0b91CFD19687c881e50f3A00242828c], 31536001 [3.153e7], 702) [delegatecall]
+    │   │   └─ ← [Stop] 
+    │   └─ ← [Return] 
+    ├─ [2919] ERC1967Proxy::registerKYCUser(ERC1967Proxy: [0xA4AD4f68d0b91CFD19687c881e50f3A00242828c], 31536001 [3.153e7], 702)
+    │   ├─ [2600] BlockVirtualGovernance::registerKYCUser(ERC1967Proxy: [0xA4AD4f68d0b91CFD19687c881e50f3A00242828c], 31536001 [3.153e7], 702) [delegatecall]
+    │   │   └─ ← [Stop] 
+    │   └─ ← [Return] 
+    ├─ [112719] ERC1967Proxy::registerKYCUser(ERC1967Proxy: [0xD6BbDE9174b1CdAa358d2Cf4D57D1a9F7178FBfF], 31536001 [3.153e7], 702)
+    │   ├─ [112400] BlockVirtualGovernance::registerKYCUser(ERC1967Proxy: [0xD6BbDE9174b1CdAa358d2Cf4D57D1a9F7178FBfF], 31536001 [3.153e7], 702) [delegatecall]
+    │   │   └─ ← [Stop] 
+    │   └─ ← [Return] 
+    ├─ [2919] ERC1967Proxy::registerKYCUser(ERC1967Proxy: [0xD6BbDE9174b1CdAa358d2Cf4D57D1a9F7178FBfF], 31536001 [3.153e7], 702)
+    │   ├─ [2600] BlockVirtualGovernance::registerKYCUser(ERC1967Proxy: [0xD6BbDE9174b1CdAa358d2Cf4D57D1a9F7178FBfF], 31536001 [3.153e7], 702) [delegatecall]
+    │   │   └─ ← [Stop] 
+    │   └─ ← [Return] 
+    ├─ [112719] ERC1967Proxy::registerKYCUser(ERC1967Proxy: [0x15cF58144EF33af1e14b5208015d11F9143E27b9], 31536001 [3.153e7], 702)
+    │   ├─ [112400] BlockVirtualGovernance::registerKYCUser(ERC1967Proxy: [0x15cF58144EF33af1e14b5208015d11F9143E27b9], 31536001 [3.153e7], 702) [delegatecall]
+    │   │   └─ ← [Stop] 
+    │   └─ ← [Return] 
+    ├─ [2919] ERC1967Proxy::registerKYCUser(ERC1967Proxy: [0x15cF58144EF33af1e14b5208015d11F9143E27b9], 31536001 [3.153e7], 702)
+    │   ├─ [2600] BlockVirtualGovernance::registerKYCUser(ERC1967Proxy: [0x15cF58144EF33af1e14b5208015d11F9143E27b9], 31536001 [3.153e7], 702) [delegatecall]
+    │   │   └─ ← [Stop] 
+    │   └─ ← [Return] 
+    ├─ [112719] ERC1967Proxy::registerKYCUser(BlockVirtualPriceFeed: [0x212224D2F2d262cd093eE13240ca4873fcCBbA3C], 31536001 [3.153e7], 702)
+    │   ├─ [112400] BlockVirtualGovernance::registerKYCUser(BlockVirtualPriceFeed: [0x212224D2F2d262cd093eE13240ca4873fcCBbA3C], 31536001 [3.153e7], 702) [delegatecall]
+    │   │   └─ ← [Stop] 
+    │   └─ ← [Return] 
+    ├─ [112719] ERC1967Proxy::registerKYCUser(ERC1967Proxy: [0x03A6a84cD762D9707A21605b548aaaB891562aAb], 31536001 [3.153e7], 702)
+    │   ├─ [112400] BlockVirtualGovernance::registerKYCUser(ERC1967Proxy: [0x03A6a84cD762D9707A21605b548aaaB891562aAb], 31536001 [3.153e7], 702) [delegatecall]
+    │   │   └─ ← [Stop] 
+    │   └─ ← [Return] 
+    ├─ [2919] ERC1967Proxy::registerKYCUser(ERC1967Proxy: [0x03A6a84cD762D9707A21605b548aaaB891562aAb], 31536001 [3.153e7], 702)
+    │   ├─ [2600] BlockVirtualGovernance::registerKYCUser(ERC1967Proxy: [0x03A6a84cD762D9707A21605b548aaaB891562aAb], 31536001 [3.153e7], 702) [delegatecall]
+    │   │   └─ ← [Stop] 
+    │   └─ ← [Return] 
+    ├─ [0] VM::stopPrank()
+    │   └─ ← [Return] 
+    ├─ [0] VM::startPrank(VirtualPayTest: [0x7FA9385bE102ac3EAc297483Dd6233D62b3e1496])
+    │   └─ ← [Return] 
+    ├─ [971] ERC1967Proxy::ADMIN_ROLE() [staticcall]
+    │   ├─ [661] VirtualPool::ADMIN_ROLE() [delegatecall]
+    │   │   └─ ← [Return] 0xa49807205ce4d355092ef5a8a18f56e8913cf4a201fbe287825b095693c21775
+    │   └─ ← [Return] 0xa49807205ce4d355092ef5a8a18f56e8913cf4a201fbe287825b095693c21775
+    ├─ [27761] ERC1967Proxy::grantRole(0xa49807205ce4d355092ef5a8a18f56e8913cf4a201fbe287825b095693c21775, ECRecover: [0x0000000000000000000000000000000000000001])
+    │   ├─ [27448] VirtualPool::grantRole(0xa49807205ce4d355092ef5a8a18f56e8913cf4a201fbe287825b095693c21775, ECRecover: [0x0000000000000000000000000000000000000001]) [delegatecall]
+    │   │   ├─ emit RoleGranted(role: 0xa49807205ce4d355092ef5a8a18f56e8913cf4a201fbe287825b095693c21775, account: ECRecover: [0x0000000000000000000000000000000000000001], sender: VirtualPayTest: [0x7FA9385bE102ac3EAc297483Dd6233D62b3e1496])
+    │   │   └─ ← [Stop] 
+    │   └─ ← [Return] 
+    ├─ [1367] ERC1967Proxy::OPERATOR_ROLE() [staticcall]
+    │   ├─ [1057] VirtualPool::OPERATOR_ROLE() [delegatecall]
+    │   │   └─ ← [Return] 0x97667070c54ef182b0f5858b034beac1b6f3089aa2d3188bb1e8929f4fa9b929
+    │   └─ ← [Return] 0x97667070c54ef182b0f5858b034beac1b6f3089aa2d3188bb1e8929f4fa9b929
+    ├─ [27761] ERC1967Proxy::grantRole(0x97667070c54ef182b0f5858b034beac1b6f3089aa2d3188bb1e8929f4fa9b929, SHA-256: [0x0000000000000000000000000000000000000002])
+    │   ├─ [27448] VirtualPool::grantRole(0x97667070c54ef182b0f5858b034beac1b6f3089aa2d3188bb1e8929f4fa9b929, SHA-256: [0x0000000000000000000000000000000000000002]) [delegatecall]
+    │   │   ├─ emit RoleGranted(role: 0x97667070c54ef182b0f5858b034beac1b6f3089aa2d3188bb1e8929f4fa9b929, account: SHA-256: [0x0000000000000000000000000000000000000002], sender: VirtualPayTest: [0x7FA9385bE102ac3EAc297483Dd6233D62b3e1496])
+    │   │   └─ ← [Stop] 
+    │   └─ ← [Return] 
+    ├─ [0] VM::stopPrank()
+    │   └─ ← [Return] 
+    ├─ [0] VM::startPrank(VirtualPayTest: [0x7FA9385bE102ac3EAc297483Dd6233D62b3e1496])
+    │   └─ ← [Return] 
+    ├─ [729] ERC1967Proxy::ADMIN_ROLE() [staticcall]
+    │   ├─ [419] VirtualPay::ADMIN_ROLE() [delegatecall]
+    │   │   └─ ← [Return] 0xa49807205ce4d355092ef5a8a18f56e8913cf4a201fbe287825b095693c21775
+    │   └─ ← [Return] 0xa49807205ce4d355092ef5a8a18f56e8913cf4a201fbe287825b095693c21775
+    ├─ [27728] ERC1967Proxy::grantRole(0xa49807205ce4d355092ef5a8a18f56e8913cf4a201fbe287825b095693c21775, ECRecover: [0x0000000000000000000000000000000000000001])
+    │   ├─ [27415] VirtualPay::grantRole(0xa49807205ce4d355092ef5a8a18f56e8913cf4a201fbe287825b095693c21775, ECRecover: [0x0000000000000000000000000000000000000001]) [delegatecall]
+    │   │   ├─ emit RoleGranted(role: 0xa49807205ce4d355092ef5a8a18f56e8913cf4a201fbe287825b095693c21775, account: ECRecover: [0x0000000000000000000000000000000000000001], sender: VirtualPayTest: [0x7FA9385bE102ac3EAc297483Dd6233D62b3e1496])
+    │   │   └─ ← [Stop] 
+    │   └─ ← [Return] 
+    ├─ [0] VM::stopPrank()
+    │   └─ ← [Return] 
+    ├─ [0] VM::startPrank(VirtualPayTest: [0x7FA9385bE102ac3EAc297483Dd6233D62b3e1496])
+    │   └─ ← [Return] 
+    ├─ [397] BlockVirtualPriceFeed::ADMIN_ROLE() [staticcall]
+    │   └─ ← [Return] 0xa49807205ce4d355092ef5a8a18f56e8913cf4a201fbe287825b095693c21775
+    ├─ [27328] BlockVirtualPriceFeed::grantRole(0xa49807205ce4d355092ef5a8a18f56e8913cf4a201fbe287825b095693c21775, ECRecover: [0x0000000000000000000000000000000000000001])
+    │   ├─ emit RoleGranted(role: 0xa49807205ce4d355092ef5a8a18f56e8913cf4a201fbe287825b095693c21775, account: ECRecover: [0x0000000000000000000000000000000000000001], sender: VirtualPayTest: [0x7FA9385bE102ac3EAc297483Dd6233D62b3e1496])
+    │   └─ ← [Stop] 
+    ├─ [526] BlockVirtualPriceFeed::PRICE_UPDATER_ROLE() [staticcall]
+    │   └─ ← [Return] 0xd96ba01d6560c2ab35f2940dd8d70c5f5fe06236c72674237120515918198fb0
+    ├─ [27328] BlockVirtualPriceFeed::grantRole(0xd96ba01d6560c2ab35f2940dd8d70c5f5fe06236c72674237120515918198fb0, SHA-256: [0x0000000000000000000000000000000000000002])
+    │   ├─ emit RoleGranted(role: 0xd96ba01d6560c2ab35f2940dd8d70c5f5fe06236c72674237120515918198fb0, account: SHA-256: [0x0000000000000000000000000000000000000002], sender: VirtualPayTest: [0x7FA9385bE102ac3EAc297483Dd6233D62b3e1496])
+    │   └─ ← [Stop] 
+    ├─ [0] VM::stopPrank()
+    │   └─ ← [Return] 
+    ├─ [0] VM::prank(ECRecover: [0x0000000000000000000000000000000000000001])
+    │   └─ ← [Return] 
+    ├─ [23369] ERC1967Proxy::setPriceFeed(BlockVirtualPriceFeed: [0x212224D2F2d262cd093eE13240ca4873fcCBbA3C])
+    │   ├─ [23059] VirtualPool::setPriceFeed(BlockVirtualPriceFeed: [0x212224D2F2d262cd093eE13240ca4873fcCBbA3C]) [delegatecall]
+    │   │   └─ ← [Return] 
+    │   └─ ← [Return] 
+    ├─ [0] VM::startPrank(ECRecover: [0x0000000000000000000000000000000000000001])
+    │   └─ ← [Return] 
+    ├─ [68477] BlockVirtualPriceFeed::registerToken(ERC1967Proxy: [0xD6BbDE9174b1CdAa358d2Cf4D57D1a9F7178FBfF])
+    │   ├─ emit TokenRegistered(token: ERC1967Proxy: [0xD6BbDE9174b1CdAa358d2Cf4D57D1a9F7178FBfF])
+    │   └─ ← [Stop] 
+    ├─ [46577] BlockVirtualPriceFeed::registerToken(ERC1967Proxy: [0x15cF58144EF33af1e14b5208015d11F9143E27b9])
+    │   ├─ emit TokenRegistered(token: ERC1967Proxy: [0x15cF58144EF33af1e14b5208015d11F9143E27b9])
+    │   └─ ← [Stop] 
+    ├─ [0] VM::stopPrank()
+    │   └─ ← [Return] 
+    ├─ [0] VM::startPrank(SHA-256: [0x0000000000000000000000000000000000000002])
+    │   └─ ← [Return] 
+    ├─ [46921] BlockVirtualPriceFeed::updatePrice(ERC1967Proxy: [0xD6BbDE9174b1CdAa358d2Cf4D57D1a9F7178FBfF], 750000000000000000 [7.5e17])
+    │   ├─ emit PriceUpdated(token: ERC1967Proxy: [0xD6BbDE9174b1CdAa358d2Cf4D57D1a9F7178FBfF], price: 750000000000000000 [7.5e17], timestamp: 1)
+    │   └─ ← [Stop] 
+    ├─ [46921] BlockVirtualPriceFeed::updatePrice(ERC1967Proxy: [0x15cF58144EF33af1e14b5208015d11F9143E27b9], 1000000000000000000 [1e18])
+    │   ├─ emit PriceUpdated(token: ERC1967Proxy: [0x15cF58144EF33af1e14b5208015d11F9143E27b9], price: 1000000000000000000 [1e18], timestamp: 1)
+    │   └─ ← [Stop] 
+    ├─ [0] VM::stopPrank()
+    │   └─ ← [Return] 
+    ├─ [0] VM::startPrank(ECRecover: [0x0000000000000000000000000000000000000001])
+    │   └─ ← [Return] 
+    ├─ [24529] ERC1967Proxy::addSupportedToken(ERC1967Proxy: [0xD6BbDE9174b1CdAa358d2Cf4D57D1a9F7178FBfF])
+    │   ├─ [24219] VirtualPool::addSupportedToken(ERC1967Proxy: [0xD6BbDE9174b1CdAa358d2Cf4D57D1a9F7178FBfF]) [delegatecall]
+    │   │   ├─ emit TokenAdded(token: ERC1967Proxy: [0xD6BbDE9174b1CdAa358d2Cf4D57D1a9F7178FBfF])
+    │   │   └─ ← [Stop] 
+    │   └─ ← [Return] 
+    ├─ [24529] ERC1967Proxy::addSupportedToken(ERC1967Proxy: [0x15cF58144EF33af1e14b5208015d11F9143E27b9])
+    │   ├─ [24219] VirtualPool::addSupportedToken(ERC1967Proxy: [0x15cF58144EF33af1e14b5208015d11F9143E27b9]) [delegatecall]
+    │   │   ├─ emit TokenAdded(token: ERC1967Proxy: [0x15cF58144EF33af1e14b5208015d11F9143E27b9])
+    │   │   └─ ← [Stop] 
+    │   └─ ← [Return] 
+    ├─ [0] VM::stopPrank()
+    │   └─ ← [Return] 
+    ├─ [0] VM::prank(ECRecover: [0x0000000000000000000000000000000000000001])
+    │   └─ ← [Return] 
+    ├─ [189977] ERC1967Proxy::createPair(ERC1967Proxy: [0xD6BbDE9174b1CdAa358d2Cf4D57D1a9F7178FBfF], ERC1967Proxy: [0x15cF58144EF33af1e14b5208015d11F9143E27b9])
+    │   ├─ [189661] VirtualPool::createPair(ERC1967Proxy: [0xD6BbDE9174b1CdAa358d2Cf4D57D1a9F7178FBfF], ERC1967Proxy: [0x15cF58144EF33af1e14b5208015d11F9143E27b9]) [delegatecall]
+    │   │   ├─ emit PairCreated(token0: ERC1967Proxy: [0x15cF58144EF33af1e14b5208015d11F9143E27b9], token1: ERC1967Proxy: [0xD6BbDE9174b1CdAa358d2Cf4D57D1a9F7178FBfF], pairToken: 0x69537d22AafE40B611d8B6A0Fd220584CA8d16b3, pairId: 0)
+    │   │   └─ ← [Return] 0x69537d22AafE40B611d8B6A0Fd220584CA8d16b3
+    │   └─ ← [Return] 0x69537d22AafE40B611d8B6A0Fd220584CA8d16b3
+    ├─ [0] VM::startPrank(ERC1967Proxy: [0x1d1499e622D69689cdf9004d05Ec547d650Ff211])
+    │   └─ ← [Return] 
+    ├─ [50842] ERC1967Proxy::mintRwa(Identity: [0x0000000000000000000000000000000000000004], 1000000000000000000000000 [1e24])
+    │   ├─ [50529] RwaToken::mintRwa(Identity: [0x0000000000000000000000000000000000000004], 1000000000000000000000000 [1e24]) [delegatecall]
+    │   │   ├─ [3202] ERC1967Proxy::isBlacklisted(ERC1967Proxy: [0xD6BbDE9174b1CdAa358d2Cf4D57D1a9F7178FBfF], Identity: [0x0000000000000000000000000000000000000004]) [staticcall]
+    │   │   │   ├─ [2886] BlockVirtualGovernance::isBlacklisted(ERC1967Proxy: [0xD6BbDE9174b1CdAa358d2Cf4D57D1a9F7178FBfF], Identity: [0x0000000000000000000000000000000000000004]) [delegatecall]
+    │   │   │   │   └─ ← [Return] false
+    │   │   │   └─ ← [Return] false
+    │   │   ├─ emit Transfer(from: 0x0000000000000000000000000000000000000000, to: Identity: [0x0000000000000000000000000000000000000004], value: 1000000000000000000000000 [1e24])
+    │   │   └─ ← [Return] 
+    │   └─ ← [Return] 
+    ├─ [28942] ERC1967Proxy::mintRwa(ModExp: [0x0000000000000000000000000000000000000005], 1000000000000000000000000 [1e24])
+    │   ├─ [28629] RwaToken::mintRwa(ModExp: [0x0000000000000000000000000000000000000005], 1000000000000000000000000 [1e24]) [delegatecall]
+    │   │   ├─ [3202] ERC1967Proxy::isBlacklisted(ERC1967Proxy: [0xD6BbDE9174b1CdAa358d2Cf4D57D1a9F7178FBfF], ModExp: [0x0000000000000000000000000000000000000005]) [staticcall]
+    │   │   │   ├─ [2886] BlockVirtualGovernance::isBlacklisted(ERC1967Proxy: [0xD6BbDE9174b1CdAa358d2Cf4D57D1a9F7178FBfF], ModExp: [0x0000000000000000000000000000000000000005]) [delegatecall]
+    │   │   │   │   └─ ← [Return] false
+    │   │   │   └─ ← [Return] false
+    │   │   ├─ emit Transfer(from: 0x0000000000000000000000000000000000000000, to: ModExp: [0x0000000000000000000000000000000000000005], value: 1000000000000000000000000 [1e24])
+    │   │   └─ ← [Return] 
+    │   └─ ← [Return] 
+    ├─ [50842] ERC1967Proxy::mintRwa(Identity: [0x0000000000000000000000000000000000000004], 1000000000000000000000000 [1e24])
+    │   ├─ [50529] RwaToken::mintRwa(Identity: [0x0000000000000000000000000000000000000004], 1000000000000000000000000 [1e24]) [delegatecall]
+    │   │   ├─ [3202] ERC1967Proxy::isBlacklisted(ERC1967Proxy: [0x15cF58144EF33af1e14b5208015d11F9143E27b9], Identity: [0x0000000000000000000000000000000000000004]) [staticcall]
+    │   │   │   ├─ [2886] BlockVirtualGovernance::isBlacklisted(ERC1967Proxy: [0x15cF58144EF33af1e14b5208015d11F9143E27b9], Identity: [0x0000000000000000000000000000000000000004]) [delegatecall]
+    │   │   │   │   └─ ← [Return] false
+    │   │   │   └─ ← [Return] false
+    │   │   ├─ emit Transfer(from: 0x0000000000000000000000000000000000000000, to: Identity: [0x0000000000000000000000000000000000000004], value: 1000000000000000000000000 [1e24])
+    │   │   └─ ← [Return] 
+    │   └─ ← [Return] 
+    ├─ [28942] ERC1967Proxy::mintRwa(ModExp: [0x0000000000000000000000000000000000000005], 1000000000000000000000000 [1e24])
+    │   ├─ [28629] RwaToken::mintRwa(ModExp: [0x0000000000000000000000000000000000000005], 1000000000000000000000000 [1e24]) [delegatecall]
+    │   │   ├─ [3202] ERC1967Proxy::isBlacklisted(ERC1967Proxy: [0x15cF58144EF33af1e14b5208015d11F9143E27b9], ModExp: [0x0000000000000000000000000000000000000005]) [staticcall]
+    │   │   │   ├─ [2886] BlockVirtualGovernance::isBlacklisted(ERC1967Proxy: [0x15cF58144EF33af1e14b5208015d11F9143E27b9], ModExp: [0x0000000000000000000000000000000000000005]) [delegatecall]
+    │   │   │   │   └─ ← [Return] false
+    │   │   │   └─ ← [Return] false
+    │   │   ├─ emit Transfer(from: 0x0000000000000000000000000000000000000000, to: ModExp: [0x0000000000000000000000000000000000000005], value: 1000000000000000000000000 [1e24])
+    │   │   └─ ← [Return] 
+    │   └─ ← [Return] 
+    ├─ [0] VM::stopPrank()
+    │   └─ ← [Return] 
+    └─ ← [Return] 
+
+  [467362] VirtualPayTest::test_Pause()
+    ├─ [0] VM::startPrank(Identity: [0x0000000000000000000000000000000000000004])
+    │   └─ ← [Return] 
+    ├─ [29189] ERC1967Proxy::approve(ERC1967Proxy: [0xA4AD4f68d0b91CFD19687c881e50f3A00242828c], 10000000000000000000000 [1e22])
+    │   ├─ [24373] RwaToken::approve(ERC1967Proxy: [0xA4AD4f68d0b91CFD19687c881e50f3A00242828c], 10000000000000000000000 [1e22]) [delegatecall]
+    │   │   ├─ emit Approval(owner: Identity: [0x0000000000000000000000000000000000000004], spender: ERC1967Proxy: [0xA4AD4f68d0b91CFD19687c881e50f3A00242828c], value: 10000000000000000000000 [1e22])
+    │   │   └─ ← [Return] true
+    │   └─ ← [Return] true
+    ├─ [29189] ERC1967Proxy::approve(ERC1967Proxy: [0xA4AD4f68d0b91CFD19687c881e50f3A00242828c], 7500000000000000000000 [7.5e21])
+    │   ├─ [24373] RwaToken::approve(ERC1967Proxy: [0xA4AD4f68d0b91CFD19687c881e50f3A00242828c], 7500000000000000000000 [7.5e21]) [delegatecall]
+    │   │   ├─ emit Approval(owner: Identity: [0x0000000000000000000000000000000000000004], spender: ERC1967Proxy: [0xA4AD4f68d0b91CFD19687c881e50f3A00242828c], value: 7500000000000000000000 [7.5e21])
+    │   │   └─ ← [Return] true
+    │   └─ ← [Return] true
+    ├─ [234053] ERC1967Proxy::addLiquidity(ERC1967Proxy: [0xD6BbDE9174b1CdAa358d2Cf4D57D1a9F7178FBfF], ERC1967Proxy: [0x15cF58144EF33af1e14b5208015d11F9143E27b9], 10000000000000000000000 [1e22], 7500000000000000000000 [7.5e21], 0, 0)
+    │   ├─ [229207] VirtualPool::addLiquidity(ERC1967Proxy: [0xD6BbDE9174b1CdAa358d2Cf4D57D1a9F7178FBfF], ERC1967Proxy: [0x15cF58144EF33af1e14b5208015d11F9143E27b9], 10000000000000000000000 [1e22], 7500000000000000000000 [7.5e21], 0, 0) [delegatecall]
+    │   │   ├─ [10394] ERC1967Proxy::getKycStatus(Identity: [0x0000000000000000000000000000000000000004]) [staticcall]
+    │   │   │   ├─ [5581] BlockVirtualGovernance::getKycStatus(Identity: [0x0000000000000000000000000000000000000004]) [delegatecall]
+    │   │   │   │   └─ ← [Return] true
+    │   │   │   └─ ← [Return] true
+    │   │   ├─ [3202] ERC1967Proxy::isBlacklisted(ERC1967Proxy: [0xD6BbDE9174b1CdAa358d2Cf4D57D1a9F7178FBfF], Identity: [0x0000000000000000000000000000000000000004]) [staticcall]
+    │   │   │   ├─ [2886] BlockVirtualGovernance::isBlacklisted(ERC1967Proxy: [0xD6BbDE9174b1CdAa358d2Cf4D57D1a9F7178FBfF], Identity: [0x0000000000000000000000000000000000000004]) [delegatecall]
+    │   │   │   │   └─ ← [Return] false
+    │   │   │   └─ ← [Return] false
+    │   │   ├─ [3202] ERC1967Proxy::isBlacklisted(ERC1967Proxy: [0x15cF58144EF33af1e14b5208015d11F9143E27b9], Identity: [0x0000000000000000000000000000000000000004]) [staticcall]
+    │   │   │   ├─ [2886] BlockVirtualGovernance::isBlacklisted(ERC1967Proxy: [0x15cF58144EF33af1e14b5208015d11F9143E27b9], Identity: [0x0000000000000000000000000000000000000004]) [delegatecall]
+    │   │   │   │   └─ ← [Return] false
+    │   │   │   └─ ← [Return] false
+    │   │   ├─ [57308] ERC1967Proxy::transferFrom(Identity: [0x0000000000000000000000000000000000000004], ERC1967Proxy: [0xA4AD4f68d0b91CFD19687c881e50f3A00242828c], 10000000000000000000000 [1e22])
+    │   │   │   ├─ [56986] RwaToken::transferFrom(Identity: [0x0000000000000000000000000000000000000004], ERC1967Proxy: [0xA4AD4f68d0b91CFD19687c881e50f3A00242828c], 10000000000000000000000 [1e22]) [delegatecall]
+    │   │   │   │   ├─ [1894] ERC1967Proxy::getKycStatus(Identity: [0x0000000000000000000000000000000000000004]) [staticcall]
+    │   │   │   │   │   ├─ [1581] BlockVirtualGovernance::getKycStatus(Identity: [0x0000000000000000000000000000000000000004]) [delegatecall]
+    │   │   │   │   │   │   └─ ← [Return] true
+    │   │   │   │   │   └─ ← [Return] true
+    │   │   │   │   ├─ [5894] ERC1967Proxy::getKycStatus(ERC1967Proxy: [0xA4AD4f68d0b91CFD19687c881e50f3A00242828c]) [staticcall]
+    │   │   │   │   │   ├─ [5581] BlockVirtualGovernance::getKycStatus(ERC1967Proxy: [0xA4AD4f68d0b91CFD19687c881e50f3A00242828c]) [delegatecall]
+    │   │   │   │   │   │   └─ ← [Return] true
+    │   │   │   │   │   └─ ← [Return] true
+    │   │   │   │   ├─ [5541] ERC1967Proxy::isFromSupportedCountry(Identity: [0x0000000000000000000000000000000000000004]) [staticcall]
+    │   │   │   │   │   ├─ [5228] BlockVirtualGovernance::isFromSupportedCountry(Identity: [0x0000000000000000000000000000000000000004]) [delegatecall]
+    │   │   │   │   │   │   └─ ← [Return] true
+    │   │   │   │   │   └─ ← [Return] true
+    │   │   │   │   ├─ [3541] ERC1967Proxy::isFromSupportedCountry(ERC1967Proxy: [0xA4AD4f68d0b91CFD19687c881e50f3A00242828c]) [staticcall]
+    │   │   │   │   │   ├─ [3228] BlockVirtualGovernance::isFromSupportedCountry(ERC1967Proxy: [0xA4AD4f68d0b91CFD19687c881e50f3A00242828c]) [delegatecall]
+    │   │   │   │   │   │   └─ ← [Return] true
+    │   │   │   │   │   └─ ← [Return] true
+    │   │   │   │   ├─ [1202] ERC1967Proxy::isBlacklisted(ERC1967Proxy: [0xD6BbDE9174b1CdAa358d2Cf4D57D1a9F7178FBfF], Identity: [0x0000000000000000000000000000000000000004]) [staticcall]
+    │   │   │   │   │   ├─ [886] BlockVirtualGovernance::isBlacklisted(ERC1967Proxy: [0xD6BbDE9174b1CdAa358d2Cf4D57D1a9F7178FBfF], Identity: [0x0000000000000000000000000000000000000004]) [delegatecall]
+    │   │   │   │   │   │   └─ ← [Return] false
+    │   │   │   │   │   └─ ← [Return] false
+    │   │   │   │   ├─ [3202] ERC1967Proxy::isBlacklisted(ERC1967Proxy: [0xD6BbDE9174b1CdAa358d2Cf4D57D1a9F7178FBfF], ERC1967Proxy: [0xA4AD4f68d0b91CFD19687c881e50f3A00242828c]) [staticcall]
+    │   │   │   │   │   ├─ [2886] BlockVirtualGovernance::isBlacklisted(ERC1967Proxy: [0xD6BbDE9174b1CdAa358d2Cf4D57D1a9F7178FBfF], ERC1967Proxy: [0xA4AD4f68d0b91CFD19687c881e50f3A00242828c]) [delegatecall]
+    │   │   │   │   │   │   └─ ← [Return] false
+    │   │   │   │   │   └─ ← [Return] false
+    │   │   │   │   ├─ emit Transfer(from: Identity: [0x0000000000000000000000000000000000000004], to: ERC1967Proxy: [0xA4AD4f68d0b91CFD19687c881e50f3A00242828c], value: 10000000000000000000000 [1e22])
+    │   │   │   │   └─ ← [Return] true
+    │   │   │   └─ ← [Return] true
+    │   │   ├─ [47308] ERC1967Proxy::transferFrom(Identity: [0x0000000000000000000000000000000000000004], ERC1967Proxy: [0xA4AD4f68d0b91CFD19687c881e50f3A00242828c], 7500000000000000000000 [7.5e21])
+    │   │   │   ├─ [46986] RwaToken::transferFrom(Identity: [0x0000000000000000000000000000000000000004], ERC1967Proxy: [0xA4AD4f68d0b91CFD19687c881e50f3A00242828c], 7500000000000000000000 [7.5e21]) [delegatecall]
+    │   │   │   │   ├─ [1894] ERC1967Proxy::getKycStatus(Identity: [0x0000000000000000000000000000000000000004]) [staticcall]
+    │   │   │   │   │   ├─ [1581] BlockVirtualGovernance::getKycStatus(Identity: [0x0000000000000000000000000000000000000004]) [delegatecall]
+    │   │   │   │   │   │   └─ ← [Return] true
+    │   │   │   │   │   └─ ← [Return] true
+    │   │   │   │   ├─ [1894] ERC1967Proxy::getKycStatus(ERC1967Proxy: [0xA4AD4f68d0b91CFD19687c881e50f3A00242828c]) [staticcall]
+    │   │   │   │   │   ├─ [1581] BlockVirtualGovernance::getKycStatus(ERC1967Proxy: [0xA4AD4f68d0b91CFD19687c881e50f3A00242828c]) [delegatecall]
+    │   │   │   │   │   │   └─ ← [Return] true
+    │   │   │   │   │   └─ ← [Return] true
+    │   │   │   │   ├─ [1541] ERC1967Proxy::isFromSupportedCountry(Identity: [0x0000000000000000000000000000000000000004]) [staticcall]
+    │   │   │   │   │   ├─ [1228] BlockVirtualGovernance::isFromSupportedCountry(Identity: [0x0000000000000000000000000000000000000004]) [delegatecall]
+    │   │   │   │   │   │   └─ ← [Return] true
+    │   │   │   │   │   └─ ← [Return] true
+    │   │   │   │   ├─ [1541] ERC1967Proxy::isFromSupportedCountry(ERC1967Proxy: [0xA4AD4f68d0b91CFD19687c881e50f3A00242828c]) [staticcall]
+    │   │   │   │   │   ├─ [1228] BlockVirtualGovernance::isFromSupportedCountry(ERC1967Proxy: [0xA4AD4f68d0b91CFD19687c881e50f3A00242828c]) [delegatecall]
+    │   │   │   │   │   │   └─ ← [Return] true
+    │   │   │   │   │   └─ ← [Return] true
+    │   │   │   │   ├─ [1202] ERC1967Proxy::isBlacklisted(ERC1967Proxy: [0x15cF58144EF33af1e14b5208015d11F9143E27b9], Identity: [0x0000000000000000000000000000000000000004]) [staticcall]
+    │   │   │   │   │   ├─ [886] BlockVirtualGovernance::isBlacklisted(ERC1967Proxy: [0x15cF58144EF33af1e14b5208015d11F9143E27b9], Identity: [0x0000000000000000000000000000000000000004]) [delegatecall]
+    │   │   │   │   │   │   └─ ← [Return] false
+    │   │   │   │   │   └─ ← [Return] false
+    │   │   │   │   ├─ [3202] ERC1967Proxy::isBlacklisted(ERC1967Proxy: [0x15cF58144EF33af1e14b5208015d11F9143E27b9], ERC1967Proxy: [0xA4AD4f68d0b91CFD19687c881e50f3A00242828c]) [staticcall]
+    │   │   │   │   │   ├─ [2886] BlockVirtualGovernance::isBlacklisted(ERC1967Proxy: [0x15cF58144EF33af1e14b5208015d11F9143E27b9], ERC1967Proxy: [0xA4AD4f68d0b91CFD19687c881e50f3A00242828c]) [delegatecall]
+    │   │   │   │   │   │   └─ ← [Return] false
+    │   │   │   │   │   └─ ← [Return] false
+    │   │   │   │   ├─ emit Transfer(from: Identity: [0x0000000000000000000000000000000000000004], to: ERC1967Proxy: [0xA4AD4f68d0b91CFD19687c881e50f3A00242828c], value: 7500000000000000000000 [7.5e21])
+    │   │   │   │   └─ ← [Return] true
+    │   │   │   └─ ← [Return] true
+    │   │   ├─ emit LiquidityAdded(user: Identity: [0x0000000000000000000000000000000000000004], token0: ERC1967Proxy: [0xD6BbDE9174b1CdAa358d2Cf4D57D1a9F7178FBfF], token1: ERC1967Proxy: [0x15cF58144EF33af1e14b5208015d11F9143E27b9], amount0: 10000000000000000000000 [1e22], amount1: 7500000000000000000000 [7.5e21], liquidity: 8660254037844386467637 [8.66e21])
+    │   │   └─ ← [Return] 10000000000000000000000 [1e22], 7500000000000000000000 [7.5e21], 8660254037844386467637 [8.66e21]
+    │   └─ ← [Return] 10000000000000000000000 [1e22], 7500000000000000000000 [7.5e21], 8660254037844386467637 [8.66e21]
+    ├─ [0] VM::stopPrank()
+    │   └─ ← [Return] 
+    ├─ [0] VM::prank(ECRecover: [0x0000000000000000000000000000000000000001])
+    │   └─ ← [Return] 
+    ├─ [30839] ERC1967Proxy::pause()
+    │   ├─ [26032] VirtualPay::pause() [delegatecall]
+    │   │   ├─ emit Paused(account: ECRecover: [0x0000000000000000000000000000000000000001])
+    │   │   └─ ← [Stop] 
+    │   └─ ← [Return] 
+    ├─ [0] VM::startPrank(Identity: [0x0000000000000000000000000000000000000004])
+    │   └─ ← [Return] 
+    ├─ [24689] ERC1967Proxy::approve(ERC1967Proxy: [0x03A6a84cD762D9707A21605b548aaaB891562aAb], 100000000000000000000 [1e20])
+    │   ├─ [24373] RwaToken::approve(ERC1967Proxy: [0x03A6a84cD762D9707A21605b548aaaB891562aAb], 100000000000000000000 [1e20]) [delegatecall]
+    │   │   ├─ emit Approval(owner: Identity: [0x0000000000000000000000000000000000000004], spender: ERC1967Proxy: [0x03A6a84cD762D9707A21605b548aaaB891562aAb], value: 100000000000000000000 [1e20])
+    │   │   └─ ← [Return] true
+    │   └─ ← [Return] true
+    ├─ [0] VM::expectRevert(EnforcedPause())
+    │   └─ ← [Return] 
+    ├─ [893] ERC1967Proxy::processPayment(ModExp: [0x0000000000000000000000000000000000000005], ERC1967Proxy: [0xD6BbDE9174b1CdAa358d2Cf4D57D1a9F7178FBfF], ERC1967Proxy: [0x15cF58144EF33af1e14b5208015d11F9143E27b9], 100000000000000000000 [1e20], 0)
+    │   ├─ [558] VirtualPay::processPayment(ModExp: [0x0000000000000000000000000000000000000005], ERC1967Proxy: [0xD6BbDE9174b1CdAa358d2Cf4D57D1a9F7178FBfF], ERC1967Proxy: [0x15cF58144EF33af1e14b5208015d11F9143E27b9], 100000000000000000000 [1e20], 0) [delegatecall]
+    │   │   └─ ← [Revert] EnforcedPause()
+    │   └─ ← [Revert] EnforcedPause()
+    ├─ [0] VM::stopPrank()
+    │   └─ ← [Return] 
+    ├─ [0] VM::prank(ECRecover: [0x0000000000000000000000000000000000000001])
+    │   └─ ← [Return] 
+    ├─ [2125] ERC1967Proxy::unpause()
+    │   ├─ [1818] VirtualPay::unpause() [delegatecall]
+    │   │   ├─ emit Unpaused(account: ECRecover: [0x0000000000000000000000000000000000000001])
+    │   │   └─ ← [Stop] 
+    │   └─ ← [Return] 
+    ├─ [0] VM::startPrank(Identity: [0x0000000000000000000000000000000000000004])
+    │   └─ ← [Return] 
+    ├─ [194370] ERC1967Proxy::processPayment(ModExp: [0x0000000000000000000000000000000000000005], ERC1967Proxy: [0xD6BbDE9174b1CdAa358d2Cf4D57D1a9F7178FBfF], ERC1967Proxy: [0x15cF58144EF33af1e14b5208015d11F9143E27b9], 100000000000000000000 [1e20], 0)
+    │   ├─ [194036] VirtualPay::processPayment(ModExp: [0x0000000000000000000000000000000000000005], ERC1967Proxy: [0xD6BbDE9174b1CdAa358d2Cf4D57D1a9F7178FBfF], ERC1967Proxy: [0x15cF58144EF33af1e14b5208015d11F9143E27b9], 100000000000000000000 [1e20], 0) [delegatecall]
+    │   │   ├─ [1894] ERC1967Proxy::getKycStatus(Identity: [0x0000000000000000000000000000000000000004]) [staticcall]
+    │   │   │   ├─ [1581] BlockVirtualGovernance::getKycStatus(Identity: [0x0000000000000000000000000000000000000004]) [delegatecall]
+    │   │   │   │   └─ ← [Return] true
+    │   │   │   └─ ← [Return] true
+    │   │   ├─ [5894] ERC1967Proxy::getKycStatus(ModExp: [0x0000000000000000000000000000000000000005]) [staticcall]
+    │   │   │   ├─ [5581] BlockVirtualGovernance::getKycStatus(ModExp: [0x0000000000000000000000000000000000000005]) [delegatecall]
+    │   │   │   │   └─ ← [Return] true
+    │   │   │   └─ ← [Return] true
+    │   │   ├─ [46508] ERC1967Proxy::transferFrom(Identity: [0x0000000000000000000000000000000000000004], ERC1967Proxy: [0x03A6a84cD762D9707A21605b548aaaB891562aAb], 100000000000000000000 [1e20])
+    │   │   │   ├─ [46186] RwaToken::transferFrom(Identity: [0x0000000000000000000000000000000000000004], ERC1967Proxy: [0x03A6a84cD762D9707A21605b548aaaB891562aAb], 100000000000000000000 [1e20]) [delegatecall]
+    │   │   │   │   ├─ [1894] ERC1967Proxy::getKycStatus(Identity: [0x0000000000000000000000000000000000000004]) [staticcall]
+    │   │   │   │   │   ├─ [1581] BlockVirtualGovernance::getKycStatus(Identity: [0x0000000000000000000000000000000000000004]) [delegatecall]
+    │   │   │   │   │   │   └─ ← [Return] true
+    │   │   │   │   │   └─ ← [Return] true
+    │   │   │   │   ├─ [5894] ERC1967Proxy::getKycStatus(ERC1967Proxy: [0x03A6a84cD762D9707A21605b548aaaB891562aAb]) [staticcall]
+    │   │   │   │   │   ├─ [5581] BlockVirtualGovernance::getKycStatus(ERC1967Proxy: [0x03A6a84cD762D9707A21605b548aaaB891562aAb]) [delegatecall]
+    │   │   │   │   │   │   └─ ← [Return] true
+    │   │   │   │   │   └─ ← [Return] true
+    │   │   │   │   ├─ [1541] ERC1967Proxy::isFromSupportedCountry(Identity: [0x0000000000000000000000000000000000000004]) [staticcall]
+    │   │   │   │   │   ├─ [1228] BlockVirtualGovernance::isFromSupportedCountry(Identity: [0x0000000000000000000000000000000000000004]) [delegatecall]
+    │   │   │   │   │   │   └─ ← [Return] true
+    │   │   │   │   │   └─ ← [Return] true
+    │   │   │   │   ├─ [3541] ERC1967Proxy::isFromSupportedCountry(ERC1967Proxy: [0x03A6a84cD762D9707A21605b548aaaB891562aAb]) [staticcall]
+    │   │   │   │   │   ├─ [3228] BlockVirtualGovernance::isFromSupportedCountry(ERC1967Proxy: [0x03A6a84cD762D9707A21605b548aaaB891562aAb]) [delegatecall]
+    │   │   │   │   │   │   └─ ← [Return] true
+    │   │   │   │   │   └─ ← [Return] true
+    │   │   │   │   ├─ [1202] ERC1967Proxy::isBlacklisted(ERC1967Proxy: [0xD6BbDE9174b1CdAa358d2Cf4D57D1a9F7178FBfF], Identity: [0x0000000000000000000000000000000000000004]) [staticcall]
+    │   │   │   │   │   ├─ [886] BlockVirtualGovernance::isBlacklisted(ERC1967Proxy: [0xD6BbDE9174b1CdAa358d2Cf4D57D1a9F7178FBfF], Identity: [0x0000000000000000000000000000000000000004]) [delegatecall]
+    │   │   │   │   │   │   └─ ← [Return] false
+    │   │   │   │   │   └─ ← [Return] false
+    │   │   │   │   ├─ [3202] ERC1967Proxy::isBlacklisted(ERC1967Proxy: [0xD6BbDE9174b1CdAa358d2Cf4D57D1a9F7178FBfF], ERC1967Proxy: [0x03A6a84cD762D9707A21605b548aaaB891562aAb]) [staticcall]
+    │   │   │   │   │   ├─ [2886] BlockVirtualGovernance::isBlacklisted(ERC1967Proxy: [0xD6BbDE9174b1CdAa358d2Cf4D57D1a9F7178FBfF], ERC1967Proxy: [0x03A6a84cD762D9707A21605b548aaaB891562aAb]) [delegatecall]
+    │   │   │   │   │   │   └─ ← [Return] false
+    │   │   │   │   │   └─ ← [Return] false
+    │   │   │   │   ├─ emit Transfer(from: Identity: [0x0000000000000000000000000000000000000004], to: ERC1967Proxy: [0x03A6a84cD762D9707A21605b548aaaB891562aAb], value: 100000000000000000000 [1e20])
+    │   │   │   │   └─ ← [Return] true
+    │   │   │   └─ ← [Return] true
+    │   │   ├─ [24689] ERC1967Proxy::approve(ERC1967Proxy: [0xA4AD4f68d0b91CFD19687c881e50f3A00242828c], 100000000000000000000 [1e20])
+    │   │   │   ├─ [24373] RwaToken::approve(ERC1967Proxy: [0xA4AD4f68d0b91CFD19687c881e50f3A00242828c], 100000000000000000000 [1e20]) [delegatecall]
+    │   │   │   │   ├─ emit Approval(owner: ERC1967Proxy: [0x03A6a84cD762D9707A21605b548aaaB891562aAb], spender: ERC1967Proxy: [0xA4AD4f68d0b91CFD19687c881e50f3A00242828c], value: 100000000000000000000 [1e20])
+    │   │   │   │   └─ ← [Return] true
+    │   │   │   └─ ← [Return] true
+    │   │   ├─ [79740] ERC1967Proxy::swap(ERC1967Proxy: [0xD6BbDE9174b1CdAa358d2Cf4D57D1a9F7178FBfF], ERC1967Proxy: [0x15cF58144EF33af1e14b5208015d11F9143E27b9], 100000000000000000000 [1e20], 0)
+    │   │   │   ├─ [79412] VirtualPool::swap(ERC1967Proxy: [0xD6BbDE9174b1CdAa358d2Cf4D57D1a9F7178FBfF], ERC1967Proxy: [0x15cF58144EF33af1e14b5208015d11F9143E27b9], 100000000000000000000 [1e20], 0) [delegatecall]
+    │   │   │   │   ├─ [1894] ERC1967Proxy::getKycStatus(ERC1967Proxy: [0x03A6a84cD762D9707A21605b548aaaB891562aAb]) [staticcall]
+    │   │   │   │   │   ├─ [1581] BlockVirtualGovernance::getKycStatus(ERC1967Proxy: [0x03A6a84cD762D9707A21605b548aaaB891562aAb]) [delegatecall]
+    │   │   │   │   │   │   └─ ← [Return] true
+    │   │   │   │   │   └─ ← [Return] true
+    │   │   │   │   ├─ [1202] ERC1967Proxy::isBlacklisted(ERC1967Proxy: [0xD6BbDE9174b1CdAa358d2Cf4D57D1a9F7178FBfF], ERC1967Proxy: [0x03A6a84cD762D9707A21605b548aaaB891562aAb]) [staticcall]
+    │   │   │   │   │   ├─ [886] BlockVirtualGovernance::isBlacklisted(ERC1967Proxy: [0xD6BbDE9174b1CdAa358d2Cf4D57D1a9F7178FBfF], ERC1967Proxy: [0x03A6a84cD762D9707A21605b548aaaB891562aAb]) [delegatecall]
+    │   │   │   │   │   │   └─ ← [Return] false
+    │   │   │   │   │   └─ ← [Return] false
+    │   │   │   │   ├─ [3202] ERC1967Proxy::isBlacklisted(ERC1967Proxy: [0x15cF58144EF33af1e14b5208015d11F9143E27b9], ERC1967Proxy: [0x03A6a84cD762D9707A21605b548aaaB891562aAb]) [staticcall]
+    │   │   │   │   │   ├─ [2886] BlockVirtualGovernance::isBlacklisted(ERC1967Proxy: [0x15cF58144EF33af1e14b5208015d11F9143E27b9], ERC1967Proxy: [0x03A6a84cD762D9707A21605b548aaaB891562aAb]) [delegatecall]
+    │   │   │   │   │   │   └─ ← [Return] false
+    │   │   │   │   │   └─ ← [Return] false
+    │   │   │   │   ├─ [16608] ERC1967Proxy::transferFrom(ERC1967Proxy: [0x03A6a84cD762D9707A21605b548aaaB891562aAb], ERC1967Proxy: [0xA4AD4f68d0b91CFD19687c881e50f3A00242828c], 100000000000000000000 [1e20])
+    │   │   │   │   │   ├─ [16286] RwaToken::transferFrom(ERC1967Proxy: [0x03A6a84cD762D9707A21605b548aaaB891562aAb], ERC1967Proxy: [0xA4AD4f68d0b91CFD19687c881e50f3A00242828c], 100000000000000000000 [1e20]) [delegatecall]
+    │   │   │   │   │   │   ├─ [1894] ERC1967Proxy::getKycStatus(ERC1967Proxy: [0x03A6a84cD762D9707A21605b548aaaB891562aAb]) [staticcall]
+    │   │   │   │   │   │   │   ├─ [1581] BlockVirtualGovernance::getKycStatus(ERC1967Proxy: [0x03A6a84cD762D9707A21605b548aaaB891562aAb]) [delegatecall]
+    │   │   │   │   │   │   │   │   └─ ← [Return] true
+    │   │   │   │   │   │   │   └─ ← [Return] true
+    │   │   │   │   │   │   ├─ [1894] ERC1967Proxy::getKycStatus(ERC1967Proxy: [0xA4AD4f68d0b91CFD19687c881e50f3A00242828c]) [staticcall]
+    │   │   │   │   │   │   │   ├─ [1581] BlockVirtualGovernance::getKycStatus(ERC1967Proxy: [0xA4AD4f68d0b91CFD19687c881e50f3A00242828c]) [delegatecall]
+    │   │   │   │   │   │   │   │   └─ ← [Return] true
+    │   │   │   │   │   │   │   └─ ← [Return] true
+    │   │   │   │   │   │   ├─ [1541] ERC1967Proxy::isFromSupportedCountry(ERC1967Proxy: [0x03A6a84cD762D9707A21605b548aaaB891562aAb]) [staticcall]
+    │   │   │   │   │   │   │   ├─ [1228] BlockVirtualGovernance::isFromSupportedCountry(ERC1967Proxy: [0x03A6a84cD762D9707A21605b548aaaB891562aAb]) [delegatecall]
+    │   │   │   │   │   │   │   │   └─ ← [Return] true
+    │   │   │   │   │   │   │   └─ ← [Return] true
+    │   │   │   │   │   │   ├─ [1541] ERC1967Proxy::isFromSupportedCountry(ERC1967Proxy: [0xA4AD4f68d0b91CFD19687c881e50f3A00242828c]) [staticcall]
+    │   │   │   │   │   │   │   ├─ [1228] BlockVirtualGovernance::isFromSupportedCountry(ERC1967Proxy: [0xA4AD4f68d0b91CFD19687c881e50f3A00242828c]) [delegatecall]
+    │   │   │   │   │   │   │   │   └─ ← [Return] true
+    │   │   │   │   │   │   │   └─ ← [Return] true
+    │   │   │   │   │   │   ├─ [1202] ERC1967Proxy::isBlacklisted(ERC1967Proxy: [0xD6BbDE9174b1CdAa358d2Cf4D57D1a9F7178FBfF], ERC1967Proxy: [0x03A6a84cD762D9707A21605b548aaaB891562aAb]) [staticcall]
+    │   │   │   │   │   │   │   ├─ [886] BlockVirtualGovernance::isBlacklisted(ERC1967Proxy: [0xD6BbDE9174b1CdAa358d2Cf4D57D1a9F7178FBfF], ERC1967Proxy: [0x03A6a84cD762D9707A21605b548aaaB891562aAb]) [delegatecall]
+    │   │   │   │   │   │   │   │   └─ ← [Return] false
+    │   │   │   │   │   │   │   └─ ← [Return] false
+    │   │   │   │   │   │   ├─ [1202] ERC1967Proxy::isBlacklisted(ERC1967Proxy: [0xD6BbDE9174b1CdAa358d2Cf4D57D1a9F7178FBfF], ERC1967Proxy: [0xA4AD4f68d0b91CFD19687c881e50f3A00242828c]) [staticcall]
+    │   │   │   │   │   │   │   ├─ [886] BlockVirtualGovernance::isBlacklisted(ERC1967Proxy: [0xD6BbDE9174b1CdAa358d2Cf4D57D1a9F7178FBfF], ERC1967Proxy: [0xA4AD4f68d0b91CFD19687c881e50f3A00242828c]) [delegatecall]
+    │   │   │   │   │   │   │   │   └─ ← [Return] false
+    │   │   │   │   │   │   │   └─ ← [Return] false
+    │   │   │   │   │   │   ├─ emit Transfer(from: ERC1967Proxy: [0x03A6a84cD762D9707A21605b548aaaB891562aAb], to: ERC1967Proxy: [0xA4AD4f68d0b91CFD19687c881e50f3A00242828c], value: 100000000000000000000 [1e20])
+    │   │   │   │   │   │   └─ ← [Return] true
+    │   │   │   │   │   └─ ← [Return] true
+    │   │   │   │   ├─ [37943] ERC1967Proxy::transfer(ERC1967Proxy: [0x03A6a84cD762D9707A21605b548aaaB891562aAb], 74257425742574257425 [7.425e19])
+    │   │   │   │   │   ├─ [37627] RwaToken::transfer(ERC1967Proxy: [0x03A6a84cD762D9707A21605b548aaaB891562aAb], 74257425742574257425 [7.425e19]) [delegatecall]
+    │   │   │   │   │   │   ├─ [1894] ERC1967Proxy::getKycStatus(ERC1967Proxy: [0xA4AD4f68d0b91CFD19687c881e50f3A00242828c]) [staticcall]
+    │   │   │   │   │   │   │   ├─ [1581] BlockVirtualGovernance::getKycStatus(ERC1967Proxy: [0xA4AD4f68d0b91CFD19687c881e50f3A00242828c]) [delegatecall]
+    │   │   │   │   │   │   │   │   └─ ← [Return] true
+    │   │   │   │   │   │   │   └─ ← [Return] true
+    │   │   │   │   │   │   ├─ [1894] ERC1967Proxy::getKycStatus(ERC1967Proxy: [0x03A6a84cD762D9707A21605b548aaaB891562aAb]) [staticcall]
+    │   │   │   │   │   │   │   ├─ [1581] BlockVirtualGovernance::getKycStatus(ERC1967Proxy: [0x03A6a84cD762D9707A21605b548aaaB891562aAb]) [delegatecall]
+    │   │   │   │   │   │   │   │   └─ ← [Return] true
+    │   │   │   │   │   │   │   └─ ← [Return] true
+    │   │   │   │   │   │   ├─ [1541] ERC1967Proxy::isFromSupportedCountry(ERC1967Proxy: [0xA4AD4f68d0b91CFD19687c881e50f3A00242828c]) [staticcall]
+    │   │   │   │   │   │   │   ├─ [1228] BlockVirtualGovernance::isFromSupportedCountry(ERC1967Proxy: [0xA4AD4f68d0b91CFD19687c881e50f3A00242828c]) [delegatecall]
+    │   │   │   │   │   │   │   │   └─ ← [Return] true
+    │   │   │   │   │   │   │   └─ ← [Return] true
+    │   │   │   │   │   │   ├─ [1541] ERC1967Proxy::isFromSupportedCountry(ERC1967Proxy: [0x03A6a84cD762D9707A21605b548aaaB891562aAb]) [staticcall]
+    │   │   │   │   │   │   │   ├─ [1228] BlockVirtualGovernance::isFromSupportedCountry(ERC1967Proxy: [0x03A6a84cD762D9707A21605b548aaaB891562aAb]) [delegatecall]
+    │   │   │   │   │   │   │   │   └─ ← [Return] true
+    │   │   │   │   │   │   │   └─ ← [Return] true
+    │   │   │   │   │   │   ├─ [1202] ERC1967Proxy::isBlacklisted(ERC1967Proxy: [0x15cF58144EF33af1e14b5208015d11F9143E27b9], ERC1967Proxy: [0xA4AD4f68d0b91CFD19687c881e50f3A00242828c]) [staticcall]
+    │   │   │   │   │   │   │   ├─ [886] BlockVirtualGovernance::isBlacklisted(ERC1967Proxy: [0x15cF58144EF33af1e14b5208015d11F9143E27b9], ERC1967Proxy: [0xA4AD4f68d0b91CFD19687c881e50f3A00242828c]) [delegatecall]
+    │   │   │   │   │   │   │   │   └─ ← [Return] false
+    │   │   │   │   │   │   │   └─ ← [Return] false
+    │   │   │   │   │   │   ├─ [1202] ERC1967Proxy::isBlacklisted(ERC1967Proxy: [0x15cF58144EF33af1e14b5208015d11F9143E27b9], ERC1967Proxy: [0x03A6a84cD762D9707A21605b548aaaB891562aAb]) [staticcall]
+    │   │   │   │   │   │   │   ├─ [886] BlockVirtualGovernance::isBlacklisted(ERC1967Proxy: [0x15cF58144EF33af1e14b5208015d11F9143E27b9], ERC1967Proxy: [0x03A6a84cD762D9707A21605b548aaaB891562aAb]) [delegatecall]
+    │   │   │   │   │   │   │   │   └─ ← [Return] false
+    │   │   │   │   │   │   │   └─ ← [Return] false
+    │   │   │   │   │   │   ├─ emit Transfer(from: ERC1967Proxy: [0xA4AD4f68d0b91CFD19687c881e50f3A00242828c], to: ERC1967Proxy: [0x03A6a84cD762D9707A21605b548aaaB891562aAb], value: 74257425742574257425 [7.425e19])
+    │   │   │   │   │   │   └─ ← [Return] true
+    │   │   │   │   │   └─ ← [Return] true
+    │   │   │   │   ├─ emit Swap(user: ERC1967Proxy: [0x03A6a84cD762D9707A21605b548aaaB891562aAb], tokenIn: ERC1967Proxy: [0xD6BbDE9174b1CdAa358d2Cf4D57D1a9F7178FBfF], tokenOut: ERC1967Proxy: [0x15cF58144EF33af1e14b5208015d11F9143E27b9], amountIn: 100000000000000000000 [1e20], amountOut: 74257425742574257425 [7.425e19])
+    │   │   │   │   └─ ← [Return] 74257425742574257425 [7.425e19]
+    │   │   │   └─ ← [Return] 74257425742574257425 [7.425e19]
+    │   │   ├─ [24843] ERC1967Proxy::transfer(ModExp: [0x0000000000000000000000000000000000000005], 74257425742574257425 [7.425e19])
+    │   │   │   ├─ [24527] RwaToken::transfer(ModExp: [0x0000000000000000000000000000000000000005], 74257425742574257425 [7.425e19]) [delegatecall]
+    │   │   │   │   ├─ [1894] ERC1967Proxy::getKycStatus(ERC1967Proxy: [0x03A6a84cD762D9707A21605b548aaaB891562aAb]) [staticcall]
+    │   │   │   │   │   ├─ [1581] BlockVirtualGovernance::getKycStatus(ERC1967Proxy: [0x03A6a84cD762D9707A21605b548aaaB891562aAb]) [delegatecall]
+    │   │   │   │   │   │   └─ ← [Return] true
+    │   │   │   │   │   └─ ← [Return] true
+    │   │   │   │   ├─ [1894] ERC1967Proxy::getKycStatus(ModExp: [0x0000000000000000000000000000000000000005]) [staticcall]
+    │   │   │   │   │   ├─ [1581] BlockVirtualGovernance::getKycStatus(ModExp: [0x0000000000000000000000000000000000000005]) [delegatecall]
+    │   │   │   │   │   │   └─ ← [Return] true
+    │   │   │   │   │   └─ ← [Return] true
+    │   │   │   │   ├─ [1541] ERC1967Proxy::isFromSupportedCountry(ERC1967Proxy: [0x03A6a84cD762D9707A21605b548aaaB891562aAb]) [staticcall]
+    │   │   │   │   │   ├─ [1228] BlockVirtualGovernance::isFromSupportedCountry(ERC1967Proxy: [0x03A6a84cD762D9707A21605b548aaaB891562aAb]) [delegatecall]
+    │   │   │   │   │   │   └─ ← [Return] true
+    │   │   │   │   │   └─ ← [Return] true
+    │   │   │   │   ├─ [3541] ERC1967Proxy::isFromSupportedCountry(ModExp: [0x0000000000000000000000000000000000000005]) [staticcall]
+    │   │   │   │   │   ├─ [3228] BlockVirtualGovernance::isFromSupportedCountry(ModExp: [0x0000000000000000000000000000000000000005]) [delegatecall]
+    │   │   │   │   │   │   └─ ← [Return] true
+    │   │   │   │   │   └─ ← [Return] true
+    │   │   │   │   ├─ [1202] ERC1967Proxy::isBlacklisted(ERC1967Proxy: [0x15cF58144EF33af1e14b5208015d11F9143E27b9], ERC1967Proxy: [0x03A6a84cD762D9707A21605b548aaaB891562aAb]) [staticcall]
+    │   │   │   │   │   ├─ [886] BlockVirtualGovernance::isBlacklisted(ERC1967Proxy: [0x15cF58144EF33af1e14b5208015d11F9143E27b9], ERC1967Proxy: [0x03A6a84cD762D9707A21605b548aaaB891562aAb]) [delegatecall]
+    │   │   │   │   │   │   └─ ← [Return] false
+    │   │   │   │   │   └─ ← [Return] false
+    │   │   │   │   ├─ [3202] ERC1967Proxy::isBlacklisted(ERC1967Proxy: [0x15cF58144EF33af1e14b5208015d11F9143E27b9], ModExp: [0x0000000000000000000000000000000000000005]) [staticcall]
+    │   │   │   │   │   ├─ [2886] BlockVirtualGovernance::isBlacklisted(ERC1967Proxy: [0x15cF58144EF33af1e14b5208015d11F9143E27b9], ModExp: [0x0000000000000000000000000000000000000005]) [delegatecall]
+    │   │   │   │   │   │   └─ ← [Return] false
+    │   │   │   │   │   └─ ← [Return] false
+    │   │   │   │   ├─ emit Transfer(from: ERC1967Proxy: [0x03A6a84cD762D9707A21605b548aaaB891562aAb], to: ModExp: [0x0000000000000000000000000000000000000005], value: 74257425742574257425 [7.425e19])
+    │   │   │   │   └─ ← [Return] true
+    │   │   │   └─ ← [Return] true
+    │   │   ├─ emit PaymentProcessed(from: Identity: [0x0000000000000000000000000000000000000004], to: ModExp: [0x0000000000000000000000000000000000000005], tokenIn: ERC1967Proxy: [0xD6BbDE9174b1CdAa358d2Cf4D57D1a9F7178FBfF], tokenOut: ERC1967Proxy: [0x15cF58144EF33af1e14b5208015d11F9143E27b9], amountIn: 100000000000000000000 [1e20], amountOut: 74257425742574257425 [7.425e19])
+    │   │   └─ ← [Return] 74257425742574257425 [7.425e19]
+    │   └─ ← [Return] 74257425742574257425 [7.425e19]
+    ├─ [0] VM::stopPrank()
+    │   └─ ← [Return] 
+    └─ ← [Return] 
+
+[PASS] test_ProcessPayment() (gas: 438367)
+Traces:
+  [12913689] VirtualPayTest::setUp()
+    ├─ [1480812] → new BlockVirtualGovernance@0x5615dEB798BB3E4dFa0139dFa1b3D433Cc23b72f
+    │   ├─ emit Initialized(version: 18446744073709551615 [1.844e19])
+    │   └─ ← [Return] 7280 bytes of code
+    ├─ [2345385] → new VirtualPool@0x2e234DAe75C793f67A35089C9d99245E1C58470b
+    │   ├─ emit Initialized(version: 18446744073709551615 [1.844e19])
+    │   └─ ← [Return] 11377 bytes of code
+    ├─ [972323] → new VirtualPay@0xF62849F9A0B5Bf2913b396098F7c7019b51A820a
+    │   ├─ emit Initialized(version: 18446744073709551615 [1.844e19])
+    │   └─ ← [Return] 4740 bytes of code
+    ├─ [619929] → new BlockVirtualPriceFeed@0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9
+    │   ├─ emit RoleGranted(role: 0x0000000000000000000000000000000000000000000000000000000000000000, account: VirtualPayTest: [0x7FA9385bE102ac3EAc297483Dd6233D62b3e1496], sender: VirtualPayTest: [0x7FA9385bE102ac3EAc297483Dd6233D62b3e1496])
+    │   ├─ emit RoleGranted(role: 0xa49807205ce4d355092ef5a8a18f56e8913cf4a201fbe287825b095693c21775, account: VirtualPayTest: [0x7FA9385bE102ac3EAc297483Dd6233D62b3e1496], sender: VirtualPayTest: [0x7FA9385bE102ac3EAc297483Dd6233D62b3e1496])
+    │   ├─ emit RoleGranted(role: 0xd96ba01d6560c2ab35f2940dd8d70c5f5fe06236c72674237120515918198fb0, account: VirtualPayTest: [0x7FA9385bE102ac3EAc297483Dd6233D62b3e1496], sender: VirtualPayTest: [0x7FA9385bE102ac3EAc297483Dd6233D62b3e1496])
+    │   └─ ← [Return] 2730 bytes of code
+    ├─ [1433808] → new RwaToken@0xc7183455a4C133Ae270771860664b6B7ec320bB1
+    │   ├─ emit Initialized(version: 18446744073709551615 [1.844e19])
+    │   └─ ← [Return] 7045 bytes of code
+    ├─ [1433808] → new RwaToken@0xa0Cb889707d426A7A386870A03bc70d1b0697598
+    │   ├─ emit Initialized(version: 18446744073709551615 [1.844e19])
+    │   └─ ← [Return] 7045 bytes of code
+    ├─ [124800] → new ERC1967Proxy@0x1d1499e622D69689cdf9004d05Ec547d650Ff211
+    │   ├─ emit Upgraded(implementation: BlockVirtualGovernance: [0x5615dEB798BB3E4dFa0139dFa1b3D433Cc23b72f])
+    │   ├─ [73435] BlockVirtualGovernance::initialize() [delegatecall]
+    │   │   ├─ emit RoleGranted(role: 0x0000000000000000000000000000000000000000000000000000000000000000, account: VirtualPayTest: [0x7FA9385bE102ac3EAc297483Dd6233D62b3e1496], sender: VirtualPayTest: [0x7FA9385bE102ac3EAc297483Dd6233D62b3e1496])
+    │   │   ├─ emit RoleGranted(role: 0xa49807205ce4d355092ef5a8a18f56e8913cf4a201fbe287825b095693c21775, account: VirtualPayTest: [0x7FA9385bE102ac3EAc297483Dd6233D62b3e1496], sender: VirtualPayTest: [0x7FA9385bE102ac3EAc297483Dd6233D62b3e1496])
+    │   │   ├─ emit Initialized(version: 1)
+    │   │   └─ ← [Stop] 
+    │   └─ ← [Return] 134 bytes of code
+    ├─ [0] VM::startPrank(VirtualPayTest: [0x7FA9385bE102ac3EAc297483Dd6233D62b3e1496])
+    │   └─ ← [Return] 
+    ├─ [73803] ERC1967Proxy::setupRoleAdmins()
+    │   ├─ [73496] BlockVirtualGovernance::setupRoleAdmins() [delegatecall]
+    │   │   ├─ emit RoleAdminChanged(role: 0x20b5f7ac978e5d6199de06401411960dfa81d2f762655f6206bdc61d46fc19e6, previousAdminRole: 0x0000000000000000000000000000000000000000000000000000000000000000, newAdminRole: 0xa49807205ce4d355092ef5a8a18f56e8913cf4a201fbe287825b095693c21775)
+    │   │   ├─ emit RoleAdminChanged(role: 0x442a94f1a1fac79af32856af2a64f63648cfa2ef3b98610a5bb7cbec4cee6985, previousAdminRole: 0x0000000000000000000000000000000000000000000000000000000000000000, newAdminRole: 0xa49807205ce4d355092ef5a8a18f56e8913cf4a201fbe287825b095693c21775)
+    │   │   ├─ emit RoleAdminChanged(role: 0x97667070c54ef182b0f5858b034beac1b6f3089aa2d3188bb1e8929f4fa9b929, previousAdminRole: 0x0000000000000000000000000000000000000000000000000000000000000000, newAdminRole: 0x20b5f7ac978e5d6199de06401411960dfa81d2f762655f6206bdc61d46fc19e6)
+    │   │   └─ ← [Stop] 
+    │   └─ ← [Return] 
+    ├─ [916] ERC1967Proxy::ADMIN_ROLE() [staticcall]
+    │   ├─ [606] BlockVirtualGovernance::ADMIN_ROLE() [delegatecall]
+    │   │   └─ ← [Return] 0xa49807205ce4d355092ef5a8a18f56e8913cf4a201fbe287825b095693c21775
+    │   └─ ← [Return] 0xa49807205ce4d355092ef5a8a18f56e8913cf4a201fbe287825b095693c21775
+    ├─ [27937] ERC1967Proxy::grantRole(0xa49807205ce4d355092ef5a8a18f56e8913cf4a201fbe287825b095693c21775, ECRecover: [0x0000000000000000000000000000000000000001])
+    │   ├─ [27624] BlockVirtualGovernance::grantRole(0xa49807205ce4d355092ef5a8a18f56e8913cf4a201fbe287825b095693c21775, ECRecover: [0x0000000000000000000000000000000000000001]) [delegatecall]
+    │   │   ├─ emit RoleGranted(role: 0xa49807205ce4d355092ef5a8a18f56e8913cf4a201fbe287825b095693c21775, account: ECRecover: [0x0000000000000000000000000000000000000001], sender: VirtualPayTest: [0x7FA9385bE102ac3EAc297483Dd6233D62b3e1496])
+    │   │   └─ ← [Stop] 
+    │   └─ ← [Return] 
+    ├─ [564] ERC1967Proxy::REGULATOR_ROLE() [staticcall]
+    │   ├─ [254] BlockVirtualGovernance::REGULATOR_ROLE() [delegatecall]
+    │   │   └─ ← [Return] 0x20b5f7ac978e5d6199de06401411960dfa81d2f762655f6206bdc61d46fc19e6
+    │   └─ ← [Return] 0x20b5f7ac978e5d6199de06401411960dfa81d2f762655f6206bdc61d46fc19e6
+    ├─ [25937] ERC1967Proxy::grantRole(0x20b5f7ac978e5d6199de06401411960dfa81d2f762655f6206bdc61d46fc19e6, SHA-256: [0x0000000000000000000000000000000000000002])
+    │   ├─ [25624] BlockVirtualGovernance::grantRole(0x20b5f7ac978e5d6199de06401411960dfa81d2f762655f6206bdc61d46fc19e6, SHA-256: [0x0000000000000000000000000000000000000002]) [delegatecall]
+    │   │   ├─ emit RoleGranted(role: 0x20b5f7ac978e5d6199de06401411960dfa81d2f762655f6206bdc61d46fc19e6, account: SHA-256: [0x0000000000000000000000000000000000000002], sender: VirtualPayTest: [0x7FA9385bE102ac3EAc297483Dd6233D62b3e1496])
+    │   │   └─ ← [Stop] 
+    │   └─ ← [Return] 
+    ├─ [0] VM::stopPrank()
+    │   └─ ← [Return] 
+    ├─ [0] VM::startPrank(SHA-256: [0x0000000000000000000000000000000000000002])
+    │   └─ ← [Return] 
+    ├─ [25866] ERC1967Proxy::grantOperatorRole(SHA-256: [0x0000000000000000000000000000000000000002])
+    │   ├─ [25556] BlockVirtualGovernance::grantOperatorRole(SHA-256: [0x0000000000000000000000000000000000000002]) [delegatecall]
+    │   │   ├─ emit RoleGranted(role: 0x97667070c54ef182b0f5858b034beac1b6f3089aa2d3188bb1e8929f4fa9b929, account: SHA-256: [0x0000000000000000000000000000000000000002], sender: SHA-256: [0x0000000000000000000000000000000000000002])
+    │   │   └─ ← [Stop] 
+    │   └─ ← [Return] 
+    ├─ [0] VM::stopPrank()
+    │   └─ ← [Return] 
+    ├─ [0] VM::prank(ECRecover: [0x0000000000000000000000000000000000000001])
+    │   └─ ← [Return] 
+    ├─ [23437] ERC1967Proxy::addSupportedCountryCode(702)
+    │   ├─ [23127] BlockVirtualGovernance::addSupportedCountryCode(702) [delegatecall]
+    │   │   └─ ← [Return] 
+    │   └─ ← [Return] 
+    ├─ [221514] → new ERC1967Proxy@0xA4AD4f68d0b91CFD19687c881e50f3A00242828c
+    │   ├─ emit Upgraded(implementation: VirtualPool: [0x2e234DAe75C793f67A35089C9d99245E1C58470b])
+    │   ├─ [170060] VirtualPool::initialize(ERC1967Proxy: [0x1d1499e622D69689cdf9004d05Ec547d650Ff211]) [delegatecall]
+    │   │   ├─ emit RoleGranted(role: 0x0000000000000000000000000000000000000000000000000000000000000000, account: VirtualPayTest: [0x7FA9385bE102ac3EAc297483Dd6233D62b3e1496], sender: VirtualPayTest: [0x7FA9385bE102ac3EAc297483Dd6233D62b3e1496])
+    │   │   ├─ emit RoleGranted(role: 0xa49807205ce4d355092ef5a8a18f56e8913cf4a201fbe287825b095693c21775, account: VirtualPayTest: [0x7FA9385bE102ac3EAc297483Dd6233D62b3e1496], sender: VirtualPayTest: [0x7FA9385bE102ac3EAc297483Dd6233D62b3e1496])
+    │   │   ├─ emit RoleGranted(role: 0x6c0757dc3e6b28b2580c03fd9e96c274acf4f99d91fbec9b418fa1d70604ff1c, account: VirtualPayTest: [0x7FA9385bE102ac3EAc297483Dd6233D62b3e1496], sender: VirtualPayTest: [0x7FA9385bE102ac3EAc297483Dd6233D62b3e1496])
+    │   │   ├─ emit RoleGranted(role: 0x97667070c54ef182b0f5858b034beac1b6f3089aa2d3188bb1e8929f4fa9b929, account: VirtualPayTest: [0x7FA9385bE102ac3EAc297483Dd6233D62b3e1496], sender: VirtualPayTest: [0x7FA9385bE102ac3EAc297483Dd6233D62b3e1496])
+    │   │   ├─ emit Initialized(version: 1)
+    │   │   └─ ← [Stop] 
+    │   └─ ← [Return] 134 bytes of code
+    ├─ [171900] → new ERC1967Proxy@0x03A6a84cD762D9707A21605b548aaaB891562aAb
+    │   ├─ emit Upgraded(implementation: VirtualPay: [0xF62849F9A0B5Bf2913b396098F7c7019b51A820a])
+    │   ├─ [120357] VirtualPay::initialize(ERC1967Proxy: [0xA4AD4f68d0b91CFD19687c881e50f3A00242828c], ERC1967Proxy: [0x1d1499e622D69689cdf9004d05Ec547d650Ff211]) [delegatecall]
+    │   │   ├─ emit RoleGranted(role: 0x0000000000000000000000000000000000000000000000000000000000000000, account: VirtualPayTest: [0x7FA9385bE102ac3EAc297483Dd6233D62b3e1496], sender: VirtualPayTest: [0x7FA9385bE102ac3EAc297483Dd6233D62b3e1496])
+    │   │   ├─ emit RoleGranted(role: 0xa49807205ce4d355092ef5a8a18f56e8913cf4a201fbe287825b095693c21775, account: VirtualPayTest: [0x7FA9385bE102ac3EAc297483Dd6233D62b3e1496], sender: VirtualPayTest: [0x7FA9385bE102ac3EAc297483Dd6233D62b3e1496])
+    │   │   ├─ emit Initialized(version: 1)
+    │   │   └─ ← [Stop] 
+    │   └─ ← [Return] 134 bytes of code
+    ├─ [191266] → new ERC1967Proxy@0xD6BbDE9174b1CdAa358d2Cf4D57D1a9F7178FBfF
+    │   ├─ emit Upgraded(implementation: RwaToken: [0xc7183455a4C133Ae270771860664b6B7ec320bB1])
+    │   ├─ [139188] RwaToken::initialize("Singapore Dollar", "SGD", ERC1967Proxy: [0x1d1499e622D69689cdf9004d05Ec547d650Ff211], 702) [delegatecall]
+    │   │   ├─ emit OwnershipTransferred(previousOwner: 0x0000000000000000000000000000000000000000, newOwner: VirtualPayTest: [0x7FA9385bE102ac3EAc297483Dd6233D62b3e1496])
+    │   │   ├─ emit Initialized(version: 1)
+    │   │   └─ ← [Stop] 
+    │   └─ ← [Return] 134 bytes of code
+    ├─ [191266] → new ERC1967Proxy@0x15cF58144EF33af1e14b5208015d11F9143E27b9
+    │   ├─ emit Upgraded(implementation: RwaToken: [0xa0Cb889707d426A7A386870A03bc70d1b0697598])
+    │   ├─ [139188] RwaToken::initialize("US Dollar", "USD", ERC1967Proxy: [0x1d1499e622D69689cdf9004d05Ec547d650Ff211], 702) [delegatecall]
+    │   │   ├─ emit OwnershipTransferred(previousOwner: 0x0000000000000000000000000000000000000000, newOwner: VirtualPayTest: [0x7FA9385bE102ac3EAc297483Dd6233D62b3e1496])
+    │   │   ├─ emit Initialized(version: 1)
+    │   │   └─ ← [Stop] 
+    │   └─ ← [Return] 134 bytes of code
+    ├─ [619929] → new BlockVirtualPriceFeed@0x212224D2F2d262cd093eE13240ca4873fcCBbA3C
+    │   ├─ emit RoleGranted(role: 0x0000000000000000000000000000000000000000000000000000000000000000, account: VirtualPayTest: [0x7FA9385bE102ac3EAc297483Dd6233D62b3e1496], sender: VirtualPayTest: [0x7FA9385bE102ac3EAc297483Dd6233D62b3e1496])
+    │   ├─ emit RoleGranted(role: 0xa49807205ce4d355092ef5a8a18f56e8913cf4a201fbe287825b095693c21775, account: VirtualPayTest: [0x7FA9385bE102ac3EAc297483Dd6233D62b3e1496], sender: VirtualPayTest: [0x7FA9385bE102ac3EAc297483Dd6233D62b3e1496])
+    │   ├─ emit RoleGranted(role: 0xd96ba01d6560c2ab35f2940dd8d70c5f5fe06236c72674237120515918198fb0, account: VirtualPayTest: [0x7FA9385bE102ac3EAc297483Dd6233D62b3e1496], sender: VirtualPayTest: [0x7FA9385bE102ac3EAc297483Dd6233D62b3e1496])
+    │   └─ ← [Return] 2730 bytes of code
+    ├─ [0] VM::startPrank(ECRecover: [0x0000000000000000000000000000000000000001])
+    │   └─ ← [Return] 
+    ├─ [69898] ERC1967Proxy::registerPool(ERC1967Proxy: [0xA4AD4f68d0b91CFD19687c881e50f3A00242828c])
+    │   ├─ [69588] BlockVirtualGovernance::registerPool(ERC1967Proxy: [0xA4AD4f68d0b91CFD19687c881e50f3A00242828c]) [delegatecall]
+    │   │   ├─ emit PoolRegistered(pool: ERC1967Proxy: [0xA4AD4f68d0b91CFD19687c881e50f3A00242828c], registrar: ECRecover: [0x0000000000000000000000000000000000000001])
+    │   │   └─ ← [Stop] 
+    │   └─ ← [Return] 
+    ├─ [3821] ERC1967Proxy::activatePool(ERC1967Proxy: [0xA4AD4f68d0b91CFD19687c881e50f3A00242828c])
+    │   ├─ [3511] BlockVirtualGovernance::activatePool(ERC1967Proxy: [0xA4AD4f68d0b91CFD19687c881e50f3A00242828c]) [delegatecall]
+    │   │   ├─ emit PoolActivated(pool: ERC1967Proxy: [0xA4AD4f68d0b91CFD19687c881e50f3A00242828c], activator: ECRecover: [0x0000000000000000000000000000000000000001])
+    │   │   └─ ← [Stop] 
+    │   └─ ← [Return] 
+    ├─ [0] VM::stopPrank()
+    │   └─ ← [Return] 
+    ├─ [0] VM::startPrank(SHA-256: [0x0000000000000000000000000000000000000002])
+    │   └─ ← [Return] 
+    ├─ [114719] ERC1967Proxy::registerKYCUser(Identity: [0x0000000000000000000000000000000000000004], 31536001 [3.153e7], 702)
+    │   ├─ [114400] BlockVirtualGovernance::registerKYCUser(Identity: [0x0000000000000000000000000000000000000004], 31536001 [3.153e7], 702) [delegatecall]
+    │   │   └─ ← [Stop] 
+    │   └─ ← [Return] 
+    ├─ [112719] ERC1967Proxy::registerKYCUser(ModExp: [0x0000000000000000000000000000000000000005], 31536001 [3.153e7], 702)
+    │   ├─ [112400] BlockVirtualGovernance::registerKYCUser(ModExp: [0x0000000000000000000000000000000000000005], 31536001 [3.153e7], 702) [delegatecall]
+    │   │   └─ ← [Stop] 
+    │   └─ ← [Return] 
+    ├─ [112719] ERC1967Proxy::registerKYCUser(ECRecover: [0x0000000000000000000000000000000000000001], 31536001 [3.153e7], 702)
+    │   ├─ [112400] BlockVirtualGovernance::registerKYCUser(ECRecover: [0x0000000000000000000000000000000000000001], 31536001 [3.153e7], 702) [delegatecall]
+    │   │   └─ ← [Stop] 
+    │   └─ ← [Return] 
+    ├─ [112719] ERC1967Proxy::registerKYCUser(SHA-256: [0x0000000000000000000000000000000000000002], 31536001 [3.153e7], 702)
+    │   ├─ [112400] BlockVirtualGovernance::registerKYCUser(SHA-256: [0x0000000000000000000000000000000000000002], 31536001 [3.153e7], 702) [delegatecall]
+    │   │   └─ ← [Stop] 
+    │   └─ ← [Return] 
+    ├─ [112719] ERC1967Proxy::registerKYCUser(VirtualPayTest: [0x7FA9385bE102ac3EAc297483Dd6233D62b3e1496], 31536001 [3.153e7], 702)
+    │   ├─ [112400] BlockVirtualGovernance::registerKYCUser(VirtualPayTest: [0x7FA9385bE102ac3EAc297483Dd6233D62b3e1496], 31536001 [3.153e7], 702) [delegatecall]
+    │   │   └─ ← [Stop] 
+    │   └─ ← [Return] 
+    ├─ [112719] ERC1967Proxy::registerKYCUser(ERC1967Proxy: [0x1d1499e622D69689cdf9004d05Ec547d650Ff211], 31536001 [3.153e7], 702)
+    │   ├─ [112400] BlockVirtualGovernance::registerKYCUser(ERC1967Proxy: [0x1d1499e622D69689cdf9004d05Ec547d650Ff211], 31536001 [3.153e7], 702) [delegatecall]
+    │   │   └─ ← [Stop] 
+    │   └─ ← [Return] 
+    ├─ [112719] ERC1967Proxy::registerKYCUser(ERC1967Proxy: [0xA4AD4f68d0b91CFD19687c881e50f3A00242828c], 31536001 [3.153e7], 702)
+    │   ├─ [112400] BlockVirtualGovernance::registerKYCUser(ERC1967Proxy: [0xA4AD4f68d0b91CFD19687c881e50f3A00242828c], 31536001 [3.153e7], 702) [delegatecall]
+    │   │   └─ ← [Stop] 
+    │   └─ ← [Return] 
+    ├─ [2919] ERC1967Proxy::registerKYCUser(ERC1967Proxy: [0xA4AD4f68d0b91CFD19687c881e50f3A00242828c], 31536001 [3.153e7], 702)
+    │   ├─ [2600] BlockVirtualGovernance::registerKYCUser(ERC1967Proxy: [0xA4AD4f68d0b91CFD19687c881e50f3A00242828c], 31536001 [3.153e7], 702) [delegatecall]
+    │   │   └─ ← [Stop] 
+    │   └─ ← [Return] 
+    ├─ [112719] ERC1967Proxy::registerKYCUser(ERC1967Proxy: [0xD6BbDE9174b1CdAa358d2Cf4D57D1a9F7178FBfF], 31536001 [3.153e7], 702)
+    │   ├─ [112400] BlockVirtualGovernance::registerKYCUser(ERC1967Proxy: [0xD6BbDE9174b1CdAa358d2Cf4D57D1a9F7178FBfF], 31536001 [3.153e7], 702) [delegatecall]
+    │   │   └─ ← [Stop] 
+    │   └─ ← [Return] 
+    ├─ [2919] ERC1967Proxy::registerKYCUser(ERC1967Proxy: [0xD6BbDE9174b1CdAa358d2Cf4D57D1a9F7178FBfF], 31536001 [3.153e7], 702)
+    │   ├─ [2600] BlockVirtualGovernance::registerKYCUser(ERC1967Proxy: [0xD6BbDE9174b1CdAa358d2Cf4D57D1a9F7178FBfF], 31536001 [3.153e7], 702) [delegatecall]
+    │   │   └─ ← [Stop] 
+    │   └─ ← [Return] 
+    ├─ [112719] ERC1967Proxy::registerKYCUser(ERC1967Proxy: [0x15cF58144EF33af1e14b5208015d11F9143E27b9], 31536001 [3.153e7], 702)
+    │   ├─ [112400] BlockVirtualGovernance::registerKYCUser(ERC1967Proxy: [0x15cF58144EF33af1e14b5208015d11F9143E27b9], 31536001 [3.153e7], 702) [delegatecall]
+    │   │   └─ ← [Stop] 
+    │   └─ ← [Return] 
+    ├─ [2919] ERC1967Proxy::registerKYCUser(ERC1967Proxy: [0x15cF58144EF33af1e14b5208015d11F9143E27b9], 31536001 [3.153e7], 702)
+    │   ├─ [2600] BlockVirtualGovernance::registerKYCUser(ERC1967Proxy: [0x15cF58144EF33af1e14b5208015d11F9143E27b9], 31536001 [3.153e7], 702) [delegatecall]
+    │   │   └─ ← [Stop] 
+    │   └─ ← [Return] 
+    ├─ [112719] ERC1967Proxy::registerKYCUser(BlockVirtualPriceFeed: [0x212224D2F2d262cd093eE13240ca4873fcCBbA3C], 31536001 [3.153e7], 702)
+    │   ├─ [112400] BlockVirtualGovernance::registerKYCUser(BlockVirtualPriceFeed: [0x212224D2F2d262cd093eE13240ca4873fcCBbA3C], 31536001 [3.153e7], 702) [delegatecall]
+    │   │   └─ ← [Stop] 
+    │   └─ ← [Return] 
+    ├─ [112719] ERC1967Proxy::registerKYCUser(ERC1967Proxy: [0x03A6a84cD762D9707A21605b548aaaB891562aAb], 31536001 [3.153e7], 702)
+    │   ├─ [112400] BlockVirtualGovernance::registerKYCUser(ERC1967Proxy: [0x03A6a84cD762D9707A21605b548aaaB891562aAb], 31536001 [3.153e7], 702) [delegatecall]
+    │   │   └─ ← [Stop] 
+    │   └─ ← [Return] 
+    ├─ [2919] ERC1967Proxy::registerKYCUser(ERC1967Proxy: [0x03A6a84cD762D9707A21605b548aaaB891562aAb], 31536001 [3.153e7], 702)
+    │   ├─ [2600] BlockVirtualGovernance::registerKYCUser(ERC1967Proxy: [0x03A6a84cD762D9707A21605b548aaaB891562aAb], 31536001 [3.153e7], 702) [delegatecall]
+    │   │   └─ ← [Stop] 
+    │   └─ ← [Return] 
+    ├─ [0] VM::stopPrank()
+    │   └─ ← [Return] 
+    ├─ [0] VM::startPrank(VirtualPayTest: [0x7FA9385bE102ac3EAc297483Dd6233D62b3e1496])
+    │   └─ ← [Return] 
+    ├─ [971] ERC1967Proxy::ADMIN_ROLE() [staticcall]
+    │   ├─ [661] VirtualPool::ADMIN_ROLE() [delegatecall]
+    │   │   └─ ← [Return] 0xa49807205ce4d355092ef5a8a18f56e8913cf4a201fbe287825b095693c21775
+    │   └─ ← [Return] 0xa49807205ce4d355092ef5a8a18f56e8913cf4a201fbe287825b095693c21775
+    ├─ [27761] ERC1967Proxy::grantRole(0xa49807205ce4d355092ef5a8a18f56e8913cf4a201fbe287825b095693c21775, ECRecover: [0x0000000000000000000000000000000000000001])
+    │   ├─ [27448] VirtualPool::grantRole(0xa49807205ce4d355092ef5a8a18f56e8913cf4a201fbe287825b095693c21775, ECRecover: [0x0000000000000000000000000000000000000001]) [delegatecall]
+    │   │   ├─ emit RoleGranted(role: 0xa49807205ce4d355092ef5a8a18f56e8913cf4a201fbe287825b095693c21775, account: ECRecover: [0x0000000000000000000000000000000000000001], sender: VirtualPayTest: [0x7FA9385bE102ac3EAc297483Dd6233D62b3e1496])
+    │   │   └─ ← [Stop] 
+    │   └─ ← [Return] 
+    ├─ [1367] ERC1967Proxy::OPERATOR_ROLE() [staticcall]
+    │   ├─ [1057] VirtualPool::OPERATOR_ROLE() [delegatecall]
+    │   │   └─ ← [Return] 0x97667070c54ef182b0f5858b034beac1b6f3089aa2d3188bb1e8929f4fa9b929
+    │   └─ ← [Return] 0x97667070c54ef182b0f5858b034beac1b6f3089aa2d3188bb1e8929f4fa9b929
+    ├─ [27761] ERC1967Proxy::grantRole(0x97667070c54ef182b0f5858b034beac1b6f3089aa2d3188bb1e8929f4fa9b929, SHA-256: [0x0000000000000000000000000000000000000002])
+    │   ├─ [27448] VirtualPool::grantRole(0x97667070c54ef182b0f5858b034beac1b6f3089aa2d3188bb1e8929f4fa9b929, SHA-256: [0x0000000000000000000000000000000000000002]) [delegatecall]
+    │   │   ├─ emit RoleGranted(role: 0x97667070c54ef182b0f5858b034beac1b6f3089aa2d3188bb1e8929f4fa9b929, account: SHA-256: [0x0000000000000000000000000000000000000002], sender: VirtualPayTest: [0x7FA9385bE102ac3EAc297483Dd6233D62b3e1496])
+    │   │   └─ ← [Stop] 
+    │   └─ ← [Return] 
+    ├─ [0] VM::stopPrank()
+    │   └─ ← [Return] 
+    ├─ [0] VM::startPrank(VirtualPayTest: [0x7FA9385bE102ac3EAc297483Dd6233D62b3e1496])
+    │   └─ ← [Return] 
+    ├─ [729] ERC1967Proxy::ADMIN_ROLE() [staticcall]
+    │   ├─ [419] VirtualPay::ADMIN_ROLE() [delegatecall]
+    │   │   └─ ← [Return] 0xa49807205ce4d355092ef5a8a18f56e8913cf4a201fbe287825b095693c21775
+    │   └─ ← [Return] 0xa49807205ce4d355092ef5a8a18f56e8913cf4a201fbe287825b095693c21775
+    ├─ [27728] ERC1967Proxy::grantRole(0xa49807205ce4d355092ef5a8a18f56e8913cf4a201fbe287825b095693c21775, ECRecover: [0x0000000000000000000000000000000000000001])
+    │   ├─ [27415] VirtualPay::grantRole(0xa49807205ce4d355092ef5a8a18f56e8913cf4a201fbe287825b095693c21775, ECRecover: [0x0000000000000000000000000000000000000001]) [delegatecall]
+    │   │   ├─ emit RoleGranted(role: 0xa49807205ce4d355092ef5a8a18f56e8913cf4a201fbe287825b095693c21775, account: ECRecover: [0x0000000000000000000000000000000000000001], sender: VirtualPayTest: [0x7FA9385bE102ac3EAc297483Dd6233D62b3e1496])
+    │   │   └─ ← [Stop] 
+    │   └─ ← [Return] 
+    ├─ [0] VM::stopPrank()
+    │   └─ ← [Return] 
+    ├─ [0] VM::startPrank(VirtualPayTest: [0x7FA9385bE102ac3EAc297483Dd6233D62b3e1496])
+    │   └─ ← [Return] 
+    ├─ [397] BlockVirtualPriceFeed::ADMIN_ROLE() [staticcall]
+    │   └─ ← [Return] 0xa49807205ce4d355092ef5a8a18f56e8913cf4a201fbe287825b095693c21775
+    ├─ [27328] BlockVirtualPriceFeed::grantRole(0xa49807205ce4d355092ef5a8a18f56e8913cf4a201fbe287825b095693c21775, ECRecover: [0x0000000000000000000000000000000000000001])
+    │   ├─ emit RoleGranted(role: 0xa49807205ce4d355092ef5a8a18f56e8913cf4a201fbe287825b095693c21775, account: ECRecover: [0x0000000000000000000000000000000000000001], sender: VirtualPayTest: [0x7FA9385bE102ac3EAc297483Dd6233D62b3e1496])
+    │   └─ ← [Stop] 
+    ├─ [526] BlockVirtualPriceFeed::PRICE_UPDATER_ROLE() [staticcall]
+    │   └─ ← [Return] 0xd96ba01d6560c2ab35f2940dd8d70c5f5fe06236c72674237120515918198fb0
+    ├─ [27328] BlockVirtualPriceFeed::grantRole(0xd96ba01d6560c2ab35f2940dd8d70c5f5fe06236c72674237120515918198fb0, SHA-256: [0x0000000000000000000000000000000000000002])
+    │   ├─ emit RoleGranted(role: 0xd96ba01d6560c2ab35f2940dd8d70c5f5fe06236c72674237120515918198fb0, account: SHA-256: [0x0000000000000000000000000000000000000002], sender: VirtualPayTest: [0x7FA9385bE102ac3EAc297483Dd6233D62b3e1496])
+    │   └─ ← [Stop] 
+    ├─ [0] VM::stopPrank()
+    │   └─ ← [Return] 
+    ├─ [0] VM::prank(ECRecover: [0x0000000000000000000000000000000000000001])
+    │   └─ ← [Return] 
+    ├─ [23369] ERC1967Proxy::setPriceFeed(BlockVirtualPriceFeed: [0x212224D2F2d262cd093eE13240ca4873fcCBbA3C])
+    │   ├─ [23059] VirtualPool::setPriceFeed(BlockVirtualPriceFeed: [0x212224D2F2d262cd093eE13240ca4873fcCBbA3C]) [delegatecall]
+    │   │   └─ ← [Return] 
+    │   └─ ← [Return] 
+    ├─ [0] VM::startPrank(ECRecover: [0x0000000000000000000000000000000000000001])
+    │   └─ ← [Return] 
+    ├─ [68477] BlockVirtualPriceFeed::registerToken(ERC1967Proxy: [0xD6BbDE9174b1CdAa358d2Cf4D57D1a9F7178FBfF])
+    │   ├─ emit TokenRegistered(token: ERC1967Proxy: [0xD6BbDE9174b1CdAa358d2Cf4D57D1a9F7178FBfF])
+    │   └─ ← [Stop] 
+    ├─ [46577] BlockVirtualPriceFeed::registerToken(ERC1967Proxy: [0x15cF58144EF33af1e14b5208015d11F9143E27b9])
+    │   ├─ emit TokenRegistered(token: ERC1967Proxy: [0x15cF58144EF33af1e14b5208015d11F9143E27b9])
+    │   └─ ← [Stop] 
+    ├─ [0] VM::stopPrank()
+    │   └─ ← [Return] 
+    ├─ [0] VM::startPrank(SHA-256: [0x0000000000000000000000000000000000000002])
+    │   └─ ← [Return] 
+    ├─ [46921] BlockVirtualPriceFeed::updatePrice(ERC1967Proxy: [0xD6BbDE9174b1CdAa358d2Cf4D57D1a9F7178FBfF], 750000000000000000 [7.5e17])
+    │   ├─ emit PriceUpdated(token: ERC1967Proxy: [0xD6BbDE9174b1CdAa358d2Cf4D57D1a9F7178FBfF], price: 750000000000000000 [7.5e17], timestamp: 1)
+    │   └─ ← [Stop] 
+    ├─ [46921] BlockVirtualPriceFeed::updatePrice(ERC1967Proxy: [0x15cF58144EF33af1e14b5208015d11F9143E27b9], 1000000000000000000 [1e18])
+    │   ├─ emit PriceUpdated(token: ERC1967Proxy: [0x15cF58144EF33af1e14b5208015d11F9143E27b9], price: 1000000000000000000 [1e18], timestamp: 1)
+    │   └─ ← [Stop] 
+    ├─ [0] VM::stopPrank()
+    │   └─ ← [Return] 
+    ├─ [0] VM::startPrank(ECRecover: [0x0000000000000000000000000000000000000001])
+    │   └─ ← [Return] 
+    ├─ [24529] ERC1967Proxy::addSupportedToken(ERC1967Proxy: [0xD6BbDE9174b1CdAa358d2Cf4D57D1a9F7178FBfF])
+    │   ├─ [24219] VirtualPool::addSupportedToken(ERC1967Proxy: [0xD6BbDE9174b1CdAa358d2Cf4D57D1a9F7178FBfF]) [delegatecall]
+    │   │   ├─ emit TokenAdded(token: ERC1967Proxy: [0xD6BbDE9174b1CdAa358d2Cf4D57D1a9F7178FBfF])
+    │   │   └─ ← [Stop] 
+    │   └─ ← [Return] 
+    ├─ [24529] ERC1967Proxy::addSupportedToken(ERC1967Proxy: [0x15cF58144EF33af1e14b5208015d11F9143E27b9])
+    │   ├─ [24219] VirtualPool::addSupportedToken(ERC1967Proxy: [0x15cF58144EF33af1e14b5208015d11F9143E27b9]) [delegatecall]
+    │   │   ├─ emit TokenAdded(token: ERC1967Proxy: [0x15cF58144EF33af1e14b5208015d11F9143E27b9])
+    │   │   └─ ← [Stop] 
+    │   └─ ← [Return] 
+    ├─ [0] VM::stopPrank()
+    │   └─ ← [Return] 
+    ├─ [0] VM::prank(ECRecover: [0x0000000000000000000000000000000000000001])
+    │   └─ ← [Return] 
+    ├─ [189977] ERC1967Proxy::createPair(ERC1967Proxy: [0xD6BbDE9174b1CdAa358d2Cf4D57D1a9F7178FBfF], ERC1967Proxy: [0x15cF58144EF33af1e14b5208015d11F9143E27b9])
+    │   ├─ [189661] VirtualPool::createPair(ERC1967Proxy: [0xD6BbDE9174b1CdAa358d2Cf4D57D1a9F7178FBfF], ERC1967Proxy: [0x15cF58144EF33af1e14b5208015d11F9143E27b9]) [delegatecall]
+    │   │   ├─ emit PairCreated(token0: ERC1967Proxy: [0x15cF58144EF33af1e14b5208015d11F9143E27b9], token1: ERC1967Proxy: [0xD6BbDE9174b1CdAa358d2Cf4D57D1a9F7178FBfF], pairToken: 0x69537d22AafE40B611d8B6A0Fd220584CA8d16b3, pairId: 0)
+    │   │   └─ ← [Return] 0x69537d22AafE40B611d8B6A0Fd220584CA8d16b3
+    │   └─ ← [Return] 0x69537d22AafE40B611d8B6A0Fd220584CA8d16b3
+    ├─ [0] VM::startPrank(ERC1967Proxy: [0x1d1499e622D69689cdf9004d05Ec547d650Ff211])
+    │   └─ ← [Return] 
+    ├─ [50842] ERC1967Proxy::mintRwa(Identity: [0x0000000000000000000000000000000000000004], 1000000000000000000000000 [1e24])
+    │   ├─ [50529] RwaToken::mintRwa(Identity: [0x0000000000000000000000000000000000000004], 1000000000000000000000000 [1e24]) [delegatecall]
+    │   │   ├─ [3202] ERC1967Proxy::isBlacklisted(ERC1967Proxy: [0xD6BbDE9174b1CdAa358d2Cf4D57D1a9F7178FBfF], Identity: [0x0000000000000000000000000000000000000004]) [staticcall]
+    │   │   │   ├─ [2886] BlockVirtualGovernance::isBlacklisted(ERC1967Proxy: [0xD6BbDE9174b1CdAa358d2Cf4D57D1a9F7178FBfF], Identity: [0x0000000000000000000000000000000000000004]) [delegatecall]
+    │   │   │   │   └─ ← [Return] false
+    │   │   │   └─ ← [Return] false
+    │   │   ├─ emit Transfer(from: 0x0000000000000000000000000000000000000000, to: Identity: [0x0000000000000000000000000000000000000004], value: 1000000000000000000000000 [1e24])
+    │   │   └─ ← [Return] 
+    │   └─ ← [Return] 
+    ├─ [28942] ERC1967Proxy::mintRwa(ModExp: [0x0000000000000000000000000000000000000005], 1000000000000000000000000 [1e24])
+    │   ├─ [28629] RwaToken::mintRwa(ModExp: [0x0000000000000000000000000000000000000005], 1000000000000000000000000 [1e24]) [delegatecall]
+    │   │   ├─ [3202] ERC1967Proxy::isBlacklisted(ERC1967Proxy: [0xD6BbDE9174b1CdAa358d2Cf4D57D1a9F7178FBfF], ModExp: [0x0000000000000000000000000000000000000005]) [staticcall]
+    │   │   │   ├─ [2886] BlockVirtualGovernance::isBlacklisted(ERC1967Proxy: [0xD6BbDE9174b1CdAa358d2Cf4D57D1a9F7178FBfF], ModExp: [0x0000000000000000000000000000000000000005]) [delegatecall]
+    │   │   │   │   └─ ← [Return] false
+    │   │   │   └─ ← [Return] false
+    │   │   ├─ emit Transfer(from: 0x0000000000000000000000000000000000000000, to: ModExp: [0x0000000000000000000000000000000000000005], value: 1000000000000000000000000 [1e24])
+    │   │   └─ ← [Return] 
+    │   └─ ← [Return] 
+    ├─ [50842] ERC1967Proxy::mintRwa(Identity: [0x0000000000000000000000000000000000000004], 1000000000000000000000000 [1e24])
+    │   ├─ [50529] RwaToken::mintRwa(Identity: [0x0000000000000000000000000000000000000004], 1000000000000000000000000 [1e24]) [delegatecall]
+    │   │   ├─ [3202] ERC1967Proxy::isBlacklisted(ERC1967Proxy: [0x15cF58144EF33af1e14b5208015d11F9143E27b9], Identity: [0x0000000000000000000000000000000000000004]) [staticcall]
+    │   │   │   ├─ [2886] BlockVirtualGovernance::isBlacklisted(ERC1967Proxy: [0x15cF58144EF33af1e14b5208015d11F9143E27b9], Identity: [0x0000000000000000000000000000000000000004]) [delegatecall]
+    │   │   │   │   └─ ← [Return] false
+    │   │   │   └─ ← [Return] false
+    │   │   ├─ emit Transfer(from: 0x0000000000000000000000000000000000000000, to: Identity: [0x0000000000000000000000000000000000000004], value: 1000000000000000000000000 [1e24])
+    │   │   └─ ← [Return] 
+    │   └─ ← [Return] 
+    ├─ [28942] ERC1967Proxy::mintRwa(ModExp: [0x0000000000000000000000000000000000000005], 1000000000000000000000000 [1e24])
+    │   ├─ [28629] RwaToken::mintRwa(ModExp: [0x0000000000000000000000000000000000000005], 1000000000000000000000000 [1e24]) [delegatecall]
+    │   │   ├─ [3202] ERC1967Proxy::isBlacklisted(ERC1967Proxy: [0x15cF58144EF33af1e14b5208015d11F9143E27b9], ModExp: [0x0000000000000000000000000000000000000005]) [staticcall]
+    │   │   │   ├─ [2886] BlockVirtualGovernance::isBlacklisted(ERC1967Proxy: [0x15cF58144EF33af1e14b5208015d11F9143E27b9], ModExp: [0x0000000000000000000000000000000000000005]) [delegatecall]
+    │   │   │   │   └─ ← [Return] false
+    │   │   │   └─ ← [Return] false
+    │   │   ├─ emit Transfer(from: 0x0000000000000000000000000000000000000000, to: ModExp: [0x0000000000000000000000000000000000000005], value: 1000000000000000000000000 [1e24])
+    │   │   └─ ← [Return] 
+    │   └─ ← [Return] 
+    ├─ [0] VM::stopPrank()
+    │   └─ ← [Return] 
+    └─ ← [Return] 
+
+  [442580] VirtualPayTest::test_ProcessPayment()
+    ├─ [0] VM::startPrank(Identity: [0x0000000000000000000000000000000000000004])
+    │   └─ ← [Return] 
+    ├─ [29189] ERC1967Proxy::approve(ERC1967Proxy: [0xA4AD4f68d0b91CFD19687c881e50f3A00242828c], 10000000000000000000000 [1e22])
+    │   ├─ [24373] RwaToken::approve(ERC1967Proxy: [0xA4AD4f68d0b91CFD19687c881e50f3A00242828c], 10000000000000000000000 [1e22]) [delegatecall]
+    │   │   ├─ emit Approval(owner: Identity: [0x0000000000000000000000000000000000000004], spender: ERC1967Proxy: [0xA4AD4f68d0b91CFD19687c881e50f3A00242828c], value: 10000000000000000000000 [1e22])
+    │   │   └─ ← [Return] true
+    │   └─ ← [Return] true
+    ├─ [29189] ERC1967Proxy::approve(ERC1967Proxy: [0xA4AD4f68d0b91CFD19687c881e50f3A00242828c], 7500000000000000000000 [7.5e21])
+    │   ├─ [24373] RwaToken::approve(ERC1967Proxy: [0xA4AD4f68d0b91CFD19687c881e50f3A00242828c], 7500000000000000000000 [7.5e21]) [delegatecall]
+    │   │   ├─ emit Approval(owner: Identity: [0x0000000000000000000000000000000000000004], spender: ERC1967Proxy: [0xA4AD4f68d0b91CFD19687c881e50f3A00242828c], value: 7500000000000000000000 [7.5e21])
+    │   │   └─ ← [Return] true
+    │   └─ ← [Return] true
+    ├─ [234053] ERC1967Proxy::addLiquidity(ERC1967Proxy: [0xD6BbDE9174b1CdAa358d2Cf4D57D1a9F7178FBfF], ERC1967Proxy: [0x15cF58144EF33af1e14b5208015d11F9143E27b9], 10000000000000000000000 [1e22], 7500000000000000000000 [7.5e21], 0, 0)
+    │   ├─ [229207] VirtualPool::addLiquidity(ERC1967Proxy: [0xD6BbDE9174b1CdAa358d2Cf4D57D1a9F7178FBfF], ERC1967Proxy: [0x15cF58144EF33af1e14b5208015d11F9143E27b9], 10000000000000000000000 [1e22], 7500000000000000000000 [7.5e21], 0, 0) [delegatecall]
+    │   │   ├─ [10394] ERC1967Proxy::getKycStatus(Identity: [0x0000000000000000000000000000000000000004]) [staticcall]
+    │   │   │   ├─ [5581] BlockVirtualGovernance::getKycStatus(Identity: [0x0000000000000000000000000000000000000004]) [delegatecall]
+    │   │   │   │   └─ ← [Return] true
+    │   │   │   └─ ← [Return] true
+    │   │   ├─ [3202] ERC1967Proxy::isBlacklisted(ERC1967Proxy: [0xD6BbDE9174b1CdAa358d2Cf4D57D1a9F7178FBfF], Identity: [0x0000000000000000000000000000000000000004]) [staticcall]
+    │   │   │   ├─ [2886] BlockVirtualGovernance::isBlacklisted(ERC1967Proxy: [0xD6BbDE9174b1CdAa358d2Cf4D57D1a9F7178FBfF], Identity: [0x0000000000000000000000000000000000000004]) [delegatecall]
+    │   │   │   │   └─ ← [Return] false
+    │   │   │   └─ ← [Return] false
+    │   │   ├─ [3202] ERC1967Proxy::isBlacklisted(ERC1967Proxy: [0x15cF58144EF33af1e14b5208015d11F9143E27b9], Identity: [0x0000000000000000000000000000000000000004]) [staticcall]
+    │   │   │   ├─ [2886] BlockVirtualGovernance::isBlacklisted(ERC1967Proxy: [0x15cF58144EF33af1e14b5208015d11F9143E27b9], Identity: [0x0000000000000000000000000000000000000004]) [delegatecall]
+    │   │   │   │   └─ ← [Return] false
+    │   │   │   └─ ← [Return] false
+    │   │   ├─ [57308] ERC1967Proxy::transferFrom(Identity: [0x0000000000000000000000000000000000000004], ERC1967Proxy: [0xA4AD4f68d0b91CFD19687c881e50f3A00242828c], 10000000000000000000000 [1e22])
+    │   │   │   ├─ [56986] RwaToken::transferFrom(Identity: [0x0000000000000000000000000000000000000004], ERC1967Proxy: [0xA4AD4f68d0b91CFD19687c881e50f3A00242828c], 10000000000000000000000 [1e22]) [delegatecall]
+    │   │   │   │   ├─ [1894] ERC1967Proxy::getKycStatus(Identity: [0x0000000000000000000000000000000000000004]) [staticcall]
+    │   │   │   │   │   ├─ [1581] BlockVirtualGovernance::getKycStatus(Identity: [0x0000000000000000000000000000000000000004]) [delegatecall]
+    │   │   │   │   │   │   └─ ← [Return] true
+    │   │   │   │   │   └─ ← [Return] true
+    │   │   │   │   ├─ [5894] ERC1967Proxy::getKycStatus(ERC1967Proxy: [0xA4AD4f68d0b91CFD19687c881e50f3A00242828c]) [staticcall]
+    │   │   │   │   │   ├─ [5581] BlockVirtualGovernance::getKycStatus(ERC1967Proxy: [0xA4AD4f68d0b91CFD19687c881e50f3A00242828c]) [delegatecall]
+    │   │   │   │   │   │   └─ ← [Return] true
+    │   │   │   │   │   └─ ← [Return] true
+    │   │   │   │   ├─ [5541] ERC1967Proxy::isFromSupportedCountry(Identity: [0x0000000000000000000000000000000000000004]) [staticcall]
+    │   │   │   │   │   ├─ [5228] BlockVirtualGovernance::isFromSupportedCountry(Identity: [0x0000000000000000000000000000000000000004]) [delegatecall]
+    │   │   │   │   │   │   └─ ← [Return] true
+    │   │   │   │   │   └─ ← [Return] true
+    │   │   │   │   ├─ [3541] ERC1967Proxy::isFromSupportedCountry(ERC1967Proxy: [0xA4AD4f68d0b91CFD19687c881e50f3A00242828c]) [staticcall]
+    │   │   │   │   │   ├─ [3228] BlockVirtualGovernance::isFromSupportedCountry(ERC1967Proxy: [0xA4AD4f68d0b91CFD19687c881e50f3A00242828c]) [delegatecall]
+    │   │   │   │   │   │   └─ ← [Return] true
+    │   │   │   │   │   └─ ← [Return] true
+    │   │   │   │   ├─ [1202] ERC1967Proxy::isBlacklisted(ERC1967Proxy: [0xD6BbDE9174b1CdAa358d2Cf4D57D1a9F7178FBfF], Identity: [0x0000000000000000000000000000000000000004]) [staticcall]
+    │   │   │   │   │   ├─ [886] BlockVirtualGovernance::isBlacklisted(ERC1967Proxy: [0xD6BbDE9174b1CdAa358d2Cf4D57D1a9F7178FBfF], Identity: [0x0000000000000000000000000000000000000004]) [delegatecall]
+    │   │   │   │   │   │   └─ ← [Return] false
+    │   │   │   │   │   └─ ← [Return] false
+    │   │   │   │   ├─ [3202] ERC1967Proxy::isBlacklisted(ERC1967Proxy: [0xD6BbDE9174b1CdAa358d2Cf4D57D1a9F7178FBfF], ERC1967Proxy: [0xA4AD4f68d0b91CFD19687c881e50f3A00242828c]) [staticcall]
+    │   │   │   │   │   ├─ [2886] BlockVirtualGovernance::isBlacklisted(ERC1967Proxy: [0xD6BbDE9174b1CdAa358d2Cf4D57D1a9F7178FBfF], ERC1967Proxy: [0xA4AD4f68d0b91CFD19687c881e50f3A00242828c]) [delegatecall]
+    │   │   │   │   │   │   └─ ← [Return] false
+    │   │   │   │   │   └─ ← [Return] false
+    │   │   │   │   ├─ emit Transfer(from: Identity: [0x0000000000000000000000000000000000000004], to: ERC1967Proxy: [0xA4AD4f68d0b91CFD19687c881e50f3A00242828c], value: 10000000000000000000000 [1e22])
+    │   │   │   │   └─ ← [Return] true
+    │   │   │   └─ ← [Return] true
+    │   │   ├─ [47308] ERC1967Proxy::transferFrom(Identity: [0x0000000000000000000000000000000000000004], ERC1967Proxy: [0xA4AD4f68d0b91CFD19687c881e50f3A00242828c], 7500000000000000000000 [7.5e21])
+    │   │   │   ├─ [46986] RwaToken::transferFrom(Identity: [0x0000000000000000000000000000000000000004], ERC1967Proxy: [0xA4AD4f68d0b91CFD19687c881e50f3A00242828c], 7500000000000000000000 [7.5e21]) [delegatecall]
+    │   │   │   │   ├─ [1894] ERC1967Proxy::getKycStatus(Identity: [0x0000000000000000000000000000000000000004]) [staticcall]
+    │   │   │   │   │   ├─ [1581] BlockVirtualGovernance::getKycStatus(Identity: [0x0000000000000000000000000000000000000004]) [delegatecall]
+    │   │   │   │   │   │   └─ ← [Return] true
+    │   │   │   │   │   └─ ← [Return] true
+    │   │   │   │   ├─ [1894] ERC1967Proxy::getKycStatus(ERC1967Proxy: [0xA4AD4f68d0b91CFD19687c881e50f3A00242828c]) [staticcall]
+    │   │   │   │   │   ├─ [1581] BlockVirtualGovernance::getKycStatus(ERC1967Proxy: [0xA4AD4f68d0b91CFD19687c881e50f3A00242828c]) [delegatecall]
+    │   │   │   │   │   │   └─ ← [Return] true
+    │   │   │   │   │   └─ ← [Return] true
+    │   │   │   │   ├─ [1541] ERC1967Proxy::isFromSupportedCountry(Identity: [0x0000000000000000000000000000000000000004]) [staticcall]
+    │   │   │   │   │   ├─ [1228] BlockVirtualGovernance::isFromSupportedCountry(Identity: [0x0000000000000000000000000000000000000004]) [delegatecall]
+    │   │   │   │   │   │   └─ ← [Return] true
+    │   │   │   │   │   └─ ← [Return] true
+    │   │   │   │   ├─ [1541] ERC1967Proxy::isFromSupportedCountry(ERC1967Proxy: [0xA4AD4f68d0b91CFD19687c881e50f3A00242828c]) [staticcall]
+    │   │   │   │   │   ├─ [1228] BlockVirtualGovernance::isFromSupportedCountry(ERC1967Proxy: [0xA4AD4f68d0b91CFD19687c881e50f3A00242828c]) [delegatecall]
+    │   │   │   │   │   │   └─ ← [Return] true
+    │   │   │   │   │   └─ ← [Return] true
+    │   │   │   │   ├─ [1202] ERC1967Proxy::isBlacklisted(ERC1967Proxy: [0x15cF58144EF33af1e14b5208015d11F9143E27b9], Identity: [0x0000000000000000000000000000000000000004]) [staticcall]
+    │   │   │   │   │   ├─ [886] BlockVirtualGovernance::isBlacklisted(ERC1967Proxy: [0x15cF58144EF33af1e14b5208015d11F9143E27b9], Identity: [0x0000000000000000000000000000000000000004]) [delegatecall]
+    │   │   │   │   │   │   └─ ← [Return] false
+    │   │   │   │   │   └─ ← [Return] false
+    │   │   │   │   ├─ [3202] ERC1967Proxy::isBlacklisted(ERC1967Proxy: [0x15cF58144EF33af1e14b5208015d11F9143E27b9], ERC1967Proxy: [0xA4AD4f68d0b91CFD19687c881e50f3A00242828c]) [staticcall]
+    │   │   │   │   │   ├─ [2886] BlockVirtualGovernance::isBlacklisted(ERC1967Proxy: [0x15cF58144EF33af1e14b5208015d11F9143E27b9], ERC1967Proxy: [0xA4AD4f68d0b91CFD19687c881e50f3A00242828c]) [delegatecall]
+    │   │   │   │   │   │   └─ ← [Return] false
+    │   │   │   │   │   └─ ← [Return] false
+    │   │   │   │   ├─ emit Transfer(from: Identity: [0x0000000000000000000000000000000000000004], to: ERC1967Proxy: [0xA4AD4f68d0b91CFD19687c881e50f3A00242828c], value: 7500000000000000000000 [7.5e21])
+    │   │   │   │   └─ ← [Return] true
+    │   │   │   └─ ← [Return] true
+    │   │   ├─ emit LiquidityAdded(user: Identity: [0x0000000000000000000000000000000000000004], token0: ERC1967Proxy: [0xD6BbDE9174b1CdAa358d2Cf4D57D1a9F7178FBfF], token1: ERC1967Proxy: [0x15cF58144EF33af1e14b5208015d11F9143E27b9], amount0: 10000000000000000000000 [1e22], amount1: 7500000000000000000000 [7.5e21], liquidity: 8660254037844386467637 [8.66e21])
+    │   │   └─ ← [Return] 10000000000000000000000 [1e22], 7500000000000000000000 [7.5e21], 8660254037844386467637 [8.66e21]
+    │   └─ ← [Return] 10000000000000000000000 [1e22], 7500000000000000000000 [7.5e21], 8660254037844386467637 [8.66e21]
+    ├─ [0] VM::stopPrank()
+    │   └─ ← [Return] 
+    ├─ [2923] ERC1967Proxy::balanceOf(ModExp: [0x0000000000000000000000000000000000000005]) [staticcall]
+    │   ├─ [2610] RwaToken::balanceOf(ModExp: [0x0000000000000000000000000000000000000005]) [delegatecall]
+    │   │   └─ ← [Return] 1000000000000000000000000 [1e24]
+    │   └─ ← [Return] 1000000000000000000000000 [1e24]
+    ├─ [0] VM::startPrank(Identity: [0x0000000000000000000000000000000000000004])
+    │   └─ ← [Return] 
+    ├─ [24689] ERC1967Proxy::approve(ERC1967Proxy: [0x03A6a84cD762D9707A21605b548aaaB891562aAb], 100000000000000000000 [1e20])
+    │   ├─ [24373] RwaToken::approve(ERC1967Proxy: [0x03A6a84cD762D9707A21605b548aaaB891562aAb], 100000000000000000000 [1e20]) [delegatecall]
+    │   │   ├─ emit Approval(owner: Identity: [0x0000000000000000000000000000000000000004], spender: ERC1967Proxy: [0x03A6a84cD762D9707A21605b548aaaB891562aAb], value: 100000000000000000000 [1e20])
+    │   │   └─ ← [Return] true
+    │   └─ ← [Return] true
+    ├─ [198870] ERC1967Proxy::processPayment(ModExp: [0x0000000000000000000000000000000000000005], ERC1967Proxy: [0xD6BbDE9174b1CdAa358d2Cf4D57D1a9F7178FBfF], ERC1967Proxy: [0x15cF58144EF33af1e14b5208015d11F9143E27b9], 100000000000000000000 [1e20], 70000000000000000000 [7e19])
+    │   ├─ [194036] VirtualPay::processPayment(ModExp: [0x0000000000000000000000000000000000000005], ERC1967Proxy: [0xD6BbDE9174b1CdAa358d2Cf4D57D1a9F7178FBfF], ERC1967Proxy: [0x15cF58144EF33af1e14b5208015d11F9143E27b9], 100000000000000000000 [1e20], 70000000000000000000 [7e19]) [delegatecall]
+    │   │   ├─ [1894] ERC1967Proxy::getKycStatus(Identity: [0x0000000000000000000000000000000000000004]) [staticcall]
+    │   │   │   ├─ [1581] BlockVirtualGovernance::getKycStatus(Identity: [0x0000000000000000000000000000000000000004]) [delegatecall]
+    │   │   │   │   └─ ← [Return] true
+    │   │   │   └─ ← [Return] true
+    │   │   ├─ [5894] ERC1967Proxy::getKycStatus(ModExp: [0x0000000000000000000000000000000000000005]) [staticcall]
+    │   │   │   ├─ [5581] BlockVirtualGovernance::getKycStatus(ModExp: [0x0000000000000000000000000000000000000005]) [delegatecall]
+    │   │   │   │   └─ ← [Return] true
+    │   │   │   └─ ← [Return] true
+    │   │   ├─ [46508] ERC1967Proxy::transferFrom(Identity: [0x0000000000000000000000000000000000000004], ERC1967Proxy: [0x03A6a84cD762D9707A21605b548aaaB891562aAb], 100000000000000000000 [1e20])
+    │   │   │   ├─ [46186] RwaToken::transferFrom(Identity: [0x0000000000000000000000000000000000000004], ERC1967Proxy: [0x03A6a84cD762D9707A21605b548aaaB891562aAb], 100000000000000000000 [1e20]) [delegatecall]
+    │   │   │   │   ├─ [1894] ERC1967Proxy::getKycStatus(Identity: [0x0000000000000000000000000000000000000004]) [staticcall]
+    │   │   │   │   │   ├─ [1581] BlockVirtualGovernance::getKycStatus(Identity: [0x0000000000000000000000000000000000000004]) [delegatecall]
+    │   │   │   │   │   │   └─ ← [Return] true
+    │   │   │   │   │   └─ ← [Return] true
+    │   │   │   │   ├─ [5894] ERC1967Proxy::getKycStatus(ERC1967Proxy: [0x03A6a84cD762D9707A21605b548aaaB891562aAb]) [staticcall]
+    │   │   │   │   │   ├─ [5581] BlockVirtualGovernance::getKycStatus(ERC1967Proxy: [0x03A6a84cD762D9707A21605b548aaaB891562aAb]) [delegatecall]
+    │   │   │   │   │   │   └─ ← [Return] true
+    │   │   │   │   │   └─ ← [Return] true
+    │   │   │   │   ├─ [1541] ERC1967Proxy::isFromSupportedCountry(Identity: [0x0000000000000000000000000000000000000004]) [staticcall]
+    │   │   │   │   │   ├─ [1228] BlockVirtualGovernance::isFromSupportedCountry(Identity: [0x0000000000000000000000000000000000000004]) [delegatecall]
+    │   │   │   │   │   │   └─ ← [Return] true
+    │   │   │   │   │   └─ ← [Return] true
+    │   │   │   │   ├─ [3541] ERC1967Proxy::isFromSupportedCountry(ERC1967Proxy: [0x03A6a84cD762D9707A21605b548aaaB891562aAb]) [staticcall]
+    │   │   │   │   │   ├─ [3228] BlockVirtualGovernance::isFromSupportedCountry(ERC1967Proxy: [0x03A6a84cD762D9707A21605b548aaaB891562aAb]) [delegatecall]
+    │   │   │   │   │   │   └─ ← [Return] true
+    │   │   │   │   │   └─ ← [Return] true
+    │   │   │   │   ├─ [1202] ERC1967Proxy::isBlacklisted(ERC1967Proxy: [0xD6BbDE9174b1CdAa358d2Cf4D57D1a9F7178FBfF], Identity: [0x0000000000000000000000000000000000000004]) [staticcall]
+    │   │   │   │   │   ├─ [886] BlockVirtualGovernance::isBlacklisted(ERC1967Proxy: [0xD6BbDE9174b1CdAa358d2Cf4D57D1a9F7178FBfF], Identity: [0x0000000000000000000000000000000000000004]) [delegatecall]
+    │   │   │   │   │   │   └─ ← [Return] false
+    │   │   │   │   │   └─ ← [Return] false
+    │   │   │   │   ├─ [3202] ERC1967Proxy::isBlacklisted(ERC1967Proxy: [0xD6BbDE9174b1CdAa358d2Cf4D57D1a9F7178FBfF], ERC1967Proxy: [0x03A6a84cD762D9707A21605b548aaaB891562aAb]) [staticcall]
+    │   │   │   │   │   ├─ [2886] BlockVirtualGovernance::isBlacklisted(ERC1967Proxy: [0xD6BbDE9174b1CdAa358d2Cf4D57D1a9F7178FBfF], ERC1967Proxy: [0x03A6a84cD762D9707A21605b548aaaB891562aAb]) [delegatecall]
+    │   │   │   │   │   │   └─ ← [Return] false
+    │   │   │   │   │   └─ ← [Return] false
+    │   │   │   │   ├─ emit Transfer(from: Identity: [0x0000000000000000000000000000000000000004], to: ERC1967Proxy: [0x03A6a84cD762D9707A21605b548aaaB891562aAb], value: 100000000000000000000 [1e20])
+    │   │   │   │   └─ ← [Return] true
+    │   │   │   └─ ← [Return] true
+    │   │   ├─ [24689] ERC1967Proxy::approve(ERC1967Proxy: [0xA4AD4f68d0b91CFD19687c881e50f3A00242828c], 100000000000000000000 [1e20])
+    │   │   │   ├─ [24373] RwaToken::approve(ERC1967Proxy: [0xA4AD4f68d0b91CFD19687c881e50f3A00242828c], 100000000000000000000 [1e20]) [delegatecall]
+    │   │   │   │   ├─ emit Approval(owner: ERC1967Proxy: [0x03A6a84cD762D9707A21605b548aaaB891562aAb], spender: ERC1967Proxy: [0xA4AD4f68d0b91CFD19687c881e50f3A00242828c], value: 100000000000000000000 [1e20])
+    │   │   │   │   └─ ← [Return] true
+    │   │   │   └─ ← [Return] true
+    │   │   ├─ [79740] ERC1967Proxy::swap(ERC1967Proxy: [0xD6BbDE9174b1CdAa358d2Cf4D57D1a9F7178FBfF], ERC1967Proxy: [0x15cF58144EF33af1e14b5208015d11F9143E27b9], 100000000000000000000 [1e20], 70000000000000000000 [7e19])
+    │   │   │   ├─ [79412] VirtualPool::swap(ERC1967Proxy: [0xD6BbDE9174b1CdAa358d2Cf4D57D1a9F7178FBfF], ERC1967Proxy: [0x15cF58144EF33af1e14b5208015d11F9143E27b9], 100000000000000000000 [1e20], 70000000000000000000 [7e19]) [delegatecall]
+    │   │   │   │   ├─ [1894] ERC1967Proxy::getKycStatus(ERC1967Proxy: [0x03A6a84cD762D9707A21605b548aaaB891562aAb]) [staticcall]
+    │   │   │   │   │   ├─ [1581] BlockVirtualGovernance::getKycStatus(ERC1967Proxy: [0x03A6a84cD762D9707A21605b548aaaB891562aAb]) [delegatecall]
+    │   │   │   │   │   │   └─ ← [Return] true
+    │   │   │   │   │   └─ ← [Return] true
+    │   │   │   │   ├─ [1202] ERC1967Proxy::isBlacklisted(ERC1967Proxy: [0xD6BbDE9174b1CdAa358d2Cf4D57D1a9F7178FBfF], ERC1967Proxy: [0x03A6a84cD762D9707A21605b548aaaB891562aAb]) [staticcall]
+    │   │   │   │   │   ├─ [886] BlockVirtualGovernance::isBlacklisted(ERC1967Proxy: [0xD6BbDE9174b1CdAa358d2Cf4D57D1a9F7178FBfF], ERC1967Proxy: [0x03A6a84cD762D9707A21605b548aaaB891562aAb]) [delegatecall]
+    │   │   │   │   │   │   └─ ← [Return] false
+    │   │   │   │   │   └─ ← [Return] false
+    │   │   │   │   ├─ [3202] ERC1967Proxy::isBlacklisted(ERC1967Proxy: [0x15cF58144EF33af1e14b5208015d11F9143E27b9], ERC1967Proxy: [0x03A6a84cD762D9707A21605b548aaaB891562aAb]) [staticcall]
+    │   │   │   │   │   ├─ [2886] BlockVirtualGovernance::isBlacklisted(ERC1967Proxy: [0x15cF58144EF33af1e14b5208015d11F9143E27b9], ERC1967Proxy: [0x03A6a84cD762D9707A21605b548aaaB891562aAb]) [delegatecall]
+    │   │   │   │   │   │   └─ ← [Return] false
+    │   │   │   │   │   └─ ← [Return] false
+    │   │   │   │   ├─ [16608] ERC1967Proxy::transferFrom(ERC1967Proxy: [0x03A6a84cD762D9707A21605b548aaaB891562aAb], ERC1967Proxy: [0xA4AD4f68d0b91CFD19687c881e50f3A00242828c], 100000000000000000000 [1e20])
+    │   │   │   │   │   ├─ [16286] RwaToken::transferFrom(ERC1967Proxy: [0x03A6a84cD762D9707A21605b548aaaB891562aAb], ERC1967Proxy: [0xA4AD4f68d0b91CFD19687c881e50f3A00242828c], 100000000000000000000 [1e20]) [delegatecall]
+    │   │   │   │   │   │   ├─ [1894] ERC1967Proxy::getKycStatus(ERC1967Proxy: [0x03A6a84cD762D9707A21605b548aaaB891562aAb]) [staticcall]
+    │   │   │   │   │   │   │   ├─ [1581] BlockVirtualGovernance::getKycStatus(ERC1967Proxy: [0x03A6a84cD762D9707A21605b548aaaB891562aAb]) [delegatecall]
+    │   │   │   │   │   │   │   │   └─ ← [Return] true
+    │   │   │   │   │   │   │   └─ ← [Return] true
+    │   │   │   │   │   │   ├─ [1894] ERC1967Proxy::getKycStatus(ERC1967Proxy: [0xA4AD4f68d0b91CFD19687c881e50f3A00242828c]) [staticcall]
+    │   │   │   │   │   │   │   ├─ [1581] BlockVirtualGovernance::getKycStatus(ERC1967Proxy: [0xA4AD4f68d0b91CFD19687c881e50f3A00242828c]) [delegatecall]
+    │   │   │   │   │   │   │   │   └─ ← [Return] true
+    │   │   │   │   │   │   │   └─ ← [Return] true
+    │   │   │   │   │   │   ├─ [1541] ERC1967Proxy::isFromSupportedCountry(ERC1967Proxy: [0x03A6a84cD762D9707A21605b548aaaB891562aAb]) [staticcall]
+    │   │   │   │   │   │   │   ├─ [1228] BlockVirtualGovernance::isFromSupportedCountry(ERC1967Proxy: [0x03A6a84cD762D9707A21605b548aaaB891562aAb]) [delegatecall]
+    │   │   │   │   │   │   │   │   └─ ← [Return] true
+    │   │   │   │   │   │   │   └─ ← [Return] true
+    │   │   │   │   │   │   ├─ [1541] ERC1967Proxy::isFromSupportedCountry(ERC1967Proxy: [0xA4AD4f68d0b91CFD19687c881e50f3A00242828c]) [staticcall]
+    │   │   │   │   │   │   │   ├─ [1228] BlockVirtualGovernance::isFromSupportedCountry(ERC1967Proxy: [0xA4AD4f68d0b91CFD19687c881e50f3A00242828c]) [delegatecall]
+    │   │   │   │   │   │   │   │   └─ ← [Return] true
+    │   │   │   │   │   │   │   └─ ← [Return] true
+    │   │   │   │   │   │   ├─ [1202] ERC1967Proxy::isBlacklisted(ERC1967Proxy: [0xD6BbDE9174b1CdAa358d2Cf4D57D1a9F7178FBfF], ERC1967Proxy: [0x03A6a84cD762D9707A21605b548aaaB891562aAb]) [staticcall]
+    │   │   │   │   │   │   │   ├─ [886] BlockVirtualGovernance::isBlacklisted(ERC1967Proxy: [0xD6BbDE9174b1CdAa358d2Cf4D57D1a9F7178FBfF], ERC1967Proxy: [0x03A6a84cD762D9707A21605b548aaaB891562aAb]) [delegatecall]
+    │   │   │   │   │   │   │   │   └─ ← [Return] false
+    │   │   │   │   │   │   │   └─ ← [Return] false
+    │   │   │   │   │   │   ├─ [1202] ERC1967Proxy::isBlacklisted(ERC1967Proxy: [0xD6BbDE9174b1CdAa358d2Cf4D57D1a9F7178FBfF], ERC1967Proxy: [0xA4AD4f68d0b91CFD19687c881e50f3A00242828c]) [staticcall]
+    │   │   │   │   │   │   │   ├─ [886] BlockVirtualGovernance::isBlacklisted(ERC1967Proxy: [0xD6BbDE9174b1CdAa358d2Cf4D57D1a9F7178FBfF], ERC1967Proxy: [0xA4AD4f68d0b91CFD19687c881e50f3A00242828c]) [delegatecall]
+    │   │   │   │   │   │   │   │   └─ ← [Return] false
+    │   │   │   │   │   │   │   └─ ← [Return] false
+    │   │   │   │   │   │   ├─ emit Transfer(from: ERC1967Proxy: [0x03A6a84cD762D9707A21605b548aaaB891562aAb], to: ERC1967Proxy: [0xA4AD4f68d0b91CFD19687c881e50f3A00242828c], value: 100000000000000000000 [1e20])
+    │   │   │   │   │   │   └─ ← [Return] true
+    │   │   │   │   │   └─ ← [Return] true
+    │   │   │   │   ├─ [37943] ERC1967Proxy::transfer(ERC1967Proxy: [0x03A6a84cD762D9707A21605b548aaaB891562aAb], 74257425742574257425 [7.425e19])
+    │   │   │   │   │   ├─ [37627] RwaToken::transfer(ERC1967Proxy: [0x03A6a84cD762D9707A21605b548aaaB891562aAb], 74257425742574257425 [7.425e19]) [delegatecall]
+    │   │   │   │   │   │   ├─ [1894] ERC1967Proxy::getKycStatus(ERC1967Proxy: [0xA4AD4f68d0b91CFD19687c881e50f3A00242828c]) [staticcall]
+    │   │   │   │   │   │   │   ├─ [1581] BlockVirtualGovernance::getKycStatus(ERC1967Proxy: [0xA4AD4f68d0b91CFD19687c881e50f3A00242828c]) [delegatecall]
+    │   │   │   │   │   │   │   │   └─ ← [Return] true
+    │   │   │   │   │   │   │   └─ ← [Return] true
+    │   │   │   │   │   │   ├─ [1894] ERC1967Proxy::getKycStatus(ERC1967Proxy: [0x03A6a84cD762D9707A21605b548aaaB891562aAb]) [staticcall]
+    │   │   │   │   │   │   │   ├─ [1581] BlockVirtualGovernance::getKycStatus(ERC1967Proxy: [0x03A6a84cD762D9707A21605b548aaaB891562aAb]) [delegatecall]
+    │   │   │   │   │   │   │   │   └─ ← [Return] true
+    │   │   │   │   │   │   │   └─ ← [Return] true
+    │   │   │   │   │   │   ├─ [1541] ERC1967Proxy::isFromSupportedCountry(ERC1967Proxy: [0xA4AD4f68d0b91CFD19687c881e50f3A00242828c]) [staticcall]
+    │   │   │   │   │   │   │   ├─ [1228] BlockVirtualGovernance::isFromSupportedCountry(ERC1967Proxy: [0xA4AD4f68d0b91CFD19687c881e50f3A00242828c]) [delegatecall]
+    │   │   │   │   │   │   │   │   └─ ← [Return] true
+    │   │   │   │   │   │   │   └─ ← [Return] true
+    │   │   │   │   │   │   ├─ [1541] ERC1967Proxy::isFromSupportedCountry(ERC1967Proxy: [0x03A6a84cD762D9707A21605b548aaaB891562aAb]) [staticcall]
+    │   │   │   │   │   │   │   ├─ [1228] BlockVirtualGovernance::isFromSupportedCountry(ERC1967Proxy: [0x03A6a84cD762D9707A21605b548aaaB891562aAb]) [delegatecall]
+    │   │   │   │   │   │   │   │   └─ ← [Return] true
+    │   │   │   │   │   │   │   └─ ← [Return] true
+    │   │   │   │   │   │   ├─ [1202] ERC1967Proxy::isBlacklisted(ERC1967Proxy: [0x15cF58144EF33af1e14b5208015d11F9143E27b9], ERC1967Proxy: [0xA4AD4f68d0b91CFD19687c881e50f3A00242828c]) [staticcall]
+    │   │   │   │   │   │   │   ├─ [886] BlockVirtualGovernance::isBlacklisted(ERC1967Proxy: [0x15cF58144EF33af1e14b5208015d11F9143E27b9], ERC1967Proxy: [0xA4AD4f68d0b91CFD19687c881e50f3A00242828c]) [delegatecall]
+    │   │   │   │   │   │   │   │   └─ ← [Return] false
+    │   │   │   │   │   │   │   └─ ← [Return] false
+    │   │   │   │   │   │   ├─ [1202] ERC1967Proxy::isBlacklisted(ERC1967Proxy: [0x15cF58144EF33af1e14b5208015d11F9143E27b9], ERC1967Proxy: [0x03A6a84cD762D9707A21605b548aaaB891562aAb]) [staticcall]
+    │   │   │   │   │   │   │   ├─ [886] BlockVirtualGovernance::isBlacklisted(ERC1967Proxy: [0x15cF58144EF33af1e14b5208015d11F9143E27b9], ERC1967Proxy: [0x03A6a84cD762D9707A21605b548aaaB891562aAb]) [delegatecall]
+    │   │   │   │   │   │   │   │   └─ ← [Return] false
+    │   │   │   │   │   │   │   └─ ← [Return] false
+    │   │   │   │   │   │   ├─ emit Transfer(from: ERC1967Proxy: [0xA4AD4f68d0b91CFD19687c881e50f3A00242828c], to: ERC1967Proxy: [0x03A6a84cD762D9707A21605b548aaaB891562aAb], value: 74257425742574257425 [7.425e19])
+    │   │   │   │   │   │   └─ ← [Return] true
+    │   │   │   │   │   └─ ← [Return] true
+    │   │   │   │   ├─ emit Swap(user: ERC1967Proxy: [0x03A6a84cD762D9707A21605b548aaaB891562aAb], tokenIn: ERC1967Proxy: [0xD6BbDE9174b1CdAa358d2Cf4D57D1a9F7178FBfF], tokenOut: ERC1967Proxy: [0x15cF58144EF33af1e14b5208015d11F9143E27b9], amountIn: 100000000000000000000 [1e20], amountOut: 74257425742574257425 [7.425e19])
+    │   │   │   │   └─ ← [Return] 74257425742574257425 [7.425e19]
+    │   │   │   └─ ← [Return] 74257425742574257425 [7.425e19]
+    │   │   ├─ [22843] ERC1967Proxy::transfer(ModExp: [0x0000000000000000000000000000000000000005], 74257425742574257425 [7.425e19])
+    │   │   │   ├─ [22527] RwaToken::transfer(ModExp: [0x0000000000000000000000000000000000000005], 74257425742574257425 [7.425e19]) [delegatecall]
+    │   │   │   │   ├─ [1894] ERC1967Proxy::getKycStatus(ERC1967Proxy: [0x03A6a84cD762D9707A21605b548aaaB891562aAb]) [staticcall]
+    │   │   │   │   │   ├─ [1581] BlockVirtualGovernance::getKycStatus(ERC1967Proxy: [0x03A6a84cD762D9707A21605b548aaaB891562aAb]) [delegatecall]
+    │   │   │   │   │   │   └─ ← [Return] true
+    │   │   │   │   │   └─ ← [Return] true
+    │   │   │   │   ├─ [1894] ERC1967Proxy::getKycStatus(ModExp: [0x0000000000000000000000000000000000000005]) [staticcall]
+    │   │   │   │   │   ├─ [1581] BlockVirtualGovernance::getKycStatus(ModExp: [0x0000000000000000000000000000000000000005]) [delegatecall]
+    │   │   │   │   │   │   └─ ← [Return] true
+    │   │   │   │   │   └─ ← [Return] true
+    │   │   │   │   ├─ [1541] ERC1967Proxy::isFromSupportedCountry(ERC1967Proxy: [0x03A6a84cD762D9707A21605b548aaaB891562aAb]) [staticcall]
+    │   │   │   │   │   ├─ [1228] BlockVirtualGovernance::isFromSupportedCountry(ERC1967Proxy: [0x03A6a84cD762D9707A21605b548aaaB891562aAb]) [delegatecall]
+    │   │   │   │   │   │   └─ ← [Return] true
+    │   │   │   │   │   └─ ← [Return] true
+    │   │   │   │   ├─ [3541] ERC1967Proxy::isFromSupportedCountry(ModExp: [0x0000000000000000000000000000000000000005]) [staticcall]
+    │   │   │   │   │   ├─ [3228] BlockVirtualGovernance::isFromSupportedCountry(ModExp: [0x0000000000000000000000000000000000000005]) [delegatecall]
+    │   │   │   │   │   │   └─ ← [Return] true
+    │   │   │   │   │   └─ ← [Return] true
+    │   │   │   │   ├─ [1202] ERC1967Proxy::isBlacklisted(ERC1967Proxy: [0x15cF58144EF33af1e14b5208015d11F9143E27b9], ERC1967Proxy: [0x03A6a84cD762D9707A21605b548aaaB891562aAb]) [staticcall]
+    │   │   │   │   │   ├─ [886] BlockVirtualGovernance::isBlacklisted(ERC1967Proxy: [0x15cF58144EF33af1e14b5208015d11F9143E27b9], ERC1967Proxy: [0x03A6a84cD762D9707A21605b548aaaB891562aAb]) [delegatecall]
+    │   │   │   │   │   │   └─ ← [Return] false
+    │   │   │   │   │   └─ ← [Return] false
+    │   │   │   │   ├─ [3202] ERC1967Proxy::isBlacklisted(ERC1967Proxy: [0x15cF58144EF33af1e14b5208015d11F9143E27b9], ModExp: [0x0000000000000000000000000000000000000005]) [staticcall]
+    │   │   │   │   │   ├─ [2886] BlockVirtualGovernance::isBlacklisted(ERC1967Proxy: [0x15cF58144EF33af1e14b5208015d11F9143E27b9], ModExp: [0x0000000000000000000000000000000000000005]) [delegatecall]
+    │   │   │   │   │   │   └─ ← [Return] false
+    │   │   │   │   │   └─ ← [Return] false
+    │   │   │   │   ├─ emit Transfer(from: ERC1967Proxy: [0x03A6a84cD762D9707A21605b548aaaB891562aAb], to: ModExp: [0x0000000000000000000000000000000000000005], value: 74257425742574257425 [7.425e19])
+    │   │   │   │   └─ ← [Return] true
+    │   │   │   └─ ← [Return] true
+    │   │   ├─ emit PaymentProcessed(from: Identity: [0x0000000000000000000000000000000000000004], to: ModExp: [0x0000000000000000000000000000000000000005], tokenIn: ERC1967Proxy: [0xD6BbDE9174b1CdAa358d2Cf4D57D1a9F7178FBfF], tokenOut: ERC1967Proxy: [0x15cF58144EF33af1e14b5208015d11F9143E27b9], amountIn: 100000000000000000000 [1e20], amountOut: 74257425742574257425 [7.425e19])
+    │   │   └─ ← [Return] 74257425742574257425 [7.425e19]
+    │   └─ ← [Return] 74257425742574257425 [7.425e19]
+    ├─ [0] VM::stopPrank()
+    │   └─ ← [Return] 
+    ├─ [923] ERC1967Proxy::balanceOf(ModExp: [0x0000000000000000000000000000000000000005]) [staticcall]
+    │   ├─ [610] RwaToken::balanceOf(ModExp: [0x0000000000000000000000000000000000000005]) [delegatecall]
+    │   │   └─ ← [Return] 1000074257425742574257425 [1e24]
+    │   └─ ← [Return] 1000074257425742574257425 [1e24]
+    ├─ [0] VM::assertEq(74257425742574257425 [7.425e19], 74257425742574257425 [7.425e19]) [staticcall]
+    │   └─ ← [Return] 
+    ├─ [0] VM::assertTrue(true) [staticcall]
+    │   └─ ← [Return] 
+    └─ ← [Return] 
+
+Suite result: ok. 3 passed; 0 failed; 0 skipped; finished in 20.77ms (8.69ms CPU time)
+
+Ran 1 test suite in 2.21s (20.77ms CPU time): 3 tests passed, 0 failed, 0 skipped (3 total tests)
