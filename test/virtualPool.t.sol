@@ -66,7 +66,7 @@ contract VirtualPoolTest is Test {
         governance.grantRole(governance.REGULATOR_ROLE(), operator);
         vm.stopPrank();
         
-        vm.startPrank(operator); // 操作者有REGULATOR_ROLE，可以授予OPERATOR_ROLE
+        vm.startPrank(operator);
         governance.grantOperatorRole(operator);
         vm.stopPrank();
         
