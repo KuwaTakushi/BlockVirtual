@@ -25,7 +25,6 @@ contract BlockVirtualGovernance is Initializable, AccessControlUpgradeable {
     // Blacklist management - token address => user address => blacklist status
     mapping (address => mapping(address => bool)) public blacklisted;
     
-    // Events
     event PoolRegistered(address indexed pool, address indexed registrar);
     event PoolActivated(address indexed pool, address indexed activator);
     event PoolDeactivated(address indexed pool, address indexed deactivator);
@@ -36,17 +35,10 @@ contract BlockVirtualGovernance is Initializable, AccessControlUpgradeable {
         _disableInitializers();
     }
 
-    /**
-     * @dev Initializes the contract and sets up the DEFAULT_ADMIN_ROLE
-     * This function is called only once when the proxy is deployed
-     */
     function initialize() public initializer {
         __AccessControl_init();
         
-        // Grant DEFAULT_ADMIN_ROLE to contract deployer
         _grantRole(DEFAULT_ADMIN_ROLE, msg.sender);
-        
-        // Grant ADMIN_ROLE to contract deployer
         _grantRole(ADMIN_ROLE, msg.sender);
     }
 

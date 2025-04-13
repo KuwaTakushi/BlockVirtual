@@ -7,7 +7,6 @@ import "../src/rwaToken.sol";
 import "@openzeppelin/contracts/proxy/ERC1967/ERC1967Proxy.sol";
 
 contract RwaTokenTest is Test {
-    // Test accounts
     address public admin = address(1);
     address public operator = address(2);
     address public user1 = address(3);
@@ -17,14 +16,12 @@ contract RwaTokenTest is Test {
     address public foreignUser = address(7);
     address public blacklistedUser = address(8);
     
-    // Proxy and implementation contracts
     ERC1967Proxy public governanceProxy;
     ERC1967Proxy public sgdTokenProxy;
     
     BlockVirtualGovernance public governanceImpl;
     RwaToken public sgdTokenImpl;
     
-    // Constants
     uint256 public constant SINGAPORE_COUNTRY_CODE = 702;
     uint256 public constant FOREIGN_COUNTRY_CODE = 840; // USA
     uint256 public constant KYC_EXPIRY = 365 days;

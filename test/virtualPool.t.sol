@@ -10,7 +10,6 @@ import "../src/library/Errors.sol";
 import "@openzeppelin/contracts/proxy/ERC1967/ERC1967Proxy.sol";
 
 contract VirtualPoolTest is Test {
-    // Test accounts
     address public admin = address(1);
     address public operator = address(2);
     address public feeManager = address(3);
@@ -20,7 +19,6 @@ contract VirtualPoolTest is Test {
     address public blacklistedUser = address(7);
     address public feeCollector = address(8);
     
-    // Contracts and proxies
     VirtualPool public poolImpl;
     ERC1967Proxy public poolProxy;
     VirtualPool public pool;
@@ -32,7 +30,6 @@ contract VirtualPoolTest is Test {
     BlockVirtualPriceFeed public priceFeedImpl;
     BlockVirtualPriceFeed public priceFeed;
     
-    // Token contracts
     RwaToken public sgdTokenImpl;
     ERC1967Proxy public sgdTokenProxy;
     RwaToken public sgdToken;
@@ -41,7 +38,6 @@ contract VirtualPoolTest is Test {
     ERC1967Proxy public usdTokenProxy;
     RwaToken public usdToken;
     
-    // Constants
     uint256 public constant SINGAPORE_COUNTRY_CODE = 702;
     uint256 public constant KYC_EXPIRY = 365 days;
     uint256 public constant INITIAL_MINT = 1000000 * 10**18; // 1M tokens
@@ -70,7 +66,6 @@ contract VirtualPoolTest is Test {
         governance.grantRole(governance.REGULATOR_ROLE(), operator);
         vm.stopPrank();
         
-        // 按照层级关系授予OPERATOR_ROLE
         vm.startPrank(operator); // 操作者有REGULATOR_ROLE，可以授予OPERATOR_ROLE
         governance.grantOperatorRole(operator);
         vm.stopPrank();
@@ -120,20 +115,15 @@ contract VirtualPoolTest is Test {
         governance.activatePool(address(pool));
         vm.stopPrank();
         
-        // 为所有账户和合约注册KYC
         vm.startPrank(operator);
-        // 用户账户
         governance.registerKYCUser(user1, block.timestamp + KYC_EXPIRY, SINGAPORE_COUNTRY_CODE);
         governance.registerKYCUser(user2, block.timestamp + KYC_EXPIRY, SINGAPORE_COUNTRY_CODE);
-        // 不要为nonKycUser注册KYC，以便测试
         // governance.registerKYCUser(nonKycUser, block.timestamp + KYC_EXPIRY, SINGAPORE_COUNTRY_CODE);
         governance.registerKYCUser(blacklistedUser, block.timestamp + KYC_EXPIRY, SINGAPORE_COUNTRY_CODE);
         governance.registerKYCUser(feeCollector, block.timestamp + KYC_EXPIRY, SINGAPORE_COUNTRY_CODE);
         governance.registerKYCUser(admin, block.timestamp + KYC_EXPIRY, SINGAPORE_COUNTRY_CODE);
         governance.registerKYCUser(feeManager, block.timestamp + KYC_EXPIRY, SINGAPORE_COUNTRY_CODE);
         governance.registerKYCUser(operator, block.timestamp + KYC_EXPIRY, SINGAPORE_COUNTRY_CODE);
-        
-        // 合约地址
         governance.registerKYCUser(address(this), block.timestamp + KYC_EXPIRY, SINGAPORE_COUNTRY_CODE);
         governance.registerKYCUser(address(governanceProxy), block.timestamp + KYC_EXPIRY, SINGAPORE_COUNTRY_CODE);
         governance.registerKYCUser(address(pool), block.timestamp + KYC_EXPIRY, SINGAPORE_COUNTRY_CODE);

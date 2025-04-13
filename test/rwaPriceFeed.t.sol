@@ -7,20 +7,16 @@ import "../src/library/Errors.sol";
 import "@openzeppelin/contracts/proxy/ERC1967/ERC1967Proxy.sol";
 
 contract PriceFeedTest is Test {
-    // Test accounts
     address public admin = address(1);
     address public priceUpdater = address(2);
     address public unauthorizedUser = address(3);
     
-    // Contract instances
     BlockVirtualPriceFeed public priceFeed;
     
-    // Mock token addresses
     address public sgdToken = address(10);
     address public usdToken = address(11);
     address public rwaToken = address(12);
     
-    // Constants
     uint256 public constant SGD_USD_PRICE = 0.75 * 1e18; // 1 SGD = 0.75 USD
     uint256 public constant USD_SGD_PRICE = 1.33 * 1e18; // 1 USD = 1.33 SGD
     uint256 public constant RWA_USD_PRICE = 100 * 1e18;  // 1 RWA = 100 USD

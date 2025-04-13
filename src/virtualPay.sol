@@ -41,11 +41,6 @@ contract VirtualPay is
         _disableInitializers();
     }
     
-    /**
-     * @dev Initializes the contract
-     * @param _pool Address of the VirtualPool contract
-     * @param _governance Address of the governance contract
-     */
     function initialize(address _pool, address _governance) public initializer {
         __AccessControl_init();
         __Pausable_init();
@@ -95,17 +90,11 @@ contract VirtualPay is
         emit PaymentProcessed(msg.sender, recipient, tokenIn, tokenOut, amountIn, amountOut);
         return amountOut;
     }
-    
-    /**
-     * @dev Pauses all contract functions
-     */
+
     function pause() external onlyRole(ADMIN_ROLE) {
         _pause();
     }
     
-    /**
-     * @dev Unpauses all contract functions
-     */
     function unpause() external onlyRole(ADMIN_ROLE) {
         _unpause();
     }

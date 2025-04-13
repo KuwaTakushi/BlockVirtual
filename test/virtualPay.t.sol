@@ -11,14 +11,12 @@ import "../src/library/Errors.sol";
 import "@openzeppelin/contracts/proxy/ERC1967/ERC1967Proxy.sol";
 
 contract VirtualPayTest is Test {
-    // Test accounts
     address public admin = address(1);
     address public operator = address(2);
     address public user1 = address(4);
     address public user2 = address(5);
     address public nonKycUser = address(6);
     
-    // Contracts and proxies
     VirtualPay public payImpl;
     ERC1967Proxy public payProxy;
     VirtualPay public pay;
@@ -34,7 +32,6 @@ contract VirtualPayTest is Test {
     BlockVirtualPriceFeed public priceFeedImpl;
     BlockVirtualPriceFeed public priceFeed;
     
-    // Token contracts
     RwaToken public sgdTokenImpl;
     ERC1967Proxy public sgdTokenProxy;
     RwaToken public sgdToken;
@@ -43,7 +40,6 @@ contract VirtualPayTest is Test {
     ERC1967Proxy public usdTokenProxy;
     RwaToken public usdToken;
     
-    // Constants
     uint256 public constant SINGAPORE_COUNTRY_CODE = 702;
     uint256 public constant KYC_EXPIRY = 365 days;
     uint256 public constant INITIAL_MINT = 1000000 * 10**18; // 1M tokens

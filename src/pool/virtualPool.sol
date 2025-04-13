@@ -12,11 +12,6 @@ import "src/rwaPriceFeed.sol";
 import "src/library/Errors.sol";
 import "src/library/PoolManager.sol";
 
-/**
- * @title VirtualPool
- * @dev A pool for swapping and providing liquidity between regulated tokens.
- *      Has built-in compliance checks via the governance contract.
- */
 contract VirtualPool is 
     Initializable, 
     AccessControlUpgradeable, 
@@ -27,12 +22,10 @@ contract VirtualPool is
     using SafeERC20 for IERC20;
     using PoolManager for mapping(address => PoolManager.PoolRegistry);
 
-    // Role definitions
     bytes32 public constant ADMIN_ROLE = keccak256("ADMIN_ROLE");
     bytes32 public constant FEE_MANAGER_ROLE = keccak256("FEE_MANAGER_ROLE");
     bytes32 public constant OPERATOR_ROLE = keccak256("OPERATOR_ROLE");
     
-    // State variables
     IBlockVirtualGovernance public governance;
     BlockVirtualPriceFeed public priceFeed;
     address public feeCollector;
@@ -53,13 +46,14 @@ contract VirtualPool is
         bool exists;
     }
     
-    // Storage for pairs and supported tokens
-    mapping(address => mapping(address => address)) public getPair; // token0 => token1 => pair address
-    mapping(bytes32 => Pair) public pairs; // pairId => Pair struct
-    address[] public allPairs;
+
+    // token0 => token1 => pair address
+    mapping(address => mapping(address => address)) public getPair;
+    mapping(bytes32 => Pair) public pairs;
     mapping(address => bool) public supportedTokens;
-    
-    // Events
+
+    address[] public allPairs;
+
     event PairCreated(address indexed token0, address indexed token1, address pairToken, uint256 indexed pairId);
     event Swap(address indexed user, address indexed tokenIn, address indexed tokenOut, uint256 amountIn, uint256 amountOut);
     event LiquidityAdded(address indexed user, address indexed token0, address indexed token1, uint256 amount0, uint256 amount1, uint256 liquidity);
@@ -70,7 +64,6 @@ contract VirtualPool is
     event TokenAdded(address indexed token);
     event TokenRemoved(address indexed token);
     
-    // Modifiers
     modifier validToken(address token) {
         if (!supportedTokens[token]) revert Errors.UnsupportedToken();
         _;
@@ -95,10 +88,6 @@ contract VirtualPool is
         _disableInitializers();
     }
     
-    /**
-     * @dev Initializes the contract with governance address
-     * @param _governance Address of the governance contract
-     */
     function initialize(address _governance) public initializer {
         if (_governance == address(0)) revert Errors.ZeroAddress();
         
@@ -117,19 +106,11 @@ contract VirtualPool is
     
     function _authorizeUpgrade(address) internal override onlyRole(ADMIN_ROLE) {}
     
-    /**
-     * @dev Sets the price feed contract address
-     * @param _priceFeed Address of the price feed contract
-     */
     function setPriceFeed(address _priceFeed) external onlyRole(ADMIN_ROLE) {
         if (_priceFeed == address(0)) revert Errors.ZeroAddress();
         priceFeed = BlockVirtualPriceFeed(_priceFeed);
     }
     
-    /**
-     * @dev Sets the fee collector address
-     * @param _feeCollector Address to collect fees
-     */
     function setFeeCollector(address _feeCollector) external onlyRole(FEE_MANAGER_ROLE) {
         if (_feeCollector == address(0)) revert Errors.ZeroAddress();
         address oldCollector = feeCollector;
@@ -137,10 +118,6 @@ contract VirtualPool is
         emit FeeCollectorSet(oldCollector, _feeCollector);
     }
     
-    /**
-     * @dev Sets the swap fee in basis points
-     * @param _swapFee New swap fee (1 = 0.01%)
-     */
     function setSwapFee(uint256 _swapFee) external onlyRole(FEE_MANAGER_ROLE) {
         if (_swapFee > MAX_FEE) revert Errors.InvalidInput();
         uint256 oldFee = swapFee;
@@ -148,10 +125,6 @@ contract VirtualPool is
         emit SwapFeeUpdated(oldFee, _swapFee);
     }
     
-    /**
-     * @dev Sets the liquidity fee in basis points
-     * @param _liquidityFee New liquidity fee (1 = 0.01%)
-     */
     function setLiquidityFee(uint256 _liquidityFee) external onlyRole(FEE_MANAGER_ROLE) {
         if (_liquidityFee > MAX_FEE) revert Errors.InvalidInput();
         uint256 oldFee = liquidityFee;
@@ -159,20 +132,12 @@ contract VirtualPool is
         emit LiquidityFeeUpdated(oldFee, _liquidityFee);
     }
     
-    /**
-     * @dev Adds a supported token
-     * @param token Address of the token to add
-     */
     function addSupportedToken(address token) external onlyRole(ADMIN_ROLE) {
         if (token == address(0)) revert Errors.ZeroAddress();
         supportedTokens[token] = true;
         emit TokenAdded(token);
     }
     
-    /**
-     * @dev Removes a supported token
-     * @param token Address of the token to remove
-     */
     function removeSupportedToken(address token) external onlyRole(ADMIN_ROLE) {
         supportedTokens[token] = false;
         emit TokenRemoved(token);
@@ -598,9 +563,6 @@ contract VirtualPool is
         return (reserveOut * amountInWithFee) / (reserveIn + amountInWithFee);
     }
     
-    /**
-     * @dev Execute swap operation (alias for swap to maintain compatibility)
-     */
     function execute(
         address tokenIn,
         address tokenOut,
@@ -613,16 +575,10 @@ contract VirtualPool is
         return this.swap(tokenIn, tokenOut, amountIn, amountOutMin);
     }
     
-    /**
-     * @dev Pauses all contract functions
-     */
     function pause() external onlyRole(ADMIN_ROLE) {
         _pause();
     }
-    
-    /**
-     * @dev Unpauses all contract functions
-     */
+
     function unpause() external onlyRole(ADMIN_ROLE) {
         _unpause();
     }
