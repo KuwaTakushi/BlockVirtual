@@ -306,7 +306,7 @@ contract VirtualPayTest is Test {
         vm.startPrank(user1);
         sgdToken.approve(address(pay), paymentAmount);
         
-        vm.expectRevert(bytes4(0xd93c0665)); // EnforcedPause 错误选择器
+        vm.expectRevert(bytes4(0xd93c0665));
         pay.processPayment(
             user2,
             address(sgdToken),
