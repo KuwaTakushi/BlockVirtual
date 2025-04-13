@@ -593,8 +593,7 @@ contract VirtualPoolTest is Test {
         vm.startPrank(user2);
         sgdToken.approve(address(pool), swapSgdAmount);
         
-        // 使用正确的错误类型 EnforcedPause
-        vm.expectRevert(bytes4(0xd93c0665)); // EnforcedPause 错误选择器
+        vm.expectRevert(bytes4(0xd93c0665));
         pool.swap(
             address(sgdToken),
             address(usdToken),
